@@ -44,6 +44,61 @@ const es = { ...en,
   noSelection: 'Sin modelos elegidos, se muestran todos los modelos del alcance actual.', selectAllModels: 'Elegir empresa actual', curatedPlans: 'Datos en vivo + planes curados', seedData: 'Datos iniciales', liveUnavailable: 'Datos en vivo no disponibles', updatedToday: 'Actualizado hoy', average: 'Promedio 6 ejes'
 };
 const i18n = { zh, en, ja, ko, es };
+Object.assign(zh, {
+  advantage: '优势', openStatus: '开放', closedStatus: '闭源', freeMultiple: '免费 · 多种方案', seeOfficialSite: '官网为准',
+  inputShort: '输入', outputShort: '输出', lowestApi: '最低 API 输入', bestModel: '最高模型', unknown: '未公开', freePlan: '免费',
+  allModels: '全部模型', coding: '编程', lowCost: '低成本', vision: '图像', reasoning: '推理', openCap: '开放', longContext: '长上下文',
+  speed: '速度', costEfficiency: '性价比', aaIndex: 'AA Index', benchmarks: '第三方跑分',
+  multimodal: '多模态', companies: '家公司', decisionNote: '决策备注',
+  defaultSummary: '这是人工整理的第一版描述，后续会继续对照官网和公开资料校准。',
+  publicModelData: '公开模型/API 数据。', usefulCapability: '适合围绕这个能力做选型和比较。',
+  apiPlatform: 'API/平台', usageOrOfficial: '按量或官网为准', apiPlatformNote: '这个平台主要是 API 或模型供应入口，不一定有面向消费者的会员套餐。',
+  paid: '付费', paidOfficialNote: '付费方案、团队方案和地区价格以官网为准。', freeOfficialNote: '保留免费入口和官方套餐链接，具体额度以后继续补齐。'
+});
+Object.assign(en, {
+  advantage: 'Advantages', openStatus: 'Open', closedStatus: 'Closed', freeMultiple: 'Free · multiple plans', seeOfficialSite: 'See official site',
+  inputShort: 'input', outputShort: 'output', lowestApi: 'Lowest API', bestModel: 'Best', unknown: 'Unknown', freePlan: 'Free',
+  allModels: 'All models', coding: 'Coding', lowCost: 'Low cost', vision: 'Vision', reasoning: 'Reasoning', openCap: 'Open', longContext: 'Long context',
+  speed: 'Speed', costEfficiency: 'Cost', aaIndex: 'AA Index', benchmarks: 'Benchmarks',
+  multimodal: 'Multimodal', companies: 'companies', decisionNote: 'Decision note',
+  defaultSummary: 'This is a first curated description and should continue to be checked against official and public sources.',
+  publicModelData: 'public model/API data.', usefulCapability: 'Useful when this capability matters in selection.',
+  apiPlatform: 'API/platform', usageOrOfficial: 'usage or official site', apiPlatformNote: 'This provider is mainly an API or model access platform, so consumer memberships may not apply.',
+  paid: 'Paid', paidOfficialNote: 'Paid, team, and regional prices should be checked on the official site.', freeOfficialNote: 'Free access and official plan links are kept here. Exact limits will be expanded later.'
+});
+Object.assign(ja, {
+  advantage: '強み', openStatus: 'オープン', closedStatus: 'クローズド', freeMultiple: '無料 · 複数プラン', seeOfficialSite: '公式サイト参照',
+  inputShort: '入力', outputShort: '出力', lowestApi: '最低 API', bestModel: '上位モデル', unknown: '未公開', freePlan: '無料',
+  allModels: 'すべてのモデル', coding: 'コーディング', lowCost: '低コスト', vision: '画像', reasoning: '推論', openCap: 'オープン', longContext: '長文脈',
+  speed: '速度', costEfficiency: '費用効率', aaIndex: 'AA Index', benchmarks: 'ベンチマーク',
+  multimodal: '多モーダル', companies: '社', decisionNote: '判断メモ',
+  defaultSummary: 'これは手作業で整理した初版の説明です。今後も公式情報と公開情報で確認していきます。',
+  publicModelData: '公開モデル/API データ。', usefulCapability: 'この能力を重視する選定と比較に向いています。',
+  apiPlatform: 'API/プラットフォーム', usageOrOfficial: '従量課金または公式サイト', apiPlatformNote: 'この提供元は主に API またはモデル提供基盤で、消費者向け会員プランがない場合があります。',
+  paid: '有料', paidOfficialNote: '有料、チーム、地域別価格は公式サイトで確認してください。', freeOfficialNote: '無料入口と公式プランへのリンクを保持しています。詳細な上限は今後補完します。'
+});
+Object.assign(ko, {
+  advantage: '강점', openStatus: '오픈', closedStatus: '폐쇄형', freeMultiple: '무료 · 여러 요금제', seeOfficialSite: '공식 사이트 기준',
+  inputShort: '입력', outputShort: '출력', lowestApi: '최저 API', bestModel: '상위 모델', unknown: '미공개', freePlan: '무료',
+  allModels: '전체 모델', coding: '코딩', lowCost: '저비용', vision: '이미지', reasoning: '추론', openCap: '오픈', longContext: '긴 컨텍스트',
+  speed: '속도', costEfficiency: '비용 효율', aaIndex: 'AA Index', benchmarks: '벤치마크',
+  multimodal: '멀티모달', companies: '개 회사', decisionNote: '판단 메모',
+  defaultSummary: '이 설명은 사람이 정리한 첫 버전이며, 이후 공식 자료와 공개 자료로 계속 검증합니다.',
+  publicModelData: '공개 모델/API 데이터입니다.', usefulCapability: '이 기능이 중요한 선택과 비교에 적합합니다.',
+  apiPlatform: 'API/플랫폼', usageOrOfficial: '사용량 기반 또는 공식 사이트', apiPlatformNote: '이 제공자는 주로 API 또는 모델 접근 플랫폼이므로 소비자용 멤버십이 없을 수 있습니다.',
+  paid: '유료', paidOfficialNote: '유료, 팀, 지역별 가격은 공식 사이트에서 확인하세요.', freeOfficialNote: '무료 접근과 공식 요금제 링크를 유지합니다. 정확한 한도는 추후 보강합니다.'
+});
+Object.assign(es, {
+  advantage: 'Ventajas', openStatus: 'Abierto', closedStatus: 'Cerrado', freeMultiple: 'Gratis · varios planes', seeOfficialSite: 'Ver sitio oficial',
+  inputShort: 'entrada', outputShort: 'salida', lowestApi: 'API mínimo', bestModel: 'Mejor modelo', unknown: 'No publicado', freePlan: 'Gratis',
+  allModels: 'Todos los modelos', coding: 'Programación', lowCost: 'Bajo costo', vision: 'Imagen', reasoning: 'Razonamiento', openCap: 'Abierto', longContext: 'Contexto largo',
+  speed: 'Velocidad', costEfficiency: 'Eficiencia de costo', aaIndex: 'AA Index', benchmarks: 'Benchmarks',
+  multimodal: 'Multimodal', companies: 'empresas', decisionNote: 'Nota de decisión',
+  defaultSummary: 'Esta es una primera descripción curada y debe seguir contrastándose con fuentes oficiales y públicas.',
+  publicModelData: 'datos públicos de modelos/API.', usefulCapability: 'Útil cuando esta capacidad importa para elegir y comparar.',
+  apiPlatform: 'API/plataforma', usageOrOfficial: 'uso o sitio oficial', apiPlatformNote: 'Este proveedor es principalmente una API o plataforma de modelos, por lo que puede no tener membresías de consumo.',
+  paid: 'De pago', paidOfficialNote: 'Los planes de pago, equipo y precios regionales deben revisarse en el sitio oficial.', freeOfficialNote: 'Se conserva el acceso gratuito y el enlace oficial. Los límites exactos se ampliarán después.'
+});
 let lang = 'zh', activePlatform = 'openai', platformFilter = '', functionFilter = '', modelCap = '', sortKey = 'releaseDate', sortDir = 'desc', compareCompany = 'openai';
 let selectedModels = new Set(), compareCaps = new Set(), dataState = { kind: 'seed', count: 0 };
 const basePlatforms = [
@@ -57,6 +112,48 @@ const basePlatforms = [
   ['openrouter','OpenRouter','https://models.dev/logos/openrouter.svg','https://openrouter.ai/','https://openrouter.ai/pricing',['aggregator'],['api'],['code','writing','vision','web'],'OpenRouter 是多模型 API 平台，适合模型路由、成本比较和快速试验。','OpenRouter is a multi-model API marketplace.',['模型聚合','价格对比','快速试验','路由'],['Aggregation','Price comparison','Testing','Routing']]
 ];
 let platforms = basePlatforms.map(([id,name,logo,website,planUrl,types,category,functions,description,descriptionEn,strengths,strengthsEn]) => ({ id,name,logo,website,planUrl,types,category,functions,description,descriptionEn,strengths,strengthsEn }));
+const platformLocales = {
+  openai: {
+    ja: { desc: '一般ユーザー、開発者、企業向けの汎用 AI プラットフォーム。総合力、ツール連携、コード、多モーダルが強みです。', strengths: ['総合力','コード','多モーダル','エコシステム'] },
+    ko: { desc: '일반 사용자, 개발자, 기업을 위한 범용 AI 플랫폼입니다. 종합 성능, 도구 생태계, 코드, 멀티모달 제품화가 강점입니다.', strengths: ['종합 능력','코드','멀티모달','생태계'] },
+    es: { desc: 'Plataforma general de IA para usuarios, desarrolladores y empresas, fuerte en capacidad general, herramientas, código y multimodalidad.', strengths: ['General','Código','Multimodal','Ecosistema'] }
+  },
+  anthropic: {
+    ja: { desc: 'Claude は長文理解、文章作成、コード、安全で安定した対話体験に強いモデル群です。', strengths: ['長文','コード','文章作成','推論'] },
+    ko: { desc: 'Claude는 긴 문서 이해, 글쓰기, 코드, 안정적인 대화 경험에 강한 모델 제품군입니다.', strengths: ['긴 문서','코드','글쓰기','추론'] },
+    es: { desc: 'Claude destaca en documentos largos, escritura, código y una experiencia de conversación estable.', strengths: ['Contexto largo','Código','Escritura','Razonamiento'] }
+  },
+  google: {
+    ja: { desc: 'Gemini は超長文脈、多モーダル入力、Google エコシステム連携が強みです。', strengths: ['長文脈','多モーダル','Google 連携','価値'] },
+    ko: { desc: 'Gemini는 긴 컨텍스트, 멀티모달 입력, Google 생태계 연동이 강점입니다.', strengths: ['긴 컨텍스트','멀티모달','Google 생태계','가성비'] },
+    es: { desc: 'Gemini es fuerte en contexto largo, entrada multimodal e integración con el ecosistema de Google.', strengths: ['Contexto largo','Multimodal','Google','Valor'] }
+  },
+  xai: {
+    ja: { desc: 'Grok は X と結びつきが強く、リアルタイム情報やソーシャル動向の確認に向いています。', strengths: ['リアルタイム','推論','X 連携'] },
+    ko: { desc: 'Grok은 X 플랫폼과 긴밀하게 연결되어 실시간 정보와 소셜 트렌드에 적합합니다.', strengths: ['실시간 정보','추론','X 생태계'] },
+    es: { desc: 'Grok está ligado a X y resulta útil para información en tiempo real, tendencias sociales y razonamiento.', strengths: ['Tiempo real','Razonamiento','Ecosistema X'] }
+  },
+  deepseek: {
+    ja: { desc: 'DeepSeek は低コスト、推論能力、オープンモデルの影響力で注目されています。', strengths: ['低コスト','推論','コード','オープン'] },
+    ko: { desc: 'DeepSeek는 낮은 비용, 추론 능력, 오픈 모델 생태계로 주목받고 있습니다.', strengths: ['저비용','추론','코드','오픈 생태계'] },
+    es: { desc: 'DeepSeek destaca por bajo costo, razonamiento y una presencia importante en modelos abiertos.', strengths: ['Bajo costo','Razonamiento','Código','Abierto'] }
+  },
+  alibaba: {
+    ja: { desc: 'Qwen はホスト型 API とオープンウェイトモデルを幅広く提供し、中国語と企業クラウドに強いです。', strengths: ['中国語','オープンソース','クラウド','コード'] },
+    ko: { desc: 'Qwen은 호스팅 API와 오픈 가중치 모델을 폭넓게 제공하며 중국어와 기업 클라우드에 강합니다.', strengths: ['중국어','오픈소스','기업 클라우드','코드'] },
+    es: { desc: 'Qwen ofrece APIs alojadas y modelos abiertos, con fortaleza en chino y escenarios de nube empresarial.', strengths: ['Chino','Código abierto','Nube','Código'] }
+  },
+  mistral: {
+    ja: { desc: 'Mistral は高性能なホスト型モデルとオープンウェイトモデルの両方を提供します。', strengths: ['オープンモデル','EU コンプライアンス','コード','速度'] },
+    ko: { desc: 'Mistral은 고성능 호스팅 모델과 오픈 가중치 모델을 모두 제공합니다.', strengths: ['오픈 모델','유럽 규정','코드','속도'] },
+    es: { desc: 'Mistral ofrece modelos alojados de alto rendimiento y modelos de pesos abiertos.', strengths: ['Modelos abiertos','Cumplimiento UE','Código','Velocidad'] }
+  },
+  openrouter: {
+    ja: { desc: 'OpenRouter は複数モデルの API マーケットで、ルーティング、価格比較、素早い実験に向いています。', strengths: ['モデル集約','価格比較','実験','ルーティング'] },
+    ko: { desc: 'OpenRouter는 다중 모델 API 플랫폼으로 라우팅, 가격 비교, 빠른 실험에 적합합니다.', strengths: ['모델 집계','가격 비교','빠른 실험','라우팅'] },
+    es: { desc: 'OpenRouter es una plataforma API multimodelo útil para enrutamiento, comparación de precios y pruebas rápidas.', strengths: ['Agregación','Precios','Pruebas','Ruteo'] }
+  }
+};
 const detailCopy = {
   openai: {
     zhPlain: 'OpenAI 适合做通用起点：API 文档、工具调用、结构化输出、多模态和 ChatGPT 产品生态都成熟。缺点是不一定最便宜，选型时要同时看成本和额度。',
@@ -145,6 +242,40 @@ const keyOf = (m) => `${m.platform}:${m.id}`;
 const money = (n) => n === 0 ? '$0' : n ? `$${Number(n).toLocaleString('en-US')}` : '-';
 const compact = (n) => n >= 1e6 ? `${Number((n / 1e6).toFixed(1))}M` : n >= 1e3 ? `${Math.round(n / 1e3)}K` : n || '-';
 const isZh = () => lang === 'zh';
+const platformDesc = (p) => lang === 'zh' ? p.description : lang === 'en' ? p.descriptionEn : platformLocales[p.id]?.[lang]?.desc || `${p.name} ${tx('publicModelData')}`;
+const platformStrengths = (p) => lang === 'zh' ? p.strengths : lang === 'en' ? p.strengthsEn : platformLocales[p.id]?.[lang]?.strengths || [tx('models'), 'API'];
+const capText = (c) => ({ code: tx('coding'), cheap: tx('lowCost'), vision: tx('vision'), reasoning: tx('reasoning'), open: tx('openCap'), longContext: tx('longContext'), web: tx('functionWeb'), writing: tx('functionWriting') })[c] || c;
+const capabilityFilterOptions = () => [['', tx('allModels')], ['code', tx('coding')], ['cheap', tx('lowCost')], ['vision', tx('vision')], ['reasoning', tx('reasoning')]];
+const localJoin = (items) => lang === 'zh' || lang === 'ja' ? items.join('、') : lang === 'ko' ? items.join(', ') : items.join(', ');
+function localizedCases(p, d) {
+  if (lang === 'zh' && d.zhCases) return d.zhCases;
+  if (lang === 'en' && d.enCases) return d.enCases;
+  return platformStrengths(p).slice(0, 3).map((x) => [x, tx('usefulCapability')]);
+}
+function localizedSummary(p, d) {
+  if (lang === 'zh') return d.zhPlain || tx('defaultSummary');
+  if (lang === 'en') return d.enPlain || tx('defaultSummary');
+  return tx('defaultSummary');
+}
+function localizedFallbackPlans(p) {
+  if (p.category.includes('consumer')) return [
+    [tx('freePlan'), tx('seeOfficialSite'), tx('freeOfficialNote')],
+    [tx('paid'), tx('seeOfficialSite'), tx('paidOfficialNote')]
+  ];
+  return [[tx('apiPlatform'), tx('usageOrOfficial'), tx('apiPlatformNote')]];
+}
+function localizedPlans(p) {
+  const copy = planCopy[p.id];
+  if (copy?.[lang]) return copy[lang];
+  if (lang === 'zh' || lang === 'en') return copy?.[lang] || localizedFallbackPlans(p);
+  if (copy?.en) return copy.en.map(([name, price]) => [name, price, name.toLowerCase().includes('free') ? tx('freeOfficialNote') : tx('paidOfficialNote')]);
+  return localizedFallbackPlans(p);
+}
+function planDisplayName(name) {
+  if (String(name).toLowerCase() === 'free') return tx('freePlan');
+  if (String(name).toLowerCase() === 'paid') return tx('paid');
+  return name;
+}
 function score(m) {
   const cost = m.input + m.output, speed = Math.max(45, Math.min(96, Math.round(95 - cost * .75))), eff = Math.max(35, Math.min(98, Math.round(100 - cost)));
   const coding = m.capabilities.includes('code') ? Math.min(100, m.quality + 4) : m.quality - 8;
@@ -153,7 +284,7 @@ function score(m) {
   return { lmArena: m.quality, aa: m.quality, coding, reasoning, multimodal, speed, efficiency: eff, average: Math.round((m.quality + coding + reasoning + multimodal + speed + eff) / 6) };
 }
 function radar(s, big = false) {
-  const vals = [s.aa,s.coding,s.reasoning,s.multimodal,s.speed,s.efficiency], labels = isZh() ? ['AA Index','编码','推理','多模态','速度','性价比'] : ['AA Index','Coding','Reasoning','Multimodal','Speed','Cost'];
+  const vals = [s.aa,s.coding,s.reasoning,s.multimodal,s.speed,s.efficiency], labels = [tx('aaIndex'),tx('coding'),tx('reasoning'),tx('multimodal'),tx('speed'),tx('costEfficiency')];
   const r = big ? 28 : 36, pt = (i,v) => [50 + Math.cos(-Math.PI / 2 + i * Math.PI / 3) * r * v / 100, 50 + Math.sin(-Math.PI / 2 + i * Math.PI / 3) * r * v / 100];
   const poly = vals.map((v,i) => pt(i,v).join(',')).join(' '), grid = [100,66].map((v) => vals.map((_,i) => pt(i,v).join(',')).join(' '));
   const label = big ? labels.map((l,i) => { const [x,y] = pt(i,128); return `<text x='${x}' y='${y}' text-anchor='middle'>${l} ${vals[i]}</text>`; }).join('') : '';
@@ -196,30 +327,29 @@ async function loadLive() {
 }
 function filteredPlatforms() {
   const q = $('platformSearch').value.toLowerCase();
-  return platforms.filter((p) => (!platformFilter || p.types.includes(platformFilter) || platformFilter === 'consumer' && p.category.includes('consumer')) && (!functionFilter || p.functions.includes(functionFilter))).filter((p) => !q || [p.name,p.description,p.descriptionEn,p.strengths.join(' '),p.strengthsEn.join(' '),...platformModels(p.id).map((m) => `${m.name} ${m.id} ${m.capabilities.join(' ')}`)].join(' ').toLowerCase().includes(q)).sort((a,b) => (b.types.includes('mainstream') - a.types.includes('mainstream')) || platformModels(b.id).length - platformModels(a.id).length);
+  return platforms.filter((p) => (!platformFilter || p.types.includes(platformFilter) || platformFilter === 'consumer' && p.category.includes('consumer')) && (!functionFilter || p.functions.includes(functionFilter))).filter((p) => !q || [p.name,p.description,p.descriptionEn,platformDesc(p),p.strengths.join(' '),p.strengthsEn.join(' '),platformStrengths(p).join(' '),...platformModels(p.id).map((m) => `${m.name} ${m.id} ${m.capabilities.map(capText).join(' ')} ${m.capabilities.join(' ')}`)].join(' ').toLowerCase().includes(q)).sort((a,b) => (b.types.includes('mainstream') - a.types.includes('mainstream')) || platformModels(b.id).length - platformModels(a.id).length);
 }
 function renderList() {
-  $('platformList').innerHTML = filteredPlatforms().map((p) => { const ms = platformModels(p.id), best = ms[0]; return `<button class='platform-card ${p.id === activePlatform ? 'active' : ''}' data-id='${p.id}'><div class='platform-card-top'><img src='${p.logo}' alt=''><div><strong>${p.name}</strong><span>${isZh() ? p.description : p.descriptionEn}</span></div></div><div class='feature-icons'><span class='feature-icon ${p.category.includes('consumer') ? 'on' : ''}'>$</span><span class='feature-icon ${p.types.includes('open') ? 'on' : ''}'>OS</span></div><div class='mini-stats'><span>${isZh() ? '最低 API 输入' : 'Lowest API'} <b>${money(Math.min(...ms.map((m) => m.input), 0))}</b></span><span>${isZh() ? '最高模型' : 'Best'} <b>${best?.name || '-'}</b></span></div></button>`; }).join('');
+  $('platformList').innerHTML = filteredPlatforms().map((p) => { const ms = platformModels(p.id), best = ms[0]; return `<button class='platform-card ${p.id === activePlatform ? 'active' : ''}' data-id='${p.id}'><div class='platform-card-top'><img src='${p.logo}' alt=''><div><strong>${p.name}</strong><span>${platformDesc(p)}</span></div></div><div class='feature-icons'><span class='feature-icon ${p.category.includes('consumer') ? 'on' : ''}'>$</span><span class='feature-icon ${p.types.includes('open') ? 'on' : ''}'>OS</span></div><div class='mini-stats'><span>${tx('lowestApi')} <b>${money(Math.min(...ms.map((m) => m.input), 0))}</b></span><span>${tx('bestModel')} <b>${best?.name || '-'}</b></span></div></button>`; }).join('');
   document.querySelectorAll('.platform-card').forEach((b) => b.onclick = () => { activePlatform = b.dataset.id; render(); });
 }
 function renderDetail() {
   const p = platforms.find((x) => x.id === activePlatform) || platforms[0], ms = platformModels(p.id), min = Math.min(...ms.map((m) => m.input), 0), maxIn = Math.max(...ms.map((m) => m.input), 0), maxOut = Math.max(...ms.map((m) => m.output), 0);
   const d = detailCopy[p.id] || {};
-  $('platformTitle').textContent = p.name; $('platformName').textContent = p.name; $('platformDescription').textContent = isZh() ? p.description : p.descriptionEn; $('providerLogo').src = p.logo; $('websiteLink').href = p.website || '#';
-  $('strengthTags').innerHTML = (isZh() ? p.strengths : p.strengthsEn).map((x) => `<span>${x}</span>`).join('');
-  $('platformTypeBlock').innerHTML = `<span>${isZh() ? '优势' : 'Advantages'}</span><strong>${p.types.map((x) => tx(x === 'open' ? 'openSource' : x)).join(' + ')}</strong><p>${ms.length} ${tx('models')} · ${p.types.includes('open') ? 'Open' : 'Closed'}</p>`;
-  $('lowestPlan').textContent = p.category.includes('consumer') ? (isZh() ? 'Free · 多种方案' : 'Free · multiple plans') : (isZh() ? '官网为准' : 'See official site');
-  $('apiPricing').textContent = `${money(min)}-${money(maxIn)} input / $0-${money(maxOut)} output`;
-  $('bestForLabel').textContent = isZh() ? p.strengths.join('、') : p.strengthsEn.join(', ');
-  $('plainSummary').textContent = isZh() ? (d.zhPlain || '这是 models.dev 的公开模型/API 数据，后续会继续对照官网和公开资料校准。') : (d.enPlain || 'This provider comes from public models.dev data and should be checked against official sources.');
-  $('sourceBadges').innerHTML = ['Official pricing','models.dev','Benchmarks'].map((x) => `<span class='source-badge'>${x}</span>`).join('');
-  const cases = isZh() ? d.zhCases : d.enCases;
-  $('useCases').innerHTML = (cases || (isZh() ? p.strengths : p.strengthsEn).slice(0,3).map((x) => [x, isZh() ? '适合围绕这个能力做选型和比较。' : 'Useful when this capability matters in selection.'])).map(([title,note]) => `<article class='use-case'><h4>${title}</h4><p>${note}</p></article>`).join('');
+  $('platformTitle').textContent = p.name; $('platformName').textContent = p.name; $('platformDescription').textContent = platformDesc(p); $('providerLogo').src = p.logo; $('websiteLink').href = p.website || '#';
+  $('strengthTags').innerHTML = platformStrengths(p).map((x) => `<span>${x}</span>`).join('');
+  $('platformTypeBlock').innerHTML = `<span>${tx('advantage')}</span><strong>${p.types.map((x) => tx(x === 'open' ? 'openSource' : x)).join(' + ')}</strong><p>${ms.length} ${tx('models')} · ${p.types.includes('open') ? tx('openStatus') : tx('closedStatus')}</p>`;
+  $('lowestPlan').textContent = p.category.includes('consumer') ? tx('freeMultiple') : tx('seeOfficialSite');
+  $('apiPricing').textContent = `${money(min)}-${money(maxIn)} ${tx('inputShort')} / $0-${money(maxOut)} ${tx('outputShort')}`;
+  $('bestForLabel').textContent = localJoin(platformStrengths(p));
+  $('plainSummary').textContent = localizedSummary(p, d);
+  $('sourceBadges').innerHTML = [tx('officialPricing'),'models.dev',tx('benchmarks')].map((x) => `<span class='source-badge'>${x}</span>`).join('');
+  $('useCases').innerHTML = localizedCases(p, d).map(([title,note]) => `<article class='use-case'><h4>${title}</h4><p>${note}</p></article>`).join('');
 }
-function row(m, company = false) { const s = score(m); return `<tr class='model-row' data-key='${keyOf(m)}'><td><div class='model-name'>${m.name}</div><div class='model-id'>${m.id}</div></td>${company ? `<td>${pName(m.platform)}</td>` : ''}<td>${money(m.input)}</td><td>${money(m.output)}</td><td>${compact(m.context)}</td><td>${m.releaseDate || (isZh() ? '未公开' : 'Unknown')}</td><td><div class='capability-list'>${m.capabilities.map(cap).join('')}</div></td><td><b>${s.lmArena}</b></td><td>${radar(s)}</td></tr>`; }
-function cap(c) { return `<span class='capability-tag'>${({ code: isZh() ? '编程' : 'Code', cheap: isZh() ? '低成本' : 'Low cost', vision: isZh() ? '图像' : 'Vision', reasoning: isZh() ? '推理' : 'Reasoning', open: isZh() ? '开放' : 'Open', longContext: isZh() ? '长上下文' : 'Long context' })[c] || c}</span>`; }
+function row(m, company = false) { const s = score(m); return `<tr class='model-row' data-key='${keyOf(m)}'><td><div class='model-name'>${m.name}</div><div class='model-id'>${m.id}</div></td>${company ? `<td>${pName(m.platform)}</td>` : ''}<td>${money(m.input)}</td><td>${money(m.output)}</td><td>${compact(m.context)}</td><td>${m.releaseDate || tx('unknown')}</td><td><div class='capability-list'>${m.capabilities.map(cap).join('')}</div></td><td><b>${s.lmArena}</b></td><td>${radar(s)}</td></tr>`; }
+function cap(c) { return `<span class='capability-tag'>${capText(c)}</span>`; }
 function renderModels() {
-  const caps = [['', isZh() ? '全部模型' : 'All models'], ['code', isZh() ? '编程' : 'Coding'], ['cheap', isZh() ? '低成本' : 'Low cost'], ['vision', isZh() ? '图像' : 'Vision'], ['reasoning', isZh() ? '推理' : 'Reasoning']];
+  const caps = capabilityFilterOptions();
   $('capabilityFilters').innerHTML = caps.map(([k,v]) => `<button class='capability-chip ${modelCap === k ? 'active' : ''}' data-cap='${k}'>${v}</button>`).join('');
   document.querySelectorAll('#capabilityFilters button').forEach((b) => b.onclick = () => { modelCap = b.dataset.cap; renderModels(); });
   const val = (m,k) => k === 'name' ? m.name : k === 'releaseDate' ? Date.parse(m.releaseDate || 0) : k === 'lmArena' ? m.quality : k === 'average' ? score(m).average : m[k] || 0;
@@ -229,20 +359,13 @@ function renderModels() {
 function renderPlans() {
   const p = platforms.find((x) => x.id === activePlatform);
   $('planSourceLink').href = p.planUrl || p.website || '#';
-  const fallback = p.category.includes('consumer')
-    ? (isZh()
-      ? [['Free','官网为准','保留免费入口和官方套餐链接，具体额度以后继续补齐。'],['Paid','官网为准','付费方案、团队方案和地区价格以官网为准。']]
-      : [['Free','official site','Free access and official plan links are kept here. Exact limits will be expanded later.'],['Paid','official site','Paid, team, and regional prices should be checked on the official site.']])
-    : (isZh()
-      ? [['API/平台','按量或官网为准','这个平台主要是 API 或模型供应入口，不一定有面向消费者的会员套餐。']]
-      : [['API/platform','usage or official site','This provider is mainly an API or model access platform, so consumer memberships may not apply.']]);
-  const plans = (planCopy[p.id]?.[isZh() ? 'zh' : 'en']) || fallback;
-  $('planList').innerHTML = plans.map(([name,price,note]) => `<article class='plan-card'><h4>${name} · ${price}</h4><p>${note}</p></article>`).join('');
+  const plans = localizedPlans(p);
+  $('planList').innerHTML = plans.map(([name,price,note]) => `<article class='plan-card'><h4>${planDisplayName(name)} · ${price}</h4><p>${note}</p></article>`).join('');
 }
 function renderCompare() {
   const companies = platforms.slice(0, 36);
   $('companyFilters').innerHTML = companies.map((p) => `<button class='company-chip ${compareCompany === p.id ? 'active' : ''}' data-id='${p.id}'>${p.name}</button>`).join('');
-  const caps = [['', isZh() ? '全部模型' : 'All models'], ['code', isZh() ? '编程' : 'Coding'], ['cheap', isZh() ? '低成本' : 'Low cost'], ['vision', isZh() ? '图像' : 'Vision'], ['reasoning', isZh() ? '推理' : 'Reasoning']];
+  const caps = capabilityFilterOptions();
   $('compareCapabilityFilters').innerHTML = caps.map(([k,v]) => `<button class='capability-chip ${(!k && !compareCaps.size) || compareCaps.has(k) ? 'active' : ''}' data-cap='${k}'>${v}</button>`).join('');
   const scoped = platformModels(compareCompany).filter((m) => !compareCaps.size || [...compareCaps].every((c) => m.capabilities.includes(c))).slice(0, 100);
   $('modelFilters').innerHTML = scoped.map((m) => `<button class='model-chip ${selectedModels.has(keyOf(m)) ? 'active' : ''}' data-key='${keyOf(m)}'>${m.name}</button>`).join('');
@@ -267,7 +390,7 @@ function updateText() {
   document.querySelectorAll('[data-i18n]').forEach((el) => el.textContent = tx(el.dataset.i18n));
   $('brandName').textContent = tx('brandName'); $('languageSelect').value = lang;
   $('dataSource').textContent = dataState.kind === 'live' ? tx('curatedPlans') : dataState.kind === 'unavailable' ? tx('liveUnavailable') : tx('seedData');
-  $('updatedAt').textContent = dataState.kind === 'live' ? `${dataState.count} models · ${platforms.length} companies · ${new Date().toLocaleDateString(document.documentElement.lang)}` : tx('updatedToday');
+  $('updatedAt').textContent = dataState.kind === 'live' ? `${dataState.count} ${tx('models')} · ${platforms.length} ${tx('companies')} · ${new Date().toLocaleDateString(document.documentElement.lang)}` : tx('updatedToday');
 }
 function render() { updateText(); renderList(); renderDetail(); renderModels(); renderPlans(); if ($('compareModal').classList.contains('open')) renderCompare(); }
 document.querySelectorAll('.filter-chip').forEach((b) => b.onclick = () => { platformFilter = platformFilter === b.dataset.filter ? '' : b.dataset.filter; document.querySelectorAll('.filter-chip').forEach((x) => x.classList.toggle('active', x.dataset.filter === platformFilter)); renderList(); });
