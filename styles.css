@@ -38,3 +38,9 @@
 .seo-card ul{margin:10px 0 0;padding-left:22px}
 .seo-footer{border-top:1px solid var(--line);color:#0c6f68;font-weight:800}
 @media(max-width:640px){.seo-header{align-items:flex-start;flex-direction:column}.seo-main h1{font-size:44px}.seo-lead{font-size:19px}}
+
+/* Keep the table radar compact, but make model detail radar readable */
+.model-detail-section .six-axis-button{display:block;width:100%;cursor:default}
+.model-detail-section .six-axis-button svg.large-radar{width:min(100%,720px)!important;height:auto!important;min-height:420px;margin:0 auto;display:block}
+.model-detail-section .large-radar text{font-size:6px;font-weight:800}
+@media(max-width:760px){.model-detail-section .six-axis-button svg.large-radar{min-height:300px}.model-detail-section .large-radar text{font-size:7px}}
