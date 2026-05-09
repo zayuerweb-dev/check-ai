@@ -25,7 +25,7 @@ jobs:
           node-version: 22
 
       - name: Deploy to Cloudflare Pages
-        run: npx wrangler@4 pages deploy . --project-name check-ai --branch main
+        run: npx --yes wrangler@4 pages deploy . --project-name check-ai --branch main
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: a8a75b3f2632512b9336ddf2d2096b28
