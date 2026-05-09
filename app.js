@@ -276,6 +276,153 @@ function planDisplayName(name) {
   if (String(name).toLowerCase() === 'paid') return tx('paid');
   return name;
 }
+function dynamicProviderCopy(id, name, text, open, cloud, lab) {
+  const provider = name || id;
+  const make = (description, descriptionEn, strengths, strengthsEn, zhPlain, enPlain, zhCases, enCases, functions = ['code','writing']) => ({
+    description, descriptionEn, strengths, strengthsEn, functions,
+    detail: { zhPlain, enPlain, zhCases, enCases }
+  });
+  if (/vercel|ai gateway/.test(text)) return make(
+    `${provider} 是面向开发者的多模型网关，把不同模型供应商接到统一 API、监控和部署工作流里。`,
+    `${provider} is a developer-focused AI gateway that connects multiple model providers behind one API, monitoring, and deployment workflow.`,
+    ['统一 API','模型路由','成本控制','部署生态'], ['Unified API','Routing','Cost control','Deployment'],
+    `${provider} 更适合已经在 Vercel 或现代前端栈里做产品的团队，用来统一接入多个模型、做路由、观测和成本管理。`,
+    `${provider} is best for product teams already using Vercel or modern web stacks who want unified model access, routing, observability, and cost control.`,
+    [['统一接入','把多个模型供应商放到一个调用入口下，减少切换成本。'],['线上产品','适合需要监控、限流、回退和部署协同的 Web 应用。'],['成本实验','可以在不同模型之间比较价格、速度和效果。']],
+    [['Unified access','Put several model providers behind one call path.'],['Production apps','Useful for monitoring, rate limits, fallbacks, and web deployment workflows.'],['Cost experiments','Compare price, speed, and quality across models.']]
+  );
+  if (/nano/.test(text)) return make(
+    `${provider} 是模型市场/中转平台，重点是低门槛试用、按量接入和快速比较不同供应商模型。`,
+    `${provider} is a model marketplace and routing platform focused on low-friction trials, usage-based access, and quick provider comparison.`,
+    ['模型市场','低门槛','快速试验','按量接入'], ['Marketplace','Low friction','Testing','Usage based'],
+    `${provider} 适合想快速尝试不同模型、比较价格或找免费/低价入口的个人和小团队。`,
+    `${provider} is useful for individuals and small teams who want to try many models quickly and compare price or free/low-cost options.`,
+    [['快速尝鲜','不用逐个注册供应商，也能试多个模型。'],['价格比较','适合先看成本区间，再决定是否接官方 API。'],['轻量项目','适合原型、脚本和小规模自动化。']],
+    [['Fast trials','Try many models without setting up every provider separately.'],['Price comparison','Check cost ranges before moving to official APIs.'],['Light projects','Good for prototypes, scripts, and small automations.']]
+  );
+  if (/kilo/.test(text)) return make(
+    `${provider} 是偏开发者和 AI 编程工具的模型网关，适合在代码助手、代理和工程自动化里切换模型。`,
+    `${provider} is a model gateway oriented around developer tools, coding assistants, agents, and engineering automation.`,
+    ['编程工具','模型网关','代理工作流','快速切换'], ['Coding tools','Gateway','Agent workflows','Switching'],
+    `${provider} 的价值在工程工作流：让代码助手或 agent 可以接入多家模型，并按任务在速度、价格和能力之间切换。`,
+    `${provider} is valuable in engineering workflows where coding assistants or agents need access to multiple models and task-based routing.`,
+    [['代码助手','适合编辑器、CLI 或 agent 工具接入多模型。'],['任务路由','不同代码任务可切到不同价格和能力的模型。'],['实验环境','适合团队比较模型在工程任务中的表现。']],
+    [['Coding assistants','Connect editor, CLI, or agent tools to multiple models.'],['Task routing','Route coding tasks by price and capability.'],['Experimentation','Compare model behavior on engineering tasks.']]
+  );
+  if (/llm gateway|gateway/.test(text)) return make(
+    `${provider} 是通用 LLM 网关，核心是统一模型接入、路由和供应商管理。`,
+    `${provider} is a general LLM gateway for unified model access, routing, and provider management.`,
+    ['统一接入','路由','供应商管理','API'], ['Unified access','Routing','Provider management','API'],
+    `${provider} 适合已经有应用但不想被单一模型供应商绑定的团队，用来做模型切换、成本控制和可用性备份。`,
+    `${provider} helps teams avoid lock-in by centralizing model switching, cost control, and availability fallbacks.`,
+    [['供应商抽象','把不同模型放进同一层接口。'],['备份策略','某个供应商不可用时可以切到替代模型。'],['成本治理','适合跟踪不同模型的价格和调用量。']],
+    [['Provider abstraction','Put different models behind one interface.'],['Fallbacks','Switch when a provider is unavailable.'],['Cost governance','Track model pricing and usage.']]
+  );
+  if (/poe/.test(text)) return make(
+    `${provider} 是面向消费者和创作者的多机器人平台，适合快速使用不同聊天机器人和分享自定义 bot。`,
+    `${provider} is a consumer and creator platform for using many chatbots and sharing custom bots.`,
+    ['多机器人','消费产品','自定义 Bot','发现'], ['Multi-bot','Consumer app','Custom bots','Discovery'],
+    `${provider} 更像 AI 应用商店，适合想直接体验模型、创建 bot 或比较不同聊天体验的用户。`,
+    `${provider} is closer to an AI app store for trying models, building bots, and comparing chatbot experiences.`,
+    [['直接体验','不需要写代码即可试多个模型和 bot。'],['Bot 分享','适合制作面向用户的轻量 bot。'],['模型发现','适合发现不同模型的交互风格。']],
+    [['Direct use','Try many models and bots without coding.'],['Bot sharing','Create lightweight user-facing bots.'],['Discovery','Compare model interaction styles.']],
+    ['writing','web']
+  );
+  if (/azure|microsoft/.test(text)) return make(
+    `${provider} 是微软云上的 AI 模型/API 平台，适合企业合规、Azure 生态和生产级集成。`,
+    `${provider} is Microsoft Azure's AI model/API platform for enterprise compliance, Azure ecosystem integration, and production use.`,
+    ['企业云','合规','Azure 生态','生产部署'], ['Enterprise cloud','Compliance','Azure ecosystem','Production'],
+    `${provider} 适合已经使用 Azure 的企业，把模型能力接入现有身份、网络、安全和运维体系。`,
+    `${provider} fits organizations already on Azure that need models connected to identity, networking, security, and operations.`,
+    [['企业接入','适合和 Azure 权限、网络和监控结合。'],['合规采购','企业采购和区域合规通常更顺。'],['生产系统','适合稳定 API、治理和 SLA 诉求。']],
+    [['Enterprise integration','Works with Azure identity, networking, and monitoring.'],['Procurement','Can fit enterprise purchasing and regional compliance.'],['Production systems','Good for governance, APIs, and SLA needs.']]
+  );
+  if (/aws|bedrock|amazon/.test(text)) return make(
+    `${provider} 是 AWS 生态里的模型平台，适合企业把多家基础模型接入云上应用和数据系统。`,
+    `${provider} is an AWS model platform for connecting foundation models to cloud applications and data systems.`,
+    ['AWS 生态','企业云','多模型','安全治理'], ['AWS ecosystem','Enterprise cloud','Multi-model','Governance'],
+    `${provider} 适合 AWS 用户在现有云架构里使用多家模型，同时保留企业安全、权限和数据治理能力。`,
+    `${provider} fits AWS users who want multiple models inside existing cloud architecture with security and governance controls.`,
+    [['云上应用','适合和 AWS 数据、函数和权限体系集成。'],['多模型采购','同一云平台里接入不同模型供应商。'],['企业治理','适合重视安全、日志和权限控制的团队。']],
+    [['Cloud apps','Integrate with AWS data, compute, and identity.'],['Multi-model access','Use several model providers in one cloud platform.'],['Governance','Useful for security, logs, and access control.']]
+  );
+  if (/vertex|google cloud/.test(text)) return make(
+    `${provider} 是 Google Cloud 的 AI 平台，适合在企业云、数据分析和 Gemini 模型之间做生产级集成。`,
+    `${provider} is Google Cloud's AI platform for production integration across enterprise cloud, data analytics, and Gemini models.`,
+    ['Google Cloud','企业云','Gemini','数据集成'], ['Google Cloud','Enterprise cloud','Gemini','Data integration'],
+    `${provider} 适合 Google Cloud 用户，把 Gemini 和模型工具接到数据、权限和云上生产流程里。`,
+    `${provider} fits Google Cloud users who need Gemini and model tooling connected to data, identity, and production workflows.`,
+    [['云端部署','适合和 Google Cloud 项目、权限和监控绑定。'],['数据工作流','适合围绕 BigQuery、文档和多模态数据构建。'],['企业应用','适合要求治理和生产环境的团队。']],
+    [['Cloud deployment','Works with Google Cloud projects, identity, and monitoring.'],['Data workflows','Good around BigQuery, documents, and multimodal data.'],['Enterprise apps','Useful when governance and production controls matter.']]
+  );
+  if (/github/.test(text)) return make(
+    `${provider} 把模型能力接入 GitHub 开发生态，适合代码生成、评审、自动化和开发者工作流。`,
+    `${provider} brings model access into the GitHub developer ecosystem for code generation, review, automation, and engineering workflows.`,
+    ['开发者生态','代码','工作流','GitHub'], ['Developer ecosystem','Code','Workflows','GitHub'],
+    `${provider} 更适合围绕仓库、Issue、PR 和代码自动化使用模型，而不是普通聊天入口。`,
+    `${provider} is better for repository, issue, pull request, and code automation workflows than general chat.`,
+    [['代码工作流','适合围绕仓库和 PR 使用模型。'],['开发自动化','适合脚本、CI 和工程助手。'],['模型试验','方便开发者在熟悉的平台比较模型。']],
+    [['Code workflows','Use models around repositories and pull requests.'],['Developer automation','Good for scripts, CI, and engineering assistants.'],['Model trials','Compare models inside a familiar developer platform.']]
+  );
+  if (/cloudflare/.test(text)) return make(
+    `${provider} 适合在边缘网络和 Workers 生态里接入模型，强调低延迟、部署便利和平台集成。`,
+    `${provider} connects models into the Cloudflare edge and Workers ecosystem, emphasizing low latency, deployment, and platform integration.`,
+    ['边缘部署','Workers','低延迟','平台集成'], ['Edge','Workers','Low latency','Platform integration'],
+    `${provider} 适合已经使用 Cloudflare 的网站和应用，把 AI 调用放进边缘函数、网关和安全体系里。`,
+    `${provider} fits Cloudflare users who want AI calls inside edge functions, gateways, and security workflows.`,
+    [['边缘应用','适合靠近用户执行 AI 逻辑。'],['站点集成','适合和现有 Cloudflare 域名、Workers、缓存结合。'],['轻量后端','适合不用重后端也能接模型。']],
+    [['Edge apps','Run AI logic close to users.'],['Site integration','Works with Cloudflare domains, Workers, and caching.'],['Light backends','Use models without a heavy backend.']]
+  );
+  if (/together|replicate|fireworks|novita/.test(text)) return make(
+    `${provider} 是模型推理/托管平台，适合调用开源模型、做批量推理和寻找官方 API 之外的部署选择。`,
+    `${provider} is an inference and hosting platform for open models, batch inference, and deployment alternatives beyond official APIs.`,
+    ['推理平台','开源模型','托管 API','批量调用'], ['Inference','Open models','Hosted API','Batch calls'],
+    `${provider} 适合需要大量调用开源模型、快速部署模型 API 或比较不同推理后端的团队。`,
+    `${provider} fits teams that need open-model inference, quick hosted APIs, or comparison across inference backends.`,
+    [['开源模型','适合调用 Llama、Qwen、Mistral 等开放模型。'],['批量推理','适合大批量文本或图像任务。'],['部署替代','可作为官方 API 之外的选择。']],
+    [['Open models','Use Llama, Qwen, Mistral, and similar models.'],['Batch inference','Good for high-volume text or image tasks.'],['Deployment alternative','A route beyond official APIs.']]
+  );
+  if (/perplexity/.test(text)) return make(
+    `${provider} 以联网搜索和答案产品为核心，适合资料检索、事实核查和带来源的问答。`,
+    `${provider} centers on web search and answer products for research, fact checking, and cited answers.`,
+    ['联网搜索','答案引擎','引用来源','研究'], ['Web search','Answer engine','Citations','Research'],
+    `${provider} 适合需要实时资料、引用来源和快速研究总结的用户，而不是单纯写作或代码模型。`,
+    `${provider} is useful when current information, citations, and fast research summaries matter more than pure writing or coding.`,
+    [['资料检索','适合找最新信息和来源。'],['事实核查','适合带引用地验证观点。'],['研究摘要','适合快速整理主题资料。']],
+    [['Research','Find current information and sources.'],['Fact checks','Verify claims with citations.'],['Summaries','Quickly organize topic research.']],
+    ['web','writing']
+  );
+  if (/cohere/.test(text)) return make(
+    `${provider} 面向企业 NLP、检索增强和文本理解，适合 RAG、搜索、分类和内部知识库。`,
+    `${provider} focuses on enterprise NLP, retrieval, and text understanding for RAG, search, classification, and knowledge bases.`,
+    ['企业 NLP','RAG','检索','分类'], ['Enterprise NLP','RAG','Retrieval','Classification'],
+    `${provider} 适合做企业知识库、语义搜索、重排序和文本分类，不只是通用聊天。`,
+    `${provider} fits enterprise knowledge bases, semantic search, reranking, and text classification beyond general chat.`,
+    [['知识库','适合 RAG 和内部文档检索。'],['搜索排序','适合 embedding、rerank 和语义匹配。'],['企业文本','适合分类、抽取和分析。']],
+    [['Knowledge bases','Useful for RAG and internal document retrieval.'],['Search ranking','Good for embeddings, reranking, and semantic match.'],['Enterprise text','Useful for classification, extraction, and analysis.']]
+  );
+  if (/meta|llama/.test(text)) return make(
+    `${provider} 主要围绕开放模型生态，适合自部署、研究和基于 Llama 系列的二次开发。`,
+    `${provider} is centered on open-model ecosystems, self-hosting, research, and development around Llama-style models.`,
+    ['开放模型','自部署','研究','生态'], ['Open models','Self-hosting','Research','Ecosystem'],
+    `${provider} 适合需要可控部署、开放权重和生态兼容的团队。`,
+    `${provider} fits teams that need controllable deployment, open weights, and ecosystem compatibility.`,
+    [['自部署','适合私有化和本地实验。'],['生态兼容','围绕开放模型有丰富工具链。'],['研究开发','适合微调、评测和二次开发。']],
+    [['Self-hosting','Good for private deployment and local experiments.'],['Ecosystem','Open models have broad tooling.'],['Research','Useful for fine-tuning, evaluation, and customization.']]
+  );
+  const kind = cloud ? '云平台' : lab ? '自研模型平台' : open ? '开放模型供应商' : '模型供应商';
+  const kindEn = cloud ? 'cloud platform' : lab ? 'model lab' : open ? 'open-model provider' : 'model provider';
+  return make(
+    `${provider} 是${kind}，这里汇总它在公开数据中的模型、价格区间和能力标签。`,
+    `${provider} is a ${kindEn}; this page summarizes its public models, pricing ranges, and capability tags.`,
+    cloud ? ['云平台','模型接入','企业集成'] : open ? ['开放模型','API','模型数据'] : ['模型供应','API','价格比较'],
+    cloud ? ['Cloud','Model access','Enterprise integration'] : open ? ['Open models','API','Model data'] : ['Model access','API','Price comparison'],
+    `${provider} 适合用来比较公开模型、API 成本和能力覆盖。更具体的套餐和限制应继续以官网为准。`,
+    `${provider} is useful for comparing public models, API costs, and capability coverage. Exact plans and limits should still be checked on the official site.`,
+    [['模型筛选','先看模型数量、能力标签和价格范围。'],['API 比较','适合和其他供应商一起比较调用成本。'],['官网核验','生产使用前继续查看官方文档和价格页。']],
+    [['Model screening','Start with model count, capability tags, and price ranges.'],['API comparison','Compare calling costs against other providers.'],['Official check','Review official docs and pricing before production use.']]
+  );
+}
 function score(m) {
   const cost = m.input + m.output, speed = Math.max(45, Math.min(96, Math.round(95 - cost * .75))), eff = Math.max(35, Math.min(98, Math.round(100 - cost)));
   const coding = m.capabilities.includes('code') ? Math.min(100, m.quality + 4) : m.quality - 8;
@@ -293,9 +440,12 @@ function radar(s, big = false) {
 function platformModels(id = activePlatform) { return models.filter((m) => m.platform === id).sort((a,b) => Date.parse(b.releaseDate || 0) - Date.parse(a.releaseDate || 0) || b.quality - a.quality); }
 function addProvider(id, raw, rawModels) {
   if (platforms.some((p) => p.id === id)) return;
-  const text = `${id} ${raw?.name || ''}`.toLowerCase(), open = rawModels.some((m) => m.open_weights || m.weights === 'Open');
+  const name = raw?.name || id;
+  const text = `${id} ${name}`.toLowerCase(), open = rawModels.some((m) => m.open_weights || m.weights === 'Open');
   const lab = /(cohere|meta|llama|microsoft|nvidia|stability|moonshot|baidu|zhipu|reka|writer|perplexity|groq)/.test(text), cloud = /(aws|azure|vertex|cloudflare|oracle|bedrock)/.test(text);
-  platforms.push({ id, name: raw?.name || id, logo: `https://models.dev/logos/${id}.svg`, website: raw?.website || raw?.url || '', planUrl: raw?.pricing || '', types: [lab && 'modelLab', open && 'open', cloud && 'cloud', (!lab || /openrouter|together|replicate|fireworks|vercel|github|nano|gateway/.test(text)) && 'aggregator'].filter(Boolean), category: ['api', open && 'open'].filter(Boolean), functions: ['code','writing'], description: `${raw?.name || id} 的公开模型/API 数据。`, descriptionEn: `${raw?.name || id} public model/API data.`, strengths: ['模型数据','API'], strengthsEn: ['Model data','API'] });
+  const copy = dynamicProviderCopy(id, name, text, open, cloud, lab);
+  platforms.push({ id, name, logo: `https://models.dev/logos/${id}.svg`, website: raw?.website || raw?.url || '', planUrl: raw?.pricing || '', types: [lab && 'modelLab', open && 'open', cloud && 'cloud', (!lab || /openrouter|together|replicate|fireworks|vercel|github|nano|gateway/.test(text)) && 'aggregator'].filter(Boolean), category: ['api', open && 'open'].filter(Boolean), functions: copy.functions, description: copy.description, descriptionEn: copy.descriptionEn, strengths: copy.strengths, strengthsEn: copy.strengthsEn });
+  detailCopy[id] = detailCopy[id] || copy.detail;
 }
 function caps(item, input, context) {
   const text = `${item.name} ${item.id}`.toLowerCase(), list = [];
