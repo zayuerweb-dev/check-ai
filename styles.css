@@ -23,3 +23,18 @@
 
 /* Separate capability labels in model tables */
 .capability-list{display:flex!important;flex-wrap:wrap!important;gap:6px!important;align-items:center!important}.capability,.capability-tag{display:inline-flex!important;align-items:center!important;justify-content:center!important;border:1px solid var(--line)!important;border-radius:999px!important;background:var(--paper)!important;color:var(--muted)!important;padding:3px 9px!important;min-height:26px!important;font-size:14px!important;line-height:1.15!important;white-space:nowrap!important}td .capability+ .capability,td .capability-tag+ .capability-tag{margin-left:0!important}
+
+/* SEO landing pages */
+.seo-page{background:var(--bg);color:var(--text)}
+.seo-header,.seo-footer{max-width:980px;margin:0 auto;padding:22px 18px;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.seo-header nav{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted)}
+.brand-link{color:var(--ink);font-size:24px;font-weight:900}
+.seo-main{max-width:980px;margin:0 auto;padding:24px 18px 56px}
+.seo-main h1{margin:0 0 16px;color:var(--ink);font-size:clamp(42px,8vw,78px);line-height:.95;letter-spacing:0}
+.seo-main h2{margin:0 0 10px;color:var(--ink);font-size:28px}
+.seo-lead{max-width:760px;margin:0 0 20px;font-size:22px;line-height:1.45}
+.seo-card{border:1px solid var(--line);border-radius:8px;background:var(--paper);box-shadow:var(--shadow);padding:22px;margin:16px 0}
+.seo-card p,.seo-card li{font-size:18px}
+.seo-card ul{margin:10px 0 0;padding-left:22px}
+.seo-footer{border-top:1px solid var(--line);color:#0c6f68;font-weight:800}
+@media(max-width:640px){.seo-header{align-items:flex-start;flex-direction:column}.seo-main h1{font-size:44px}.seo-lead{font-size:19px}}
