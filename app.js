@@ -83,6 +83,28 @@ const detailCopy = {
     enCases: [['Model routing','Switch models by price, availability, and quality.'],['Fast comparison','Try many models through one interface.'],['Fallbacks','Use alternate models when a provider is unavailable.']]
   }
 };
+const planCopy = {
+  openai: {
+    zh: [['Free','$0','轻量体验 ChatGPT，额度和模型访问会随产品策略调整。'],['Plus','$20/月','适合个人高频使用，通常包含更高额度和更好的模型访问。'],['Pro','$200/月','适合需要更高额度、更强模型和深度研究能力的个人用户。'],['Team','按席位','适合小团队协作、管理和数据控制。']],
+    en: [['Free','$0','Light ChatGPT access. Limits and model access can change.'],['Plus','$20/mo','For frequent personal use with higher limits and better model access.'],['Pro','$200/mo','For heavier individual use, stronger models, and advanced workflows.'],['Team','per seat','For team collaboration, admin controls, and shared workspaces.']]
+  },
+  anthropic: {
+    zh: [['Free','$0','轻量体验 Claude，适合偶尔使用和基础写作。'],['Pro','$20/月','适合个人高频写作、长文档和代码协作。'],['Max','多档价格','适合需要更高使用额度的重度个人用户。'],['Team','按席位','适合团队共享、管理和企业协作。']],
+    en: [['Free','$0','Light Claude access for occasional use and basic writing.'],['Pro','$20/mo','For frequent writing, long documents, and code collaboration.'],['Max','tiered','For heavier individual usage with higher limits.'],['Team','per seat','For team sharing, administration, and collaboration.']]
+  },
+  google: {
+    zh: [['Free','$0','基础 Gemini 体验，适合轻量问答和日常使用。'],['Google AI Pro','$19.99/月','适合高频使用、长上下文和 Google 生态工作流。'],['Google AI Ultra','$249.99/月','适合更高额度和更强模型访问需求。'],['Workspace AI','按方案','适合企业办公、Gmail、Docs 和 Drive 场景。']],
+    en: [['Free','$0','Basic Gemini access for light everyday use.'],['Google AI Pro','$19.99/mo','For frequent use, long context, and Google workflows.'],['Google AI Ultra','$249.99/mo','For higher limits and stronger model access.'],['Workspace AI','plan based','For Gmail, Docs, Drive, and business workflows.']]
+  },
+  xai: {
+    zh: [['Free/基础','官网为准','Grok 可用额度和入口会随地区与 X 产品变化。'],['SuperGrok','官网为准','适合更高频使用 Grok 和实时信息能力。'],['X Premium+','官网为准','适合同时需要 X 平台权益和 Grok 访问的用户。']],
+    en: [['Free/basic','official site','Grok access depends on region and X product changes.'],['SuperGrok','official site','For heavier Grok use and real-time information workflows.'],['X Premium+','official site','For users who want X benefits plus Grok access.']]
+  },
+  openrouter: {
+    zh: [['API 账户','按量计费','没有传统会员套餐，重点是多模型 API 调用和余额计费。'],['模型价格','按模型变化','不同供应商、不同模型价格不同，适合做路由和成本比较。']],
+    en: [['API account','usage based','No traditional subscription plan; pricing is centered on multi-model API usage.'],['Model pricing','varies by model','Prices vary by provider and model, useful for routing and cost comparison.']]
+  }
+};
 let models = [
   ['openai','GPT-5.5','gpt-5.5',5,30,1100000,'2026-04-23',['reasoning','code','vision'],98],
   ['openai','GPT-5.5 Pro','gpt-5.5-pro',30,180,1100000,'2026-04-23',['reasoning','code','vision'],98],
@@ -183,7 +205,15 @@ function renderModels() {
 function renderPlans() {
   const p = platforms.find((x) => x.id === activePlatform);
   $('planSourceLink').href = p.planUrl || p.website || '#';
-  $('planList').innerHTML = `<article class='plan-card'><h4>${isZh() ? '官网价格' : 'Official pricing'}</h4><p>${isZh() ? '第一版保留官网入口，详细套餐后续继续补齐。' : 'The first version keeps the official link; detailed plans can be expanded later.'}</p></article>`;
+  const fallback = p.category.includes('consumer')
+    ? (isZh()
+      ? [['Free','官网为准','保留免费入口和官方套餐链接，具体额度以后继续补齐。'],['Paid','官网为准','付费方案、团队方案和地区价格以官网为准。']]
+      : [['Free','official site','Free access and official plan links are kept here. Exact limits will be expanded later.'],['Paid','official site','Paid, team, and regional prices should be checked on the official site.']])
+    : (isZh()
+      ? [['API/平台','按量或官网为准','这个平台主要是 API 或模型供应入口，不一定有面向消费者的会员套餐。']]
+      : [['API/platform','usage or official site','This provider is mainly an API or model access platform, so consumer memberships may not apply.']]);
+  const plans = (planCopy[p.id]?.[isZh() ? 'zh' : 'en']) || fallback;
+  $('planList').innerHTML = plans.map(([name,price,note]) => `<article class='plan-card'><h4>${name} · ${price}</h4><p>${note}</p></article>`).join('');
 }
 function renderCompare() {
   const companies = platforms.slice(0, 36);
