@@ -1,0 +1,16 @@
+{
+  "name": "Check.AI",
+  "short_name": "Check.AI",
+  "description": "AI platform and model comparison database.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f3ed",
+  "theme_color": "#151515",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
