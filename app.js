@@ -99,7 +99,15 @@ Object.assign(es, {
   apiPlatform: 'API/plataforma', usageOrOfficial: 'uso o sitio oficial', apiPlatformNote: 'Este proveedor es principalmente una API o plataforma de modelos, por lo que puede no tener membresías de consumo.',
   paid: 'De pago', paidOfficialNote: 'Los planes de pago, equipo y precios regionales deben revisarse en el sitio oficial.', freeOfficialNote: 'Se conserva el acceso gratuito y el enlace oficial. Los límites exactos se ampliarán después.'
 });
-let lang = 'zh', activePlatform = 'openai', platformFilter = '', functionFilter = '', modelCap = '', sortKey = 'releaseDate', sortDir = 'desc', compareCompany = 'openai';
+const supportedLangs = ['zh','en','ja','ko','es'];
+function initialLang() {
+  const saved = localStorage.getItem('checkai.lang');
+  if (supportedLangs.includes(saved)) return saved;
+  const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  const matched = supportedLangs.find((x) => browserLang === x || browserLang.startsWith(`${x}-`));
+  return matched || 'en';
+}
+let lang = initialLang(), activePlatform = 'openai', platformFilter = '', functionFilter = '', modelCap = '', sortKey = 'releaseDate', sortDir = 'desc', compareCompany = 'openai';
 let selectedModels = new Set(), compareCaps = new Set(), dataState = { kind: 'seed', count: 0 };
 const basePlatforms = [
   ['openai','OpenAI','https://models.dev/logos/openai.svg','https://openai.com/','https://openai.com/chatgpt/pricing/',['mainstream','modelLab'],['consumer','api'],['code','writing','vision','longContext','web'],'覆盖普通用户、开发者和企业的通用 AI 平台，强项是综合能力、工具生态、代码和多模态产品化。','A general-purpose AI platform for consumers, developers, and enterprises.',['综合能力','代码','多模态','生态'],['General','Code','Multimodal','Ecosystem']],
@@ -547,7 +555,7 @@ document.querySelectorAll('.filter-chip').forEach((b) => b.onclick = () => { pla
 document.querySelectorAll('.function-chip').forEach((b) => b.onclick = () => { functionFilter = functionFilter === b.dataset.function ? '' : b.dataset.function; document.querySelectorAll('.function-chip').forEach((x) => x.classList.toggle('active', x.dataset.function === functionFilter)); renderList(); });
 document.querySelectorAll('.tab').forEach((b) => b.onclick = () => { document.querySelectorAll('.tab').forEach((x) => x.classList.toggle('active', x === b)); document.querySelectorAll('.panel').forEach((x) => x.classList.toggle('active', x.id === b.dataset.tab)); });
 document.querySelectorAll('.sort-button').forEach((b) => b.onclick = () => { sortDir = sortKey === b.dataset.sort && sortDir === 'asc' ? 'desc' : 'asc'; sortKey = b.dataset.sort; renderModels(); });
-$('platformSearch').oninput = renderList; $('languageSelect').onchange = (e) => { lang = e.target.value; render(); };
+$('platformSearch').oninput = renderList; $('languageSelect').onchange = (e) => { lang = e.target.value; localStorage.setItem('checkai.lang', lang); render(); };
 $('platformFilterToggle').onclick = () => document.querySelector('.quick-filters').classList.toggle('expanded');
 $('globalCompareButton').onclick = () => { $('compareModal').classList.add('open'); renderCompare(); };
 $('closeCompareButton').onclick = () => $('compareModal').classList.remove('open');
