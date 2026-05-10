@@ -5,6 +5,11 @@ on:
     # Daily at 06:00 UTC (14:00 Beijing). Adjust if you want.
     - cron: '0 6 * * *'
   workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/sync-models-dev.mjs'
+      - '.github/workflows/sync-models-dev.yml'
 
 permissions:
   contents: write
