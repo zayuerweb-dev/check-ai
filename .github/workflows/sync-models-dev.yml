@@ -1,0 +1,68 @@
+name: Sync models.dev
+
+on:
+  schedule:
+    # Daily at 06:00 UTC (14:00 Beijing). Adjust if you want.
+    - cron: '0 6 * * *'
+  workflow_dispatch: {}  # allow manual trigger from Actions tab
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-models-dev
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run sync script
+        id: sync
+        run: node scripts/sync-models-dev.mjs
+
+      - name: Show diff (if any)
+        run: |
+          git status --short
+          git diff --stat -- data/ || true
+
+      - name: Open PR with changes
+        if: steps.sync.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: bot/sync-models-dev
+          delete-branch: true
+          add-paths: data/**
+          commit-message: |
+            chore(data): sync models.dev (${{ steps.sync.outputs.providers }} providers, ${{ steps.sync.outputs.models }} models)
+          title: 'chore(data): sync models.dev'
+          body: |
+            Automated sync of model and provider data from https://models.dev.
+
+            - Providers: ${{ steps.sync.outputs.providers }}
+            - Models: ${{ steps.sync.outputs.models }}
+            - Source: https://models.dev/api.json
+
+            Files updated:
+            - `data/models-dev.json` — raw upstream snapshot
+            - `data/models.json` — transformed for Check.AI
+            - `data/sync-meta.json` — fetch metadata
+
+            Review the diff to verify changes look reasonable, then merge.
+          labels: |
+            automated
+            data-sync
+
+      - name: No changes
+        if: steps.sync.outputs.changed != 'true'
+        run: echo "No changes from upstream — skipping PR."
