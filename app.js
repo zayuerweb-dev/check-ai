@@ -465,9 +465,19 @@ function caps(item, input, context) {
   if (item.open_weights || item.weights === 'Open') list.push('open');
   return [...new Set(list)];
 }
+async function fetchModelsData() {
+  // Prefer the locally-synced snapshot (reviewed via PR by the daily Action).
+  // Fall back to the upstream API if the snapshot is missing (first-run case).
+  try {
+    const local = await fetch('/data/models-dev.json', { cache: 'no-cache' });
+    if (local.ok) return { json: await local.json(), source: 'synced' };
+  } catch (_) {}
+  const upstream = await fetch('https://models.dev/api.json', { cache: 'no-store' });
+  return { json: await upstream.json(), source: 'upstream' };
+}
 async function loadLive() {
   try {
-    const json = await (await fetch('https://models.dev/api.json', { cache: 'no-store' })).json(), live = [];
+    const { json, source } = await fetchModelsData(), live = [];
     Object.entries(json).forEach(([pid,p]) => {
       const list = Array.isArray(p?.models) ? p.models : Object.values(p?.models || {});
       addProvider(pid, p, list);
@@ -479,7 +489,7 @@ async function loadLive() {
       });
     });
     models = [...new Map([...models, ...live].map((m) => [keyOf(m), m])).values()];
-    dataState = { kind: 'live', count: live.length };
+    dataState = { kind: 'live', count: live.length, source };
     render();
   } catch { dataState = { kind: 'unavailable', count: 0 }; updateText(); }
 }
