@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Grok 4 vs Qwen3 Max：价格、上下文、跑分对比（2026） | Check.AI</title>
+<meta name="description" content="Grok 4 与 Qwen3 Max 并排对比：API 价格、上下文窗口、SWE-bench / HumanEval / LMArena 跑分、各自最适合的场景。">
+<link rel="canonical" href="https://checkaimodels.com/zh/compare/grok-4-vs-qwen3-max/">
+<link rel="alternate" hreflang="zh" href="https://checkaimodels.com/zh/compare/grok-4-vs-qwen3-max/">
+<link rel="alternate" hreflang="en" href="https://checkaimodels.com/compare/grok-4-vs-qwen3-max/">
+<link rel="alternate" hreflang="x-default" href="https://checkaimodels.com/compare/grok-4-vs-qwen3-max/">
+<meta property="og:title" content="Grok 4 vs Qwen3 Max（2026）">
+<meta property="og:description" content="Grok 4 与 Qwen3 Max 并排对比：API 价格、上下文窗口、SWE-bench / HumanEval / LMArena 跑分、各自最适合的场景。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://checkaimodels.com/zh/compare/grok-4-vs-qwen3-max/">
+<link rel="stylesheet" href="/styles.css?v=20260510-2">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","inLanguage":"zh-CN","headline":"Grok 4 vs Qwen3 Max：价格、上下文、跑分对比（2026）","description":"Grok 4 与 Qwen3 Max 并排对比：API 价格、上下文窗口、SWE-bench / HumanEval / LMArena 跑分、各自最适合的场景。","datePublished":"2026-05-10","dateModified":"2026-05-10","author":{"@type":"Organization","name":"Check.AI"},"publisher":{"@type":"Organization","name":"Check.AI","url":"https://checkaimodels.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"zh-CN","mainEntity":[{"@type":"Question","name":"Grok 4 和 Qwen3 Max 哪个便宜？","acceptedAnswer":{"@type":"Answer","text":"Qwen3 Max 更便宜，输入 $1.00 / 输出 $4.00 每百万 token，对比 $3.00 / $15.00。"}},{"@type":"Question","name":"哪个上下文窗口更大？","acceptedAnswer":{"@type":"Answer","text":"Qwen3 Max 支持 1M 上下文，对比 256K。"}},{"@type":"Question","name":"哪个更适合写代码 agent？","acceptedAnswer":{"@type":"Answer","text":"Grok 4 SWE-bench Verified 更高（~55% vs ~50%）。工具调用稳定性通常和 SWE-bench 正相关。"}},{"@type":"Question","name":"什么时候选 Grok 4？","acceptedAnswer":{"@type":"Answer","text":"突发新闻、舆情分析、数学、X 集成工作流。 优势：X（推特）实时数据独家、数学强、人设敢怼。"}},{"@type":"Question","name":"什么时候选 Qwen3 Max？","acceptedAnswer":{"@type":"Answer","text":"中文 / 多语言产品、亚洲部署、多语言 RAG。 优势：中文质量最佳、多语言强、1M 上下文、亚洲低延迟。"}}]}</script>
+</head>
+<body class="seo-page">
+<header class="seo-header"><a class="brand-link" href="/zh/">Check.AI</a><nav><a href="/">English</a><a href="/zh/">中文首页</a><a href="/about.html">关于</a></nav></header>
+<main class="seo-main">
+<p class="eyebrow">模型对比 · 2026 年 5 月更新</p>
+<h1>Grok 4 vs Qwen3 Max：价格、上下文、跑分对比（2026）</h1>
+<p class="seo-lead"><strong>Grok 4</strong>（xAI）与 <strong>Qwen3 Max</strong>（阿里）的直接对比。所有数据来自厂商官方文档和公开 benchmark。今天就要做选择？结论放在最上面。</p>
+
+<section class="seo-card">
+<h2>30 秒结论</h2>
+<ul>
+<li><strong>更便宜：</strong>Qwen3 Max（输入 $1.00 vs $3.00 每百万 token）。</li>
+<li><strong>上下文更长：</strong>Qwen3 Max 支持 1M，对比 256K。</li>
+<li><strong>SWE-bench Verified 更高：</strong>Grok 4（~55% vs ~50%）。</li>
+<li><strong>LMArena 更高：</strong>Qwen3 Max（1410 vs 1400）。</li>
+<li><strong>开放权重：</strong>Qwen3 Max 可自托管。</li>
+</ul>
+<p><a class="section-link" href="/?compare=xai:grok-4,alibaba:qwen3-max">→ 在 Check.AI 实时对比工具中并排打开两者</a></p>
+</section>
+
+<section class="seo-card">
+<h2>规格并排对比</h2>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)"><th style="text-align:left;padding:8px">项目</th><th style="text-align:left;padding:8px">Grok 4</th><th style="text-align:left;padding:8px">Qwen3 Max</th></tr></thead>
+<tbody>
+<tr><td style="padding:8px">厂商</td><td style="padding:8px">xAI</td><td style="padding:8px">阿里</td></tr>
+<tr><td style="padding:8px">输入价（每 1M token）</td><td style="padding:8px">$3.00</td><td style="padding:8px">$1.00</td></tr>
+<tr><td style="padding:8px">输出价</td><td style="padding:8px">$15.00</td><td style="padding:8px">$4.00</td></tr>
+<tr><td style="padding:8px">上下文窗口</td><td style="padding:8px">256K</td><td style="padding:8px">1M</td></tr>
+<tr><td style="padding:8px">发布日期</td><td style="padding:8px">2025-07-09</td><td style="padding:8px">2025-09-05</td></tr>
+<tr><td style="padding:8px">SWE-bench Verified</td><td style="padding:8px">~55%</td><td style="padding:8px">~50%</td></tr>
+<tr><td style="padding:8px">HumanEval</td><td style="padding:8px">~90%</td><td style="padding:8px">~91%</td></tr>
+<tr><td style="padding:8px">LMArena（近似）</td><td style="padding:8px">1400</td><td style="padding:8px">1410</td></tr>
+<tr><td style="padding:8px">开放权重</td><td style="padding:8px">否</td><td style="padding:8px">是</td></tr>
+<tr><td style="padding:8px">能力</td><td style="padding:8px">reasoning, web</td><td style="padding:8px">reasoning, code, vision</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:var(--muted)">价格来自 xAI 与 阿里 官方文档；跑分来自 SWE-bench Verified、HumanEval、LMArena 公开榜单，截至 2026 年 5 月。</p>
+</section>
+
+<section class="seo-card">
+<h2>Grok 4 — 优势与劣势</h2>
+<p><strong>优势。</strong> X（推特）实时数据独家、数学强、人设敢怼。</p>
+<p><strong>劣势。</strong> IDE 和工具生态薄弱，代码能力弱于 Claude/GPT-5。</p>
+<p><strong>适合谁。</strong> 突发新闻、舆情分析、数学、X 集成工作流。</p>
+</section>
+
+<section class="seo-card">
+<h2>Qwen3 Max — 优势与劣势</h2>
+<p><strong>优势。</strong> 中文质量最佳、多语言强、1M 上下文、亚洲低延迟。</p>
+<p><strong>劣势。</strong> 英文生态较小、集成方案更少。</p>
+<p><strong>适合谁。</strong> 中文 / 多语言产品、亚洲部署、多语言 RAG。</p>
+</section>
+
+<section class="seo-card">
+<h2>到底选哪个</h2>
+<p><strong>选 Grok 4：</strong>突发新闻、舆情分析、数学、X 集成工作流。</p>
+<p><strong>选 Qwen3 Max：</strong>中文 / 多语言产品、亚洲部署、多语言 RAG。</p>
+<p><strong>两个一起用：</strong>做 agent 或内容流水线时常见 — 高价值 / 复杂推理任务路由到强项一方，批量 / 便宜任务交给另一方。2026 年成熟产品都不押单一模型。</p>
+</section>
+
+<section class="seo-card">
+<h2>在实时工具中并排查看</h2>
+<p>Check.AI 对比工具能把两个模型放在一张表，所有数据可见、可切能力过滤、可复制分享链接给同事。</p><p><a class="section-link" href="/?compare=xai:grok-4,alibaba:qwen3-max">→ 在实时工具对比 Grok 4 与 Qwen3 Max</a></p>
+</section>
+
+<section class="seo-card">
+<h2>相关阅读</h2>
+<ul>
+<li><a href="/zh/topics/best-ai-models-for-coding/">2026 年写代码最强 AI 模型</a></li>
+<li><a href="/zh/topics/cheapest-ai-api-models/">2026 年最便宜的 AI API 模型</a></li>
+<li><a href="/zh/topics/long-context-ai-models/">长上下文 AI 模型</a></li>
+<li><a href="/zh/articles/gpt-5-vs-claude-coding-2026/">GPT-5 vs Claude：写代码选哪个</a></li>
+<li><a href="/zh/articles/deepseek-r1-vs-gpt-5-cost-2026/">DeepSeek R1 vs GPT-5：性价比</a></li>
+</ul>
+</section>
+
+</main>
+<footer class="seo-footer"><a href="/">打开实时对比工具</a></footer>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "df6bb0324e4c458fb4e8b979d3feed3c"}'></script>
+</body>
+</html>
