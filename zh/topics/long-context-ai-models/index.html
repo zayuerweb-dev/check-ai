@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>2026 年长上下文 AI 模型对比 — Gemini 2M、Claude 1M、GPT-5 | Check.AI</title>
+<meta name="description" content="2026 年长上下文 AI 模型对比：Gemini 2.5 Pro（200 万 token）、Claude Sonnet 4.6（100 万 beta）、GPT-5、Qwen3。真实召回率、单次调用价格、长上下文 vs RAG 怎么选。">
+<link rel="canonical" href="https://checkaimodels.com/zh/topics/long-context-ai-models/">
+<link rel="alternate" hreflang="zh" href="https://checkaimodels.com/zh/topics/long-context-ai-models/">
+<link rel="alternate" hreflang="en" href="https://checkaimodels.com/topics/long-context-ai-models/">
+<link rel="alternate" hreflang="x-default" href="https://checkaimodels.com/topics/long-context-ai-models/">
+<meta property="og:title" content="2026 年长上下文 AI 模型对比">
+<meta property="og:description" content="Gemini 2M、Claude 1M、GPT-5 — 召回率、价格、长上下文 vs RAG。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://checkaimodels.com/zh/topics/long-context-ai-models/">
+<link rel="stylesheet" href="/styles.css?v=20260509-1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","inLanguage":"zh-CN","headline":"2026 年长上下文 AI 模型对比","description":"对比长上下文模型的窗口、召回、价格和场景。","datePublished":"2026-05-10","dateModified":"2026-05-10","author":{"@type":"Organization","name":"Check.AI"},"publisher":{"@type":"Organization","name":"Check.AI","url":"https://checkaimodels.com/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"zh-CN","mainEntity":[
+{"@type":"Question","name":"哪个 AI 模型上下文窗口最长？","acceptedAnswer":{"@type":"Answer","text":"Gemini 2.5 Pro 200 万 token，是生产环境最大的。Claude Sonnet 4.6 1M（beta），标准 200K。GPT-5 400K。Qwen3 最高 1M。"}},
+{"@type":"Question","name":"100 万 token 上下文真的能用吗？","acceptedAnswer":{"@type":"Answer","text":"检索类任务（在长文里找一条事实）能用，Claude 和 Gemini 在 500K 内召回率都能保持 90%+。多步推理跨整个窗口时，召回率 200K 之后会掉到 60-70%。务必用自己数据测试。"}},
+{"@type":"Question","name":"长上下文还是 RAG，怎么选？","acceptedAnswer":{"@type":"Answer","text":"知识库稳定、查询短选 RAG，便宜快速。每次请求上下文都不同、跨文档关系重要、切块会破坏语义（合同、代码、长访谈）选长上下文。"}},
+{"@type":"Question","name":"100 万 token 一次调用多少钱？","acceptedAnswer":{"@type":"Answer","text":"Claude Sonnet 4.6 价格 ~$3 一次输入 + 几分钱输出。Gemini 2.5 Pro 约 $1.25 / $10。开 prompt caching 后第二次调用能再省 50-90%。"}},
+{"@type":"Question","name":"什么是大海捞针测试？","acceptedAnswer":{"@type":"Answer","text":"在长上下文里藏一条事实，让模型找出来。前沿模型都能拿 95%+，已经是太简单的指标。真实场景（多事实推理、矛盾辨别）召回率掉得快。"}}
+]}
+</script>
+</head>
+<body class="seo-page">
+<header class="seo-header"><a class="brand-link" href="/zh/">Check.AI</a><nav><a href="/">EN</a><a href="/">对比工具</a><a href="/about.html">关于</a><a href="/contact.html">联系</a></nav></header>
+<main class="seo-main">
+<p class="eyebrow">AI 模型选型指南 · 2026 年 5 月更新</p>
+<h1>2026 年长上下文 AI 模型对比</h1>
+<p class="seo-lead">长上下文模型让你能用"直接把整个东西贴进去"替代脆弱的 RAG。2026 年值得关注的有四款：Gemini 2.5 Pro（2M）、Claude Sonnet 4.6（1M beta）、GPT-5（400K）、Qwen3（1M）。但厂商宣传数字不是全部 — 召回率、延迟、价格在长度增长时各自崩塌的方式不一样。</p>
+
+<section class="seo-card">
+<h2>真正重要的窗口大小</h2>
+<ul>
+<li><strong>Gemini 2.5 Pro</strong> — 200 万 token。最大，"解释整个仓库"最强。</li>
+<li><strong>Claude Sonnet 4.6</strong> — 标准 200K，beta 1M。500K 以内召回率最高。</li>
+<li><strong>Qwen3 Max</strong> — 最高 1M。便宜的长上下文选项，中文支持好。</li>
+<li><strong>GPT-5</strong> — 400K。窗口不算最大但跨窗口推理质量最稳。</li>
+<li><strong>DeepSeek R1</strong> — 128K。便宜的中长上下文，多数文档够用。</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2>窗口 ≠ 可用上下文（召回陷阱）</h2>
+<p>每个前沿模型大海捞针都能拿 95%+。这个指标已经太弱。真实场景需要<strong>多事实召回</strong>（找 3 个细节并交叉验证）和<strong>跨文档推理</strong>。这两个上的实际表现：</p>
+<ul>
+<li>100K 以内：~95% 召回，所有顶级模型都没问题。</li>
+<li>100K-500K：Claude 和 GPT-5 ~90%；Gemini 2.5 Pro ~85%。</li>
+<li>500K-1M：Claude（beta）、Gemini ~75-80%；推理质量明显下降。</li>
+<li>1M-2M（仅 Gemini）：检索可用，推理不可靠。</li>
+</ul>
+<p>实操建议：<strong>按召回率而不是窗口大小做规划</strong>。如果你的任务需要 200K 之后稳定的跨文档推理，照样要做检索。</p>
+</section>
+
+<section class="seo-card">
+<h2>长上下文 vs RAG — 到底怎么选</h2>
+<p><strong>用长上下文当：</strong>每次请求文档都不同（每场会议纪要不一样）；文档结构跨段落很重要（法律合同、代码仓库）；无法可靠切块（诗歌、紧密论证的长文）。</p>
+<p><strong>用 RAG 当：</strong>知识库稳定、复用频繁；查询短、查表风格；成本敏感、读多次；需要确定切块作为引用源。</p>
+<p><strong>组合用当：</strong>知识库大、单次查询关联范围中等。先检索到 ~200K，再交给长上下文模型。质量最好、成本可控。</p>
+</section>
+
+<section class="seo-card">
+<h2>长上下文调用的真实成本</h2>
+<p>100 万 token 一次调用没大家想象的那么贵，加上缓存更便宜：</p>
+<ul>
+<li>Claude Sonnet 4.6：首次约 $3，缓存后约 $0.30-0.60。</li>
+<li>Gemini 2.5 Pro：首次约 $1.25。隐式缓存可用。</li>
+<li>GPT-5：100 万输入约 $2.50，缓存折扣强。</li>
+</ul>
+<p>同一份 50 万 token 文档被 100 个用户问，缓存能把每天 $150 的开销降到 $15-30。</p>
+</section>
+
+<section class="seo-card">
+<h2>按场景推荐</h2>
+<ul>
+<li><strong>代码仓库 Q&A：</strong>整库塞 Gemini 2.5 Pro，聚焦 200K 子集做编辑用 Claude Sonnet 4.6。</li>
+<li><strong>法律合同与合规：</strong>Claude Sonnet 4.6 — 保留原文措辞、引用源最稳。</li>
+<li><strong>研究论文综述：</strong>GPT-5 或 Claude，避免 Gemini 在 500K 后做推理。</li>
+<li><strong>会议纪要与通话分析：</strong>低成本用 Gemini Flash 或 Claude Haiku 4.5，重要场合升级到 Sonnet。</li>
+<li><strong>整本书或剧本：</strong>Gemini 2.5 Pro — 唯一能舒服塞下整本小说的。</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2>用 OpenRouter 快速测试</h2>
+<p>OpenRouter 一个 OpenAI 兼容 key 同时调用 Gemini 2.5 Pro、Claude 1M beta、Qwen3 长上下文，自己数据 benchmark 时省事。</p>
+<p><a class="section-link" href="https://openrouter.ai/?utm_source=checkai&utm_medium=topic_zh&utm_campaign=longctx">试试 OpenRouter →</a></p>
+<p style="font-size:13px;color:var(--muted)">OpenRouter 目前没有公开的推广返佣计划，此为普通推荐链接。</p>
+</section>
+
+<section class="seo-card">
+<h2>FAQ</h2>
+<p><strong>2026 年窗口最长？</strong>Gemini 2.5 Pro 200 万 token。</p>
+<p><strong>500K 内召回最稳？</strong>Claude Sonnet 4.6。</p>
+<p><strong>最便宜的长上下文 API？</strong>Qwen3（1M）或 DeepSeek（128K），其次 Gemini 2.5 Pro。</p>
+<p><strong>该不该把 RAG 换成长上下文？</strong>仅当你的查询确实需要全文。复用知识 RAG 仍然更便宜、更可引用。</p>
+</section>
+
+<p><a class="section-link" href="/">→ 并排对比上下文窗口</a></p>
+</main>
+<footer class="seo-footer"><a href="/zh/">返回中文首页</a> · <a href="/topics/long-context-ai-models/">English version</a></footer>
+</body>
+</html>
