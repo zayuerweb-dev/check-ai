@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>关于 Check.AI — 方法论、数据来源、维护者</title>
+<meta name="description" content="Check.AI 怎么做出来的：数据来自 models.dev + 厂商官方文档，跑分来自公开榜单，每日同步、每周编辑校对、利益冲突公开声明，问题反馈走 GitHub。">
+<link rel="canonical" href="https://checkaimodels.com/zh/about/">
+<link rel="alternate" hreflang="zh" href="https://checkaimodels.com/zh/about/">
+<link rel="alternate" hreflang="en" href="https://checkaimodels.com/about.html">
+<link rel="alternate" hreflang="x-default" href="https://checkaimodels.com/about.html">
+<link rel="stylesheet" href="/styles.css?v=20260510-2">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#151515">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"AboutPage","name":"关于 Check.AI","url":"https://checkaimodels.com/zh/about/","inLanguage":"zh-CN","mainEntity":{"@type":"Organization","name":"Check.AI","url":"https://checkaimodels.com/","logo":"https://checkaimodels.com/favicon.svg","sameAs":["https://github.com/zayuerweb-dev/check-ai"],"founder":{"@type":"Person","name":"zayuerweb-dev","url":"https://github.com/zayuerweb-dev","sameAs":["https://github.com/zayuerweb-dev"]}}}
+</script>
+</head>
+<body class="seo-page">
+<header class="seo-header"><a class="brand-link" href="/zh/">Check.AI</a><nav><a href="/">English</a><a href="/zh/">中文首页</a><a href="/about.html">About</a><a href="/contact.html">联系</a></nav></header>
+<main class="seo-main">
+<p class="eyebrow">关于 · 2026 年 5 月最新校对</p>
+<h1>关于 Check.AI</h1>
+<p class="seo-lead">Check.AI 是一个 AI 平台与模型对比数据库 — 会员、API 价格、上下文窗口、能力、跑分。站点由一位独立开发者维护。这一页解释：是谁在做、数据怎么来、怎么保持准确。</p>
+
+<section class="seo-card">
+<h2>维护者</h2>
+<p>Check.AI 由 GitHub 上的 <a href="https://github.com/zayuerweb-dev" rel="author">@zayuerweb-dev</a> 维护。整站源码（包括对比数据、页面模板、每日同步流水线）公开：</p>
+<ul>
+<li><strong>仓库：</strong><a href="https://github.com/zayuerweb-dev/check-ai">github.com/zayuerweb-dev/check-ai</a></li>
+<li><strong>问题反馈 / 数据修正：</strong>在仓库开 GitHub Issue 或 PR</li>
+<li><strong>部署：</strong>Cloudflare Pages</li>
+</ul>
+<p>看到错的数字、过期的价格、缺的模型 — 开 Issue，下次同步就修。</p>
+</section>
+
+<section class="seo-card">
+<h2>数据来源</h2>
+<p>每个页面背后是三类数据：</p>
+<ul>
+<li><strong>价格与规格。</strong>每天从公开数据集 <a href="https://models.dev" rel="noopener">models.dev</a>（社区维护的全平台模型快照）拉取，并对照各厂商官方价格页（OpenAI、Anthropic、Google、xAI、DeepSeek、阿里、Mistral）核对。</li>
+<li><strong>跑分。</strong>来自公开榜单：<a href="https://www.swebench.com/" rel="noopener">SWE-bench Verified</a>、<a href="https://lmarena.ai/" rel="noopener">LMArena</a>、HumanEval、LiveCodeBench、MMLU-Pro、GPQA、AIME。对比页和 topic 页里的数字按整百分位四舍五入 — 因为不同评测批次之间会有正常波动。</li>
+<li><strong>编辑判断。</strong>"适合谁"、"30 秒结论"、"人话总结"等段落由维护者基于真实使用经验撰写：生产代码、agent 工作流、内容流水线里跑过这些模型得出的判断。是观点不是事实，所以会标日期，方便你判断信息的新鲜度。</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2>更新节奏</h2>
+<p>数据层和编辑层节奏不同：</p>
+<ul>
+<li><strong>每天：</strong>GitHub Action 拉 models.dev，有变化就开 PR。价格、新模型、能力标签 24-48 小时内同步。</li>
+<li><strong>每周：</strong>编辑判断和跑分对照新数据 review 一遍，过时的就重写。</li>
+<li><strong>大版本：</strong>有重大模型发布（如 Claude 5、GPT-5.5）当周改动相关 topic 和对比页。</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2>编辑标准</h2>
+<ul>
+<li><strong>带日期，不说 "最新"。</strong>每篇文章和 topic 都有发布日期和"最后更新"日期。AI 变化太快，不带日期的"最新"等于过期。</li>
+<li><strong>有出处。</strong>价格和跑分链接到原始页面或榜单。估算或社区数据会标出来。</li>
+<li><strong>中立。</strong>站点不接受任何模型厂商的赞助或合作。编辑判断只在具体维度上选优 — 不评"全场最佳"，因为答案永远依赖你的负载。</li>
+<li><strong>可证伪。</strong>能拿出具体的 benchmark 或价格事实证明我们错了 → 我们就改。</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2>利益冲突声明</h2>
+<ul>
+<li>Check.AI 没有付费赞助、不放展示广告。</li>
+<li>部分外链（例如 OpenRouter）带 <code>utm_source</code> 参数仅用于流量归因。<strong>OpenRouter 当前没有公开的推广返佣计划</strong>，所以这些链接没有任何佣金 — 是基于价值的真实推荐。</li>
+<li>维护者目前与所有模型厂商（OpenAI、Anthropic、Google、xAI、DeepSeek、阿里、Mistral）没有股权、雇佣或外包关系。</li>
+<li>未来如果接入真实 affiliate（例如 Together AI、Cursor 推广）会在链接处和这一页同时披露。</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2>Check.AI <em>不是</em>什么</h2>
+<ul>
+<li>不能替代你在自己数据上的评测。</li>
+<li>不是 SLA / 实时 API 状态页 — 出故障请看厂商官方 status page。</li>
+<li>不是穷举 — 只深度跟踪 2026 年全球前沿八款主流模型。区域性 / 小模型按读者需求添加。</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2>联系方式</h2>
+<p>修正、模型加请求、事实争议最佳渠道：<a href="https://github.com/zayuerweb-dev/check-ai/issues">在仓库开 Issue</a>。其他事项：<a href="/contact.html">联系页</a>。</p>
+</section>
+
+</main>
+<footer class="seo-footer"><a href="/zh/">返回中文首页</a> · <a href="/about.html">English version</a></footer>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "df6bb0324e4c458fb4e8b979d3feed3c"}'></script>
+</body>
+</html>

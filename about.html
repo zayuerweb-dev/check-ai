@@ -3,14 +3,94 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>About | Check.AI</title>
-<meta name="description" content="About Check.AI, an AI platform and model comparison database.">
+<title>About Check.AI — Methodology, Data Sources, Maintainer</title>
+<meta name="description" content="How Check.AI is built and maintained: data sources (models.dev + provider docs), benchmark sourcing, update cadence, editorial standards, conflict-of-interest disclosure, and how to contact the maintainer.">
 <link rel="canonical" href="https://checkaimodels.com/about.html">
-<link rel="stylesheet" href="/styles.css?v=20260509-1">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#151515"></head>
+<link rel="alternate" hreflang="en" href="https://checkaimodels.com/about.html">
+<link rel="alternate" hreflang="zh" href="https://checkaimodels.com/zh/about/">
+<link rel="alternate" hreflang="x-default" href="https://checkaimodels.com/about.html">
+<link rel="stylesheet" href="/styles.css?v=20260510-2">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#151515">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"AboutPage","name":"About Check.AI","url":"https://checkaimodels.com/about.html","inLanguage":"en","mainEntity":{"@type":"Organization","name":"Check.AI","url":"https://checkaimodels.com/","logo":"https://checkaimodels.com/favicon.svg","sameAs":["https://github.com/zayuerweb-dev/check-ai"],"founder":{"@type":"Person","name":"zayuerweb-dev","url":"https://github.com/zayuerweb-dev","sameAs":["https://github.com/zayuerweb-dev"]}}}
+</script>
+</head>
 <body class="seo-page">
-<header class="seo-header"><a class="brand-link" href="/">Check.AI</a><nav><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></nav></header>
-<main class="seo-main"><p class="eyebrow">About</p><h1>About Check.AI</h1><p class="seo-lead">Check.AI is an AI platform and model selection database for comparing plans, API pricing, model capability, context windows, and scores.</p><section class="seo-card"><h2>What we track</h2><p>The site combines live public model data with manually curated platform summaries, official pricing links, and practical selection notes.</p></section></main>
-<footer class="seo-footer"><a href="/">Open the interactive comparison tool</a></footer>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "df6bb0324e4c458fb4e8b979d3feed3c"}'></script></body>
+<header class="seo-header"><a class="brand-link" href="/">Check.AI</a><nav><a href="/">Compare tool</a><a href="/zh/">中文</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></nav></header>
+<main class="seo-main">
+<p class="eyebrow">About · Last reviewed May 2026</p>
+<h1>About Check.AI</h1>
+<p class="seo-lead">Check.AI is a comparison database for AI platforms and models — plans, API pricing, context windows, capabilities, and benchmarks. The site is built and maintained by a single developer; this page explains who, where the data comes from, and how it stays accurate.</p>
+
+<section class="seo-card">
+<h2>Maintainer</h2>
+<p>Check.AI is maintained by <a href="https://github.com/zayuerweb-dev" rel="author">@zayuerweb-dev</a> on GitHub. The full source for this site, including all comparison data, page templates, and the daily sync workflow, is public:</p>
+<ul>
+<li><strong>Repository:</strong> <a href="https://github.com/zayuerweb-dev/check-ai">github.com/zayuerweb-dev/check-ai</a></li>
+<li><strong>Issues / corrections:</strong> open a GitHub issue or PR on the repo</li>
+<li><strong>Hosted on:</strong> Cloudflare Pages</li>
+</ul>
+<p>If you find a wrong number, an outdated price, or a missing model — file an issue and it will be fixed in the next sync.</p>
+</section>
+
+<section class="seo-card">
+<h2>Data sources</h2>
+<p>Three categories of data sit behind every page:</p>
+<ul>
+<li><strong>Pricing &amp; specs.</strong> Pulled daily from the public <a href="https://models.dev" rel="noopener">models.dev</a> dataset (a community-maintained snapshot of every major provider's documented model list), then cross-checked against the providers' own pricing pages (OpenAI, Anthropic, Google, xAI, DeepSeek, Alibaba, Mistral).</li>
+<li><strong>Benchmark scores.</strong> Sourced from public leaderboards: <a href="https://www.swebench.com/" rel="noopener">SWE-bench Verified</a>, <a href="https://lmarena.ai/" rel="noopener">LMArena</a>, HumanEval, LiveCodeBench, MMLU-Pro, GPQA, AIME. Numbers in compare and topic pages are rounded to whole percentages because exact figures shift between evaluation runs.</li>
+<li><strong>Editorial verdicts.</strong> The "best for", "verdict", and "30-second TL;DR" sections are written by the maintainer based on hands-on usage of each model in production code, agent loops, and content workflows. They are opinions, not facts. They are dated so you can judge how stale they may be.</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2>Update cadence</h2>
+<p>The data layer and the editorial layer move at different speeds:</p>
+<ul>
+<li><strong>Daily:</strong> a GitHub Action pulls models.dev and opens a PR if anything changed. Pricing, new model releases, and capability flags are updated within 24–48 hours of upstream.</li>
+<li><strong>Weekly:</strong> editorial verdicts and benchmark scores are reviewed against fresh data and rewritten where they no longer hold.</li>
+<li><strong>Per release:</strong> when a major model launches (Claude 5, GPT-5.5, etc.) the affected topic and compare pages are rewritten the same week.</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2>Editorial standards</h2>
+<ul>
+<li><strong>Dated, not "current".</strong> Every article and topic page carries a published date and a "last updated" date. AI moves too fast to claim "current" without a date.</li>
+<li><strong>Sourced.</strong> Pricing and benchmark numbers are linked back to the source page or leaderboard. If a number is an estimate or a community report, it is labelled.</li>
+<li><strong>Neutral.</strong> The site is not affiliated with any model vendor. Editorial verdicts pick winners on specific axes; we do not designate an overall "best AI" because the answer depends on your workload.</li>
+<li><strong>Falsifiable.</strong> If you can show a concrete benchmark or pricing fact is wrong, it gets corrected.</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2>Conflict of interest disclosure</h2>
+<ul>
+<li>Check.AI has no paid sponsorships and runs no display ads.</li>
+<li>Some outbound links (e.g. to OpenRouter) carry a <code>utm_source</code> parameter for traffic attribution. <strong>OpenRouter does not currently operate a public referral program</strong>, so these links pay no commission — they are recommendations on merit.</li>
+<li>The maintainer has no equity, employment, or contracting relationship with any model vendor (OpenAI, Anthropic, Google, xAI, DeepSeek, Alibaba, Mistral) at the time of writing.</li>
+<li>If a real affiliate relationship is added in the future (e.g. Together AI, Cursor referrals), it will be disclosed at the link and listed here.</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2>What Check.AI is <em>not</em></h2>
+<ul>
+<li>Not a replacement for running your own evaluation against your own data.</li>
+<li>Not an SLA or a real-time API status page — for vendor outages, check the provider's official status page.</li>
+<li>Not exhaustive — only the eight frontier models with serious global mindshare in 2026 are tracked deeply. Smaller / regional models may be added based on reader requests.</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2>Contact</h2>
+<p>Best channel for corrections, model requests, or factual disputes: <a href="https://github.com/zayuerweb-dev/check-ai/issues">open a GitHub issue</a>. For everything else: <a href="/contact.html">contact page</a>.</p>
+</section>
+
+</main>
+<footer class="seo-footer"><a href="/">Open the interactive comparison tool</a> · <a href="/zh/about/">中文版</a></footer>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "df6bb0324e4c458fb4e8b979d3feed3c"}'></script>
+</body>
 </html>
