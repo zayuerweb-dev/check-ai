@@ -44,3 +44,17 @@
 .model-detail-section .six-axis-button svg.large-radar{width:min(100%,720px)!important;height:auto!important;min-height:420px;margin:0 auto;display:block}
 .model-detail-section .large-radar text{font-size:6px;font-weight:800}
 @media(max-width:760px){.model-detail-section .six-axis-button svg.large-radar{min-height:300px}.model-detail-section .large-radar text{font-size:7px}}
+
+/* Trust bar (hero value prop + freshness) */
+.trust-bar{background:#151515;color:#f3f1ec;border-bottom:1px solid #000}
+.trust-bar-inner{max-width:1280px;margin:0 auto;padding:10px 20px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;font-size:13px}
+.trust-claim strong{display:block;color:#fff;font-size:15px;font-weight:900;letter-spacing:.2px}
+.trust-claim span{color:#9aa4ad;font-size:12px}
+.trust-meta{display:flex;flex-wrap:wrap;gap:14px;color:#c8cdd2}
+.trust-meta a{color:#7ec5ba;border-bottom:1px dashed #7ec5ba}
+.trust-meta b{color:#fff;font-weight:800}
+@media(max-width:760px){.trust-bar-inner{padding:10px 14px}.trust-claim strong{font-size:14px}.trust-meta{font-size:12px;gap:10px}}
+
+/* Share compare URL button */
+.share-compare-btn{margin-left:auto;border:1px solid var(--accent);background:#e8f5f1;color:#0c6f68;border-radius:8px;min-height:40px;padding:0 14px;font-weight:800;font-size:14px;cursor:pointer}
+.share-compare-btn.copied{background:var(--accent);color:#fff}

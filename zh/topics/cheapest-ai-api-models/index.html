@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>2026 年最便宜 AI API 模型对比 — DeepSeek、Qwen、Gemini Flash | Check.AI</title>
+<meta name="description" content="2026 年最便宜的 AI API 模型排名：DeepSeek R1、Qwen3、Gemini 2.5 Flash、GPT-5 mini、Mistral。真实价格、质量分界、批量与缓存折扣全解析。">
+<link rel="canonical" href="https://checkaimodels.com/zh/topics/cheapest-ai-api-models/">
+<link rel="alternate" hreflang="zh" href="https://checkaimodels.com/zh/topics/cheapest-ai-api-models/">
+<link rel="alternate" hreflang="en" href="https://checkaimodels.com/topics/cheapest-ai-api-models/">
+<link rel="alternate" hreflang="x-default" href="https://checkaimodels.com/topics/cheapest-ai-api-models/">
+<meta property="og:title" content="2026 年最便宜 AI API 模型对比">
+<meta property="og:description" content="按每百万 token 排序的便宜 AI API。DeepSeek、Qwen、Gemini Flash、GPT-5 mini 价格对比。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://checkaimodels.com/zh/topics/cheapest-ai-api-models/">
+<link rel="stylesheet" href="/styles.css?v=20260509-1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","inLanguage":"zh-CN","headline":"2026 年最便宜 AI API 模型对比","description":"按价格、质量、上下文对比最便宜的 AI API 模型。","datePublished":"2026-05-10","dateModified":"2026-05-10","author":{"@type":"Organization","name":"Check.AI"},"publisher":{"@type":"Organization","name":"Check.AI","url":"https://checkaimodels.com/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"zh-CN","mainEntity":[
+{"@type":"Question","name":"2026 年最便宜的 AI API 是哪个？","acceptedAnswer":{"@type":"Answer","text":"顶级质量看 DeepSeek R1，约 $0.55 输入 / $2.19 输出 每百万 token。极致便宜的分类、抽取场景看 Gemini 2.5 Flash 和 GPT-5 mini，输入价不到 $0.20。Qwen3 Max 在亚洲部署也很有竞争力。"}},
+{"@type":"Question","name":"GPT-5 每百万 token 多少钱？","acceptedAnswer":{"@type":"Answer","text":"2026 年 GPT-5 标准价约 $2.50 输入 / $10 输出 每百万 token。GPT-5 mini 约 $0.15 / $0.60。缓存输入 5 折，批量 API 再 5 折但是异步。"}},
+{"@type":"Question","name":"Claude 比同行贵吗？","acceptedAnswer":{"@type":"Answer","text":"Claude Sonnet 4.6 约 $3 输入 / $15 输出，比 DeepSeek R1 贵 5 倍，比 GPT-5 贵约 50%。Claude Haiku 4.5 便宜很多，约 $0.80 / $4，简单任务质量已经达到 Sonnet 90%。"}},
+{"@type":"Question","name":"怎么省 AI API 账单？","acceptedAnswer":{"@type":"Answer","text":"用 prompt caching（重复上下文省 50-90%）、batch API（半价但异步）、用能跑过评测的最小模型、按任务路由 — 分类用便宜模型，推理才上贵的。"}},
+{"@type":"Question","name":"便宜模型生产环境够用吗？","acceptedAnswer":{"@type":"Answer","text":"抽取、分类、总结、翻译够用，常常感受不到与前沿模型的差距。多步推理、code agent、复杂决策通常不够 — 模型循环试错总成本反而更高。"}}
+]}
+</script>
+</head>
+<body class="seo-page">
+<header class="seo-header"><a class="brand-link" href="/zh/">Check.AI</a><nav><a href="/">EN</a><a href="/">对比工具</a><a href="/about.html">关于</a><a href="/contact.html">联系</a></nav></header>
+<main class="seo-main">
+<p class="eyebrow">AI 模型选型指南 · 2026 年 5 月更新</p>
+<h1>2026 年最便宜的 AI API 模型</h1>
+<p class="seo-lead">如果你在做 AI 产品，API 账单往往是最大的可变成本。前沿模型价格自 2024 年以来已经掉了 5-10 倍，能跑过你评测的最便宜模型几乎永远是正确选择。这篇按 2026 年实际价格排名，并标注每款的质量边界。</p>
+
+<section class="seo-card">
+<h2>价格排名 — 输入 + 输出 每百万 token</h2>
+<ul>
+<li><strong>Gemini 2.5 Flash</strong> — ~$0.10 / $0.40。最快最便宜的顶级模型，硬推理弱。</li>
+<li><strong>GPT-5 mini</strong> — ~$0.15 / $0.60。指令遵循强，工具调用好。</li>
+<li><strong>DeepSeek R1</strong> — ~$0.55 / $2.19。性价比之王，推理和写代码质量最好。</li>
+<li><strong>Qwen3 Max</strong> — ~$0.80 / $2.40。中文/多语言强，亚洲低延迟。</li>
+<li><strong>Claude Haiku 4.5</strong> — ~$0.80 / $4.00。最强的小型 Claude，工具用得稳。</li>
+<li><strong>Mistral Large</strong> — ~$2 / $6。欧盟托管选项，质量不错。</li>
+<li><strong>GPT-5</strong> — ~$2.50 / $10。前沿推理基准价。</li>
+<li><strong>Claude Sonnet 4.6</strong> — ~$3 / $15。agent 编程贵但值。</li>
+</ul>
+<p>以上是不带缓存、不带 batch 的标价。实际花销做好优化后能再降 30-70%。</p>
+</section>
+
+<section class="seo-card">
+<h2>三个常被忽视的省钱杠杆</h2>
+<ul>
+<li><strong>Prompt caching</strong>（Anthropic、OpenAI、DeepSeek 都支持）：缓存前缀只收正常输入价的 10-50%。聊天产品复用 system prompt 或文档时，输入 token 能省 50-90%。最大单一杠杆。</li>
+<li><strong>Batch API</strong>（OpenAI、Anthropic）：24 小时内异步完成的任务半价。回填、批量打分、内容生成最适合。</li>
+<li><strong>输出 token 节制。</strong>输出价是输入价的 4-5 倍。让模型返回结构化 JSON 而不是散文，输出能砍 70%。<code>max_tokens</code> 是你的好朋友。</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2>便宜的边界（哪些任务别省）</h2>
+<p>便宜模型在以下场景容易翻车：长 agent 循环（5+ 工具调用）、细致推理、模糊指令、跨文件代码重构、需要语气把控的内容。一个"便宜"模型循环 5 次的总成本经常超过 Claude 一次完成的开销。永远算每个完成任务的成本，不是每个 token 的成本。</p>
+<p>便宜模型最擅长：分类、情感分析、抽取（NER、结构化输出）、翻译、定长总结，以及任何能用字符串匹配判定对错的任务。</p>
+</section>
+
+<section class="seo-card">
+<h2>独立产品推荐的便宜栈</h2>
+<ul>
+<li><strong>用户路径（实时返回）：</strong>Gemini 2.5 Flash 或 GPT-5 mini，亚秒级延迟，单次请求通常 < $0.001。</li>
+<li><strong>推理兜底：</strong>DeepSeek R1 或 GPT-5，仅在小模型置信度低时调用。</li>
+<li><strong>批量任务：</strong>必上 batch API，半价是免费的钱。</li>
+<li><strong>Embedding：</strong>OpenAI <code>text-embedding-3-small</code> 或开源 <code>bge-large</code>。</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2>一个 key 路由所有便宜模型 — OpenRouter</h2>
+<p>OpenRouter 用一个 OpenAI 兼容接口路由到 DeepSeek、Gemini Flash、GPT-5 mini、Claude Haiku 等。A/B 测试不同模型时不用注册 6 次。</p>
+<p><a class="section-link" href="https://openrouter.ai/?utm_source=checkai&utm_medium=topic_zh&utm_campaign=cheap">试试 OpenRouter →</a></p>
+<p style="font-size:13px;color:var(--muted)">OpenRouter 目前没有公开的推广返佣计划，此为普通推荐链接。</p>
+</section>
+
+<section class="seo-card">
+<h2>FAQ</h2>
+<p><strong>2026 年最便宜的 API？</strong>输入大用 Gemini 2.5 Flash，要推理质量用 DeepSeek R1。</p>
+<p><strong>DeepSeek 真比 GPT-5 便宜？</strong>是。输入和输出都便宜约 5 倍，多数编程和推理任务质量相当。</p>
+<p><strong>该用 Claude Haiku 吗？</strong>如果 Sonnet 能跑通的任务，Haiku 通常也能，价格只要 1/4。务必先测。</p>
+<p><strong>哪里看实时价格？</strong><a href="/">Check.AI</a> 每周追踪，厂商页面是权威来源。</p>
+</section>
+
+<p><a class="section-link" href="/">→ 并排对比 AI 价格</a></p>
+</main>
+<footer class="seo-footer"><a href="/zh/">返回中文首页</a> · <a href="/topics/cheapest-ai-api-models/">English version</a></footer>
+</body>
+</html>
