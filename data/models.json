@@ -450,7 +450,7 @@
         "OPENCODE_API_KEY"
       ],
       "api": "https://opencode.ai/zen/v1",
-      "models_count": 58
+      "models_count": 59
     },
     {
       "key": "stepfun",
@@ -787,16 +787,6 @@
       ],
       "api": null,
       "models_count": 52
-    },
-    {
-      "key": "kiro",
-      "name": "Kiro",
-      "doc": "https://kiro.dev",
-      "env": [
-        "KIRO_API_KEY"
-      ],
-      "api": "https://q.us-east-1.amazonaws.com",
-      "models_count": 12
     },
     {
       "key": "requesty",
@@ -53816,6 +53806,30 @@
     },
     {
       "platform": "opencode",
+      "id": "ring-2.6-1t-free",
+      "name": "Ring 2.6 1T Free",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262000,
+        "output": 66000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-05-08",
+      "knowledge": "2025-06",
+      "last_updated": "2026-05-08"
+    },
+    {
+      "platform": "opencode",
       "id": "gpt-5.2",
       "name": "GPT-5.2",
       "price": {
@@ -76883,285 +76897,6 @@
       "release_date": "2024-11-20",
       "knowledge": "2023-09",
       "last_updated": "2024-11-20"
-    },
-    {
-      "platform": "kiro",
-      "id": "auto",
-      "name": "Auto",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 1000000,
-        "output": 64000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools"
-      ],
-      "release_date": "2026-03-23",
-      "knowledge": null,
-      "last_updated": "2026-03-23"
-    },
-    {
-      "platform": "kiro",
-      "id": "claude-opus-4.6",
-      "name": "Claude Opus 4.6",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 1000000,
-        "output": 64000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools"
-      ],
-      "release_date": "2026-03-23",
-      "knowledge": null,
-      "last_updated": "2026-03-23"
-    },
-    {
-      "platform": "kiro",
-      "id": "claude-opus-4.7",
-      "name": "Claude Opus 4.7",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 1000000,
-        "output": 64000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools"
-      ],
-      "release_date": "2026-04-15",
-      "knowledge": null,
-      "last_updated": "2026-04-15"
-    },
-    {
-      "platform": "kiro",
-      "id": "minimax-m2.1",
-      "name": "MiniMax M2.1",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 196000,
-        "output": 64000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "open"
-      ],
-      "release_date": "2026-03-23",
-      "knowledge": null,
-      "last_updated": "2026-03-23"
-    },
-    {
-      "platform": "kiro",
-      "id": "claude-sonnet-4",
-      "name": "Claude Sonnet 4",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 200000,
-        "output": 64000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools"
-      ],
-      "release_date": "2026-03-23",
-      "knowledge": null,
-      "last_updated": "2026-03-23"
-    },
-    {
-      "platform": "kiro",
-      "id": "deepseek-3.2",
-      "name": "Deepseek v3.2",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 164000,
-        "output": 64000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "open"
-      ],
-      "release_date": "2026-03-23",
-      "knowledge": null,
-      "last_updated": "2026-03-23"
-    },
-    {
-      "platform": "kiro",
-      "id": "claude-sonnet-4.5",
-      "name": "Claude Sonnet 4.5",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 200000,
-        "output": 64000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools"
-      ],
-      "release_date": "2026-03-23",
-      "knowledge": null,
-      "last_updated": "2026-03-23"
-    },
-    {
-      "platform": "kiro",
-      "id": "claude-opus-4.5",
-      "name": "Claude Opus 4.5",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 200000,
-        "output": 64000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools"
-      ],
-      "release_date": "2026-03-23",
-      "knowledge": null,
-      "last_updated": "2026-03-23"
-    },
-    {
-      "platform": "kiro",
-      "id": "qwen3-coder-next",
-      "name": "Qwen3 Coder Next",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 256000,
-        "output": 64000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "open"
-      ],
-      "release_date": "2026-03-23",
-      "knowledge": null,
-      "last_updated": "2026-03-23"
-    },
-    {
-      "platform": "kiro",
-      "id": "minimax-m2.5",
-      "name": "MiniMax M2.5",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 196000,
-        "output": 64000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "open"
-      ],
-      "release_date": "2026-03-23",
-      "knowledge": null,
-      "last_updated": "2026-03-23"
-    },
-    {
-      "platform": "kiro",
-      "id": "claude-haiku-4.5",
-      "name": "Claude Haiku 4.5",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 200000,
-        "output": 64000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools"
-      ],
-      "release_date": "2026-03-23",
-      "knowledge": null,
-      "last_updated": "2026-03-23"
-    },
-    {
-      "platform": "kiro",
-      "id": "claude-sonnet-4.6",
-      "name": "Claude Sonnet 4.6",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 1000000,
-        "output": 64000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools"
-      ],
-      "release_date": "2026-03-23",
-      "knowledge": null,
-      "last_updated": "2026-03-23"
     },
     {
       "platform": "requesty",
