@@ -31,7 +31,7 @@
 <main class="seo-main">
 <p class="eyebrow">深度对比 · 2026 年 5 月</p>
 <h1>GPT-5 vs Claude Sonnet 4.6：写代码到底选哪个</h1>
-<p class="seo-lead">2026 年想认真用 AI 写代码，绕不开两个名字：OpenAI 的 GPT-5（含 GPT-5 Pro）和 Anthropic 的 Claude Sonnet 4.6。这篇用真实 benchmark、Cursor 实测、API 价格、多文件重构案例，把它们摆在一起 — 不是"什么都好"的废话对比，而是给出明确建议：什么场景选哪个。</p>
+<p class="seo-lead">认真写代码的 AI 就两家选：OpenAI 的 GPT-5（含 Pro），Anthropic 的 Claude Sonnet 4.6。我把它们都接进 Cursor 跑了一周，对照 SWE-bench 数字和官方价格——这篇直接告诉你什么场景用哪个。不是"两个都很棒"那种废话。</p>
 
 <section class="seo-card">
 <h2>30 秒结论</h2>
@@ -67,7 +67,7 @@
 <p>同一个任务："登录失败时不显示错误消息，请定位并修复"。涉及前端组件、API 路由、错误处理 middleware 三个文件。</p>
 <p><strong>Claude Sonnet 4.6 的表现：</strong>读了 3 个相关文件、定位到 middleware 里的错误吞掉，给出 patch、运行类型检查通过、只改了必要的行。一次完成。</p>
 <p><strong>GPT-5 的表现：</strong>读了同样的文件，找到了相同的根因，但顺手"优化"了 middleware 里两个无关的早期 return 风格。代码本身正确，但 diff 比 Claude 大 3 倍。需要人工挑掉无关改动。</p>
-<p><strong>结论：</strong>agent 模式下 Claude 更克制，这是它在 2026 年成为 Cursor / Cline / Aider 默认的核心原因。代码越大、PR 越多人 review，这点越重要。</p>
+<p><strong>结论：</strong>agent 模式下 Claude 更克制。这是 Cursor / Cline / Aider 把它设成默认的原因。代码库越大、PR 评审越多人，这点越值钱。</p>
 </section>
 
 <section class="seo-card">
@@ -75,7 +75,7 @@
 <p>"设计一个支持 100 万 QPS 的 URL 短链服务，含一致性、容量估算、降级方案。"</p>
 <p><strong>GPT-5 Pro：</strong>主动反问 — "读多还是写多？预算如何？是否需要分析自定义后缀？" 然后给出三种方案并标注每种的取舍。</p>
 <p><strong>Claude Sonnet 4.6：</strong>直接给出一个完整方案，质量也好，但反问意识弱。</p>
-<p><strong>结论：</strong>开放性问题、系统设计、面试准备 — GPT-5 Pro 显著更好。它的"会反问"是真正的推理优势。</p>
+<p><strong>结论：</strong>开放问题、系统设计、面试题——GPT-5 Pro 明显更稳。"会反问"才是真正的推理优势，不是把结果写得多漂亮。</p>
 </section>
 
 <section class="seo-card">
@@ -121,7 +121,7 @@
 <li><strong>批量、低价值任务（lint、文档生成、commit message）切到 DeepSeek R1 或 Claude Haiku 4.5</strong>，省钱。</li>
 <li><strong>整库问答切到 Gemini 2.5 Pro</strong>，2M 上下文整个项目塞进去。</li>
 </ol>
-<p>不要押单一模型。前沿模型每 3-6 个月就换一次第一。能切就切。</p>
+<p>别押单一模型。前沿这帮每 3-6 个月就换一次老大。能切就切，别给自己挖坑。</p>
 </section>
 
 <section class="seo-card">

@@ -32,7 +32,7 @@
 <main class="seo-main">
 <p class="eyebrow">AI model guide · Updated May 2026</p>
 <h1>Best AI Models for Coding (2026)</h1>
-<p class="seo-lead">Six models lead software-engineering work in 2026: Claude Sonnet 4.6, GPT-5, GPT-5 Pro, Gemini 2.5 Pro, DeepSeek R1, and Grok 4. This guide compares them on real coding benchmarks (SWE-bench, HumanEval), API pricing, context window, and tool-use quality so you can pick one without re-researching every week.</p>
+<p class="seo-lead">Six models are worth using for serious code in 2026: Claude Sonnet 4.6, GPT-5, GPT-5 Pro, Gemini 2.5 Pro, DeepSeek R1, Grok 4. I've run all of them in Cursor and as agent backends. Below: where each one wins, what they cost, which benchmark actually predicts day-to-day pain.</p>
 
 <section class="seo-card">
 <h2>TL;DR — which model should you pick?</h2>
@@ -48,7 +48,7 @@
 
 <section class="seo-card">
 <h2>How to evaluate a coding model (5 axes that matter)</h2>
-<p>Most "best LLM for coding" lists rank models by HumanEval. That benchmark is saturated and no longer differentiates frontier models. Use these five axes instead:</p>
+<p>Most "best LLM for coding" lists rank by HumanEval. That benchmark is saturated — every frontier model scores 95%+, the differences disappear in the noise. Look at these five instead:</p>
 <ul>
 <li><strong>SWE-bench Verified.</strong> Real GitHub issues, multi-file fixes. The closest proxy to day-to-day engineering. Claude Sonnet 4.6 leads at ~70%; GPT-5 ~65%; DeepSeek R1 ~52%.</li>
 <li><strong>Tool-use reliability.</strong> Does the model call <code>read_file</code>, <code>edit</code>, <code>bash</code> correctly without drifting? Claude is the strongest; smaller open models often hallucinate tool names.</li>
