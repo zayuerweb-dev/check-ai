@@ -322,3 +322,41 @@ tbody tr:last-child td{border-bottom:0}
   .compare-controls,.compare-side-column{height:auto}
   .model-filters{max-height:240px}
 }
+
+/* ============================================================
+   POLISH v2.1 — P0 zh-CN H1, P1 link hover, P2 trust bar tightening
+   ============================================================ */
+
+/* P0: CJK headings — Fraunces doesn't include CJK glyphs, so they fall back
+   to a system Han font which renders heavy at large sizes. Reduce size + weight
+   when the page is Chinese-tagged. */
+html[lang="zh-CN"] .seo-main h1{
+  font-size:clamp(32px,4.6vw,52px);
+  font-weight:700;
+  letter-spacing:-.02em;
+  line-height:1.15;
+}
+html[lang="zh-CN"] .seo-main h2{font-size:24px;line-height:1.2}
+html[lang="zh-CN"] .compare-dialog-head h2{font-size:36px;line-height:1.1}
+html[lang="zh-CN"] #platformTitle{font-size:clamp(38px,5vw,56px);line-height:1}
+html[lang="zh-CN"] .summary-main h3{font-size:24px;line-height:1.2}
+
+/* P1: link hover — slight color + underline thickness change for feedback */
+a{transition:color .12s,text-decoration-color .12s}
+.seo-card a,.seo-main a{color:var(--accent);text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:1px;text-underline-offset:3px}
+.seo-card a:hover,.seo-main a:hover{text-decoration-color:var(--accent);color:#6c1414}
+.trust-meta a:hover{color:#fff;border-bottom-color:#fff;text-decoration:none}
+.brand-link:hover{color:var(--accent);text-decoration:none}
+
+/* P2: trust bar — tighten rhythm + thin top accent rule */
+.trust-bar{position:relative;border-top:2px solid var(--accent)}
+.trust-bar-inner{padding:8px 22px;gap:18px}
+.trust-claim strong{font-size:15px}
+.trust-claim span{font-size:10.5px;margin-top:1px;letter-spacing:.06em;text-transform:uppercase}
+.trust-meta{gap:14px}
+.trust-meta>span{display:inline-flex;align-items:center;gap:5px}
+@media(max-width:760px){
+  .trust-bar-inner{padding:8px 14px;gap:8px}
+  .trust-claim strong{font-size:13px}
+  .trust-claim span{font-size:10px}
+}
