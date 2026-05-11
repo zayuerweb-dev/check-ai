@@ -2,13 +2,15 @@ name: Sync models.dev
 
 on:
   schedule:
-    # Daily at 06:00 UTC (14:00 Beijing). Adjust if you want.
+    # Daily at 06:00 UTC (14:00 Beijing).
     - cron: '0 6 * * *'
   workflow_dispatch: {}
   push:
     branches: [main]
     paths:
       - 'scripts/sync-models-dev.mjs'
+      - 'scripts/build-model-pages.mjs'
+      - 'scripts/build-sitemap.mjs'
       - '.github/workflows/sync-models-dev.yml'
 
 permissions:
@@ -25,7 +27,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          # Need full history so the push isn't rejected as non-fast-forward.
           fetch-depth: 0
 
       - name: Setup Node
@@ -33,32 +34,41 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Run sync script
+      - name: Sync data from models.dev
         id: sync
         run: node scripts/sync-models-dev.mjs
 
+      - name: Rebuild model detail pages (if data changed)
+        if: steps.sync.outputs.changed == 'true'
+        run: node scripts/build-model-pages.mjs
+
+      - name: Rebuild sitemap (if data changed)
+        if: steps.sync.outputs.changed == 'true'
+        run: node scripts/build-sitemap.mjs
+
       - name: Show diff
+        if: steps.sync.outputs.changed == 'true'
         run: |
-          git status --short
-          git diff --stat -- data/ || true
+          git status --short | head -30
+          echo "..."
+          git status --short | wc -l
 
       - name: Commit and push to main
         if: steps.sync.outputs.changed == 'true'
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/
-          git commit -m "chore(data): sync models.dev (${{ steps.sync.outputs.providers }} providers, ${{ steps.sync.outputs.models }} models)"
-          # Try main first; if branch protection blocks it, fall back to a bot branch.
+          git add data/ models/ sitemap.xml
+          git commit -m "chore(data): sync models.dev (${{ steps.sync.outputs.providers }} providers, ${{ steps.sync.outputs.models }} models) + rebuild pages"
           if git push origin HEAD:main; then
             echo "Pushed to main."
           else
             echo "Direct push to main blocked. Falling back to bot/sync-models-dev branch."
             git push -f origin HEAD:bot/sync-models-dev
-            echo "Open a PR manually at: https://github.com/${{ github.repository }}/compare/main...bot/sync-models-dev"
+            echo "Open a PR at: https://github.com/${{ github.repository }}/compare/main...bot/sync-models-dev"
             exit 1
           fi
 
       - name: No changes
         if: steps.sync.outputs.changed != 'true'
-        run: echo "No changes from upstream — skipping commit."
+        run: echo "No changes from upstream — skipping rebuild."
