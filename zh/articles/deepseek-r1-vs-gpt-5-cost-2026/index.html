@@ -12,7 +12,7 @@
 <meta property="og:description" content="价格、跑分、3 个真实工作流成本计算。一文看完不再纠结。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://checkaimodels.com/zh/articles/deepseek-r1-vs-gpt-5-cost-2026/">
-<link rel="stylesheet" href="/styles.css?v=20260511-1">
+<link rel="stylesheet" href="/styles.css?v=20260512-1">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Article","inLanguage":"zh-CN","headline":"DeepSeek R1 vs GPT-5 性价比对决：到底差几倍","description":"DeepSeek R1 与 GPT-5 在价格、性能、真实工作流成本上的全面对比。","datePublished":"2026-05-10","dateModified":"2026-05-10","author":{"@type":"Person","name":"zayuerweb-dev","url":"https://github.com/zayuerweb-dev","sameAs":["https://github.com/zayuerweb-dev"]},"publisher":{"@type":"Organization","name":"Check.AI","url":"https://checkaimodels.com/"}}
@@ -34,8 +34,23 @@
 <h1>DeepSeek R1 vs GPT-5：性价比到底差几倍</h1>
 <p class="seo-lead">"DeepSeek 真便宜那么多吗？""便宜的是不是有坑？"——群里每周都有人问。这篇用 2026 年 5 月的官方价、四类跑分、三个真实工作流的开销账，给出不绕弯子的答案。先放结论：<strong>大多数生产场景，DeepSeek R1 综合成本是 GPT-5 的 1/5 到 1/8，质量打 90 分</strong>。但有 5 类场景 GPT-5 反而更划算，一会儿拆开讲。</p>
 
+<nav class="article-toc" aria-label="目录">
+<p class="article-toc-label">目录</p>
+<ol>
+<li><a href="#conclusion">30 秒结论</a></li>
+<li><a href="#pricing">价格对比 — 每百万 token</a></li>
+<li><a href="#performance">性能对比 — 不要只看一个 benchmark</a></li>
+<li><a href="#cost">真实工作流成本计算</a></li>
+<li><a href="#when-gpt5">什么时候 GPT-5 反而值得多花钱</a></li>
+<li><a href="#when-deepseek-fails">什么时候 DeepSeek 反而吃亏</a></li>
+<li><a href="#routing">推荐组合：双模型路由</a></li>
+<li><a href="#related">相关阅读</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ol>
+</nav>
+
 <section class="seo-card">
-<h2>30 秒结论</h2>
+<h2 id="conclusion">30 秒结论</h2>
 <ul>
 <li><strong>常规推理 / 编程 / 中文：</strong>DeepSeek R1 性价比赢。</li>
 <li><strong>多步 agent / 工具调用 / 模糊需求：</strong>GPT-5 更稳，省下来的工程时间值这个钱。</li>
@@ -47,7 +62,7 @@
 </section>
 
 <section class="seo-card">
-<h2>价格对比 — 每百万 token（2026 年 5 月）</h2>
+<h2 id="pricing">价格对比 — 每百万 token（2026 年 5 月）</h2>
 <table style="width:100%;border-collapse:collapse;margin-top:8px">
 <thead><tr style="border-bottom:1px solid var(--line)">
 <th style="text-align:left;padding:8px">项目</th>
@@ -68,7 +83,7 @@
 </section>
 
 <section class="seo-card">
-<h2>性能对比 — 不要只看一个 benchmark</h2>
+<h2 id="performance">性能对比 — 不要只看一个 benchmark</h2>
 <p>大家爱看 HumanEval 一个数。但单看一个 benchmark 容易翻车。DeepSeek R1 在 4 类基准上和 GPT-5 几乎打平，2 类上明显落后。便宜 5 倍、80% 场景能用——剩下 20% 你得有兜底。</p>
 <ul>
 <li><strong>数学（AIME 2025、MATH-500）：</strong>DeepSeek R1 ≈ GPT-5，部分子集略胜。</li>
@@ -82,7 +97,7 @@
 </section>
 
 <section class="seo-card">
-<h2>真实工作流成本计算（看实际钱，不是 token 单价）</h2>
+<h2 id="cost">真实工作流成本计算（看实际钱，不是 token 单价）</h2>
 
 <h3 style="margin-top:18px">场景 A：客服聊天机器人（每月 100 万次对话）</h3>
 <p>假设：每次对话平均 3 轮，每轮输入 800 token、输出 200 token，开 prompt cache（系统提示重复使用）。</p>
@@ -114,7 +129,7 @@
 </section>
 
 <section class="seo-card">
-<h2>什么时候 GPT-5 反而值得多花钱</h2>
+<h2 id="when-gpt5">什么时候 GPT-5 反而值得多花钱</h2>
 <ol>
 <li><strong>多步 agent（5+ 工具调用）：</strong>每次失败都要重跑整个链，DeepSeek 失败率高 → 总成本可能反超。</li>
 <li><strong>模糊需求 + 系统设计：</strong>GPT-5 Pro 会反问，DeepSeek 会硬上。错的方案做完比贵 5 倍更亏。</li>
@@ -125,7 +140,7 @@
 </section>
 
 <section class="seo-card">
-<h2>什么时候 DeepSeek 反而吃亏</h2>
+<h2 id="when-deepseek-fails">什么时候 DeepSeek 反而吃亏</h2>
 <ol>
 <li><strong>没有兜底机制的生产环境：</strong>DeepSeek 偶尔崩、限速、不可用，单一供应商风险。建议至少接两家。</li>
 <li><strong>多模态需求（图、视频、语音）：</strong>DeepSeek R1 文本为主，需要图像就得切到 Qwen-VL 或 GPT-5。</li>
@@ -135,7 +150,7 @@
 </section>
 
 <section class="seo-card">
-<h2>推荐组合：双模型路由（最佳实践）</h2>
+<h2 id="routing">推荐组合：双模型路由（最佳实践）</h2>
 <p>2026 年成熟产品基本都不押单一模型。最常见的路由：</p>
 <ol>
 <li><strong>DeepSeek R1 当主力</strong>处理 80% 的请求（聊天、抽取、分类、写代码片段、中文内容）</li>
@@ -148,8 +163,9 @@
 </section>
 
 <section class="seo-card">
-<h2>相关阅读</h2>
+<h2 id="related">相关阅读</h2>
 <ul>
+<li><a href="/zh/articles/claude-opus-4-7-review-2026/">Claude Opus 4.7 深度评测：SWE-bench 87.6%、谁该升级</a></li>
 <li><a href="/zh/articles/china-ai-models-landscape-2026/">2026 年国产 AI 模型全景</a></li>
 <li><a href="/zh/articles/gpt-5-vs-claude-coding-2026/">GPT-5 vs Claude Sonnet 4.6：写代码到底选哪个</a></li>
 <li><a href="/zh/topics/cheapest-ai-api-models/">2026 年最便宜的 AI API 模型</a></li>
@@ -159,7 +175,7 @@
 </section>
 
 <section class="seo-card">
-<h2>FAQ</h2>
+<h2 id="faq">FAQ</h2>
 <p><strong>DeepSeek R1 比 GPT-5 便宜几倍？</strong>输入 4.5 倍、输出 4.6 倍。开 cache + batch 后差距可拉大到 6-8 倍，缩小到 2.6 倍（GPT-5 batch 时）。</p>
 <p><strong>性能真追平了吗？</strong>数学、代码片段、中文上追平；agent、工具调用、200K+ 长上下文 GPT-5 仍领先。</p>
 <p><strong>什么时候必选 GPT-5？</strong>多步 agent、模糊需求、付费 C 端、合规、200K+ 上下文。</p>

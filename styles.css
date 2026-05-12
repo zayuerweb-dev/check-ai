@@ -362,6 +362,27 @@ a{transition:color .12s,text-decoration-color .12s}
 }
 
 /* ============================================================
+   ARTICLE TABLE OF CONTENTS (2026-05-12)
+   ============================================================ */
+.article-toc{
+  margin:24px 0 8px;
+  padding:18px 22px;
+  border:1px solid var(--line);
+  background:var(--paper);
+  border-radius:var(--radius);
+}
+.article-toc-label{
+  font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+  color:var(--muted);margin:0 0 10px;
+}
+.article-toc ol{margin:0;padding-left:22px;counter-reset:toc-item}
+.article-toc li{margin:5px 0;font-size:15px;line-height:1.5}
+.article-toc a{color:var(--ink);text-decoration:none;font-weight:500}
+.article-toc a:hover{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.seo-card[id]{scroll-margin-top:20px}
+h2[id],h3[id]{scroll-margin-top:20px}
+
+/* ============================================================
    MOBILE TABLE SCROLL + TAP TARGETS (2026-05-11)
    ============================================================ */
 @media(max-width:640px){

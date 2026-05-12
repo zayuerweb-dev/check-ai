@@ -12,7 +12,7 @@
 <meta property="og:description" content="跑分、Cursor 实测、价格、多文件重构、工具调用，一篇决定。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://checkaimodels.com/zh/articles/gpt-5-vs-claude-coding-2026/">
-<link rel="stylesheet" href="/styles.css?v=20260511-1">
+<link rel="stylesheet" href="/styles.css?v=20260512-1">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Article","inLanguage":"zh-CN","headline":"GPT-5 vs Claude Sonnet 4.6：写代码到底选哪个（2026 年实测）","description":"对比 GPT-5 和 Claude Sonnet 4.6 在写代码场景的表现。","datePublished":"2026-05-10","dateModified":"2026-05-10","author":{"@type":"Person","name":"zayuerweb-dev","url":"https://github.com/zayuerweb-dev","sameAs":["https://github.com/zayuerweb-dev"]},"publisher":{"@type":"Organization","name":"Check.AI","url":"https://checkaimodels.com/"}}
@@ -33,8 +33,25 @@
 <h1>GPT-5 vs Claude Sonnet 4.6：写代码到底选哪个</h1>
 <p class="seo-lead">认真写代码的 AI 就两家选：OpenAI 的 GPT-5（含 Pro），Anthropic 的 Claude Sonnet 4.6。我把它们都接进 Cursor 跑了一周，对照 SWE-bench 数字和官方价格——这篇直接告诉你什么场景用哪个。不是"两个都很棒"那种废话。</p>
 
+<nav class="article-toc" aria-label="目录">
+<p class="article-toc-label">目录</p>
+<ol>
+<li><a href="#conclusion">30 秒结论</a></li>
+<li><a href="#specs">核心规格对比</a></li>
+<li><a href="#scenario-1">真实场景一：用 Cursor 改跨文件 bug</a></li>
+<li><a href="#scenario-2">真实场景二：算法题 / 系统设计</a></li>
+<li><a href="#scenario-3">真实场景三：性价比</a></li>
+<li><a href="#when-gpt5">什么时候 GPT-5 反而更合适</a></li>
+<li><a href="#when-claude">什么时候必选 Claude</a></li>
+<li><a href="#both">怎么"两个都用"</a></li>
+<li><a href="#openrouter">用一个 API key 同时调用两者</a></li>
+<li><a href="#summary">一句话总结</a></li>
+<li><a href="#related">相关阅读</a></li>
+</ol>
+</nav>
+
 <section class="seo-card">
-<h2>30 秒结论</h2>
+<h2 id="conclusion">30 秒结论</h2>
 <ul>
 <li><strong>日常 agent 编程（Cursor / Cline / Aider）：</strong>Claude Sonnet 4.6 → 工具调用稳、不乱改、SWE-bench 第一。</li>
 <li><strong>系统设计、算法难题、模糊需求：</strong>GPT-5 / GPT-5 Pro → 提问能力和推理深度领先。</li>
@@ -45,7 +62,7 @@
 </section>
 
 <section class="seo-card">
-<h2>核心规格对比</h2>
+<h2 id="specs">核心规格对比</h2>
 <table style="width:100%;border-collapse:collapse;margin-top:8px">
 <thead><tr style="border-bottom:1px solid var(--line)"><th style="text-align:left;padding:8px">维度</th><th style="text-align:left;padding:8px">Claude Sonnet 4.6</th><th style="text-align:left;padding:8px">GPT-5</th></tr></thead>
 <tbody>
@@ -63,7 +80,7 @@
 </section>
 
 <section class="seo-card">
-<h2>真实场景一：用 Cursor 改一个跨文件的 bug</h2>
+<h2 id="scenario-1">真实场景一：用 Cursor 改一个跨文件的 bug</h2>
 <p>同一个任务："登录失败时不显示错误消息，请定位并修复"。涉及前端组件、API 路由、错误处理 middleware 三个文件。</p>
 <p><strong>Claude Sonnet 4.6 的表现：</strong>读了 3 个相关文件、定位到 middleware 里的错误吞掉，给出 patch、运行类型检查通过、只改了必要的行。一次完成。</p>
 <p><strong>GPT-5 的表现：</strong>读了同样的文件，找到了相同的根因，但顺手"优化"了 middleware 里两个无关的早期 return 风格。代码本身正确，但 diff 比 Claude 大 3 倍。需要人工挑掉无关改动。</p>
@@ -71,7 +88,7 @@
 </section>
 
 <section class="seo-card">
-<h2>真实场景二：算法题/系统设计</h2>
+<h2 id="scenario-2">真实场景二：算法题/系统设计</h2>
 <p>"设计一个支持 100 万 QPS 的 URL 短链服务，含一致性、容量估算、降级方案。"</p>
 <p><strong>GPT-5 Pro：</strong>主动反问 — "读多还是写多？预算如何？是否需要分析自定义后缀？" 然后给出三种方案并标注每种的取舍。</p>
 <p><strong>Claude Sonnet 4.6：</strong>直接给出一个完整方案，质量也好，但反问意识弱。</p>
@@ -79,7 +96,7 @@
 </section>
 
 <section class="seo-card">
-<h2>真实场景三：性价比</h2>
+<h2 id="scenario-3">真实场景三：性价比</h2>
 <p>同一个 100 文件的 monorepo 让 AI 跑一遍代码 review。预估总 token 输入 800K、输出 200K。</p>
 <ul>
 <li><strong>Claude Sonnet 4.6：</strong>$3 × 0.8 + $15 × 0.2 = $5.40 一次。</li>
@@ -91,7 +108,7 @@
 </section>
 
 <section class="seo-card">
-<h2>什么时候 GPT-5 反而更合适</h2>
+<h2 id="when-gpt5">什么时候 GPT-5 反而更合适</h2>
 <ul>
 <li><strong>需要"会反问"的代理。</strong>例如让模型读 spec 再写代码，GPT-5 Pro 提问质量明显更高。</li>
 <li><strong>算法竞赛、LeetCode。</strong>HumanEval 和 LiveCodeBench 上 GPT-5 略胜。</li>
@@ -102,7 +119,7 @@
 </section>
 
 <section class="seo-card">
-<h2>什么时候必选 Claude</h2>
+<h2 id="when-claude">什么时候必选 Claude</h2>
 <ul>
 <li><strong>用 Cursor / Windsurf / Cline / Aider。</strong>所有主流 agent 工具都对 Claude 调优最深。</li>
 <li><strong>多文件重构。</strong>不乱改、保持代码风格一致。</li>
@@ -113,7 +130,7 @@
 </section>
 
 <section class="seo-card">
-<h2>怎么"两个都用"</h2>
+<h2 id="both">怎么"两个都用"</h2>
 <p>2026 年最常见的工程师 setup：</p>
 <ol>
 <li><strong>Cursor 默认 Claude Sonnet 4.6</strong> 处理日常编辑、补全、重构。</li>
@@ -125,19 +142,20 @@
 </section>
 
 <section class="seo-card">
-<h2>用一个 API key 同时调用两者</h2>
+<h2 id="openrouter">用一个 API key 同时调用两者</h2>
 <p>如果你在写自己的工具或 agent，<strong>OpenRouter</strong> 提供一个 OpenAI 兼容接口，同时路由到 GPT-5、Claude、DeepSeek、Gemini，方便切换和 A/B 测试。注：OpenRouter 没有公开的推广返佣计划，下面是普通推荐链接。</p>
 <p><a class="section-link" target="_blank" rel="nofollow noopener" href="https://openrouter.ai/?utm_source=checkai&utm_medium=article_zh&utm_campaign=gpt5-vs-claude">前往 OpenRouter →</a></p>
 </section>
 
 <section class="seo-card">
-<h2>一句话总结</h2>
+<h2 id="summary">一句话总结</h2>
 <p>主力 Claude Sonnet 4.6，硬骨头切 GPT-5 Pro，批量任务切 DeepSeek R1。整库问答用 Gemini。不要试图押一个模型 — 切换才是 2026 年的最佳实践。</p>
 </section>
 
 <section class="seo-card">
-<h2>相关阅读</h2>
+<h2 id="related">相关阅读</h2>
 <ul>
+<li><a href="/zh/articles/claude-opus-4-7-review-2026/">Claude Opus 4.7 深度评测：SWE-bench 87.6%、谁该升级</a></li>
 <li><a href="/zh/articles/deepseek-r1-vs-gpt-5-cost-2026/">DeepSeek R1 vs GPT-5：性价比到底差几倍</a></li>
 <li><a href="/zh/articles/china-ai-models-landscape-2026/">2026 年国产 AI 模型全景</a></li>
 <li><a href="/zh/topics/best-ai-models-for-coding/">2026 年写代码最强 AI 模型对比</a></li>
