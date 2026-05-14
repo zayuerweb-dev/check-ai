@@ -7,7 +7,7 @@ const zh = {
   overview: '总览', models: '模型', pricing: '官网套餐', bestFor: '使用案例', plainConclusion: '摘要', capabilities: '能力',
   model: '模型', inputPrice: '输入/$1M', outputPrice: '输出/$1M', context: '上下文', releaseDate: '发布日期', lmArena: 'LMArena', sixDimChart: '六维示意图',
   consumerPlans: '会员套餐', officialPricing: '官方价格', estimatedScores: '估算分数', compareModels: '模型比较', company: '公司', selectedModels: '已选模型', clear: '清空',
-  noSelection: '未选择模型时显示当前范围内全部模型。', selectAllModels: '全选当前公司', curatedPlans: '实时模型数据 + 人工整理套餐', seedData: '种子数据', liveUnavailable: '实时数据暂不可用', updatedToday: '今天更新', average: '6轴平均'
+  noSelection: '未选择模型时显示当前范围内全部模型。', selectAllModels: '全选当前公司', curatedPlans: '实时模型数据 + 人工整理套餐', seedData: '种子数据', liveUnavailable: '实时数据暂不可用', updatedToday: '今天更新', average: '6轴平均', backToList: '平台列表'
 };
 const en = {
   brandName: 'Check.AI', brandSubtitle: 'Plans, APIs, models, scores', search: 'Search', compare: 'Compare',
@@ -17,7 +17,7 @@ const en = {
   overview: 'Overview', models: 'Models', pricing: 'Official Plans', bestFor: 'Use cases', plainConclusion: 'Plain conclusion', capabilities: 'Capabilities',
   model: 'Model', inputPrice: 'Input/$1M', outputPrice: 'Output/$1M', context: 'Context', releaseDate: 'Release date', lmArena: 'LMArena', sixDimChart: 'Six-axis visual',
   consumerPlans: 'Consumer plans', officialPricing: 'Official pricing', estimatedScores: 'Estimated scores', compareModels: 'Model comparison', company: 'Company', selectedModels: 'Selected models', clear: 'Clear',
-  noSelection: 'Without selected models, all models in the current scope are shown.', selectAllModels: 'Select current company', curatedPlans: 'Live model data + curated plans', seedData: 'Seed data', liveUnavailable: 'Live data unavailable', updatedToday: 'Updated today', average: 'Six-axis avg'
+  noSelection: 'Without selected models, all models in the current scope are shown.', selectAllModels: 'Select current company', curatedPlans: 'Live model data + curated plans', seedData: 'Seed data', liveUnavailable: 'Live data unavailable', updatedToday: 'Updated today', average: 'Six-axis avg', backToList: 'Platforms'
 };
 const ja = { ...en,
   brandSubtitle: 'プラン、API、モデル、スコア', search: '検索', compare: '比較', all: 'すべて', mainstream: '主流', modelLab: '自社開発', openSource: 'オープンソース', aggregator: 'プロバイダー', cloud: 'クラウド', hasMembership: '有料プラン',
@@ -25,7 +25,7 @@ const ja = { ...en,
   eyebrow: 'AI プラットフォームモデルデータベース', language: '言語', companyWebsite: '公式サイト', subscription: 'サブスク', apiPricing: 'API 価格', overview: '概要', models: 'モデル', pricing: '公式プラン',
   bestFor: '用途', plainConclusion: '要約', capabilities: '能力', model: 'モデル', inputPrice: '入力/$1M', outputPrice: '出力/$1M', context: 'コンテキスト', releaseDate: '公開日', sixDimChart: '6軸表示',
   consumerPlans: '会員プラン', officialPricing: '公式価格', estimatedScores: '推定スコア', compareModels: 'モデル比較', company: '会社', selectedModels: '選択済みモデル', clear: 'クリア',
-  noSelection: 'モデル未選択時は現在の範囲の全モデルを表示します。', selectAllModels: '現在の会社を全選択', curatedPlans: 'ライブモデルデータ + 整理済みプラン', seedData: '初期データ', liveUnavailable: 'ライブデータ利用不可', updatedToday: '本日更新', average: '6軸平均'
+  noSelection: 'モデル未選択時は現在の範囲の全モデルを表示します。', selectAllModels: '現在の会社を全選択', curatedPlans: 'ライブモデルデータ + 整理済みプラン', seedData: '初期データ', liveUnavailable: 'ライブデータ利用不可', updatedToday: '本日更新', average: '6軸平均', backToList: 'プラットフォーム'
 };
 const ko = { ...en,
   brandSubtitle: '요금제, API, 모델, 점수', search: '검색', compare: '비교', all: '전체', mainstream: '주류', modelLab: '자체 개발', openSource: '오픈소스', aggregator: '공급자', cloud: '클라우드', hasMembership: '멤버십',
@@ -33,7 +33,7 @@ const ko = { ...en,
   eyebrow: 'AI 플랫폼 모델 데이터베이스', language: '언어', companyWebsite: '공식 사이트', subscription: '구독', apiPricing: 'API 가격', overview: '개요', models: '모델', pricing: '공식 요금제',
   bestFor: '사용 사례', plainConclusion: '요약', capabilities: '기능', model: '모델', inputPrice: '입력/$1M', outputPrice: '출력/$1M', context: '컨텍스트', releaseDate: '출시일', sixDimChart: '6축 시각화',
   consumerPlans: '멤버십 요금제', officialPricing: '공식 가격', estimatedScores: '추정 점수', compareModels: '모델 비교', company: '회사', selectedModels: '선택한 모델', clear: '지우기',
-  noSelection: '선택한 모델이 없으면 현재 범위의 모든 모델을 표시합니다.', selectAllModels: '현재 회사 전체 선택', curatedPlans: '실시간 모델 데이터 + 정리된 요금제', seedData: '초기 데이터', liveUnavailable: '실시간 데이터 사용 불가', updatedToday: '오늘 업데이트', average: '6축 평균'
+  noSelection: '선택한 모델이 없으면 현재 범위의 모든 모델을 표시합니다.', selectAllModels: '현재 회사 전체 선택', curatedPlans: '실시간 모델 데이터 + 정리된 요금제', seedData: '초기 데이터', liveUnavailable: '실시간 데이터 사용 불가', updatedToday: '오늘 업데이트', average: '6축 평균', backToList: '플랫폼'
 };
 const es = { ...en,
   brandSubtitle: 'Planes, API, modelos y puntajes', search: 'Buscar', compare: 'Comparar', all: 'Todo', mainstream: 'Principales', modelLab: 'Propios', openSource: 'Código abierto', aggregator: 'Proveedores', cloud: 'Nube', hasMembership: 'Planes',
@@ -41,7 +41,7 @@ const es = { ...en,
   eyebrow: 'Base de datos de modelos de IA', language: 'Idioma', companyWebsite: 'Sitio oficial', subscription: 'Suscripción', apiPricing: 'Precio API', overview: 'Resumen', models: 'Modelos', pricing: 'Planes oficiales',
   bestFor: 'Casos de uso', plainConclusion: 'Resumen', capabilities: 'Capacidades', model: 'Modelo', inputPrice: 'Entrada/$1M', outputPrice: 'Salida/$1M', context: 'Contexto', releaseDate: 'Lanzamiento', sixDimChart: 'Vista de 6 ejes',
   consumerPlans: 'Planes de consumo', officialPricing: 'Precio oficial', estimatedScores: 'Puntajes estimados', compareModels: 'Comparación de modelos', company: 'Empresa', selectedModels: 'Modelos elegidos', clear: 'Limpiar',
-  noSelection: 'Sin modelos elegidos, se muestran todos los modelos del alcance actual.', selectAllModels: 'Elegir empresa actual', curatedPlans: 'Datos en vivo + planes curados', seedData: 'Datos iniciales', liveUnavailable: 'Datos en vivo no disponibles', updatedToday: 'Actualizado hoy', average: 'Promedio 6 ejes'
+  noSelection: 'Sin modelos elegidos, se muestran todos los modelos del alcance actual.', selectAllModels: 'Elegir empresa actual', curatedPlans: 'Datos en vivo + planes curados', seedData: 'Datos iniciales', liveUnavailable: 'Datos en vivo no disponibles', updatedToday: 'Actualizado hoy', average: 'Promedio 6 ejes', backToList: 'Plataformas'
 };
 const i18n = { zh, en, ja, ko, es };
 Object.assign(zh, {
@@ -439,11 +439,27 @@ function score(m) {
   return { lmArena: m.quality, aa: m.quality, coding, reasoning, multimodal, speed, efficiency: eff, average: Math.round((m.quality + coding + reasoning + multimodal + speed + eff) / 6) };
 }
 function radar(s, big = false) {
-  const vals = [s.aa,s.coding,s.reasoning,s.multimodal,s.speed,s.efficiency], labels = [tx('aaIndex'),tx('coding'),tx('reasoning'),tx('multimodal'),tx('speed'),tx('costEfficiency')];
-  const r = big ? 28 : 36, pt = (i,v) => [50 + Math.cos(-Math.PI / 2 + i * Math.PI / 3) * r * v / 100, 50 + Math.sin(-Math.PI / 2 + i * Math.PI / 3) * r * v / 100];
-  const poly = vals.map((v,i) => pt(i,v).join(',')).join(' '), grid = [100,66].map((v) => vals.map((_,i) => pt(i,v).join(',')).join(' '));
-  const label = big ? labels.map((l,i) => { const [x,y] = pt(i,128); return `<text x='${x}' y='${y}' text-anchor='middle'>${l} ${vals[i]}</text>`; }).join('') : '';
-  return `<button class='six-axis-button' type='button'><svg class='${big ? 'large-radar' : ''}' viewBox='0 0 100 100'><polygon class='radar-grid' points='${grid[0]}'/><polygon class='radar-grid' points='${grid[1]}'/><polygon class='radar-fill' points='${poly}'/><polygon class='radar-line' points='${poly}'/>${label}</svg></button>`;
+  const vals = [s.aa,s.coding,s.reasoning,s.multimodal,s.speed,s.efficiency];
+  const labels = [tx('aaIndex'),tx('coding'),tx('reasoning'),tx('multimodal'),tx('speed'),tx('costEfficiency')];
+  const shortLabels = ['AA','CODE','REAS','MULTI','SPEED','COST'];
+  const r = big ? 32 : 38;
+  const pt = (i, v) => [50 + Math.cos(-Math.PI / 2 + i * Math.PI / 3) * r * v / 100, 50 + Math.sin(-Math.PI / 2 + i * Math.PI / 3) * r * v / 100];
+  const poly = vals.map((v,i) => pt(i,v).join(',')).join(' ');
+  // 4 concentric grid rings: 25/50/75/100%
+  const rings = [25,50,75,100].map((v) => vals.map((_,i) => pt(i,v).join(',')).join(' '));
+  // 6 spokes from center to perimeter
+  const spokes = vals.map((_,i) => { const [x,y] = pt(i,100); return `<line class='radar-spoke' x1='50' y1='50' x2='${x}' y2='${y}'/>`; }).join('');
+  // Value dots at each vertex
+  const dots = vals.map((v,i) => { const [x,y] = pt(i,v); return `<circle class='radar-dot' cx='${x}' cy='${y}' r='${big ? 1.6 : 1.2}'/>`; }).join('');
+  // Labels: full text on big, short on small (or none if too tiny)
+  const lbl = labels.map((l,i) => {
+    const radius = big ? r + 14 : r + 9;
+    const [x,y] = [50 + Math.cos(-Math.PI/2 + i*Math.PI/3) * radius, 50 + Math.sin(-Math.PI/2 + i*Math.PI/3) * radius];
+    const txt = big ? `${l} ${vals[i]}` : shortLabels[i];
+    return `<text class='radar-label' x='${x}' y='${y}' text-anchor='middle' dominant-baseline='central'>${txt}</text>`;
+  }).join('');
+  const gradId = `rg-${Math.random().toString(36).slice(2,8)}`;
+  return `<button class='six-axis-button' type='button'><svg class='radar-svg ${big ? 'large-radar' : ''}' viewBox='0 0 100 100' aria-hidden='true'><defs><radialGradient id='${gradId}' cx='50%' cy='50%' r='50%'><stop offset='0%' stop-color='var(--accent)' stop-opacity='.35'/><stop offset='100%' stop-color='var(--accent)' stop-opacity='.08'/></radialGradient></defs><polygon class='radar-grid radar-grid-outer' points='${rings[3]}'/><polygon class='radar-grid' points='${rings[2]}'/><polygon class='radar-grid' points='${rings[1]}'/><polygon class='radar-grid radar-grid-inner' points='${rings[0]}'/>${spokes}<polygon class='radar-fill' fill='url(#${gradId})' points='${poly}'/><polygon class='radar-line' points='${poly}'/>${dots}${lbl}</svg></button>`;
 }
 function platformModels(id = activePlatform) { return models.filter((m) => m.platform === id).sort((a,b) => Date.parse(b.releaseDate || 0) - Date.parse(a.releaseDate || 0) || b.quality - a.quality); }
 function addProvider(id, raw, rawModels) {
@@ -499,7 +515,16 @@ function filteredPlatforms() {
 }
 function renderList() {
   $('platformList').innerHTML = filteredPlatforms().map((p) => { const ms = platformModels(p.id), best = ms[0]; return `<button class='platform-card ${p.id === activePlatform ? 'active' : ''}' data-id='${p.id}'><div class='platform-card-top'><img src='${p.logo}' alt=''><div><strong>${p.name}</strong><span>${platformDesc(p)}</span></div></div><div class='feature-icons'><span class='feature-icon ${p.category.includes('consumer') ? 'on' : ''}'>$</span><span class='feature-icon ${p.types.includes('open') ? 'on' : ''}'>OS</span></div><div class='mini-stats'><span>${tx('lowestApi')} <b>${money(Math.min(...ms.map((m) => m.input), 0))}</b></span><span>${tx('bestModel')} <b>${best?.name || '-'}</b></span></div></button>`; }).join('');
-  document.querySelectorAll('.platform-card').forEach((b) => b.onclick = () => { activePlatform = b.dataset.id; render(); });
+  document.querySelectorAll('.platform-card').forEach((b) => b.onclick = () => {
+    activePlatform = b.dataset.id;
+    // Mobile list→detail nav: remember scroll, open workspace overlay
+    if (window.innerWidth <= 760) {
+      window._mobileListScrollY = window.scrollY;
+      document.body.classList.add('mobile-workspace-open');
+      window.scrollTo(0, 0);
+    }
+    render();
+  });
 }
 function renderDetail() {
   const p = platforms.find((x) => x.id === activePlatform) || platforms[0], ms = platformModels(p.id), min = Math.min(...ms.map((m) => m.input), 0), maxIn = Math.max(...ms.map((m) => m.input), 0), maxOut = Math.max(...ms.map((m) => m.output), 0);
@@ -514,7 +539,7 @@ function renderDetail() {
   $('sourceBadges').innerHTML = [tx('officialPricing'),'models.dev',tx('benchmarks')].map((x) => `<span class='source-badge'>${x}</span>`).join('');
   $('useCases').innerHTML = localizedCases(p, d).map(([title,note]) => `<article class='use-case'><h4>${title}</h4><p>${note}</p></article>`).join('');
 }
-function row(m, company = false) { const s = score(m); return `<tr class='model-row' data-key='${keyOf(m)}'><td><div class='model-name'>${m.name}</div><div class='model-id'>${m.id}</div></td>${company ? `<td>${pName(m.platform)}</td>` : ''}<td>${money(m.input)}</td><td>${money(m.output)}</td><td>${compact(m.context)}</td><td>${m.releaseDate || tx('unknown')}</td><td><div class='capability-list'>${m.capabilities.map(cap).join('')}</div></td><td><b>${s.lmArena}</b></td><td>${radar(s)}</td></tr>`; }
+function row(m, company = false) { const s = score(m); return `<tr class='model-row' data-key='${keyOf(m)}'><td data-label='${tx('model')}' class='td-name'><div class='model-name'>${m.name}</div><div class='model-id'>${m.id}</div></td>${company ? `<td data-label='${tx('company')}'>${pName(m.platform)}</td>` : ''}<td data-label='${tx('inputPrice')}'>${money(m.input)}</td><td data-label='${tx('outputPrice')}'>${money(m.output)}</td><td data-label='${tx('context')}'>${compact(m.context)}</td><td data-label='${tx('releaseDate')}'>${m.releaseDate || tx('unknown')}</td><td data-label='${tx('capabilities')}' class='td-capabilities'><div class='capability-list'>${m.capabilities.map(cap).join('')}</div></td><td data-label='${tx('lmArena')}' class='td-lmarena'><b>${s.lmArena}</b></td><td data-label='${tx('sixDimChart')}' class='td-radar'>${radar(s)}</td></tr>`; }
 function cap(c) { return `<span class='capability-tag'>${capText(c)}</span>`; }
 function renderModels() {
   const caps = capabilityFilterOptions();
@@ -574,5 +599,14 @@ $('selectScopedModels').onclick = () => { platformModels(compareCompany).forEach
 document.querySelector('.compare-backdrop').onclick = $('closeCompareButton').onclick;
 $('closeModelDetailButton').onclick = () => $('modelDetailModal').classList.remove('open');
 document.querySelector('.model-detail-backdrop').onclick = $('closeModelDetailButton').onclick;
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { $('compareModal').classList.remove('open'); $('modelDetailModal').classList.remove('open'); } });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { $('compareModal').classList.remove('open'); $('modelDetailModal').classList.remove('open'); document.body.classList.remove('mobile-workspace-open'); } });
+// Mobile back button: close workspace overlay + restore list scroll
+$('mobileBackBtn').onclick = () => {
+  document.body.classList.remove('mobile-workspace-open');
+  window.scrollTo(0, window._mobileListScrollY || 0);
+};
+// Back-to-top floating button: show after 600px scroll, smooth scroll to top
+const btt = $('backToTopBtn');
+window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 600), { passive: true });
+btt.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 render(); loadLive();

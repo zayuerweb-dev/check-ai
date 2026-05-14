@@ -182,13 +182,23 @@ tbody tr:last-child td{border-bottom:0}
 .capability,.capability-tag{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--muted);padding:2px 8px;min-height:22px;font-size:11px;line-height:1.15;white-space:nowrap;letter-spacing:.02em;font-family:var(--mono)}
 
 /* Radar */
-.six-axis-button{border:0;background:transparent;padding:0}
-.six-axis-button svg{width:72px;height:72px}
-.radar-grid{fill:none;stroke:var(--line);stroke-width:1.4}
-.radar-fill{fill:#8c1e1e26}
-.radar-line{fill:none;stroke:var(--accent);stroke-width:2;stroke-linejoin:round}
+/* Radar chart (six-axis): designed 2026-05-14 */
+.six-axis-button{border:0;background:transparent;padding:0;cursor:pointer}
+.six-axis-button svg.radar-svg{width:72px;height:72px;overflow:visible}
+.radar-grid{fill:none;stroke:var(--line);stroke-width:.7;stroke-dasharray:1.2 1.4;opacity:.65}
+.radar-grid-outer{stroke-width:1;stroke-dasharray:none;opacity:.85}
+.radar-grid-inner{opacity:.4}
+.radar-spoke{stroke:var(--line);stroke-width:.5;opacity:.5}
+.radar-fill{fill:#8c1e1e26;transition:fill .2s}
+.radar-line{fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linejoin:round;filter:drop-shadow(0 0 1.5px #8c1e1e55)}
+.radar-dot{fill:var(--accent);stroke:var(--paper);stroke-width:.6}
+.radar-label{fill:var(--muted);font-size:5px;font-weight:700;font-family:var(--sans);letter-spacing:.04em;text-transform:uppercase;pointer-events:none}
+.six-axis-button:hover .radar-fill{fill:#8c1e1e3a}
+.six-axis-button:hover .radar-line{stroke-width:2;filter:drop-shadow(0 0 3px #8c1e1e88)}
+.six-axis-button:hover .radar-label{fill:var(--ink)}
 .large-radar{width:min(100%,720px);margin:0 auto;display:block}
-.large-radar text{fill:var(--text);font-size:8px;font-weight:600;font-family:var(--sans)}
+.large-radar .radar-label{font-size:3.4px;fill:var(--ink)}
+.large-radar .radar-dot{r:2}
 
 /* Compare modal */
 .compare-modal,.model-detail-modal{position:fixed;inset:0;display:none;z-index:50}
@@ -301,35 +311,42 @@ tbody tr:last-child td{border-bottom:0}
 }
 
 @media(max-width:760px){
-  /* MOBILE LAYOUT FIX (2026-05-13):
-     Default DOM order puts the 118-card platform rail BEFORE the workspace,
-     making users scroll past ~23,000px before reaching the selected platform's
-     info. Flip with flex + order so workspace shows first; cap the platform
-     list with internal scroll so the rail stays compact. */
+  /* MOBILE NAV (2026-05-14): list→detail pattern.
+     Platform list is the homepage. Tap a card → body gets .mobile-workspace-open
+     → rail hides, workspace becomes full-screen overlay with back button. */
   .shell{
     grid-template-columns:1fr;
-    display:flex;
-    flex-direction:column;
+    display:block;
   }
-  .workspace{order:1;padding:24px 18px}
   .platform-rail{
-    order:2;
     position:relative;height:auto;
-    border-right:0;border-top:1px solid var(--line);border-bottom:0;
-    background:var(--soft);
+    border-right:0;border-top:0;border-bottom:1px solid var(--line);
+    background:var(--paper);
     padding:24px 18px;
   }
-  .platform-rail .brand{margin-bottom:14px}
-  .platform-list{
-    max-height:60vh;
-    overflow-y:auto;
-    -webkit-overflow-scrolling:touch;
-    margin-top:12px;
-    padding:6px;
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    background:var(--paper);
+  .workspace{
+    display:none;
+    padding:24px 18px;
   }
+  body.mobile-workspace-open .platform-rail{display:none}
+  body.mobile-workspace-open .workspace{
+    display:block;
+    animation:slideInRight .22s ease-out;
+  }
+  @keyframes slideInRight{
+    from{transform:translateX(20px);opacity:0}
+    to{transform:translateX(0);opacity:1}
+  }
+  /* Mobile back button (top of workspace, only on mobile + when open) */
+  .mobile-back-button{
+    display:inline-flex;align-items:center;gap:6px;
+    min-height:44px;padding:8px 14px 8px 8px;margin-bottom:14px;
+    background:var(--soft);border:1px solid var(--line);border-radius:999px;
+    color:var(--ink);font-family:var(--sans);font-size:14px;font-weight:600;
+    cursor:pointer;
+  }
+  .mobile-back-button:hover{background:var(--paper);border-color:var(--ink)}
+  .mobile-back-button::first-letter{font-size:22px;line-height:1;color:var(--accent);margin-right:2px}
   .topbar{display:grid}
   .data-status{justify-content:flex-start}
   #platformTitle{font-size:46px}
@@ -388,6 +405,28 @@ a{transition:color .12s,text-decoration-color .12s}
 }
 
 /* ============================================================
+   MOBILE BACK BUTTON + BACK-TO-TOP FAB (2026-05-14)
+   ============================================================ */
+@media(min-width:761px){
+  .mobile-back-button{display:none}
+}
+.back-to-top{
+  position:fixed;right:18px;bottom:80px;z-index:50;
+  width:48px;height:48px;border-radius:50%;
+  background:var(--ink);color:var(--on-accent);
+  border:0;cursor:pointer;
+  font-size:22px;line-height:1;
+  box-shadow:0 4px 12px rgba(0,0,0,.18),0 1px 3px rgba(0,0,0,.12);
+  opacity:0;visibility:hidden;transform:translateY(8px);
+  transition:opacity .18s,transform .18s,visibility .18s,background .15s;
+}
+.back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
+.back-to-top:hover{background:var(--accent)}
+@media(min-width:761px){
+  .back-to-top{bottom:24px}
+}
+
+/* ============================================================
    ARTICLE TABLE OF CONTENTS (2026-05-12)
    ============================================================ */
 .article-toc{
@@ -410,6 +449,7 @@ h2[id],h3[id]{scroll-margin-top:20px}
 
 /* ============================================================
    MOBILE TABLE SCROLL + TAP TARGETS (2026-05-11)
+   MODELS TABLE → CARD GRID (2026-05-14)
    ============================================================ */
 @media(max-width:640px){
   .seo-card table{
@@ -426,4 +466,59 @@ h2[id],h3[id]{scroll-margin-top:20px}
   /* tighten huge serif h1 on small screens */
   .seo-main h1{font-size:clamp(28px,7vw,38px);line-height:1.15}
   .seo-lead{font-size:16px}
+
+  /* Models table → card grid on mobile.
+     Each .model-row becomes a card, td gets ::before label from data-label.
+     No more horizontal scroll. */
+  #models .table-wrap{overflow:visible;border:0;background:transparent}
+  #models table,#models thead,#models tbody{display:block;width:100%;min-width:0}
+  #models thead{display:none}
+  #models tr.model-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px 12px;
+    padding:14px;
+    margin-bottom:12px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:0 1px 0 #00000005;
+    cursor:pointer;
+    transition:border-color .12s,box-shadow .12s;
+  }
+  #models tr.model-row:hover,#models tr.model-row:active{
+    border-color:var(--ink);
+    box-shadow:0 2px 6px #1a161214;
+  }
+  #models tr.model-row td{
+    display:flex;flex-direction:column;gap:2px;
+    padding:0;border:0;font-size:13px;
+    vertical-align:top;
+  }
+  #models tr.model-row td::before{
+    content:attr(data-label);
+    font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;
+  }
+  #models tr.model-row td.td-name{
+    grid-column:1 / -1;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:4px;
+  }
+  #models tr.model-row td.td-name::before{display:none}
+  #models tr.model-row .model-name{font-size:17px;font-weight:700;color:var(--ink);font-family:var(--serif)}
+  #models tr.model-row .model-id{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:2px}
+  #models tr.model-row td.td-capabilities{
+    grid-column:1 / -1;
+  }
+  #models tr.model-row td.td-radar{
+    grid-column:2;
+    grid-row:2 / span 3;
+    align-items:center;justify-content:center;
+  }
+  #models tr.model-row td.td-radar::before{display:none}
+  #models tr.model-row td.td-radar .six-axis-button{padding:0;background:transparent;border:0}
+  #models tr.model-row td.td-radar svg{width:88px;height:88px}
+  #models tr.model-row td.td-lmarena b{font-size:18px;color:var(--ink)}
 }
