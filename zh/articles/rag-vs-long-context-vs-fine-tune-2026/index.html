@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>RAG vs 长上下文 vs Fine-tune 2026 完全指南：什么场景选什么、花多少钱 | Check.AI</title>
+<meta name="description" content="2026 年 RAG、长上下文 + Prompt Caching、Fine-tune 三种方法的真实成本、性能、坑、混合最佳实践对比。10K query/天的 RAG 系统 $4-9K/月、Claude 缓存省 90%、Fine-tune 10-50× 更便宜，但 lost-in-middle 让长上下文准确率掉 20%。读完知道什么场景该选哪个，混合怎么搭。">
+<link rel="canonical" href="https://checkaimodels.com/zh/articles/rag-vs-long-context-vs-fine-tune-2026/">
+<link rel="alternate" hreflang="zh" href="https://checkaimodels.com/zh/articles/rag-vs-long-context-vs-fine-tune-2026/">
+<link rel="alternate" hreflang="x-default" href="https://checkaimodels.com/zh/articles/rag-vs-long-context-vs-fine-tune-2026/">
+<meta property="og:title" content="RAG vs 长上下文 vs Fine-tune 2026：三选一指南">
+<meta property="og:description" content="真实成本、决策树、5 个场景实测，告诉你 2026 年该选哪条路。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://checkaimodels.com/zh/articles/rag-vs-long-context-vs-fine-tune-2026/">
+<link rel="stylesheet" href="/styles.css?v=20260514-2">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","inLanguage":"zh-CN","headline":"RAG vs 长上下文 vs Fine-tune 2026 完全指南","description":"2026 年 RAG、长上下文 + Prompt Caching、Fine-tune 三种方法的成本、性能、坑、混合最佳实践对比。","datePublished":"2026-05-15","dateModified":"2026-05-15","author":{"@type":"Person","name":"zayuerweb-dev","url":"https://github.com/zayuerweb-dev","sameAs":["https://github.com/zayuerweb-dev"]},"publisher":{"@type":"Organization","name":"Check.AI","url":"https://checkaimodels.com/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"zh-CN","mainEntity":[
+{"@type":"Question","name":"RAG、长上下文、Fine-tune 三个怎么选？","acceptedAnswer":{"@type":"Answer","text":"按问题本质选：知识库经常变 + 上 GB 级 → RAG；单份大文档反复问 + 不到 200K token → 长上下文 + Prompt Caching；要稳定的语气 / 格式 / 政策 / 分类 → Fine-tune。生产环境 90% 是混合：RAG 取事实 + Fine-tune 管行为 + 长上下文跑整文档。"}},
+{"@type":"Question","name":"长上下文是不是要取代 RAG 了？","acceptedAnswer":{"@type":"Answer","text":"对单文档场景已经在取代。Claude Sonnet 4.6 / Opus 4.7 / Gemini 3.1 Pro 都给 1M token 上下文，配合 Prompt Caching 把缓存输入打 1 折，单查询成本从 $0.30 降到 $0.03。但对真正大的知识库（GB / TB 级 / 几十万篇文档），长上下文塞不下，RAG 仍是唯一答案。两者不是替代关系，是规模分工。"}},
+{"@type":"Question","name":"Prompt Caching 到底省多少钱？","acceptedAnswer":{"@type":"Answer","text":"Anthropic 官方：缓存命中价是普通输入价的 0.1×（省 90%）。实测一个跑 10 万 token 上下文的 book-chat：首次请求成本不变，第二次起 TTFT 降 79%、缓存输入 token 成本降 90%。生产中稳定 system prompt 的 cache 命中率通常 80-95%。一个 $5,000/月的 RAG 应用接入 Prompt Caching 后能降到 $1,000 以下。"}},
+{"@type":"Question","name":"Fine-tune 在 2026 年还值得做吗？","acceptedAnswer":{"@type":"Answer","text":"两类场景仍非常值：（1）每天 10 万+ 高频且任务定义清晰的查询（客服分类、内容审核、固定格式抽取），单查询成本能比大模型 + RAG 便宜 10-50 倍，几周内回本。（2）需要稳定 brand 语气 / 公司政策遵循 / 严格输出格式的产品。Fine-tune 不擅长教模型新事实——那是 RAG 的活。"}},
+{"@type":"Question","name":"长上下文有什么坑？","acceptedAnswer":{"@type":"Answer","text":"三个：（1）Lost-in-the-middle：关键信息放在长文档中间时，准确率比放在开头/结尾掉 10-20 个百分点，部分模型超过 20%。（2）速度慢：长上下文单查询 30-60 秒，RAG 通常 1 秒级。（3）虽然 Caching 降成本，但首次请求仍按完整价计，对低频访问的文档不划算。"}},
+{"@type":"Question","name":"混合系统的最佳实践？","acceptedAnswer":{"@type":"Answer","text":"2026 年生产环境主流：RAG 拿事实 + Fine-tune 管行为 + 长上下文跑整文档查询。实测准确率：混合 96%、纯 RAG 89%、纯 Fine-tune 91%。Anthropic 的 Contextual Retrieval 又把 RAG 召回失败率降 49%，开 reranker 后降 67%。具体拆分：volatile（易变）知识进 RAG、stable（稳定）行为进 Fine-tune、单 session 多轮深度问答用长上下文 + Caching。"}}
+]}
+</script>
+</head>
+<body class="seo-page">
+<header class="seo-header"><a class="brand-link" href="/zh/">Check.AI</a><nav><a href="/">EN</a><a href="/">对比工具</a><a href="/zh/about/">关于</a><a href="/contact.html">联系</a></nav></header>
+<main class="seo-main">
+<p class="eyebrow">深度对比 · 2026 年 5 月 15 日 · 作者 <a href="https://github.com/zayuerweb-dev" rel="author">@zayuerweb-dev</a></p>
+<h1>RAG vs 长上下文 vs Fine-tune 2026 完全指南：什么场景选什么</h1>
+<p class="seo-lead">2024 年所有人都在搭 RAG。2025 年 Claude / Gemini 把上下文窗口拉到 1M，"长上下文 + Prompt Caching" 喊出"RAG 已死"。2026 年的真实答案是：<strong>三个都没死，三个都不是万能，生产环境 90% 都是混合用</strong>。这篇用 Anthropic、Vellum、Redis、Towards Data Science 的最新数据，把成本、速度、准确率、坑全部摆清楚——读完你能在 5 分钟内决定自己应该选哪条路，混合怎么搭。</p>
+
+<nav class="article-toc" aria-label="目录">
+<p class="article-toc-label">目录</p>
+<ol>
+<li><a href="#conclusion">30 秒结论</a></li>
+<li><a href="#three">三种方法到底在做什么</a></li>
+<li><a href="#cost">真实成本对比（生产环境数据）</a></li>
+<li><a href="#decision">5 分钟决策树</a></li>
+<li><a href="#scenarios">5 个真实场景该选什么</a></li>
+<li><a href="#traps">长上下文的 3 个反直觉坑</a></li>
+<li><a href="#hybrid">2026 年混合最佳实践</a></li>
+<li><a href="#future">未来 6 个月观察点</a></li>
+<li><a href="#related">相关阅读</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ol>
+</nav>
+
+<section class="seo-card">
+<h2 id="conclusion">30 秒结论</h2>
+<ul>
+<li><strong>知识库 &lt; 200K token + 反复问：</strong>长上下文 + Prompt Caching。简单、便宜、首选。</li>
+<li><strong>知识库 GB-TB 级 / 几十万文档：</strong>RAG。长上下文塞不下，没得选。</li>
+<li><strong>知识每天都在变（新闻、价格、库存）：</strong>RAG。Fine-tune 训完就过时。</li>
+<li><strong>要稳定语气 / 格式 / 政策遵循：</strong>Fine-tune。教模型"怎么说"，不是"说什么"。</li>
+<li><strong>每天 10 万+ 高频固定任务：</strong>Fine-tune 小模型。比大模型 + RAG 便宜 10-50 倍。</li>
+<li><strong>生产环境最佳：</strong>混合。Fine-tune 管行为、RAG 取事实、长上下文跑整文档。准确率 96% vs 单方案 89-91%。</li>
+<li><strong>纠结时：</strong>先长上下文 + Caching 跑两周，撑不住再上 RAG，行为不稳再 Fine-tune。</li>
+</ul>
+<p><a class="section-link" href="/">在 Check.AI 实时对比所有模型的上下文窗口和价格 →</a></p>
+</section>
+
+<section class="seo-card">
+<h2 id="three">三种方法到底在做什么</h2>
+
+<h3 style="margin-top:18px">RAG（Retrieval-Augmented Generation）</h3>
+<p>把文档切片 → 向量化存进 Vector DB → 用户问问题 → 检索 top-K 相关片段 → 拼进 prompt 让 LLM 回答。<strong>本质是"在巨大知识库里捞针"</strong>。</p>
+<ul>
+<li><strong>强项：</strong>规模无限（GB / TB / 百万文档）、知识可实时更新、可解释（能指出引用来源）。</li>
+<li><strong>弱项：</strong>检索质量决定一切，召回错就全错；架构复杂（向量库、embedding、reranker）；需持续维护。</li>
+</ul>
+
+<h3 style="margin-top:18px">长上下文（Long Context）+ Prompt Caching</h3>
+<p>把整份文档 / 整个代码库直接塞进 prompt（Claude / Gemini 都支持 1M token = 约 75 万中文字 = 一本厚书）→ 用户每次提问，模型在这份完整内容里推理。配合 Prompt Caching，重复部分的 token 价打 1 折。<strong>本质是"让模型记住整本书"</strong>。</p>
+<ul>
+<li><strong>强项：</strong>架构极简（一个 API 调用搞定）、不丢上下文（无检索遗漏）、跨片段推理能力强。</li>
+<li><strong>弱项：</strong>200K token 以上准确率开始掉、单查询 30-60 秒慢、不能处理太大的知识库。</li>
+</ul>
+
+<h3 style="margin-top:18px">Fine-tune</h3>
+<p>用你的数据训练一个小模型（DistilGPT、Llama 8B、Qwen2.5 7B 等）→ 这个小模型"学会"了你的语气、格式、政策、术语。<strong>本质是"教模型新的行为"</strong>。</p>
+<ul>
+<li><strong>强项：</strong>推理成本极低（小模型）、行为高度一致、不依赖检索基础设施。</li>
+<li><strong>弱项：</strong>不学新事实（模型权重 frozen 后，新知识进不来）、训练成本高、维护需要 MLOps 能力。</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="cost">真实成本对比（生产环境数据）</h2>
+
+<h3 style="margin-top:18px">RAG 系统月成本</h3>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">组件</th>
+<th style="text-align:left;padding:8px">月成本（小型）</th>
+<th style="text-align:left;padding:8px">月成本（中型 10K query/天）</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:8px">Vector DB（Pinecone / Weaviate / Qdrant）</td><td style="padding:8px">$70-500</td><td style="padding:8px">$1,200</td></tr>
+<tr><td style="padding:8px">Embedding API</td><td style="padding:8px">$10-50</td><td style="padding:8px">$800</td></tr>
+<tr><td style="padding:8px">LLM API 调用</td><td style="padding:8px">$200-2,000</td><td style="padding:8px">$2,500-5,500</td></tr>
+<tr><td style="padding:8px">文档处理 + Reranker</td><td style="padding:8px">$20-100</td><td style="padding:8px">$300</td></tr>
+<tr><td style="padding:8px">Observability / 监控</td><td style="padding:8px">$50-200</td><td style="padding:8px">$500</td></tr>
+<tr><td style="padding:8px"><strong>合计</strong></td><td style="padding:8px"><strong>$350-2,850</strong></td><td style="padding:8px"><strong>$5,300-8,300</strong></td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:var(--muted)">数据来源：Anthropic、Pinecone 产品页、Redis 案例研究、Towards Data Science 2026 年 RAG 成本调研。中型场景假设 500K 文档、10K query/天。</p>
+
+<h3 style="margin-top:18px">长上下文 + Prompt Caching 成本</h3>
+<p>同样 10K query/天、100K token 单文档场景，用 Claude Sonnet 4.6：</p>
+<ul>
+<li><strong>无 Caching：</strong>每次 $0.30 输入 → 10K × $0.30 = $3,000/天 ≈ <strong>$90,000/月</strong>（不可行）</li>
+<li><strong>开 Prompt Caching（命中率 85%）：</strong>$0.03 缓存命中价 × 85% + $0.30 × 15% = 平均 $0.07/query → <strong>$21,000/月</strong></li>
+<li><strong>用 Haiku 4.5（小模型 + Caching）：</strong>同样配置约 <strong>$5,000/月</strong></li>
+</ul>
+<p>对照 RAG 中型 $5,300-8,300/月——<strong>Haiku + 长上下文 + Caching 已经能持平甚至更便宜</strong>，前提是文档放得下（&lt; 200K token）。</p>
+
+<h3 style="margin-top:18px">Fine-tune 小模型成本</h3>
+<p>每天 10 万 query 的客服分类场景：</p>
+<ul>
+<li><strong>GPT-5 + RAG 跑全部：</strong>~$8,000/月</li>
+<li><strong>Fine-tune Qwen2.5-7B（一次训练 $200，每天 100K query × $0.0001 推理）：</strong>~$500/月</li>
+<li><strong>差距：</strong><strong>16 倍便宜</strong>，训练成本 1 周回本</li>
+</ul>
+<p>对高频固定任务，Fine-tune 是唯一经济上能 scale 的方案。但对低频复杂任务（每天 100 次律师工作流），Fine-tune 的训练 + 维护成本反而比 RAG / 长上下文都高。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="decision">5 分钟决策树</h2>
+<p>问自己 4 个问题，按顺序回答：</p>
+<ol>
+<li><strong>你的知识库总大小？</strong>
+  <ul>
+    <li>&lt; 200K token（一本书 / 一份手册 / 一份合同）→ 跳第 2 题</li>
+    <li>&gt; 200K token（多份文档）→ 跳第 3 题</li>
+  </ul>
+</li>
+<li><strong>是反复问同一份文档吗？</strong>
+  <ul>
+    <li>是 → ✅ <strong>长上下文 + Prompt Caching</strong>（最简单、最便宜）</li>
+    <li>否（单次查询完就丢）→ 长上下文裸跑，但成本高，考虑提取关键段</li>
+  </ul>
+</li>
+<li><strong>知识每天都在变吗？</strong>
+  <ul>
+    <li>是（新闻、库存、客户记录）→ ✅ <strong>RAG</strong>（Fine-tune 训完即过时）</li>
+    <li>否 → 跳第 4 题</li>
+  </ul>
+</li>
+<li><strong>你的失败模式是什么？</strong>
+  <ul>
+    <li>答错事实 / 找不到信息 → ✅ <strong>RAG</strong></li>
+    <li>语气不稳 / 格式乱 / 不守规矩 → ✅ <strong>Fine-tune</strong>（教行为）</li>
+    <li>两个都有 → ✅ <strong>混合：RAG + Fine-tune</strong></li>
+  </ul>
+</li>
+</ol>
+<p style="margin-top:14px"><strong>Garry's Razor</strong>：如果你能在 30 分钟内塞进 Claude 1M 上下文测试得到 80% 满意结果，就别上 RAG / Fine-tune 增加复杂度——直到这条路被证明撑不住再升级。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="scenarios">5 个真实场景该选什么</h2>
+
+<h3 style="margin-top:18px">场景 1：内部知识库问答（500 份 PDF）</h3>
+<p><strong>选 RAG</strong>。500 份 PDF 大约 5-15M token，超过单上下文窗口。每月新增几十份。Vector DB + reranker + GPT-5 / Claude 是标准方案。月成本约 $3,000-6,000。</p>
+
+<h3 style="margin-top:18px">场景 2：跟 1 本厚书 / 1 个 codebase 聊天</h3>
+<p><strong>选长上下文 + Caching</strong>。塞进 Claude 1M / Gemini 1M，首次请求 $1-3，后续每次 $0.10。架构最简单：一个 API 调用，没有 Vector DB、没有 chunk 切分、没有检索调优。GitHub Copilot Workspace、Cursor agent 模式都是这个思路。</p>
+
+<h3 style="margin-top:18px">场景 3：客服自动分类（每天 50 万条工单）</h3>
+<p><strong>选 Fine-tune 小模型</strong>。任务定义清晰（分类 50 个类别）、量大、要求稳定。Fine-tune Qwen2.5-7B 或 Llama-8B，单查询 $0.0001，每月 $1,500，比 GPT-5 + RAG 便宜 10 倍以上。</p>
+
+<h3 style="margin-top:18px">场景 4：法律合同审查（每月 200 份新合同 + 历史案例库）</h3>
+<p><strong>选混合</strong>。当前合同（单份）用长上下文 + Caching；历史案例库（巨大）用 RAG 检索相似条款；输出格式 / 法律语气用 Fine-tune 锁定。这是教科书级的混合用法，准确率 96%。</p>
+
+<h3 style="margin-top:18px">场景 5：实时新闻问答 chatbot</h3>
+<p><strong>选 RAG（必选）</strong>。新闻每分钟在变，Fine-tune 模型权重 frozen 立刻过时；长上下文塞不下整个新闻库。RAG + 持续 embedding pipeline 是唯一答案。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="traps">长上下文的 3 个反直觉坑</h2>
+
+<h3 style="margin-top:18px">1. Lost-in-the-middle：关键信息塞中间，准确率掉 10-20 个百分点</h3>
+<p>模型记忆是 U 型的——开头和结尾记得清楚，中间最容易"忘"。Stanford / Anthropic 2024 年起的多个研究证实：<strong>同一份 100K 文档，关键信息放开头/结尾时 95% 召回，放中间时跌到 75-80%</strong>。GPT-3.5-Turbo 在极端情况下中间召回掉超过 20%。</p>
+<p><strong>对策：</strong>把关键内容放在 prompt 开头或结尾；长内容前后加 summary "锚点"；超过 200K token 时还是切 chunk + RAG。</p>
+
+<h3 style="margin-top:18px">2. 速度慢：长上下文单查询 30-60 秒，RAG 1 秒</h3>
+<p>1M token 输入意味着模型要"读"完才开始输出。实测同一份知识库：</p>
+<ul>
+<li>RAG 端到端（检索 + 推理）：~1 秒</li>
+<li>长上下文（1M）：30-60 秒（即使开了 streaming）</li>
+</ul>
+<p>对 C 端实时对话产品，30 秒等待会让用户离开。<strong>长上下文更适合 batch / 异步 / agent 任务，不适合纯聊天 UI。</strong></p>
+
+<h3 style="margin-top:18px">3. Caching 不省"首次"，对低频访问不划算</h3>
+<p>Prompt Caching 只在<strong>第二次请求开始</strong>打折。首次请求按完整价计费、还有 1.25× 写入溢价（Claude）。如果一份 100K 文档每月只被查 2 次，开 Caching 反而更贵。</p>
+<p><strong>对策：</strong>给每份文档监控 query 频次，命中率 &lt; 30% 的关掉 Caching；命中率 &gt; 80% 的全开。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="hybrid">2026 年混合最佳实践</h2>
+<p>Vellum、Anthropic、Redis 多家厂商的 2026 年指南都指向同一个结论：<strong>纯一种方案不再有竞争力，生产环境 90% 是混合</strong>。</p>
+
+<h3 style="margin-top:18px">职责拆分</h3>
+<ul>
+<li><strong>RAG → 易变事实</strong>：新闻、价格、库存、客户记录、新增文档</li>
+<li><strong>Fine-tune → 稳定行为</strong>：品牌语气、输出格式、政策遵循、分类规则</li>
+<li><strong>长上下文 + Caching → 单 session 深度</strong>：当前对话的完整上下文、当前合同的所有条款、当前代码库的完整代码</li>
+</ul>
+
+<h3 style="margin-top:18px">实测数据</h3>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">方案</th>
+<th style="text-align:left;padding:8px">领域准确率</th>
+<th style="text-align:left;padding:8px">月成本（中型）</th>
+<th style="text-align:left;padding:8px">维护复杂度</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:8px">纯 RAG</td><td style="padding:8px">89%</td><td style="padding:8px">$5,300-8,300</td><td style="padding:8px">中（需 vector DB ops）</td></tr>
+<tr><td style="padding:8px">纯 Fine-tune</td><td style="padding:8px">91%</td><td style="padding:8px">$500-2,000</td><td style="padding:8px">中（需 MLOps）</td></tr>
+<tr><td style="padding:8px">纯长上下文 + Caching</td><td style="padding:8px">82-87%（lost-in-middle）</td><td style="padding:8px">$3,000-15,000</td><td style="padding:8px">极低</td></tr>
+<tr><td style="padding:8px"><strong>混合（RAG + Fine-tune + 长上下文）</strong></td><td style="padding:8px"><strong>96%</strong></td><td style="padding:8px">$4,000-10,000</td><td style="padding:8px">高（三栈一起维护）</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:var(--muted)">数据来源：Vellum、Umesh Malik 生产指南、Anthropic Contextual Retrieval 论文。准确率为典型领域基准的中位数。</p>
+
+<h3 style="margin-top:18px">Anthropic Contextual Retrieval（2024 末，2026 已普及）</h3>
+<p>把传统 RAG 召回失败率<strong>降 49%</strong>，开 reranker 后<strong>降 67%</strong>。机制是给每个 chunk 加入"它来自哪个文档、哪个章节"的上下文 prefix，让 embedding 更准。<strong>2026 年做 RAG 没接 Contextual Retrieval = 输在起跑线。</strong></p>
+</section>
+
+<section class="seo-card">
+<h2 id="future">未来 6 个月观察点</h2>
+<ul>
+<li><strong>3M / 5M token 上下文。</strong>Gemini 已经在测试 2M+ 公开版本。一旦稳定，&lt; 1M 的知识库 RAG 价值急速贬值。</li>
+<li><strong>Prompt Cache 持久化。</strong>当前 Claude cache TTL 是 5 分钟（beta 1 小时）。如果未来给到 24h / 永久，长上下文成本再砍一半。</li>
+<li><strong>更小、更便宜、更易 fine-tune 的开源模型。</strong>Qwen3 Coder、DeepSeek 蒸馏小模型让 Fine-tune 门槛进一步降低。</li>
+<li><strong>RAG 工具栈整合。</strong>LangChain、LlamaIndex、Vespa、Pinecone 之争最终会有几家退出，剩 2-3 家。</li>
+<li><strong>Memory tool 类原生 API。</strong>Claude Opus 4.7 已经引入 memory tool，未来可能让"持久知识 + 当下 query"更原生，介于 RAG 和长上下文之间。</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="related">相关阅读</h2>
+<ul>
+<li><a href="/zh/articles/claude-opus-4-7-review-2026/">Claude Opus 4.7 深度评测</a></li>
+<li><a href="/zh/articles/deepseek-r1-vs-gpt-5-cost-2026/">DeepSeek R1 vs GPT-5 性价比对比</a></li>
+<li><a href="/zh/articles/gpt-5-vs-claude-coding-2026/">GPT-5 vs Claude 写代码哪个强</a></li>
+<li><a href="/zh/topics/long-context-ai-models/">长上下文 AI 模型对比</a></li>
+<li><a href="/zh/topics/cheapest-ai-api-models/">最便宜的 AI API 模型</a></li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="faq">FAQ</h2>
+<p><strong>三个怎么选？</strong>知识库经常变 + 大 → RAG；单份 &lt; 200K token 反复问 → 长上下文 + Caching；要稳定行为 → Fine-tune。生产环境 90% 混合。</p>
+<p><strong>RAG 是不是过时了？</strong>没有。对 GB-TB 级知识库和实时数据场景，RAG 仍是唯一答案。但对 &lt; 200K token 的单文档场景，长上下文 + Caching 更简单。</p>
+<p><strong>Prompt Caching 省多少？</strong>命中价是普通输入的 1/10，命中率 80-95% 时整体降本 70-90%。$5K/月可降到 $1K。</p>
+<p><strong>Fine-tune 还值得？</strong>每天 10 万+ 高频固定任务必选，能比 GPT-5 + RAG 便宜 10-50 倍。</p>
+<p><strong>长上下文最大坑？</strong>Lost-in-the-middle：信息塞中间准确率掉 10-20%。把关键放开头/结尾。</p>
+<p><strong>混合系统从哪开始搭？</strong>先 RAG 取事实（基础），加 Fine-tune 管行为（稳定），最后用长上下文 + Caching 处理 session 深度问答。</p>
+</section>
+
+<p><a class="section-link" href="/">→ 在 Check.AI 实时对比所有模型的上下文窗口、价格和 cache 支持</a></p>
+</main>
+<footer class="seo-footer"><a href="/zh/">返回中文首页</a> · <a href="/zh/topics/long-context-ai-models/">长上下文模型选型指南</a></footer>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "df6bb0324e4c458fb4e8b979d3feed3c"}'></script>
+</body>
+</html>
