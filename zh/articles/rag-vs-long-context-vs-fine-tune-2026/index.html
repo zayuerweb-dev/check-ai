@@ -33,7 +33,7 @@
 <main class="seo-main">
 <p class="eyebrow">深度对比 · 2026 年 5 月 15 日 · 作者 <a href="https://github.com/zayuerweb-dev" rel="author">@zayuerweb-dev</a></p>
 <h1>RAG vs 长上下文 vs Fine-tune 2026 完全指南：什么场景选什么</h1>
-<p class="seo-lead">2024 年所有人都在搭 RAG。2025 年 Claude / Gemini 把上下文窗口拉到 1M，"长上下文 + Prompt Caching" 喊出"RAG 已死"。2026 年的真实答案是：<strong>三个都没死，三个都不是万能，生产环境 90% 都是混合用</strong>。这篇用 Anthropic、Vellum、Redis、Towards Data Science 的最新数据，把成本、速度、准确率、坑全部摆清楚——读完你能在 5 分钟内决定自己应该选哪条路，混合怎么搭。</p>
+<p class="seo-lead">2024 年人人都在搭 RAG，群里每天有人甩 LangChain 教程。2025 年 Gemini 把上下文拉到 2M、Claude 给到 1M，论坛就开始喊"RAG 已死"。然后 2026 年大家又回来发现：单押一种方案的项目最后都打补丁打到一半，真正跑得动的产品基本都是三件套混合。这篇把我读过的几份生产报告（Anthropic、Vellum、Redis、Towards Data Science）里的数字摊开摆，告诉你什么场景该选哪条路、什么时候该升级到混合、$5K/月的 RAG 应用怎么砍到 $1K。</p>
 
 <nav class="article-toc" aria-label="目录">
 <p class="article-toc-label">目录</p>
@@ -69,24 +69,24 @@
 <h2 id="three">三种方法到底在做什么</h2>
 
 <h3 style="margin-top:18px">RAG（Retrieval-Augmented Generation）</h3>
-<p>把文档切片 → 向量化存进 Vector DB → 用户问问题 → 检索 top-K 相关片段 → 拼进 prompt 让 LLM 回答。<strong>本质是"在巨大知识库里捞针"</strong>。</p>
+<p>典型流程：文档切片 → 向量化 → 存进 Vector DB → 用户问问题时检索 top-K 相关片段 → 把片段拼进 prompt 让 LLM 回答。说人话就是"在一大堆文档里先捞出 5 段最像答案的，再让模型读这 5 段写答案"。</p>
 <ul>
-<li><strong>强项：</strong>规模无限（GB / TB / 百万文档）、知识可实时更新、可解释（能指出引用来源）。</li>
-<li><strong>弱项：</strong>检索质量决定一切，召回错就全错；架构复杂（向量库、embedding、reranker）；需持续维护。</li>
+<li><strong>强项：</strong>规模没上限（几 GB、几 TB、上百万文档都行）；知识可以随时更新（重 index 一下就行）；可以引用来源给用户看，方便排查错答。</li>
+<li><strong>弱项：</strong>整个系统命脉是检索那一环，召回错了答案就一定错；架构组件多（向量库、embedding 模型、reranker、chunk 切分策略）；上线后要持续调优。</li>
 </ul>
 
 <h3 style="margin-top:18px">长上下文（Long Context）+ Prompt Caching</h3>
-<p>把整份文档 / 整个代码库直接塞进 prompt（Claude / Gemini 都支持 1M token = 约 75 万中文字 = 一本厚书）→ 用户每次提问，模型在这份完整内容里推理。配合 Prompt Caching，重复部分的 token 价打 1 折。<strong>本质是"让模型记住整本书"</strong>。</p>
+<p>把整份文档 / 整个代码库一次性塞进 prompt（Claude 和 Gemini 现在都给到 1M token，差不多是 75 万中文字、一本厚书）。每次提问，模型在完整内容里推理。Prompt Caching 让重复部分的 token 价打 1 折。</p>
 <ul>
-<li><strong>强项：</strong>架构极简（一个 API 调用搞定）、不丢上下文（无检索遗漏）、跨片段推理能力强。</li>
-<li><strong>弱项：</strong>200K token 以上准确率开始掉、单查询 30-60 秒慢、不能处理太大的知识库。</li>
+<li><strong>强项：</strong>架构简单到只剩一个 API 调用，不需要向量库、不需要 chunk 切分；模型一次看完整内容，不存在"检索遗漏"；跨段落推理（比如"前 5 章说的 X 和最后一章说的 Y 有什么矛盾"）远比 RAG 强。</li>
+<li><strong>弱项：</strong>200K 以上开始有"lost-in-middle"问题（一会儿讲）；单查询 30-60 秒慢；GB 级知识库根本塞不下。</li>
 </ul>
 
 <h3 style="margin-top:18px">Fine-tune</h3>
-<p>用你的数据训练一个小模型（DistilGPT、Llama 8B、Qwen2.5 7B 等）→ 这个小模型"学会"了你的语气、格式、政策、术语。<strong>本质是"教模型新的行为"</strong>。</p>
+<p>用你自己的数据训一个小模型——Llama 8B、Qwen2.5 7B、Mistral 7B 之类。训完这个模型就"学会了"你的语气、格式、术语、政策。</p>
 <ul>
-<li><strong>强项：</strong>推理成本极低（小模型）、行为高度一致、不依赖检索基础设施。</li>
-<li><strong>弱项：</strong>不学新事实（模型权重 frozen 后，新知识进不来）、训练成本高、维护需要 MLOps 能力。</li>
+<li><strong>强项：</strong>推理便宜（小模型 GPU 占用低）、行为非常稳定（不会今天客气明天嘴硬）、不依赖检索基础设施、可以彻底离线。</li>
+<li><strong>弱项：</strong>不教新事实（模型权重训完冻住，世界变了它不知道）；训练 + 维护需要 MLOps，独立开发者门槛高；对小公司来说半年迭代一次很正常，节奏跟不上。</li>
 </ul>
 </section>
 
@@ -160,46 +160,42 @@
   </ul>
 </li>
 </ol>
-<p style="margin-top:14px"><strong>Garry's Razor</strong>：如果你能在 30 分钟内塞进 Claude 1M 上下文测试得到 80% 满意结果，就别上 RAG / Fine-tune 增加复杂度——直到这条路被证明撑不住再升级。</p>
+<p style="margin-top:14px"><strong>一条朴素经验</strong>：能在 30 分钟内塞进 Claude 1M 上下文测试得到 80% 满意结果，就先这么用。等流量起来撑不住或者准确率掉下来再升级到 RAG / Fine-tune。先解决问题，再优化架构。</p>
 </section>
 
 <section class="seo-card">
 <h2 id="scenarios">5 个真实场景该选什么</h2>
 
-<h3 style="margin-top:18px">场景 1：内部知识库问答（500 份 PDF）</h3>
-<p><strong>选 RAG</strong>。500 份 PDF 大约 5-15M token，超过单上下文窗口。每月新增几十份。Vector DB + reranker + GPT-5 / Claude 是标准方案。月成本约 $3,000-6,000。</p>
+<h3 style="margin-top:18px">场景 1：内部知识库问答（500 份 PDF，公司 wiki + 政策手册）</h3>
+<p>选 RAG。500 份 PDF 大约 5-15M token，长上下文塞不下；每月新增几十份，Fine-tune 训完就过时。Vector DB + reranker + GPT-5 / Claude 是常规组合。月成本通常 $3,000-6,000，看 query 量。</p>
 
 <h3 style="margin-top:18px">场景 2：跟 1 本厚书 / 1 个 codebase 聊天</h3>
-<p><strong>选长上下文 + Caching</strong>。塞进 Claude 1M / Gemini 1M，首次请求 $1-3，后续每次 $0.10。架构最简单：一个 API 调用，没有 Vector DB、没有 chunk 切分、没有检索调优。GitHub Copilot Workspace、Cursor agent 模式都是这个思路。</p>
+<p>选长上下文 + Caching。塞进 Claude 1M 或 Gemini 1M，首次请求 $1-3，后面每次走 cache 大约 $0.10。架构上只有一个 API 调用——没有 Vector DB、没有 chunk 切分、没有 reranker 调参。Cursor 的 agent 模式、GitHub Copilot Workspace 都是这个路子。</p>
 
 <h3 style="margin-top:18px">场景 3：客服自动分类（每天 50 万条工单）</h3>
-<p><strong>选 Fine-tune 小模型</strong>。任务定义清晰（分类 50 个类别）、量大、要求稳定。Fine-tune Qwen2.5-7B 或 Llama-8B，单查询 $0.0001，每月 $1,500，比 GPT-5 + RAG 便宜 10 倍以上。</p>
+<p>选 Fine-tune 小模型。任务清晰（分到 50 个类目里）、量大、要求稳定。Fine-tune 一个 Qwen2.5-7B 或 Llama-8B，单查询 $0.0001 量级，月成本 $1,500 左右。同样工作量交给 GPT-5 + RAG，至少 $15,000 起。差 10 倍以上，几周就回本。</p>
 
 <h3 style="margin-top:18px">场景 4：法律合同审查（每月 200 份新合同 + 历史案例库）</h3>
-<p><strong>选混合</strong>。当前合同（单份）用长上下文 + Caching；历史案例库（巨大）用 RAG 检索相似条款；输出格式 / 法律语气用 Fine-tune 锁定。这是教科书级的混合用法，准确率 96%。</p>
+<p>三个一起上。当前要审的合同（单份，几十 KB）走长上下文 + Caching，律师可以连续问几十轮；历史案例库（GB 级，相似条款检索）走 RAG；最终输出格式和法律措辞用 Fine-tune 锁定（防止模型偶尔写得太口语）。这种组合最贴近"专业产品"的需求，实测准确率能上 96%。</p>
 
 <h3 style="margin-top:18px">场景 5：实时新闻问答 chatbot</h3>
-<p><strong>选 RAG（必选）</strong>。新闻每分钟在变，Fine-tune 模型权重 frozen 立刻过时；长上下文塞不下整个新闻库。RAG + 持续 embedding pipeline 是唯一答案。</p>
+<p>RAG 是唯一答案。新闻每分钟在变，Fine-tune 训完就过时；长上下文塞不下整个新闻库。要做的就是搭一条持续 embedding pipeline 给新文章实时入库，配合 reranker 提精度。这种产品没有"另选一条路"的余地。</p>
 </section>
 
 <section class="seo-card">
 <h2 id="traps">长上下文的 3 个反直觉坑</h2>
 
 <h3 style="margin-top:18px">1. Lost-in-the-middle：关键信息塞中间，准确率掉 10-20 个百分点</h3>
-<p>模型记忆是 U 型的——开头和结尾记得清楚，中间最容易"忘"。Stanford / Anthropic 2024 年起的多个研究证实：<strong>同一份 100K 文档，关键信息放开头/结尾时 95% 召回，放中间时跌到 75-80%</strong>。GPT-3.5-Turbo 在极端情况下中间召回掉超过 20%。</p>
-<p><strong>对策：</strong>把关键内容放在 prompt 开头或结尾；长内容前后加 summary "锚点"；超过 200K token 时还是切 chunk + RAG。</p>
+<p>模型记忆是 U 型分布——开头和结尾记得清楚，中间段最容易"漏"。Stanford 那篇 2023 年的 "Lost in the Middle" 论文起，后续 Anthropic、Google 多次复现：同一份 100K 文档，关键句子放开头或结尾时召回 95%；塞到正中间召回掉到 75-80%。GPT-3.5-Turbo 极端情况能掉超过 20 分。</p>
+<p>实际怎么办：重要的指令、人物名、关键数字放 prompt 开头和结尾各放一份；超过 200K token 还是切 chunk 走 RAG。别指望模型每次都能在 1M 上下文里找到第 47 万 token 上的那个名字。</p>
 
 <h3 style="margin-top:18px">2. 速度慢：长上下文单查询 30-60 秒，RAG 1 秒</h3>
-<p>1M token 输入意味着模型要"读"完才开始输出。实测同一份知识库：</p>
-<ul>
-<li>RAG 端到端（检索 + 推理）：~1 秒</li>
-<li>长上下文（1M）：30-60 秒（即使开了 streaming）</li>
-</ul>
-<p>对 C 端实时对话产品，30 秒等待会让用户离开。<strong>长上下文更适合 batch / 异步 / agent 任务，不适合纯聊天 UI。</strong></p>
+<p>1M token 输入意味着模型得"读完"才开始输出。实际跑同一份知识库：RAG 端到端检索 + 推理大概 1 秒；长上下文 1M 通常 30-60 秒，即使开了 streaming。</p>
+<p>C 端实时对话产品扛不住这种等待，用户早跑了。长上下文更适合 batch、异步、agent 那种"丢任务给它然后干别的"的场景，不适合纯聊天 UI。</p>
 
-<h3 style="margin-top:18px">3. Caching 不省"首次"，对低频访问不划算</h3>
-<p>Prompt Caching 只在<strong>第二次请求开始</strong>打折。首次请求按完整价计费、还有 1.25× 写入溢价（Claude）。如果一份 100K 文档每月只被查 2 次，开 Caching 反而更贵。</p>
-<p><strong>对策：</strong>给每份文档监控 query 频次，命中率 &lt; 30% 的关掉 Caching；命中率 &gt; 80% 的全开。</p>
+<h3 style="margin-top:18px">3. Caching 只省"重复部分"，对低频访问反而更贵</h3>
+<p>Prompt Caching 是从第二次请求开始打折。首次请求按完整价计费，Claude 那边还要收 1.25× 写入溢价。一份 100K 的文档如果每月只被查 2 次，开 Caching 反而比不开还贵。</p>
+<p>实战做法：给每份文档监控 query 频次，命中率低于 30% 的不开 Caching；高于 80% 的全开。中间灰色地带按业务价值判断。</p>
 </section>
 
 <section class="seo-card">
