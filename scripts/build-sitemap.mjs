@@ -12,7 +12,13 @@ const ORIGIN = 'https://checkaimodels.com';
 // Top-level static .html files we want indexed.
 const TOP_LEVEL_HTML = ['index.html', 'about.html', 'contact.html', 'privacy.html'];
 // Directories to walk for index.html pages.
-const WALK_DIRS = ['topics', 'platforms', 'models', 'compare', 'zh'];
+// /models/ (1715 programmatic pages) is intentionally EXCLUDED. Submitting
+// 1700+ near-identical template pages on a 0-authority domain starves crawl
+// budget and trips Google's thin-content classifier, suppressing indexing of
+// the whole site. Model pages stay live + crawlable via internal links but are
+// noindex'd and kept out of the sitemap, so Google concentrates its budget on
+// the ~85 high-value editorial/compare/topic pages.
+const WALK_DIRS = ['topics', 'platforms', 'compare', 'zh'];
 // Anything matching these is skipped.
 const SKIP = new Set(['node_modules', '.git', '.github', 'data', 'scripts']);
 
