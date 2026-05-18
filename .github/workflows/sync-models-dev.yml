@@ -69,6 +69,13 @@ jobs:
             exit 1
           fi
 
+      - name: Ping IndexNow (Bing/Yandex) after deploy
+        if: steps.sync.outputs.changed == 'true'
+        run: |
+          echo "Waiting 150s for Cloudflare Pages to deploy the new sitemap..."
+          sleep 150
+          node scripts/indexnow-ping.mjs
+
       - name: No changes
         if: steps.sync.outputs.changed != 'true'
         run: echo "No changes from upstream — skipping rebuild."
