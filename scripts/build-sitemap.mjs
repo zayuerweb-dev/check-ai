@@ -37,6 +37,10 @@ function urlFromPath(absPath) {
   const rel = relative(ROOT, absPath).replace(/\\/g, '/');
   if (rel === 'index.html') return `${ORIGIN}/`;
   if (rel.endsWith('/index.html')) return `${ORIGIN}/${rel.slice(0, -'/index.html'.length)}/`;
+  // Top-level static pages (about.html etc.) 308-redirect to extensionless
+  // clean URLs on Cloudflare Pages. Emit the canonical /about form so the
+  // sitemap never lists redirecting URLs (Google flags those).
+  if (/^[a-z0-9-]+\.html$/.test(rel)) return `${ORIGIN}/${rel.slice(0, -'.html'.length)}`;
   return `${ORIGIN}/${rel}`;
 }
 
