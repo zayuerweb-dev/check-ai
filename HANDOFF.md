@@ -187,10 +187,51 @@ Then in any chat, ask Claude Code to "browse https://checkaimodels.com" — it'l
 
 ## 8. Recurring tasks
 
+### Daily (~5 min) — Manual indexing in Google Search Console
+
+**What it is:** GSC 自然爬新站很慢（权重低）。手动 indexing = 把某个 URL 推到 Google
+爬取队列优先位，24-72h 内被爬+索引。这是唯一能主动加速 Google 的杠杆。配额约 10/天。
+
+**How (30 sec per URL):**
+1. 打开 GSC (property: checkaimodels.com)
+2. 顶部搜索框「检查...中的任何网址」粘贴完整 URL
+3. 回车 → 等检测几秒
+4. 点蓝色「请求编入索引」→ 等测试完成
+5. 换下一个 URL，重复
+
+**Push these 6 core URLs first (then topic/compare pages on later days):**
+```
+https://checkaimodels.com/zh/
+https://checkaimodels.com/zh/articles/rag-vs-long-context-vs-fine-tune-2026/
+https://checkaimodels.com/zh/articles/claude-opus-4-7-review-2026/
+https://checkaimodels.com/zh/articles/china-ai-models-landscape-2026/
+https://checkaimodels.com/zh/articles/deepseek-r1-vs-gpt-5-cost-2026/
+https://checkaimodels.com/zh/articles/gpt-5-vs-claude-coding-2026/
+```
+Rules: one push per URL (don't re-push the same one), effect is 24-72h not instant.
+New article published → manually index it the same day.
+
+### Post-deploy health check (~5 min, after every change) — catches silent config failures
+
+The reason indexing stalled 9 days early on: the sitemap was never submitted and
+nobody checked. Setup/config bugs are invisible unless you check. Run this after
+every deploy:
+```
+□ Live article URL returns 200
+□ curl sitemap.xml | grep -c "<loc>"  → should be 87 (no .html, no /models/)
+□ GSC → 站点地图: status = 成功
+□ Bing → Sitemaps: status = Success
+```
+(A daily automated health-check workflow can replace this — see Outstanding items.)
+
 ### Weekly (~30 min/week)
-- Write 1 new zh flagship article (the moat). Use the humanizer skill afterward.
+- Write 1 new zh flagship article (the moat). Run it through the `humanizer-zh`
+  skill afterward (installed at `~/.claude/skills/humanizer-zh`). Target ≥35/50.
 - Review the daily-sync PRs (data is auto-pushed, but skim for sanity).
-- Glance at GSC + Cloudflare Web Analytics for trend.
+- GSC「网页」: record indexed count, compare to last week (trend, not absolute).
+- GSC「未编入索引的原因」: any NEW red errors? (redirect/canonical entries are benign)
+- GitHub Actions: did daily sync fail (red ❌)?
+- Bing Search Performance: any clicks yet? (Bing surfaces data ~1-2 wks before Google)
 
 ### Monthly
 - Bump editorial dates on topic pages if claims still hold.
