@@ -322,7 +322,7 @@ function pageHtml(a, b, locale) {
   const altUrl = `https://checkaimodels.com${altPath}`;
   const navHtml = isZh
     ? `<a href="/">对比工具</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="${altPath}">EN</a>`
-    : `<a href="/about">About</a><a href="/privacy.html">Privacy</a><a href="/contact">Contact</a><a href="${altPath}">中文</a>`;
+    : `<a href="/">Compare</a><a href="/about">About</a><a href="/privacy.html">Privacy</a><a href="/contact">Contact</a><a href="${altPath}">中文</a>`;
   const title = isZh
     ? `${a.name} vs ${b.name}：价格、上下文、跑分对比（2026）`
     : `${a.name} vs ${b.name}: Price, Context, Benchmarks (2026)`;
@@ -354,7 +354,7 @@ function pageHtml(a, b, locale) {
 <script type="application/ld+json">${faqJson(a, b, locale)}</script>
 </head>
 <body class="seo-page">
-<header class="seo-header"><a class="brand-link" href="${isZh ? '/zh/' : '/'}">Check.AI</a><nav>${navHtml}</nav></header>
+<header class="seo-header"><a class="brand-link" href="${isZh ? '/zh/' : '/en/'}">Check.AI</a><nav>${navHtml}</nav></header>
 <main class="seo-main">
 <p class="eyebrow">${t.eyebrow}</p>
 <h1>${title}</h1>
