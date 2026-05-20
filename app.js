@@ -101,6 +101,13 @@ Object.assign(es, {
 });
 const supportedLangs = ['zh','en','ja','ko','es'];
 function initialLang() {
+  try {
+    const urlLang = new URLSearchParams(window.location.search).get('lang');
+    if (supportedLangs.includes(urlLang)) {
+      localStorage.setItem('checkai.lang', urlLang);
+      return urlLang;
+    }
+  } catch (_) {}
   const saved = localStorage.getItem('checkai.lang');
   if (supportedLangs.includes(saved)) return saved;
   const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
