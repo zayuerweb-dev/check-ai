@@ -318,7 +318,11 @@ function pageHtml(a, b, locale) {
   const lang = isZh ? 'zh-CN' : 'en';
   const path = isZh ? `/zh/compare/${slug}/` : `/compare/${slug}/`;
   const url = `https://checkaimodels.com${path}`;
-  const altUrl = isZh ? `https://checkaimodels.com/compare/${slug}/` : `https://checkaimodels.com/zh/compare/${slug}/`;
+  const altPath = isZh ? `/compare/${slug}/` : `/zh/compare/${slug}/`;
+  const altUrl = `https://checkaimodels.com${altPath}`;
+  const navHtml = isZh
+    ? `<a href="/zh/">中文首页</a><a href="/">对比工具</a><a href="/zh/about/">关于</a><a href="/contact">联系</a><a href="${altPath}">EN</a>`
+    : `<a href="/">Compare</a><a href="/about">About</a><a href="/privacy.html">Privacy</a><a href="/contact">Contact</a><a href="${altPath}">中文</a>`;
   const title = isZh
     ? `${a.name} vs ${b.name}：价格、上下文、跑分对比（2026）`
     : `${a.name} vs ${b.name}: Price, Context, Benchmarks (2026)`;
@@ -344,13 +348,13 @@ function pageHtml(a, b, locale) {
 <meta property="og:description" content="${escAttr(desc)}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="${url}">
-<link rel="stylesheet" href="/styles.css?v=20260510-2">
+<link rel="stylesheet" href="/styles.css?v=20260514-2">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">${articleJson(a, b, title, locale, desc)}</script>
 <script type="application/ld+json">${faqJson(a, b, locale)}</script>
 </head>
 <body class="seo-page">
-<header class="seo-header"><a class="brand-link" href="${isZh ? '/zh/' : '/'}">Check.AI</a><nav>${t.nav}</nav></header>
+<header class="seo-header"><a class="brand-link" href="${isZh ? '/zh/' : '/'}">Check.AI</a><nav>${navHtml}</nav></header>
 <main class="seo-main">
 <p class="eyebrow">${t.eyebrow}</p>
 <h1>${title}</h1>
