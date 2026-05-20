@@ -165,7 +165,7 @@ function pageHtml(group, allSlugs) {
 <script type="application/ld+json">${faq}</script>
 </head>
 <body class="seo-page">
-<header class="seo-header"><a class="brand-link" href="/">Check.AI</a><nav><a href="/">Compare</a><a href="/about">About</a><a href="/privacy.html">Privacy</a><a href="/contact">Contact</a></nav></header>
+<header class="seo-header"><a class="brand-link" href="/">Check.AI</a><nav><a href="/about">About</a><a href="/privacy.html">Privacy</a><a href="/contact">Contact</a></nav></header>
 <main class="seo-main">
 <p class="eyebrow">Model reference · Synced ${data.models[0]?.last_updated || 'May 2026'}</p>
 <h1>${escAttr(displayName)}</h1>
