@@ -4,7 +4,7 @@
 // applies sensible <priority>/<changefreq> values, and writes sitemap.xml.
 // Run: node scripts/build-sitemap.mjs
 
-import { readdirSync, writeFileSync, statSync } from 'node:fs';
+import { readdirSync, writeFileSync, statSync, appendFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
 const ROOT = process.cwd();
@@ -83,8 +83,7 @@ function main() {
   console.log(`[build-sitemap] wrote ${urls.length} URLs to sitemap.xml`);
 
   if (process.env.GITHUB_OUTPUT) {
-    const fs = require('node:fs');
-    fs.appendFileSync(process.env.GITHUB_OUTPUT, `url_count=${urls.length}\n`);
+    appendFileSync(process.env.GITHUB_OUTPUT, `url_count=${urls.length}\n`);
   }
 }
 
