@@ -69,6 +69,16 @@ jobs:
             exit 1
           fi
 
+      - name: Trigger Cloudflare Pages deploy
+        # The push above is made with GITHUB_TOKEN, which by design does NOT
+        # trigger other workflows (push/pull_request). workflow_dispatch is the
+        # documented exception, so we dispatch the deploy explicitly — otherwise
+        # synced data is committed but never published.
+        if: steps.sync.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run cloudflare-pages.yml --ref main
+
       - name: Ping IndexNow (Bing/Yandex) after deploy
         if: steps.sync.outputs.changed == 'true'
         run: |
