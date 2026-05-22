@@ -1,0 +1,14 @@
+{
+  "name": "check-ai",
+  "private": true,
+  "description": "Check.AI — AI model comparison site. Static front end + e2e tests.",
+  "scripts": {
+    "serve": "node scripts/static-server.mjs 8799",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0"
+  }
+}

@@ -2,3 +2,7 @@
 app.upload.tmp.js
 .gstack/
 HANDOFF.md
+node_modules/
+test-results/
+playwright-report/
+playwright/.cache/
