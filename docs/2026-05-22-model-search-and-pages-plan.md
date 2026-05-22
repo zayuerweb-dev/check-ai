@@ -97,9 +97,9 @@ export const MAJOR_BRANDS = new Set([
   'mistral', 'meta', 'llama', 'moonshot', 'zhipu',
 ]);
 
-const TOP_PER_BRAND = 6;
+const TOP_PER_BRAND = 4;
 const RECENT_MONTHS = 9;
-const HARD_CAP = 80;
+const HARD_CAP = 25; // conservative start; raise to 80 after GSC confirms these index cleanly
 
 // A context/capability-derived score (mirrors the SPA's quality heuristic so
 // ranking is consistent). data/models.json has no stored quality field.
@@ -244,9 +244,9 @@ In `main()`, after the write loop (after line 250 `console.log`), add:
 Run:
 ```bash
 node scripts/build-model-pages.mjs
-node -e "const a=JSON.parse(require('fs').readFileSync('data/model-slugs.json','utf8')); const idx=a.filter(m=>m.indexable).length; console.log('total',a.length,'indexable',idx); if(idx<10||idx>80) throw new Error('subset size off: '+idx);"
+node -e "const a=JSON.parse(require('fs').readFileSync('data/model-slugs.json','utf8')); const idx=a.filter(m=>m.indexable).length; console.log('total',a.length,'indexable',idx); if(idx<8||idx>30) throw new Error('subset size off: '+idx);"
 ```
-Expected: total ~ matches page count; indexable between 10 and 80. Spot check one indexable page has `index,follow` and one long-tail page has `noindex,follow`:
+Expected: total ~ matches page count; indexable between 8 and 30 (conservative cap of 25). Spot check one indexable page has `index,follow` and one long-tail page has `noindex,follow`:
 ```bash
 node -e "const a=JSON.parse(require('fs').readFileSync('data/model-slugs.json','utf8')); const fs=require('fs'); const yes=a.find(m=>m.indexable).slug, no=a.find(m=>!m.indexable).slug; const g=s=>fs.readFileSync('models/'+s+'/index.html','utf8').match(/robots\" content=\"([^\"]+)/)[1]; console.log(yes, g(yes)); console.log(no, g(no));"
 ```
@@ -530,6 +530,67 @@ Expected: `0 problem(s)`. If a model page trips a rule, fix the nav/footer marku
 ```bash
 git add scripts/build-model-pages.mjs data/model-pages.json models/
 git -c core.autocrlf=false commit -m "feat(models): localize pages to zh + data-driven blocks, peer table, verdict"
+```
+
+---
+
+## Task 3B: Hand-write zh verdicts for the indexable subset
+
+**Files:**
+- Modify: `data/model-pages.json`
+
+The template verdict (Task 3) is the safe default. For the ~25 indexable flagships we
+add curated `verdictZh` overrides. **Accuracy guard:** only state qualitative claims that
+are (a) derivable from the dataset (price tier, context, capabilities), or (b) sourced
+from an existing vetted zh article in `zh/articles/`. Do NOT invent benchmark rankings
+or claims about post-2025 models that cannot be verified — when in doubt, keep the
+verdict data-grounded and link the relevant article.
+
+- [ ] **Step 1: List the indexable slugs to write for**
+
+Run (after Task 3's build):
+```bash
+node -e "const a=JSON.parse(require('fs').readFileSync('data/model-slugs.json','utf8')); console.log(a.filter(m=>m.indexable).map(m=>m.slug+'  ('+m.name+')').join('\n'));"
+```
+
+- [ ] **Step 2: Map flagships to existing articles for sourced takes**
+
+Existing vetted zh articles to draw qualitative claims + internal links from:
+- `claude-opus-4-7-review-2026` → Claude Opus / Sonnet verdicts
+- `gpt-5-vs-claude-coding-2026` → GPT-5.x and Claude coding takes
+- `deepseek-r1-vs-gpt-5-cost-2026` → DeepSeek / cost-efficiency takes
+- `rag-vs-long-context-vs-fine-tune-2026`, `local-llm-deployment-guide-2026`, `china-ai-models-landscape-2026` → context/local/China-models framing
+
+- [ ] **Step 3: Populate `data/model-pages.json`**
+
+For each indexable slug, add a `verdictZh`. Pattern (data-grounded + sourced sentence +
+optional article link). Example shape (use the REAL slugs from Step 1):
+
+```json
+{
+  "gpt-5-5": { "verdictZh": "GPT-5.5 是 OpenAI 的旗舰，主打综合能力与工具生态。上下文 400K、价格在同类偏中等。写代码与复杂推理是强项，详细对比见 <a href=\"/zh/articles/gpt-5-vs-claude-coding-2026/\">GPT-5 vs Claude 写代码哪个强</a>。" },
+  "claude-opus-4-7": { "verdictZh": "Claude Opus 4.7 是 Anthropic 的旗舰，长文理解与代码稳健。完整评测见 <a href=\"/zh/articles/claude-opus-4-7-review-2026/\">Claude Opus 4.7 深度评测</a>。" }
+}
+```
+
+Write a `verdictZh` for every indexable slug. Where no article and no verifiable
+qualitative claim exists, keep it strictly data-grounded (brand + capabilities + price
+tier + context) — the same shape the template would produce, just polished.
+
+- [ ] **Step 4: Rebuild and verify overrides are applied**
+
+Run:
+```bash
+node scripts/build-model-pages.mjs
+node -e "const fs=require('fs');const o=JSON.parse(fs.readFileSync('data/model-pages.json','utf8'));const slug=Object.keys(o)[0];const h=fs.readFileSync('models/'+slug+'/index.html','utf8');console.log('override applied?', h.includes(o[slug].verdictZh.replace(/<[^>]+>/g,'').slice(0,12)));"
+```
+Expected: `override applied? true`.
+
+- [ ] **Step 5: Commit**
+
+```bash
+git add data/model-pages.json models/
+git -c core.autocrlf=false commit -m "content(models): curated zh verdicts for indexable flagships"
 ```
 
 ---
