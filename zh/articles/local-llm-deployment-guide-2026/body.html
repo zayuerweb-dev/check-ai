@@ -1,0 +1,180 @@
+<p class="seo-lead">"我这张显卡能跑多大的模型""装 Ollama 还是 vLLM""DeepSeek 70B 是不是必须服务器"——群里每周都在问这几个。本地跑大模型在 2026 年早就不是发烧友专属：DeepSeek 把蒸馏小模型做到接近云端中端质量、量化技术让 7B 塞进 4GB 显存、Ollama 一行命令搞定。这篇用真实显存数字、框架取舍、显卡分档、电费账，把"我该怎么在自己机器上跑大模型"一次讲透。</p>
+
+<nav class="article-toc" aria-label="目录">
+<p class="article-toc-label">目录</p>
+<ol>
+<li><a href="#conclusion">30 秒结论</a></li>
+<li><a href="#why">什么时候该本地跑（什么时候别）</a></li>
+<li><a href="#vram">显存怎么算：量化是关键</a></li>
+<li><a href="#gpu">显卡分档：你的卡能跑多大</a></li>
+<li><a href="#framework">框架怎么选：Ollama / vLLM / llama.cpp / LM Studio</a></li>
+<li><a href="#models">2026 年本地跑哪些模型</a></li>
+<li><a href="#mac">Apple Silicon：被低估的方案</a></li>
+<li><a href="#cost">真实成本：本地 vs API</a></li>
+<li><a href="#related">相关阅读</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ol>
+</nav>
+
+<section class="seo-card">
+<h2 id="conclusion">30 秒结论</h2>
+<ul>
+<li><strong>入门（8-16GB 显存）：</strong>RTX 4060 / 4060 Ti，跑 7B-14B INT4，DeepSeek-R1-Distill-Qwen-7B 是甜点。</li>
+<li><strong>主力（24-32GB）：</strong>RTX 4090 / 5090，跑 32B INT4 或 14B FP16，能干真活。</li>
+<li><strong>专业（48GB+）：</strong>RTX 6000 Ada / 双卡，跑 70B INT4。</li>
+<li><strong>Mac 用户：</strong>M3/M4 Max 64-128GB 统一内存 + MLX，量化跑 70B，静音省电。</li>
+<li><strong>没独显：</strong>llama.cpp + CPU + 大内存，能跑但慢，仅适合低频。</li>
+<li><strong>框架：</strong>个人玩 Ollama，做服务 vLLM，Mac 用 LM Studio / llama.cpp。</li>
+<li><strong>模型：</strong>综合 DeepSeek-R1 蒸馏、中文 Qwen3、Agent GLM-4-9B、代码 Qwen3 Coder。</li>
+<li><strong>纠结时：</strong>先 Ollama + DeepSeek-R1-Distill-Qwen-7B 跑起来再说，撑不住再升级硬件。</li>
+</ul>
+<p><a class="section-link" href="/">在 Check.AI 对比开源模型的参数和能力 →</a></p>
+</section>
+
+<section class="seo-card">
+<h2 id="why">什么时候该本地跑（什么时候别）</h2>
+<p>先泼冷水：<strong>大多数人不需要本地部署</strong>。DeepSeek API 每百万 token 几毛钱，低频用一年都花不了几十块，还不用买显卡、装环境、调框架。</p>
+<p>本地真正值的三种情况：</p>
+<ul>
+<li><strong>数据不能出本地</strong>：医疗、法律、企业内部数据、个人隐私。这是最硬的理由，再贵也得本地。</li>
+<li><strong>高频海量调用</strong>：每天几万次以上，API 账单滚雪球，本地边际成本接近电费。</li>
+<li><strong>离线 / 弱网 / 自主可控</strong>：不依赖任何厂商，不怕涨价、限流、停服、审查。</li>
+</ul>
+<p>反过来，如果你只是想"玩玩 AI"或者每天调几十次，<strong>别折腾本地，直接用 API</strong>。把买显卡的钱换成 API 额度能用好几年。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="vram">显存怎么算：量化是关键</h2>
+<p>本地部署第一道坎是显存。算法很简单：<strong>模型参数量 × 每参数字节数 + 30% 余量（激活值、KV cache）</strong>。每参数字节数由量化精度决定：</p>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">精度</th>
+<th style="text-align:left;padding:8px">每参数</th>
+<th style="text-align:left;padding:8px">质量</th>
+<th style="text-align:left;padding:8px">7B 显存</th>
+<th style="text-align:left;padding:8px">适合</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:8px">FP16</td><td style="padding:8px">2 字节</td><td style="padding:8px">原始</td><td style="padding:8px">~16GB</td><td style="padding:8px">生产 / 评测</td></tr>
+<tr><td style="padding:8px">INT8</td><td style="padding:8px">1 字节</td><td style="padding:8px">损失极小</td><td style="padding:8px">~8GB</td><td style="padding:8px">质量敏感</td></tr>
+<tr><td style="padding:8px"><strong>INT4 (q4_k_m)</strong></td><td style="padding:8px">0.5 字节</td><td style="padding:8px">损失个位数 %</td><td style="padding:8px"><strong>~4-5GB</strong></td><td style="padding:8px">个人甜点</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:var(--muted)">数据来源：llama.cpp GGUF 量化基准、知乎 LLM 推理实测（2026-02）、各模型 HuggingFace 卡。</p>
+<h3 style="margin-top:18px">各规模 INT4 显存速查</h3>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">模型规模</th>
+<th style="text-align:left;padding:8px">INT4 显存</th>
+<th style="text-align:left;padding:8px">FP16 显存</th>
+<th style="text-align:left;padding:8px">最低显卡</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:8px">7B</td><td style="padding:8px">~5GB</td><td style="padding:8px">~16GB</td><td style="padding:8px">RTX 3060 12GB</td></tr>
+<tr><td style="padding:8px">13-14B</td><td style="padding:8px">~9GB</td><td style="padding:8px">~28GB</td><td style="padding:8px">RTX 4060 Ti 16GB</td></tr>
+<tr><td style="padding:8px">32B</td><td style="padding:8px">~20GB</td><td style="padding:8px">~64GB</td><td style="padding:8px">RTX 4090/5090 32GB</td></tr>
+<tr><td style="padding:8px">70B</td><td style="padding:8px">~40GB</td><td style="padding:8px">~140GB</td><td style="padding:8px">RTX 6000 Ada 48GB / 双卡</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px"><strong>记住一句：个人本地永远从 INT4 起步。</strong>质量损失通常感觉不出来，显存省 75%，速度还更快。要原始精度是生产和跑分才需要的事。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="gpu">显卡分档：你的卡能跑多大</h2>
+
+<h3 style="margin-top:18px">入门档（8-16GB）</h3>
+<p>RTX 3060 12GB / 4060 8GB / 4060 Ti 16GB。能舒服跑 7B-14B INT4。这一档足够个人助手、本地 RAG、代码补全。4060 Ti 16GB 是性价比之王——16GB 能塞 14B INT4 还有余量。</p>
+
+<h3 style="margin-top:18px">主力档（24-32GB）</h3>
+<p>RTX 4090 24GB / 5090 32GB。32B INT4 跑得动，或者 14B FP16 要质量。这一档能干真活：本地 agent、批量处理、严肃推理。两张 RTX 5060 Ti 16G（共 32G）走 vLLM 也能跑 32B AWQ，是预算方案。</p>
+
+<h3 style="margin-top:18px">专业档（48GB+）</h3>
+<p>RTX 6000 Ada 48GB，或双 RTX 4090/5090 NVLink 显存池化。70B INT4 的门槛。再往上 70B FP16 要双 80GB（A100/H100），那是机房不是桌面了，个人基本不碰。</p>
+
+<h3 style="margin-top:18px">没独显 / 核显</h3>
+<p>llama.cpp 走 CPU + 系统内存。32GB 内存能跑 7B INT4，但速度可能每秒几个 token（GPU 是几十上百）。仅适合极低频、不在乎等待的场景。别指望用它做实时对话。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="framework">框架怎么选：Ollama / vLLM / llama.cpp / LM Studio</h2>
+
+<h3 style="margin-top:18px">Ollama — 个人首选</h3>
+<p>一行命令 <code>ollama run deepseek-r1:7b</code> 就跑起来。0.5+ 版本支持 CPU/GPU 混合推理、动态模型卸载。模型库现成，切换方便。<strong>个人、单机、桌面、试验，闭眼选 Ollama。</strong>缺点是高并发吞吐不如 vLLM。</p>
+
+<h3 style="margin-top:18px">vLLM — 生产服务</h3>
+<p>要把模型做成 API 给多人/多请求用，vLLM 是标准答案。v0.7+ 的 Chunked Prefill + Prefix Caching 对显存碎片管理高效，吞吐远超 Ollama。要 CUDA 12.4+，多卡并行原生支持。<strong>做产品后端选 vLLM。</strong>配置比 Ollama 复杂一档。</p>
+
+<h3 style="margin-top:18px">llama.cpp — 最通用</h3>
+<p>C++ 写的，几乎在哪都能跑：CPU、Mac Metal、各种边缘设备。GGUF 量化格式的发源地。没 N 卡、要极致可移植、Mac 命令行用户首选。性能调优空间大但要折腾。</p>
+
+<h3 style="margin-top:18px">LM Studio — 图形界面新手友好</h3>
+<p>带 GUI，点点鼠标下载模型就能聊，Mac（含 MLX 加速）/ Windows 都好用。完全不想碰命令行的人用这个起步。功能不如前三个深，但门槛最低。</p>
+
+<p style="margin-top:14px"><strong>一句话路线：</strong>新手 LM Studio 摸一摸 → 上手了换 Ollama 当日常 → 要做产品上 vLLM → Mac 重度用户直接 llama.cpp / MLX。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="models">2026 年本地跑哪些模型</h2>
+<ul>
+<li><strong>综合推理之王：</strong>DeepSeek-R1-Distill-Qwen-7B / 32B。蒸馏版小而强，7B 推理质量接近云端中端，4-5GB 显存能跑。独立开发者第一个装的就该是它。</li>
+<li><strong>中文 + 多语言：</strong>Qwen3 系列（7B/14B/32B）。中文母语训练，古文、政策文本、东南亚语种强，本地中文场景首选。</li>
+<li><strong>通用 + 生态：</strong>Llama 4 系列。社区最大，工具链最全，二次微调资料最多。</li>
+<li><strong>Agent / 工具调用：</strong>GLM-4-9B。结构化输出和 function calling 在小模型里最稳，本地做 agent 选它。</li>
+<li><strong>代码：</strong>Qwen3 Coder / DeepSeek Coder。本地代码补全、Cline/Aider 接本地模型时用这俩。</li>
+</ul>
+<p>选型逻辑和云端一样：没有全能王，按场景配。个人最稳的起步组合是 <strong>DeepSeek-R1-Distill-Qwen-7B（推理）+ Qwen3-7B（中文）</strong>，两个加起来 10GB 显存搞定 90% 需求。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="mac">Apple Silicon：被低估的方案</h2>
+<p>很多人不知道：<strong>Mac 的统一内存（Unified Memory）是本地大模型的隐藏优势</strong>。普通 PC 显存和内存分开，显卡 16GB 就是 16GB；Apple Silicon 的内存 CPU/GPU 共享，M4 Max 128GB 里能拿出 100GB+ 当"显存"用。</p>
+<ul>
+<li><strong>M3/M4 Max 64GB：</strong>量化跑 32B 流畅，70B 勉强</li>
+<li><strong>M4 Max 128GB：</strong>量化 70B 体验接近一张专业卡，还静音、省电、不用配机箱</li>
+</ul>
+<p>用 <strong>LM Studio</strong>（图形界面，内置 MLX）或 <strong>llama.cpp</strong>（Metal 加速）。MLX 是 Apple 自家的 ML 框架，针对统一内存做了原生优化，比通用方案快一档。</p>
+<p>结论：如果你已经有一台高内存 Mac，别再去研究买 N 卡——你手上这台可能已经够用，而且体验更安静。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="cost">真实成本：本地 vs API</h2>
+<p>拿一个具体场景算账：每天 5000 次调用，每次输入 800 token、输出 200 token，跑 7B 级模型。</p>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">方案</th>
+<th style="text-align:left;padding:8px">前期投入</th>
+<th style="text-align:left;padding:8px">月成本</th>
+<th style="text-align:left;padding:8px">回本周期</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:8px">DeepSeek API（云端）</td><td style="padding:8px">¥0</td><td style="padding:8px">~¥150-300</td><td style="padding:8px">无（一直付）</td></tr>
+<tr><td style="padding:8px">本地 RTX 4090</td><td style="padding:8px">~¥13,000</td><td style="padding:8px">~¥80 电费</td><td style="padding:8px">约 8-14 个月</td></tr>
+<tr><td style="padding:8px">本地 Mac M4 Max（已有）</td><td style="padding:8px">¥0（复用）</td><td style="padding:8px">~¥30 电费</td><td style="padding:8px">立即</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:var(--muted)">电费按满载 0.4 度/小时、每天 8 小时、¥0.6/度估算。前期投入按 2026 年 5 月国内零售价。</p>
+<p><strong>说人话：</strong>低频用 API，别买卡。高频 + 长期才本地划算，而且回本要 8-14 个月——这期间你得真的天天高频用。<strong>本地真正不可替代的不是省钱，是"数据不出本地 + 调用无上限 + 离线可用 + 不被任何厂商卡脖子"。</strong>为这四个买单的人，才该本地部署。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="related">相关阅读</h2>
+<ul>
+<li><a href="/zh/articles/rag-vs-long-context-vs-fine-tune-2026/">RAG vs 长上下文 vs Fine-tune 怎么选</a></li>
+<li><a href="/zh/articles/china-ai-models-landscape-2026/">2026 年国产 AI 模型全景</a></li>
+<li><a href="/zh/articles/deepseek-r1-vs-gpt-5-cost-2026/">DeepSeek R1 vs GPT-5 性价比</a></li>
+<li><a href="/zh/topics/open-source-ai-models/">开源 AI 模型对比</a></li>
+<li><a href="/zh/topics/cheapest-ai-api-models/">最便宜的 AI API 模型</a></li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="faq">FAQ</h2>
+<p><strong>最少要什么显卡？</strong>7B INT4 只要 4-5GB，RTX 3060 就行。没独显可 llama.cpp 走 CPU，但慢。</p>
+<p><strong>Ollama 还是 vLLM？</strong>个人玩 Ollama（一行命令），做服务 vLLM（高吞吐）。Mac 用 LM Studio / llama.cpp。</p>
+<p><strong>量化怎么选？</strong>个人一律 INT4 起步，显存省 75%，质量损失个位数 %。</p>
+<p><strong>跑哪个模型？</strong>综合 DeepSeek-R1 蒸馏、中文 Qwen3、Agent GLM-4-9B、代码 Qwen3 Coder。</p>
+<p><strong>比 API 便宜吗？</strong>低频不便宜，高频+长期才回本（8-14 个月）。核心价值是数据隐私 + 无限调用。</p>
+<p><strong>Mac 能跑吗？</strong>能，统一内存是优势。M4 Max 128GB 量化跑 70B，用 MLX。</p>
+</section>
+
+<p><a class="section-link" href="/">→ 在 Check.AI 对比所有开源模型的参数、上下文和能力</a></p>

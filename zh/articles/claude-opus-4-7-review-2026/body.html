@@ -1,0 +1,204 @@
+<p class="seo-lead">Anthropic 在 2026 年 4 月 16 日发布的 <strong>Claude Opus 4.7</strong>，是过去一年 Claude 家族最实质的版本升级。SWE-bench Pro 单次跳了 10.9 分、幻觉率从 61% 砍到 36%、高分辨率图像支持上线、价格不变（但 tokenizer 改了导致隐性涨 0-35%）。这篇用 Anthropic 官方文档、Vellum 实测、Artificial Analysis 数据，把 Opus 4.7 跟 4.6、GPT-5.4、Gemini 3.1 Pro、Sonnet 4.6 一次性摆清楚——你看完就知道该不该升、怎么升、什么场景反而不该升。</p>
+
+<nav class="article-toc" aria-label="目录">
+<p class="article-toc-label">目录</p>
+<ol>
+<li><a href="#conclusion">30 秒结论</a></li>
+<li><a href="#specs">核心规格</a></li>
+<li><a href="#benchmarks">关键跑分 vs 上一代和竞品</a></li>
+<li><a href="#changes">5 个真正重要的变化</a></li>
+<li><a href="#api-changes">三个破坏性 API 变更，升级前必看</a></li>
+<li><a href="#who-upgrades">谁该升、谁不该升、谁该跳过</a></li>
+<li><a href="#cost">真实成本估算</a></li>
+<li><a href="#future">未来 6 个月观察点</a></li>
+<li><a href="#related">相关阅读</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ol>
+</nav>
+
+<section class="seo-card">
+<h2 id="conclusion">30 秒结论</h2>
+<ul>
+<li><strong>Agent 编程 / 长 agentic loop：</strong>必升。SWE-bench Pro 64.3% 全行业第一。</li>
+<li><strong>Computer use / 截图理解：</strong>必升。OSWorld 78%，2576px 高清图像支持。</li>
+<li><strong>知识工作（doc / ppt / 图表）：</strong>升。CharXiv 视觉 82.1%（+13 分）。</li>
+<li><strong>Web research / 长链接调用：</strong>不必。GPT-5.4 Pro BrowseComp 89.3% 仍领先。</li>
+<li><strong>终端代码（CLI heavy）：</strong>不必。GPT-5.5 Terminal-Bench 82.7% 显著高于 Opus 4.7 的 69.4%。</li>
+<li><strong>成本敏感批量任务：</strong>千万别。$5/$25 是 DeepSeek R1 的 9 倍，Sonnet 4.6 的 1.67 倍。</li>
+<li><strong>纠结时：</strong>主力 Opus 4.7 跑硬任务，Sonnet 4.6 兜底常规调用，DeepSeek R1 做批量。</li>
+</ul>
+<p><a class="section-link" href="/">在 Check.AI 实时对比所有模型 →</a></p>
+</section>
+
+<section class="seo-card">
+<h2 id="specs">核心规格</h2>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">项目</th>
+<th style="text-align:left;padding:8px">Claude Opus 4.7</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:8px">API model ID</td><td style="padding:8px"><code>claude-opus-4-7</code></td></tr>
+<tr><td style="padding:8px">发布日</td><td style="padding:8px">2026-04-16</td></tr>
+<tr><td style="padding:8px">上下文窗口</td><td style="padding:8px">1,000,000 token</td></tr>
+<tr><td style="padding:8px">最大输出</td><td style="padding:8px">128,000 token</td></tr>
+<tr><td style="padding:8px">输入价</td><td style="padding:8px">$5.00 / 百万 token</td></tr>
+<tr><td style="padding:8px">输出价</td><td style="padding:8px">$25.00 / 百万 token</td></tr>
+<tr><td style="padding:8px">Cache 命中</td><td style="padding:8px">输入价 × 0.1（省 90%）</td></tr>
+<tr><td style="padding:8px">Batch API</td><td style="padding:8px">输入/输出半价</td></tr>
+<tr><td style="padding:8px">高分辨率图像</td><td style="padding:8px">2576px / 3.75MP（上一代 1568px / 1.15MP）</td></tr>
+<tr><td style="padding:8px">渠道</td><td style="padding:8px">Anthropic API、AWS Bedrock、Azure、Google Vertex</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="seo-card">
+<h2 id="benchmarks">关键跑分 vs 上一代和竞品</h2>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">基准</th>
+<th style="text-align:left;padding:8px">Opus 4.7</th>
+<th style="text-align:left;padding:8px">Opus 4.6</th>
+<th style="text-align:left;padding:8px">GPT-5.4</th>
+<th style="text-align:left;padding:8px">Gemini 3.1 Pro</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:8px">SWE-bench Verified（agent 编程）</td><td style="padding:8px"><strong>87.6%</strong></td><td style="padding:8px">80.8%</td><td style="padding:8px">—</td><td style="padding:8px">80.6%</td></tr>
+<tr><td style="padding:8px">SWE-bench Pro（更难）</td><td style="padding:8px"><strong>64.3%</strong></td><td style="padding:8px">53.4%</td><td style="padding:8px">57.7%</td><td style="padding:8px">54.2%</td></tr>
+<tr><td style="padding:8px">Terminal-Bench 2.0（CLI）</td><td style="padding:8px">69.4%</td><td style="padding:8px">65.4%</td><td style="padding:8px">82.7%（GPT-5.5）</td><td style="padding:8px">68.5%</td></tr>
+<tr><td style="padding:8px">MCP-Atlas（多工具调用）</td><td style="padding:8px"><strong>77.3%</strong></td><td style="padding:8px">75.8%</td><td style="padding:8px">68.1%</td><td style="padding:8px">73.9%</td></tr>
+<tr><td style="padding:8px">Finance Agent v1.1</td><td style="padding:8px"><strong>64.4%</strong></td><td style="padding:8px">60.1%</td><td style="padding:8px">61.5%（Pro）</td><td style="padding:8px">59.7%</td></tr>
+<tr><td style="padding:8px">OSWorld-Verified（computer use）</td><td style="padding:8px"><strong>78.0%</strong></td><td style="padding:8px">72.7%</td><td style="padding:8px">75.0%</td><td style="padding:8px">—</td></tr>
+<tr><td style="padding:8px">BrowseComp（web research）</td><td style="padding:8px">79.3%</td><td style="padding:8px">83.7%</td><td style="padding:8px"><strong>89.3%（Pro）</strong></td><td style="padding:8px">85.9%</td></tr>
+<tr><td style="padding:8px">GPQA Diamond（科学推理）</td><td style="padding:8px">94.2%</td><td style="padding:8px">91.3%</td><td style="padding:8px"><strong>94.4%（Pro）</strong></td><td style="padding:8px">94.3%</td></tr>
+<tr><td style="padding:8px">CharXiv（视觉推理）</td><td style="padding:8px"><strong>82.1%</strong></td><td style="padding:8px">69.1%</td><td style="padding:8px">—</td><td style="padding:8px">—</td></tr>
+<tr><td style="padding:8px">幻觉率（越低越好）</td><td style="padding:8px"><strong>36%</strong></td><td style="padding:8px">61%</td><td style="padding:8px">—</td><td style="padding:8px">—</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:var(--muted)">数据来自 Anthropic 官方文档、Vellum 评测、Artificial Analysis Intelligence Index，截至 2026 年 5 月。"—"表示该机构未公布对应数字。GPT-5.4 Pro 是 OpenAI 的更高 effort 版本，价格更高。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="changes">5 个真正重要的变化</h2>
+
+<h3 style="margin-top:18px">1. SWE-bench Pro +10.9 分：agent 编程的拐点</h3>
+<p>SWE-bench Verified 已经卷到 80%+ 没人在乎了。<strong>SWE-bench Pro 才是 2026 年真正的 agent 编程基准</strong>——更难、需要多步规划、跨文件协调。Opus 4.6 → 4.7 单次跳 10.9 分（53.4% → 64.3%）是过去一年所有前沿模型里的最大单次跳跃，把 GPT-5.4 的 57.7% 和 Gemini 3.1 Pro 的 54.2% 远远抛开。</p>
+<p>实战意义：原来 Claude Code 跑大型重构 60% 一次成功率，现在 75%+。少一次重试就回本。</p>
+
+<h3 style="margin-top:18px">2. 幻觉率从 61% 砍到 36%</h3>
+<p>这是 Anthropic 官方公布最戏剧性的数字——同一套测试 Opus 4.6 幻觉 61%，4.7 只有 36%。机制是模型更愿意"我不知道"而不是硬编。对生产环境意味着：自动化客服 / 法律 RAG / 医疗辅助这类<strong>错答比不答还贵</strong>的场景，4.7 是必升项。</p>
+
+<h3 style="margin-top:18px">3. 高分辨率图像支持（computer use 真正可用了）</h3>
+<p>图像上限从 1568px / 1.15MP 提到 <strong>2576px / 3.75MP</strong>。坐标 1:1 像素映射不再需要 scale-factor 换算。对三类场景是质变：</p>
+<ul>
+<li><strong>Computer use</strong>：截整屏不糊，定位按钮准了一大截</li>
+<li><strong>文档 / 表单理解</strong>：PDF 扫描件、合同截图可读性大幅上升</li>
+<li><strong>Artifact / 图表分析</strong>：CharXiv 视觉跑分 69.1% → 82.1%（+13）</li>
+</ul>
+
+<h3 style="margin-top:18px">4. Tokenizer 改了：账单可能涨 0-35%</h3>
+<p>价目表写 $5/$25 不变，但<strong>同一段中文 / 代码 / 数据，4.7 用 1.0 到 1.35 倍的 token</strong>。意思是：</p>
+<ul>
+<li>纯英文短文本：基本无差</li>
+<li>中文、代码、数据：可能多花 20-35%</li>
+<li>实际效果可能被 Opus 4.7 更少的输出（35% fewer output tokens 在 Artificial Analysis 同套 benchmark）抵消</li>
+</ul>
+<p><strong>最佳实践</strong>：升级前用自己真实流量跑 100-500 次测一下账单变化，别直接相信"价格不变"宣传。</p>
+
+<h3 style="margin-top:18px">5. xhigh effort + task budgets（agent 工作流的新工具）</h3>
+<p>Anthropic 新增 <code>xhigh</code> effort 等级（比 high 更"卷"，token 花得更多但更稳）。新增 <code>task_budget</code> beta header，给 agent 一个 token 总预算让它自己分配——模型能看到倒计时，会自己优先级排序、按时收尾。</p>
+<p>对独立开发者意义不大，对企业 agent 工作流（CI/CD 集成、自动化 PR review）是质变。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="api-changes">三个破坏性 API 变更，升级前必看</h2>
+<ol>
+<li><strong>extended thinking 删了。</strong>设 <code>thinking: {"type": "enabled", "budget_tokens": N}</code> 直接 400。改用 <code>thinking: {"type": "adaptive"}</code> + <code>effort: "high"</code>。</li>
+<li><strong>temperature / top_p / top_k 全删了。</strong>设非默认值直接 400。靠 prompt 控制行为。</li>
+<li><strong>thinking 内容默认不返回。</strong>UI 流式展示推理过程的产品会看到长时间空白。需要把 <code>display: "summarized"</code> 显式打开。</li>
+</ol>
+<p>同时 adaptive thinking <strong>默认关</strong>——不主动设置就完全不思考。这是和 4.6 行为最大差异。Claude Code、Cursor、Cline 这些工具已经更新适配，自己写 SDK 接的要改。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="who-upgrades">谁该升、谁不该升、谁该跳过</h2>
+
+<h3 style="margin-top:18px">🟢 必升</h3>
+<ul>
+<li>用 Opus 4.6 做 <strong>Claude Code、agent 编程、长 agentic loop</strong></li>
+<li>跑 <strong>computer use</strong>、screenshot 理解、文档抽取</li>
+<li>做 <strong>RAG / 客服</strong>，需要"宁可不答也别答错"</li>
+<li>使用 <strong>multi-tool agent</strong>（MCP-Atlas 77.3% 全行业第一）</li>
+</ul>
+
+<h3 style="margin-top:18px">🟡 可以升，但先 A/B 测</h3>
+<ul>
+<li>用 Sonnet 4.6 想升级体验的——Opus 是 1.67 倍价格，要看任务复杂度是否值</li>
+<li>Web research / 多次搜索类应用——GPT-5.4 Pro BrowseComp 89.3% 仍领先</li>
+<li>对中文流量重的业务——tokenizer 变化对中文影响 +20-35%，要算账</li>
+</ul>
+
+<h3 style="margin-top:18px">🔴 别折腾</h3>
+<ul>
+<li>用 DeepSeek R1 / Qwen3 / GLM-4.6 做 <strong>cost-sensitive 批量</strong>——Opus 是它们 5-10 倍价</li>
+<li>纯 <strong>终端 CLI</strong> 重度场景——GPT-5.5 Terminal-Bench 82.7% 大幅领先</li>
+<li>已经在 GPT-5.4 Pro 上做 <strong>web research / 深度搜索</strong>——同代际，没必要换</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="cost">真实成本估算（跑同样工作量）</h2>
+<p>假设场景：每月 500 个 PR 的 code review agent，每个 PR 平均输入 40K token、输出 4K token、3 次工具调用。</p>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">模型</th>
+<th style="text-align:left;padding:8px">月成本</th>
+<th style="text-align:left;padding:8px">SWE-bench Pro</th>
+<th style="text-align:left;padding:8px">建议</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:8px"><strong>Opus 4.7</strong></td><td style="padding:8px">~$150</td><td style="padding:8px">64.3%</td><td style="padding:8px">关键 PR + 复杂重构</td></tr>
+<tr><td style="padding:8px">Opus 4.6</td><td style="padding:8px">~$130</td><td style="padding:8px">53.4%</td><td style="padding:8px">已无理由用，升 4.7</td></tr>
+<tr><td style="padding:8px">Sonnet 4.6</td><td style="padding:8px">~$90</td><td style="padding:8px">~50%</td><td style="padding:8px">常规 PR、性价比之选</td></tr>
+<tr><td style="padding:8px">GPT-5.4</td><td style="padding:8px">~$75</td><td style="padding:8px">57.7%</td><td style="padding:8px">CLI / 终端任务</td></tr>
+<tr><td style="padding:8px">DeepSeek R1</td><td style="padding:8px">~$15</td><td style="padding:8px">~52%</td><td style="padding:8px">cost-sensitive 批量</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:var(--muted)">估算仅供参考，未计入 prompt cache 和 batch 折扣。Cache 重度复用可让 Opus 4.7 实际成本下降 40-60%。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="future">未来 6 个月观察点</h2>
+<ul>
+<li><strong>Sonnet 4.7 何时来。</strong>历史规律：Opus 发布 2-4 个月后跟 Sonnet 版本。预计 2026 Q3。</li>
+<li><strong>Gemini 3.5 / GPT-6 是否会反超。</strong>三家在 SWE-bench Verified 已经聚到 80%+，下一轮跳跃要看谁先突破 90%。</li>
+<li><strong>价格战。</strong>DeepSeek R2 预计 Q3，可能再次拉大 1:9 的性价比差。</li>
+<li><strong>Task budget / xhigh 是否成行业标准。</strong>如果 OpenAI / Google 跟进，agent 工作流会标准化。</li>
+<li><strong>Tokenizer "暗涨" 是否成新常态。</strong>账面价格不变、token 用得更多——其他厂商可能学。</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="related">相关阅读</h2>
+<ul>
+<li><a href="/zh/articles/local-llm-deployment-guide-2026/">本地部署开源大模型完全指南 2026</a></li>
+<li><a href="/zh/articles/rag-vs-long-context-vs-fine-tune-2026/">RAG vs 长上下文 vs Fine-tune 2026：什么场景选什么</a></li>
+<li><a href="/zh/articles/gpt-5-vs-claude-coding-2026/">GPT-5 vs Claude Sonnet 4.6：写代码到底选哪个</a></li>
+<li><a href="/zh/articles/deepseek-r1-vs-gpt-5-cost-2026/">DeepSeek R1 vs GPT-5：性价比到底差几倍</a></li>
+<li><a href="/zh/articles/china-ai-models-landscape-2026/">2026 年国产 AI 模型全景</a></li>
+<li><a href="/zh/topics/best-ai-models-for-coding/">最适合编程的 AI 模型</a></li>
+<li><a href="/zh/topics/long-context-ai-models/">长上下文 AI 模型对比</a></li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="faq">FAQ</h2>
+<p><strong>Opus 4.7 什么时候发布？</strong>2026 年 4 月 16 日。API ID <code>claude-opus-4-7</code>。</p>
+<p><strong>价格变了吗？</strong>表面不变（$5/$25），但新 tokenizer 让中文/代码多耗 1-1.35× token，实际账单可能涨 0-35%。</p>
+<p><strong>必须升级吗？</strong>做 agent 编程 / computer use / RAG 必升。做批量低价值任务、CLI 重度场景不必。</p>
+<p><strong>对比 GPT-5.4？</strong>SWE-bench Pro Opus 强（64.3% vs 57.7%），BrowseComp GPT 强（89.3% vs 79.3%）。GPQA 三家几乎并列。</p>
+<p><strong>升级要改代码吗？</strong>要。extended thinking budget、temperature/top_p/top_k 全删了。thinking 内容默认不返回。</p>
+<p><strong>1M 上下文要加钱吗？</strong>不要。1M 上下文是标准定价，没有 long-context 溢价。</p>
+</section>
+
+<p><a class="section-link" href="/">→ 在 Check.AI 实时对比 Opus 4.7 vs 其他模型</a></p>
