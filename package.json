@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "node scripts/static-server.mjs 8799",
     "test:e2e": "playwright test",
+    "test:unit": "node --test tests/unit/",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:report": "playwright show-report"
   },
