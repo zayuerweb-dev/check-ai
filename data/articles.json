@@ -1,0 +1,292 @@
+[
+  {
+    "slug": "china-ai-models-landscape-2026",
+    "topic": "深度对比",
+    "author": "zayuerweb-dev",
+    "authorUrl": "https://github.com/zayuerweb-dev",
+    "written": "2026-05-10",
+    "published": "2026-05-10",
+    "modified": "2026-05-10",
+    "zh": {
+      "title": "2026 年国产 AI 模型全景：DeepSeek、Qwen、Kimi、GLM、MiniMax 怎么选",
+      "metaTitle": "2026 年国产 AI 模型全景：DeepSeek、Qwen、Kimi、GLM、MiniMax 怎么选",
+      "description": "2026 年国产大模型全景对比：DeepSeek R1、Qwen3 Max、Kimi K2、GLM-4.6、MiniMax abab、Yi、Baichuan。价格、长上下文、中文质量、合规、出海可用性，一篇看完不用再到处找。",
+      "ogTitle": "2026 年国产 AI 模型全景：DeepSeek、Qwen、Kimi、GLM、MiniMax",
+      "ogDescription": "国产大模型怎么选：价格、长上下文、中文、合规、出海可用性全方位对比。",
+      "headline": "2026 年国产 AI 模型全景：DeepSeek、Qwen、Kimi、GLM、MiniMax 怎么选",
+      "status": "published",
+      "related": {
+        "href": "/zh/topics/open-source-ai-models/",
+        "label": "开源模型选型指南"
+      },
+      "faq": [
+        {
+          "q": "2026 年最强的国产 AI 大模型是哪个？",
+          "a": "综合最强是 DeepSeek R1（推理、代码、性价比全部前列）。中文质量和多模态最强是 Qwen3 Max。长上下文最强是 Kimi K2（200 万 token）。结构化输出和工具调用稳是 GLM-4.6。语音和创意写作有亮点的是 MiniMax abab。每个模型都有自己的强项，不是一个赢家通吃。"
+        },
+        {
+          "q": "国产模型出海合规怎么办？",
+          "a": "两条路。一是用 OpenRouter / Together AI / Fireworks 等海外托管 — 它们部署相同的开源权重（DeepSeek、Qwen 都开源），数据不进入中国大陆。二是自托管：买 GPU 或租 AWS/GCP 跑开源版本，数据完全可控。直接用厂商官方 API 时，海外用户和欧美企业普遍有数据合规顾虑。"
+        },
+        {
+          "q": "DeepSeek 和 Qwen 哪个写代码更强？",
+          "a": "DeepSeek R1 在 SWE-bench Verified、HumanEval、LiveCodeBench 跑分上略胜，整体 agent 编程更稳。Qwen3 Coder 在前端、HTML/CSS/Tailwind、组件生成场景反馈更好。要做 agent / 重构选 DeepSeek，要写网页 / 做 demo 选 Qwen3 Coder。"
+        },
+        {
+          "q": "国产模型的价格优势还能保持吗？",
+          "a": "短期能。2026 年 DeepSeek R1、Qwen3 Max 的价格分别只有 GPT-5 的 1/5 和 1/3。背后原因：自研 MoE 架构降本 + 国内政府补贴 + 内卷竞争。中长期取决于美国 GPU 出口管制、训练 + 推理成本曲线、以及厂商商业化压力。建议持续关注。"
+        },
+        {
+          "q": "普通独立开发者 / 创业者该用哪个？",
+          "a": "主力 DeepSeek R1（性价比 + 质量平衡），中文重 / 多语言场景加 Qwen3 Max，需要超长上下文（整本书、整库）切 Kimi K2。海外用户走 OpenRouter 转接。三个加起来 95% 场景都覆盖了。"
+        }
+      ]
+    },
+    "en": {
+      "status": "none"
+    }
+  },
+  {
+    "slug": "claude-opus-4-7-review-2026",
+    "topic": "深度评测",
+    "author": "zayuerweb-dev",
+    "authorUrl": "https://github.com/zayuerweb-dev",
+    "written": "2026-05-12",
+    "published": "2026-05-12",
+    "modified": "2026-05-12",
+    "zh": {
+      "title": "Claude Opus 4.7 深度评测：SWE-bench 87.6%、价格不变、谁该升级",
+      "metaTitle": "Claude Opus 4.7 深度评测 2026：SWE-bench 87.6%、价格不变、谁该升级",
+      "description": "Anthropic Claude Opus 4.7 全面评测：SWE-bench Verified 87.6%、SWE-bench Pro 64.3%、Terminal-Bench 69.4%。1M 上下文、价格 $5/$25 不变、tokenizer 多耗 35%、xhigh effort、task budget、高分辨率图像、幻觉率从 61% 降到 36%。和 GPT-5.4、Gemini 3.1 Pro、Sonnet 4.6 横向对比。",
+      "ogTitle": "Claude Opus 4.7 深度评测 2026：SWE-bench 87.6%、价格不变、谁该升级",
+      "ogDescription": "Anthropic 最新旗舰：跑分、价格、tokenizer 隐性涨价、agent / vision 改进、和 GPT-5.4 / Gemini 3.1 Pro 横向对比。",
+      "headline": "Claude Opus 4.7 深度评测 2026：SWE-bench 87.6%、价格不变、谁该升级",
+      "status": "published",
+      "related": {
+        "href": "/zh/topics/best-ai-models-for-coding/",
+        "label": "写代码模型选型指南"
+      },
+      "faq": [
+        {
+          "q": "Claude Opus 4.7 什么时候发布的？",
+          "a": "2026 年 4 月 16 日发布。API model ID 是 claude-opus-4-7，通过 Anthropic 官方 API、AWS Bedrock、Azure、Google Vertex 四个渠道同时上线。这是截至 2026 年 5 月 Anthropic 公开的最强模型。"
+        },
+        {
+          "q": "Claude Opus 4.7 价格是多少？",
+          "a": "$5 每百万输入 token、$25 每百万输出 token，与 Opus 4.6 持平。prompt cache 命中可省 90%，batch API 半价。但 4.7 用了新 tokenizer，同样的文本会多消耗 1.0 到 1.35 倍的 token，所以实际账单可能涨 0-35%。Anthropic 官方在 artificialanalysis 跑同一套 benchmark 时反而省了 11%（$4,406 vs $4,970），说明效率提升能部分抵消 tokenizer 涨价。"
+        },
+        {
+          "q": "Opus 4.7 比 Opus 4.6 强多少？",
+          "a": "SWE-bench Verified 87.6% vs 80.8%（+6.8 分）、SWE-bench Pro 64.3% vs 53.4%（+10.9 分，最大跳跃）、Terminal-Bench 69.4% vs 65.4%、OSWorld 78% vs 72.7%、CharXiv 视觉 82.1% vs 69.1%（+13 分）、幻觉率 36% vs 61%（重要改进）。Agent / 视觉 / 长时间任务三个方向都明显提升。"
+        },
+        {
+          "q": "Opus 4.7 比 GPT-5.4 和 Gemini 3.1 Pro 强吗？",
+          "a": "看场景。Agent 编程：Opus 4.7 SWE-bench Pro 64.3% 领先（GPT-5.4 是 57.7%、Gemini 3.1 Pro 54.2%）。终端代码：GPT-5.5 在 Terminal-Bench 2.0 拿 82.7%，明显高于 Opus 4.7 的 69.4%。Web research：GPT-5.4 Pro 拿 89.3% 大幅领先 Opus 4.7 的 79.3%。科学推理 GPQA：三家几乎并列 94%。一句话：Opus 4.7 是 agent 编程 + 长时间工作流之王，但单项跑分并非样样第一。"
+        },
+        {
+          "q": "Opus 4.7 有哪些新功能？",
+          "a": "四个：（1）高分辨率图像支持，最大 2576px / 3.75MP，对 computer use、截图理解、文档处理是大改进；（2）新的 xhigh effort 等级，给编程和 agent 场景用；（3）task budgets（beta），给 agent 一个 token 预算让它自己分配；（4）adaptive thinking 成唯一推理模式，删除了 extended thinking 的 budget_tokens 配置。temperature / top_p / top_k 也不能再设。"
+        },
+        {
+          "q": "我应该升级到 Opus 4.7 吗？",
+          "a": "用 Opus 4.6 在做 agent 编程 / computer use / 长 agentic loop 的：必须升级，SWE-bench Pro +10.9 分质变。用 Sonnet 4.6 但成本不敏感的：可以试，质量明显上一档。用 GPT-5.4 Pro 做 Web research 重度场景的：不用换，那块 GPT 更强。用 DeepSeek R1 / Qwen 省成本的：不用换，Opus 4.7 是 $5/$25，DeepSeek 是 $0.55/$2.19，差 9 倍。"
+        }
+      ]
+    },
+    "en": {
+      "status": "none"
+    }
+  },
+  {
+    "slug": "deepseek-r1-vs-gpt-5-cost-2026",
+    "topic": "深度对比",
+    "author": "zayuerweb-dev",
+    "authorUrl": "https://github.com/zayuerweb-dev",
+    "written": "2026-05-10",
+    "published": "2026-05-10",
+    "modified": "2026-05-10",
+    "zh": {
+      "title": "DeepSeek R1 vs GPT-5：性价比到底差几倍",
+      "metaTitle": "DeepSeek R1 vs GPT-5 性价比对决：到底差几倍？（2026 年实测）",
+      "description": "DeepSeek R1 vs GPT-5 性价比全面对比。每百万 token 真实价格、SWE-bench / MMLU 跑分、3 个真实工作流成本计算、什么时候 GPT-5 反而值得多花钱。一文看完不再纠结。",
+      "ogTitle": "DeepSeek R1 vs GPT-5 性价比对决（2026）",
+      "ogDescription": "价格、跑分、3 个真实工作流成本计算。一文看完不再纠结。",
+      "headline": "DeepSeek R1 vs GPT-5 性价比对决：到底差几倍",
+      "status": "published",
+      "related": {
+        "href": "/zh/topics/cheapest-ai-api-models/",
+        "label": "最便宜 API 指南"
+      },
+      "faq": [
+        {
+          "q": "DeepSeek R1 比 GPT-5 便宜几倍？",
+          "a": "输入价 GPT-5 是 DeepSeek R1 的 4.5 倍（$2.50 vs $0.55），输出价是 4.6 倍（$10 vs $2.19）。同一份工作量 GPT-5 通常贵 5 倍左右。开 batch + cache 后差距能拉大到 6-8 倍。"
+        },
+        {
+          "q": "DeepSeek R1 性能真的能追平 GPT-5 吗？",
+          "a": "在数学（AIME）、代码（HumanEval、LiveCodeBench）、推理类 benchmark 上 DeepSeek R1 已经追平甚至略超 GPT-5。但长 agent 循环、工具调用稳定性、模糊指令理解上 GPT-5 仍领先。简单说：单点任务 DeepSeek 够用，复杂代理 GPT-5 更稳。"
+        },
+        {
+          "q": "什么场景该用 GPT-5 而不是 DeepSeek？",
+          "a": "需要 5+ 步工具调用的 agent、模糊需求需要反问澄清、深度推理 + 创意结合、生产环境对每次输出质量要求 99%+ 时，GPT-5 更值。便宜 5 倍但循环 5 次的 DeepSeek 总成本反而更高。"
+        },
+        {
+          "q": "DeepSeek R1 数据安全吗？",
+          "a": "官方 API 数据存于中国，对中国境外用户可能有合规问题。可选方案：用第三方托管（Together AI、Fireworks、OpenRouter 等海外服务器跑相同模型权重），或自托管（开源权重，48GB 显卡起）。"
+        },
+        {
+          "q": "DeepSeek 在 OpenRouter 比官方便宜吗？",
+          "a": "价格基本相同，OpenRouter 加少量路由费。但优势是同一个 OpenAI 兼容接口可同时调用 GPT-5、Claude、Gemini，A/B 测试不用注册多次。"
+        }
+      ]
+    },
+    "en": {
+      "status": "none"
+    }
+  },
+  {
+    "slug": "gpt-5-vs-claude-coding-2026",
+    "topic": "深度对比",
+    "author": "zayuerweb-dev",
+    "authorUrl": "https://github.com/zayuerweb-dev",
+    "written": "2026-05-10",
+    "published": "2026-05-10",
+    "modified": "2026-05-10",
+    "zh": {
+      "title": "GPT-5 vs Claude Sonnet 4.6：写代码到底选哪个",
+      "metaTitle": "GPT-5 vs Claude Sonnet 4.6：写代码到底选哪个（2026 年实测）",
+      "description": "GPT-5 vs Claude Sonnet 4.6 写代码全方位对比。SWE-bench / HumanEval 跑分、Cursor 实测、API 价格、多文件重构、工具调用稳定性。一篇看完不用再折腾。",
+      "ogTitle": "GPT-5 vs Claude Sonnet 4.6：写代码选哪个（2026）",
+      "ogDescription": "跑分、Cursor 实测、价格、多文件重构、工具调用，一篇决定。",
+      "headline": "GPT-5 vs Claude Sonnet 4.6：写代码到底选哪个（2026 年实测）",
+      "status": "published",
+      "related": {
+        "href": "/zh/topics/best-ai-models-for-coding/",
+        "label": "写代码模型选型指南"
+      },
+      "faq": [
+        {
+          "q": "GPT-5 和 Claude Sonnet 4.6 写代码哪个强？",
+          "a": "agent 编程（Cursor、Cline、Aider、SWE-bench）Claude Sonnet 4.6 更强；单点推理和算法题、HumanEval 类跑分 GPT-5 更强。日常工程师 2026 年大多偏好 Claude，因为它工具调用更稳、不乱改无关代码。"
+        },
+        {
+          "q": "两个模型价格差多少？",
+          "a": "Claude Sonnet 4.6 约 $3 输入 / $15 输出 每百万 token。GPT-5 约 $2.50 / $10。GPT-5 整体便宜 30-40%，Claude Haiku 4.5 比两者都便宜很多（$0.80 / $4）。"
+        },
+        {
+          "q": "哪个更适合 Cursor？",
+          "a": "Claude Sonnet 4.6 是 Cursor 默认推荐，多文件编辑、工具调用、不破坏既有代码风格上更稳。GPT-5 在解释代码、重构思路、解决疑难杂症时是最佳备选。"
+        },
+        {
+          "q": "上下文谁更长？",
+          "a": "GPT-5 是 400K，Claude Sonnet 4.6 标准 200K（beta 1M）。两者 100K 内召回都很好，500K 之后 Claude 略稳。仓库规模超过 50 万 token 仍然建议用 Gemini 2.5 Pro。"
+        }
+      ]
+    },
+    "en": {
+      "status": "none"
+    }
+  },
+  {
+    "slug": "local-llm-deployment-guide-2026",
+    "topic": "深度指南",
+    "author": "zayuerweb-dev",
+    "authorUrl": "https://github.com/zayuerweb-dev",
+    "written": "2026-05-18",
+    "published": "2026-05-18",
+    "modified": "2026-05-18",
+    "zh": {
+      "title": "本地部署开源大模型完全指南：显卡、显存、框架、模型怎么选",
+      "metaTitle": "本地部署开源大模型完全指南 2026：显卡、显存、框架、模型怎么选",
+      "description": "2026 年本地跑开源大模型完全指南：DeepSeek R1 蒸馏版、Qwen3、Llama 4、GLM-4 的显存需求，INT4/INT8/FP16 量化怎么算，Ollama / vLLM / llama.cpp / LM Studio 怎么选，RTX 4060 到 A100 各档显卡能跑多大模型，Apple Silicon 统一内存方案，真实电费成本。一篇看完不踩坑。",
+      "ogTitle": "本地部署开源大模型完全指南 2026",
+      "ogDescription": "显卡、显存、量化、框架、模型——一篇讲清本地跑大模型怎么选。",
+      "headline": "本地部署开源大模型完全指南 2026",
+      "status": "published",
+      "related": {
+        "href": "/zh/topics/open-source-ai-models/",
+        "label": "开源模型选型指南"
+      },
+      "faq": [
+        {
+          "q": "本地跑大模型最少要什么显卡？",
+          "a": "看模型大小和量化。7B 模型 INT4 量化只要 4-5GB 显存，RTX 3060 12GB / 4060 8GB 就能跑。想要 FP16 原始精度的 7B 要 16GB（RTX 4060 Ti 16GB / 4080）。32B INT4 要约 20GB（RTX 4090/5090 32GB）。70B INT4 要约 40GB，得 RTX 6000 Ada 48GB 或双卡。没独显也能用 llama.cpp 走 CPU + 内存，但慢。"
+        },
+        {
+          "q": "Ollama 和 vLLM 有什么区别，该用哪个？",
+          "a": "Ollama：一行命令装好跑起来，支持 CPU/GPU 混合、动态卸载，适合个人、单机、桌面、试验。vLLM：生产级高吞吐，支持 Chunked Prefill、Prefix Caching、多卡并行，要 CUDA 12.4+，适合做服务给多人用。个人本地玩选 Ollama，要做产品 API 选 vLLM。Mac 用户用 LM Studio 或 llama.cpp（Metal/MLX 加速）。"
+        },
+        {
+          "q": "INT4、INT8、FP16 量化怎么选？",
+          "a": "FP16 = 原始精度，每参数 2 字节，质量最好但显存最贵（7B 约 16GB）。INT8 显存减半（7B 约 8GB），质量损失很小。INT4（q4_k_m）显存降到约 1/4（7B 约 4-5GB），速度最快，质量损失个位数百分点，是个人部署的甜点。除非做严肃生产或评测，个人本地一律 INT4 起步。"
+        },
+        {
+          "q": "2026 年本地跑哪个开源模型最好？",
+          "a": "综合推理：DeepSeek-R1-Distill-Qwen-7B/32B（蒸馏版小而强）。中文 + 多语言：Qwen3 系列。通用 + 生态：Llama 4。Agent / 工具调用：GLM-4-9B。代码：Qwen3 Coder / DeepSeek Coder。独立开发者首选 DeepSeek-R1-Distill-Qwen-7B（4GB 显存能跑、推理质量接近云端中端模型）。"
+        },
+        {
+          "q": "本地部署比用 API 便宜吗？",
+          "a": "看用量。低频（每天几十次）：用 API 更便宜，不用买显卡。高频 + 长期 + 数据敏感：本地划算。一张 RTX 4090（约 ¥13000）+ 电费（满载约 0.4 度/小时），跑 DeepSeek 蒸馏 7B 每天几千次调用，半年到一年回本，之后边际成本接近电费。最大价值不是省钱，是数据不出本地 + 无限调用 + 离线可用。"
+        },
+        {
+          "q": "Mac 能本地跑大模型吗？",
+          "a": "能，而且 Apple Silicon 的统一内存是隐藏优势。M3/M4 Max 64-128GB 内存里大部分能当显存用，量化后能跑 70B。用 LM Studio（图形界面）或 llama.cpp（命令行，Metal 加速），新框架 MLX 是 Apple 原生优化，速度比通用方案快。128GB 的 M4 Max 跑量化 70B 体验接近一张专业卡，且静音省电。"
+        }
+      ]
+    },
+    "en": {
+      "status": "none"
+    }
+  },
+  {
+    "slug": "rag-vs-long-context-vs-fine-tune-2026",
+    "topic": "深度对比",
+    "author": "zayuerweb-dev",
+    "authorUrl": "https://github.com/zayuerweb-dev",
+    "written": "2026-05-15",
+    "published": "2026-05-15",
+    "modified": "2026-05-15",
+    "zh": {
+      "title": "RAG vs 长上下文 vs Fine-tune 2026 完全指南：什么场景选什么",
+      "metaTitle": "RAG vs 长上下文 vs Fine-tune 2026 完全指南：什么场景选什么、花多少钱",
+      "description": "2026 年 RAG、长上下文 + Prompt Caching、Fine-tune 三种方法的真实成本、性能、坑、混合最佳实践对比。10K query/天的 RAG 系统 $4-9K/月、Claude 缓存省 90%、Fine-tune 10-50× 更便宜，但 lost-in-middle 让长上下文准确率掉 20%。读完知道什么场景该选哪个，混合怎么搭。",
+      "ogTitle": "RAG vs 长上下文 vs Fine-tune 2026：三选一指南",
+      "ogDescription": "真实成本、决策树、5 个场景实测，告诉你 2026 年该选哪条路。",
+      "headline": "RAG vs 长上下文 vs Fine-tune 2026 完全指南",
+      "status": "published",
+      "related": {
+        "href": "/zh/topics/long-context-ai-models/",
+        "label": "长上下文模型选型指南"
+      },
+      "faq": [
+        {
+          "q": "RAG、长上下文、Fine-tune 三个怎么选？",
+          "a": "按问题本质选：知识库经常变 + 上 GB 级 → RAG；单份大文档反复问 + 不到 200K token → 长上下文 + Prompt Caching；要稳定的语气 / 格式 / 政策 / 分类 → Fine-tune。生产环境 90% 是混合：RAG 取事实 + Fine-tune 管行为 + 长上下文跑整文档。"
+        },
+        {
+          "q": "长上下文是不是要取代 RAG 了？",
+          "a": "对单文档场景已经在取代。Claude Sonnet 4.6 / Opus 4.7 / Gemini 3.1 Pro 都给 1M token 上下文，配合 Prompt Caching 把缓存输入打 1 折，单查询成本从 $0.30 降到 $0.03。但对真正大的知识库（GB / TB 级 / 几十万篇文档），长上下文塞不下，RAG 仍是唯一答案。两者不是替代关系，是规模分工。"
+        },
+        {
+          "q": "Prompt Caching 到底省多少钱？",
+          "a": "Anthropic 官方：缓存命中价是普通输入价的 0.1×（省 90%）。实测一个跑 10 万 token 上下文的 book-chat：首次请求成本不变，第二次起 TTFT 降 79%、缓存输入 token 成本降 90%。生产中稳定 system prompt 的 cache 命中率通常 80-95%。一个 $5,000/月的 RAG 应用接入 Prompt Caching 后能降到 $1,000 以下。"
+        },
+        {
+          "q": "Fine-tune 在 2026 年还值得做吗？",
+          "a": "两类场景仍非常值：（1）每天 10 万+ 高频且任务定义清晰的查询（客服分类、内容审核、固定格式抽取），单查询成本能比大模型 + RAG 便宜 10-50 倍，几周内回本。（2）需要稳定 brand 语气 / 公司政策遵循 / 严格输出格式的产品。Fine-tune 不擅长教模型新事实——那是 RAG 的活。"
+        },
+        {
+          "q": "长上下文有什么坑？",
+          "a": "三个：（1）Lost-in-the-middle：关键信息放在长文档中间时，准确率比放在开头/结尾掉 10-20 个百分点，部分模型超过 20%。（2）速度慢：长上下文单查询 30-60 秒，RAG 通常 1 秒级。（3）虽然 Caching 降成本，但首次请求仍按完整价计，对低频访问的文档不划算。"
+        },
+        {
+          "q": "混合系统的最佳实践？",
+          "a": "2026 年生产环境主流：RAG 拿事实 + Fine-tune 管行为 + 长上下文跑整文档查询。实测准确率：混合 96%、纯 RAG 89%、纯 Fine-tune 91%。Anthropic 的 Contextual Retrieval 又把 RAG 召回失败率降 49%，开 reranker 后降 67%。具体拆分：volatile（易变）知识进 RAG、stable（稳定）行为进 Fine-tune、单 session 多轮深度问答用长上下文 + Caching。"
+        }
+      ]
+    },
+    "en": {
+      "status": "none"
+    }
+  }
+]

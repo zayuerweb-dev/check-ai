@@ -23,6 +23,13 @@ Bilingual (English / 中文), updated weekly.
   - [DeepSeek R1 vs GPT-5 性价比](https://checkaimodels.com/zh/articles/deepseek-r1-vs-gpt-5-cost-2026/)
   - [2026 年国产 AI 模型全景](https://checkaimodels.com/zh/articles/china-ai-models-landscape-2026/)
 
+### Editing articles
+Articles are data-driven. To add or edit one:
+1. Edit `data/articles.json` (metadata, faq, dates, status).
+2. Write/edit `zh/articles/<slug>/body.html` (prose only — no eyebrow/h1).
+3. Run `node scripts/build-articles.mjs` to regenerate pages + hub lists.
+Never hand-edit `zh/articles/*/index.html` — it is generated.
+
 ## Stack
 
 Pure static HTML/CSS/JS. No build step, no framework. Hosted on Cloudflare

@@ -1,27 +1,3 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>DeepSeek R1 vs GPT-5 性价比对决：到底差几倍？（2026 年实测） | Check.AI</title>
-<meta name="description" content="DeepSeek R1 vs GPT-5 性价比全面对比。每百万 token 真实价格、SWE-bench / MMLU 跑分、3 个真实工作流成本计算、什么时候 GPT-5 反而值得多花钱。一文看完不再纠结。">
-<link rel="canonical" href="https://checkaimodels.com/zh/articles/deepseek-r1-vs-gpt-5-cost-2026/">
-<link rel="alternate" hreflang="zh" href="https://checkaimodels.com/zh/articles/deepseek-r1-vs-gpt-5-cost-2026/">
-<link rel="alternate" hreflang="x-default" href="https://checkaimodels.com/zh/articles/deepseek-r1-vs-gpt-5-cost-2026/">
-<meta property="og:title" content="DeepSeek R1 vs GPT-5 性价比对决（2026）">
-<meta property="og:description" content="价格、跑分、3 个真实工作流成本计算。一文看完不再纠结。">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://checkaimodels.com/zh/articles/deepseek-r1-vs-gpt-5-cost-2026/">
-<link rel="stylesheet" href="/styles.css?v=20260520-1">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","inLanguage":"zh-CN","headline":"DeepSeek R1 vs GPT-5 性价比对决：到底差几倍","description":"DeepSeek R1 vs GPT-5 性价比全面对比。每百万 token 真实价格、SWE-bench / MMLU 跑分、3 个真实工作流成本计算、什么时候 GPT-5 反而值得多花钱。一文看完不再纠结。","datePublished":"2026-05-10","dateModified":"2026-05-10","author":{"@type":"Person","name":"zayuerweb-dev","url":"https://github.com/zayuerweb-dev","sameAs":["https://github.com/zayuerweb-dev"]},"publisher":{"@type":"Organization","name":"Check.AI","url":"https://checkaimodels.com/"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"zh-CN","mainEntity":[{"@type":"Question","name":"DeepSeek R1 比 GPT-5 便宜几倍？","acceptedAnswer":{"@type":"Answer","text":"输入价 GPT-5 是 DeepSeek R1 的 4.5 倍（$2.50 vs $0.55），输出价是 4.6 倍（$10 vs $2.19）。同一份工作量 GPT-5 通常贵 5 倍左右。开 batch + cache 后差距能拉大到 6-8 倍。"}},{"@type":"Question","name":"DeepSeek R1 性能真的能追平 GPT-5 吗？","acceptedAnswer":{"@type":"Answer","text":"在数学（AIME）、代码（HumanEval、LiveCodeBench）、推理类 benchmark 上 DeepSeek R1 已经追平甚至略超 GPT-5。但长 agent 循环、工具调用稳定性、模糊指令理解上 GPT-5 仍领先。简单说：单点任务 DeepSeek 够用，复杂代理 GPT-5 更稳。"}},{"@type":"Question","name":"什么场景该用 GPT-5 而不是 DeepSeek？","acceptedAnswer":{"@type":"Answer","text":"需要 5+ 步工具调用的 agent、模糊需求需要反问澄清、深度推理 + 创意结合、生产环境对每次输出质量要求 99%+ 时，GPT-5 更值。便宜 5 倍但循环 5 次的 DeepSeek 总成本反而更高。"}},{"@type":"Question","name":"DeepSeek R1 数据安全吗？","acceptedAnswer":{"@type":"Answer","text":"官方 API 数据存于中国，对中国境外用户可能有合规问题。可选方案：用第三方托管（Together AI、Fireworks、OpenRouter 等海外服务器跑相同模型权重），或自托管（开源权重，48GB 显卡起）。"}},{"@type":"Question","name":"DeepSeek 在 OpenRouter 比官方便宜吗？","acceptedAnswer":{"@type":"Answer","text":"价格基本相同，OpenRouter 加少量路由费。但优势是同一个 OpenAI 兼容接口可同时调用 GPT-5、Claude、Gemini，A/B 测试不用注册多次。"}}]}</script>
-</head>
-<body class="seo-page">
-<header class="seo-header"><a class="brand-link" href="/zh/">Check.AI</a><nav><a href="/">对比工具</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a></nav></header>
-<main class="seo-main">
-<p class="eyebrow">深度对比 · 2026 年 5 月 10 日 · 作者 <a href="https://github.com/zayuerweb-dev" rel="author">@zayuerweb-dev</a></p>
-<h1>DeepSeek R1 vs GPT-5：性价比到底差几倍</h1>
 <p class="seo-lead">"DeepSeek 真便宜那么多吗？""便宜的是不是有坑？"——群里每周都有人问。这篇用 2026 年 5 月的官方价、四类跑分、三个真实工作流的开销账，给出不绕弯子的答案。先放结论：<strong>大多数生产场景，DeepSeek R1 综合成本是 GPT-5 的 1/5 到 1/8，质量打 90 分</strong>。但有 5 类场景 GPT-5 反而更划算，一会儿拆开讲。</p>
 
 <nav class="article-toc" aria-label="目录">
@@ -176,8 +152,3 @@
 </section>
 
 <p><a class="section-link" href="/">→ 在 Check.AI 实时对比 DeepSeek 和 GPT-5</a></p>
-</main>
-<footer class="seo-footer"><a href="/zh/">返回中文首页</a> · <a href="/zh/topics/cheapest-ai-api-models/">最便宜 API 指南</a></footer>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "df6bb0324e4c458fb4e8b979d3feed3c"}'></script>
-</body>
-</html>
