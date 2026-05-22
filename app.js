@@ -517,8 +517,12 @@ async function loadLive() {
   } catch { dataState = { kind: 'unavailable', count: 0 }; updateText(); }
 }
 function filteredPlatforms() {
-  const q = $('platformSearch').value.toLowerCase();
-  return platforms.filter((p) => (!platformFilter || p.types.includes(platformFilter) || platformFilter === 'consumer' && p.category.includes('consumer')) && (!functionFilter || p.functions.includes(functionFilter))).filter((p) => !q || [p.name,p.description,p.descriptionEn,platformDesc(p),p.strengths.join(' '),p.strengthsEn.join(' '),platformStrengths(p).join(' '),...platformModels(p.id).map((m) => `${m.name} ${m.id} ${m.capabilities.map(capText).join(' ')} ${m.capabilities.join(' ')}`)].join(' ').toLowerCase().includes(q)).sort((a,b) => (b.types.includes('mainstream') - a.types.includes('mainstream')) || platformModels(b.id).length - platformModels(a.id).length);
+  // Normalize away separators so "gpt 5.5", "gpt-5.5" and "gpt5.5" all match.
+  // Provider listings disagree on separators (OpenAI lists "gpt-5.5", Vercel
+  // lists "gpt 5.5 pro"), so a raw substring test missed the real provider.
+  const norm = (s) => s.toLowerCase().replace(/[\s\-_]+/g, '');
+  const q = norm($('platformSearch').value);
+  return platforms.filter((p) => (!platformFilter || p.types.includes(platformFilter) || platformFilter === 'consumer' && p.category.includes('consumer')) && (!functionFilter || p.functions.includes(functionFilter))).filter((p) => !q || norm([p.name,p.description,p.descriptionEn,platformDesc(p),p.strengths.join(' '),p.strengthsEn.join(' '),platformStrengths(p).join(' '),...platformModels(p.id).map((m) => `${m.name} ${m.id} ${m.capabilities.map(capText).join(' ')} ${m.capabilities.join(' ')}`)].join(' ')).includes(q)).sort((a,b) => (b.types.includes('mainstream') - a.types.includes('mainstream')) || platformModels(b.id).length - platformModels(a.id).length);
 }
 function renderList() {
   const list = filteredPlatforms();
