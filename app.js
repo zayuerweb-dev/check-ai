@@ -7,7 +7,7 @@ const zh = {
   overview: '总览', models: '模型', pricing: '官网套餐', bestFor: '使用案例', plainConclusion: '摘要', capabilities: '能力',
   model: '模型', inputPrice: '输入/$1M', outputPrice: '输出/$1M', context: '上下文', releaseDate: '发布日期', lmArena: 'LMArena', sixDimChart: '六维示意图',
   consumerPlans: '会员套餐', officialPricing: '官方价格', estimatedScores: '估算分数', compareModels: '模型比较', company: '公司', selectedModels: '已选模型', clear: '清空',
-  noSelection: '未选择模型时显示当前范围内全部模型。', selectAllModels: '全选当前公司', curatedPlans: '实时模型数据 + 人工整理套餐', seedData: '种子数据', liveUnavailable: '实时数据暂不可用', updatedToday: '今天更新', average: '6轴平均', backToList: '平台列表', verdict: '综合评价', verdictTier1: '前沿旗舰', verdictTier2: '主流可用', verdictTier3: '入门级别', tokens: 'token', outputInputRatio: '输出/输入比', outputCostMultiple: '输出贵几倍', released: '已发布', arenaRank: '榜单分数', capabilityProfile: '能力画像', officialDocs: '官方文档', compareThisModel: '加入对比', noResults: '暂无匹配结果', noResultsFor: '没有匹配「{q}」的平台', noResultsHint: '试试换个关键词，或清除筛选条件重新浏览。', clearSearch: '清除搜索和筛选', compareEmptyTitle: '选择 2-6 个模型开始对比', compareEmptyHint: '在左侧选公司、能力筛选后，点击模型名加入对比表。'
+  noSelection: '未选择模型时显示当前范围内全部模型。', selectAllModels: '全选当前公司', curatedPlans: '实时模型数据 + 人工整理套餐', seedData: '种子数据', liveUnavailable: '实时数据暂不可用', updatedToday: '今天更新', average: '6轴平均', backToList: '平台列表', verdict: '综合评价', verdictTier1: '前沿旗舰', verdictTier2: '主流可用', verdictTier3: '入门级别', tokens: 'token', outputInputRatio: '输出/输入比', outputCostMultiple: '输出贵几倍', released: '已发布', arenaRank: '榜单分数', capabilityProfile: '能力画像', officialDocs: '官方文档', viewFullPage: '查看完整页', compareThisModel: '加入对比', noResults: '暂无匹配结果', noResultsFor: '没有匹配「{q}」的平台', noResultsHint: '试试换个关键词，或清除筛选条件重新浏览。', clearSearch: '清除搜索和筛选', compareEmptyTitle: '选择 2-6 个模型开始对比', compareEmptyHint: '在左侧选公司、能力筛选后，点击模型名加入对比表。'
 };
 const en = {
   brandName: 'Check.AI', brandSubtitle: 'Plans, APIs, models, scores', search: 'Search', compare: 'Compare',
@@ -17,7 +17,7 @@ const en = {
   overview: 'Overview', models: 'Models', pricing: 'Official Plans', bestFor: 'Use cases', plainConclusion: 'Plain conclusion', capabilities: 'Capabilities',
   model: 'Model', inputPrice: 'Input/$1M', outputPrice: 'Output/$1M', context: 'Context', releaseDate: 'Release date', lmArena: 'LMArena', sixDimChart: 'Six-axis visual',
   consumerPlans: 'Consumer plans', officialPricing: 'Official pricing', estimatedScores: 'Estimated scores', compareModels: 'Model comparison', company: 'Company', selectedModels: 'Selected models', clear: 'Clear',
-  noSelection: 'Without selected models, all models in the current scope are shown.', selectAllModels: 'Select current company', curatedPlans: 'Live model data + curated plans', seedData: 'Seed data', liveUnavailable: 'Live data unavailable', updatedToday: 'Updated today', average: 'Six-axis avg', backToList: 'Platforms', verdict: 'Verdict', verdictTier1: 'Frontier', verdictTier2: 'Mainstream', verdictTier3: 'Entry tier', tokens: 'tokens', outputInputRatio: 'Out/In ratio', outputCostMultiple: 'Output cost multiple', released: 'released', arenaRank: 'Arena rank', capabilityProfile: 'Capability profile', officialDocs: 'Official docs', compareThisModel: 'Compare this', noResults: 'No matching platforms', noResultsFor: 'No platforms match "{q}"', noResultsHint: 'Try a different keyword, or clear filters to start fresh.', clearSearch: 'Clear search and filters', compareEmptyTitle: 'Pick 2–6 models to compare', compareEmptyHint: 'Choose a company and capability filter on the left, then click model names to add them to the comparison.'
+  noSelection: 'Without selected models, all models in the current scope are shown.', selectAllModels: 'Select current company', curatedPlans: 'Live model data + curated plans', seedData: 'Seed data', liveUnavailable: 'Live data unavailable', updatedToday: 'Updated today', average: 'Six-axis avg', backToList: 'Platforms', verdict: 'Verdict', verdictTier1: 'Frontier', verdictTier2: 'Mainstream', verdictTier3: 'Entry tier', tokens: 'tokens', outputInputRatio: 'Out/In ratio', outputCostMultiple: 'Output cost multiple', released: 'released', arenaRank: 'Arena rank', capabilityProfile: 'Capability profile', officialDocs: 'Official docs', viewFullPage: 'Full page', compareThisModel: 'Compare this', noResults: 'No matching platforms', noResultsFor: 'No platforms match "{q}"', noResultsHint: 'Try a different keyword, or clear filters to start fresh.', clearSearch: 'Clear search and filters', compareEmptyTitle: 'Pick 2–6 models to compare', compareEmptyHint: 'Choose a company and capability filter on the left, then click model names to add them to the comparison.'
 };
 const ja = { ...en,
   brandSubtitle: 'プラン、API、モデル、スコア', search: '検索', compare: '比較', all: 'すべて', mainstream: '主流', modelLab: '自社開発', openSource: 'オープンソース', aggregator: 'プロバイダー', cloud: 'クラウド', hasMembership: '有料プラン',
@@ -25,7 +25,7 @@ const ja = { ...en,
   eyebrow: 'AI プラットフォームモデルデータベース', language: '言語', companyWebsite: '公式サイト', subscription: 'サブスク', apiPricing: 'API 価格', overview: '概要', models: 'モデル', pricing: '公式プラン',
   bestFor: '用途', plainConclusion: '要約', capabilities: '能力', model: 'モデル', inputPrice: '入力/$1M', outputPrice: '出力/$1M', context: 'コンテキスト', releaseDate: '公開日', sixDimChart: '6軸表示',
   consumerPlans: '会員プラン', officialPricing: '公式価格', estimatedScores: '推定スコア', compareModels: 'モデル比較', company: '会社', selectedModels: '選択済みモデル', clear: 'クリア',
-  noSelection: 'モデル未選択時は現在の範囲の全モデルを表示します。', selectAllModels: '現在の会社を全選択', curatedPlans: 'ライブモデルデータ + 整理済みプラン', seedData: '初期データ', liveUnavailable: 'ライブデータ利用不可', updatedToday: '本日更新', average: '6軸平均', backToList: 'プラットフォーム', verdict: '評価', verdictTier1: 'フロンティア', verdictTier2: '主流', verdictTier3: 'エントリー', tokens: 'トークン', outputInputRatio: '出力/入力比', outputCostMultiple: '出力倍率', released: 'リリース済', arenaRank: 'アリーナ', capabilityProfile: '能力プロファイル', officialDocs: '公式ドキュメント', compareThisModel: '比較に追加', noResults: '一致するプラットフォームなし', noResultsFor: '「{q}」に一致するプラットフォームなし', noResultsHint: 'キーワードを変えるか、フィルターをクリアして再度参照してください。', clearSearch: '検索とフィルターをクリア', compareEmptyTitle: '2〜6個のモデルを選択して比較', compareEmptyHint: '左で会社と機能を選び、モデル名をクリックして比較に追加。'
+  noSelection: 'モデル未選択時は現在の範囲の全モデルを表示します。', selectAllModels: '現在の会社を全選択', curatedPlans: 'ライブモデルデータ + 整理済みプラン', seedData: '初期データ', liveUnavailable: 'ライブデータ利用不可', updatedToday: '本日更新', average: '6軸平均', backToList: 'プラットフォーム', verdict: '評価', verdictTier1: 'フロンティア', verdictTier2: '主流', verdictTier3: 'エントリー', tokens: 'トークン', outputInputRatio: '出力/入力比', outputCostMultiple: '出力倍率', released: 'リリース済', arenaRank: 'アリーナ', capabilityProfile: '能力プロファイル', officialDocs: '公式ドキュメント', viewFullPage: '詳細ページ', compareThisModel: '比較に追加', noResults: '一致するプラットフォームなし', noResultsFor: '「{q}」に一致するプラットフォームなし', noResultsHint: 'キーワードを変えるか、フィルターをクリアして再度参照してください。', clearSearch: '検索とフィルターをクリア', compareEmptyTitle: '2〜6個のモデルを選択して比較', compareEmptyHint: '左で会社と機能を選び、モデル名をクリックして比較に追加。'
 };
 const ko = { ...en,
   brandSubtitle: '요금제, API, 모델, 점수', search: '검색', compare: '비교', all: '전체', mainstream: '주류', modelLab: '자체 개발', openSource: '오픈소스', aggregator: '공급자', cloud: '클라우드', hasMembership: '멤버십',
@@ -33,7 +33,7 @@ const ko = { ...en,
   eyebrow: 'AI 플랫폼 모델 데이터베이스', language: '언어', companyWebsite: '공식 사이트', subscription: '구독', apiPricing: 'API 가격', overview: '개요', models: '모델', pricing: '공식 요금제',
   bestFor: '사용 사례', plainConclusion: '요약', capabilities: '기능', model: '모델', inputPrice: '입력/$1M', outputPrice: '출력/$1M', context: '컨텍스트', releaseDate: '출시일', sixDimChart: '6축 시각화',
   consumerPlans: '멤버십 요금제', officialPricing: '공식 가격', estimatedScores: '추정 점수', compareModels: '모델 비교', company: '회사', selectedModels: '선택한 모델', clear: '지우기',
-  noSelection: '선택한 모델이 없으면 현재 범위의 모든 모델을 표시합니다.', selectAllModels: '현재 회사 전체 선택', curatedPlans: '실시간 모델 데이터 + 정리된 요금제', seedData: '초기 데이터', liveUnavailable: '실시간 데이터 사용 불가', updatedToday: '오늘 업데이트', average: '6축 평균', backToList: '플랫폼', verdict: '평가', verdictTier1: '프론티어', verdictTier2: '주류', verdictTier3: '입문', tokens: '토큰', outputInputRatio: '출력/입력 비율', outputCostMultiple: '출력 비용 배수', released: '출시됨', arenaRank: '아레나 순위', capabilityProfile: '능력 프로필', officialDocs: '공식 문서', compareThisModel: '비교 추가', noResults: '일치하는 플랫폼 없음', noResultsFor: '「{q}」와 일치하는 플랫폼 없음', noResultsHint: '다른 키워드를 시도하거나 필터를 초기화하세요.', clearSearch: '검색 및 필터 지우기', compareEmptyTitle: '2-6개 모델 선택', compareEmptyHint: '왼쪽에서 회사와 기능을 선택하고 모델 이름을 클릭하세요.'
+  noSelection: '선택한 모델이 없으면 현재 범위의 모든 모델을 표시합니다.', selectAllModels: '현재 회사 전체 선택', curatedPlans: '실시간 모델 데이터 + 정리된 요금제', seedData: '초기 데이터', liveUnavailable: '실시간 데이터 사용 불가', updatedToday: '오늘 업데이트', average: '6축 평균', backToList: '플랫폼', verdict: '평가', verdictTier1: '프론티어', verdictTier2: '주류', verdictTier3: '입문', tokens: '토큰', outputInputRatio: '출력/입력 비율', outputCostMultiple: '출력 비용 배수', released: '출시됨', arenaRank: '아레나 순위', capabilityProfile: '능력 프로필', officialDocs: '공식 문서', viewFullPage: '전체 페이지', compareThisModel: '비교 추가', noResults: '일치하는 플랫폼 없음', noResultsFor: '「{q}」와 일치하는 플랫폼 없음', noResultsHint: '다른 키워드를 시도하거나 필터를 초기화하세요.', clearSearch: '검색 및 필터 지우기', compareEmptyTitle: '2-6개 모델 선택', compareEmptyHint: '왼쪽에서 회사와 기능을 선택하고 모델 이름을 클릭하세요.'
 };
 const es = { ...en,
   brandSubtitle: 'Planes, API, modelos y puntajes', search: 'Buscar', compare: 'Comparar', all: 'Todo', mainstream: 'Principales', modelLab: 'Propios', openSource: 'Código abierto', aggregator: 'Proveedores', cloud: 'Nube', hasMembership: 'Planes',
@@ -41,7 +41,7 @@ const es = { ...en,
   eyebrow: 'Base de datos de modelos de IA', language: 'Idioma', companyWebsite: 'Sitio oficial', subscription: 'Suscripción', apiPricing: 'Precio API', overview: 'Resumen', models: 'Modelos', pricing: 'Planes oficiales',
   bestFor: 'Casos de uso', plainConclusion: 'Resumen', capabilities: 'Capacidades', model: 'Modelo', inputPrice: 'Entrada/$1M', outputPrice: 'Salida/$1M', context: 'Contexto', releaseDate: 'Lanzamiento', sixDimChart: 'Vista de 6 ejes',
   consumerPlans: 'Planes de consumo', officialPricing: 'Precio oficial', estimatedScores: 'Puntajes estimados', compareModels: 'Comparación de modelos', company: 'Empresa', selectedModels: 'Modelos elegidos', clear: 'Limpiar',
-  noSelection: 'Sin modelos elegidos, se muestran todos los modelos del alcance actual.', selectAllModels: 'Elegir empresa actual', curatedPlans: 'Datos en vivo + planes curados', seedData: 'Datos iniciales', liveUnavailable: 'Datos en vivo no disponibles', updatedToday: 'Actualizado hoy', average: 'Promedio 6 ejes', backToList: 'Plataformas', verdict: 'Veredicto', verdictTier1: 'Frontera', verdictTier2: 'Principal', verdictTier3: 'Entrada', tokens: 'tokens', outputInputRatio: 'Salida/Entrada', outputCostMultiple: 'Múltiplo de costo', released: 'lanzado', arenaRank: 'Rango arena', capabilityProfile: 'Perfil de capacidad', officialDocs: 'Docs oficiales', compareThisModel: 'Comparar', noResults: 'Sin coincidencias', noResultsFor: 'No hay plataformas que coincidan con "{q}"', noResultsHint: 'Prueba con otra palabra clave o limpia los filtros.', clearSearch: 'Limpiar búsqueda y filtros', compareEmptyTitle: 'Elige 2-6 modelos para comparar', compareEmptyHint: 'Selecciona empresa y capacidad a la izquierda, luego haz clic en los nombres.'
+  noSelection: 'Sin modelos elegidos, se muestran todos los modelos del alcance actual.', selectAllModels: 'Elegir empresa actual', curatedPlans: 'Datos en vivo + planes curados', seedData: 'Datos iniciales', liveUnavailable: 'Datos en vivo no disponibles', updatedToday: 'Actualizado hoy', average: 'Promedio 6 ejes', backToList: 'Plataformas', verdict: 'Veredicto', verdictTier1: 'Frontera', verdictTier2: 'Principal', verdictTier3: 'Entrada', tokens: 'tokens', outputInputRatio: 'Salida/Entrada', outputCostMultiple: 'Múltiplo de costo', released: 'lanzado', arenaRank: 'Rango arena', capabilityProfile: 'Perfil de capacidad', officialDocs: 'Docs oficiales', viewFullPage: 'Página completa', compareThisModel: 'Comparar', noResults: 'Sin coincidencias', noResultsFor: 'No hay plataformas que coincidan con "{q}"', noResultsHint: 'Prueba con otra palabra clave o limpia los filtros.', clearSearch: 'Limpiar búsqueda y filtros', compareEmptyTitle: 'Elige 2-6 modelos para comparar', compareEmptyHint: 'Selecciona empresa y capacidad a la izquierda, luego haz clic en los nombres.'
 };
 const i18n = { zh, en, ja, ko, es };
 Object.assign(zh, {
@@ -116,6 +116,19 @@ function initialLang() {
 }
 let lang = initialLang(), activePlatform = 'openai', platformFilter = '', functionFilter = '', modelCap = '', sortKey = 'releaseDate', sortDir = 'desc', compareCompany = 'openai';
 let selectedModels = new Set(), compareCaps = new Set(), dataState = { kind: 'seed', count: 0 };
+let modelSlugSet = new Set();
+function canonSlug(name) {
+  return String(name).toLowerCase().trim()
+    .replace(/[\s\-_./]+/g, '-')
+    .replace(/-(latest|preview|chat|instruct|001|002|003|exp|experimental)$/i, '')
+    .replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '');
+}
+async function loadModelSlugs() {
+  try {
+    const r = await fetch('/data/model-slugs.json', { cache: 'no-cache' });
+    if (r.ok) modelSlugSet = new Set((await r.json()).map((m) => m.slug));
+  } catch (_) { /* manifest optional */ }
+}
 const basePlatforms = [
   ['openai','OpenAI','https://models.dev/logos/openai.svg','https://openai.com/','https://openai.com/chatgpt/pricing/',['mainstream','modelLab'],['consumer','api'],['code','writing','vision','longContext','web'],'覆盖普通用户、开发者和企业的通用 AI 平台，强项是综合能力、工具生态、代码和多模态产品化。','A general-purpose AI platform for consumers, developers, and enterprises.',['综合能力','代码','多模态','生态'],['General','Code','Multimodal','Ecosystem']],
   ['anthropic','Anthropic Claude','https://models.dev/logos/anthropic.svg','https://www.anthropic.com/','https://www.anthropic.com/pricing',['mainstream','modelLab'],['consumer','api'],['code','writing','vision','longContext'],'Claude 以长文理解、写作、代码和安全稳健的交互体验著称。','Claude is known for long-context understanding, writing, and coding.',['长文','代码','写作','推理'],['Long context','Code','Writing','Reasoning']],
@@ -524,6 +537,15 @@ function filteredPlatforms() {
   const q = norm($('platformSearch').value);
   return platforms.filter((p) => (!platformFilter || p.types.includes(platformFilter) || platformFilter === 'consumer' && p.category.includes('consumer')) && (!functionFilter || p.functions.includes(functionFilter))).filter((p) => !q || norm([p.name,p.description,p.descriptionEn,platformDesc(p),p.strengths.join(' '),p.strengthsEn.join(' '),platformStrengths(p).join(' '),...platformModels(p.id).map((m) => `${m.name} ${m.id} ${m.capabilities.map(capText).join(' ')} ${m.capabilities.join(' ')}`)].join(' ')).includes(q)).sort((a,b) => (b.types.includes('mainstream') - a.types.includes('mainstream')) || platformModels(b.id).length - platformModels(a.id).length);
 }
+function filteredModels() {
+  const norm = (s) => s.toLowerCase().replace(/[\s\-_]+/g, '');
+  const q = norm($('platformSearch').value);
+  if (!q) return [];
+  return models
+    .filter((m) => norm(`${m.name} ${m.id} ${m.platform} ${m.capabilities.map(capText).join(' ')}`).includes(q))
+    .sort((a, b) => score(b).average - score(a).average)
+    .slice(0, 12);
+}
 function renderList() {
   const list = filteredPlatforms();
   const q = ($('platformSearch').value || '').trim();
@@ -534,6 +556,15 @@ function renderList() {
     return;
   }
   $('platformList').innerHTML = list.map((p) => { const ms = platformModels(p.id), best = ms[0]; return `<button class='platform-card ${p.id === activePlatform ? 'active' : ''}' data-id='${p.id}'><div class='platform-card-top'><img src='${p.logo}' alt=''><div><strong>${p.name}</strong><span>${platformDesc(p)}</span></div></div><div class='feature-icons'><span class='feature-icon ${p.category.includes('consumer') ? 'on' : ''}'>$</span><span class='feature-icon ${p.types.includes('open') ? 'on' : ''}'>OS</span></div><div class='mini-stats'><span>${tx('lowestApi')} <b>${money(Math.min(...ms.map((m) => m.input), 0))}</b></span><span>${tx('bestModel')} <b>${best?.name || '-'}</b></span></div></button>`; }).join('');
+  const mResults = filteredModels();
+  const mr = $('modelResults');
+  if (mr) {
+    mr.innerHTML = mResults.length
+      ? `<p class="results-group-label">${tx('models')}</p>` + mResults.map((m) =>
+          `<button class="model-result" data-key="${keyOf(m)}"><strong>${m.name}</strong><span>${pName(m.platform)} · ${money(m.input)} · ${m.capabilities.map(capText).join(' ')}</span></button>`).join('')
+      : '';
+    mr.querySelectorAll('.model-result').forEach((b) => b.onclick = () => openModel(b.dataset.key));
+  }
   document.querySelectorAll('.platform-card').forEach((b) => b.onclick = () => {
     activePlatform = b.dataset.id;
     // Mobile list→detail nav: remember scroll, open workspace overlay
@@ -646,6 +677,7 @@ function openModel(k) {
       </div>
     </div>
     <div class='detail-actions'>
+      ${modelSlugSet.has(canonSlug(m.name)) ? `<a class='detail-cta detail-fullpage' href='/models/${canonSlug(m.name)}/'>${tx('viewFullPage')} →</a>` : ''}
       ${p.website ? `<a class='detail-cta' href='${p.website}' target='_blank' rel='noopener nofollow'>${tx('officialDocs')} ↗</a>` : ''}
       <button class='detail-cta detail-cta-compare' type='button' id='detailCompareBtn'>${tx('compareThisModel')} →</button>
     </div>
@@ -691,4 +723,4 @@ $('mobileBackBtn').onclick = () => {
 const btt = $('backToTopBtn');
 window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 600), { passive: true });
 btt.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-render(); loadLive();
+render(); loadLive(); loadModelSlugs();
