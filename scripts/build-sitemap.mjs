@@ -4,7 +4,7 @@
 // applies sensible <priority>/<changefreq> values, and writes sitemap.xml.
 // Run: node scripts/build-sitemap.mjs
 
-import { readdirSync, writeFileSync, statSync, appendFileSync } from 'node:fs';
+import { readdirSync, writeFileSync, statSync, appendFileSync, readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
 const ROOT = process.cwd();
@@ -70,7 +70,15 @@ function main() {
     walk(join(ROOT, d), files);
   }
 
-  const urls = [...new Set(files.map(urlFromPath))].sort();
+  // Include ONLY the indexable model subset (data/model-slugs.json), never the
+  // noindex long tail. Keeps crawl budget on high-value pages.
+  let modelUrls = [];
+  try {
+    const manifest = JSON.parse(readFileSync(join(ROOT, 'data', 'model-slugs.json'), 'utf8'));
+    modelUrls = manifest.filter((m) => m.indexable).map((m) => `${ORIGIN}/models/${m.slug}/`);
+  } catch { /* manifest absent on first run — skip */ }
+
+  const urls = [...new Set([...files.map(urlFromPath), ...modelUrls])].sort();
   const lastmod = todayISO();
 
   const entries = urls.map((u) => {
