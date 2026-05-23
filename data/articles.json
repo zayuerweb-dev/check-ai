@@ -368,6 +368,13 @@
     },
     "en": {
       "status": "none"
-    }
+    },
+    "distribution": [
+      {
+        "platform": "juejin",
+        "url": "https://juejin.cn/spost/7642603151204155444",
+        "date": "2026-05-23"
+      }
+    ]
   }
 ]
