@@ -93,9 +93,21 @@
         }
       ],
       "sources": [
-        { "claim": "Claude Opus 4.7 官方发布与规格", "url": "https://www.anthropic.com/news", "checked": "2026-05-22" },
-        { "claim": "SWE-bench / 跑分对比", "url": "https://artificialanalysis.ai/", "checked": "2026-05-22" },
-        { "claim": "Vellum 实测", "url": "https://www.vellum.ai/", "checked": "2026-05-22" }
+        {
+          "claim": "Claude Opus 4.7 官方发布与规格",
+          "url": "https://www.anthropic.com/news",
+          "checked": "2026-05-22"
+        },
+        {
+          "claim": "SWE-bench / 跑分对比",
+          "url": "https://artificialanalysis.ai/",
+          "checked": "2026-05-22"
+        },
+        {
+          "claim": "Vellum 实测",
+          "url": "https://www.vellum.ai/",
+          "checked": "2026-05-22"
+        }
       ]
     },
     "en": {
@@ -287,6 +299,70 @@
         {
           "q": "混合系统的最佳实践？",
           "a": "2026 年生产环境主流：RAG 拿事实 + Fine-tune 管行为 + 长上下文跑整文档查询。实测准确率：混合 96%、纯 RAG 89%、纯 Fine-tune 91%。Anthropic 的 Contextual Retrieval 又把 RAG 召回失败率降 49%，开 reranker 后降 67%。具体拆分：volatile（易变）知识进 RAG、stable（稳定）行为进 Fine-tune、单 session 多轮深度问答用长上下文 + Caching。"
+        }
+      ]
+    },
+    "en": {
+      "status": "none"
+    }
+  },
+  {
+    "slug": "chatgpt-claude-gemini-membership-2026",
+    "topic": "订阅决策",
+    "author": "zayuerweb-dev",
+    "authorUrl": "https://github.com/zayuerweb-dev",
+    "written": "2026-05-22",
+    "published": "2026-05-22",
+    "modified": "2026-05-22",
+    "zh": {
+      "title": "ChatGPT、Claude、Gemini 会员到底买哪个（2026）：按预算和用途选",
+      "metaTitle": "ChatGPT vs Claude vs Gemini 会员怎么选（2026）：价格快照 + 决策表",
+      "description": "ChatGPT Plus $20、Claude Pro $20、Google AI Pro $19.99，三家会员怎么选？按预算和用途给决策框架，附 2026-05 价格快照（Free / Go / Plus / Pro / Max / Ultra 全档）。中国大陆用户看国产替代。",
+      "ogTitle": "ChatGPT vs Claude vs Gemini 会员怎么选（2026）",
+      "ogDescription": "三家会员同价 $20，按预算和用途给决策表 + 价格快照。国内用户看国产替代。",
+      "headline": "ChatGPT、Claude、Gemini 会员到底买哪个（2026）",
+      "status": "published",
+      "related": {
+        "href": "/zh/articles/china-ai-models-landscape-2026/",
+        "label": "国产 AI 模型全景"
+      },
+      "faq": [
+        {
+          "q": "ChatGPT Plus、Claude Pro、Gemini AI Pro 哪个最值？",
+          "a": "同价 $20 档，看用途：全能和功能最全选 ChatGPT Plus；写代码 + 想省钱选 Claude Pro（年付 $17）；本来用 Google 又想要 YouTube Premium 选 Google AI Pro（$19.99 送 YouTube Premium Lite + 5TB）。"
+        },
+        {
+          "q": "$8 的 ChatGPT Go 值得吗？",
+          "a": "同价位不如 Gemini AI Plus（$7.99）。Go 只是消息更多还带广告；AI Plus 便宜一分钱，还送 200GB 存储和视频生成额度。"
+        },
+        {
+          "q": "$100 的 ChatGPT Pro 和 Claude Max 有什么区别？",
+          "a": "ChatGPT Pro $100 是 2026 年 4 月对标 Claude Max 新开的档；Claude Max 5x $100 是 5 倍 Pro 用量。两者都要 $200 那档才给到各自的顶配能力（GPT-5.4 Pro / Max 20x）。"
+        },
+        {
+          "q": "中国大陆能订阅这三家吗？",
+          "a": "官方都不支持国内订阅和付款。建议国内用户用能直接订、支付宝/微信可付的国产会员（DeepSeek、通义、Kimi 等）。"
+        },
+        {
+          "q": "价格会变吗？",
+          "a": "会，而且变得快（ChatGPT Pro 2026 年 4 月才拆成 $100/$200，Gemini 套餐 5 月刚调整）。本页价格快照核于 2026-05-22，订阅前请以官网为准。"
+        }
+      ],
+      "sources": [
+        {
+          "claim": "ChatGPT 订阅档位与价格",
+          "url": "https://chatgpt.com/pricing/",
+          "checked": "2026-05-22"
+        },
+        {
+          "claim": "Claude 订阅档位与价格",
+          "url": "https://claude.com/pricing",
+          "checked": "2026-05-22"
+        },
+        {
+          "claim": "Google AI（Gemini）订阅档位与价格",
+          "url": "https://gemini.google/subscriptions/",
+          "checked": "2026-05-22"
         }
       ]
     },
