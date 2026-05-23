@@ -34,13 +34,17 @@ function hreflangFor(lang, slug, art) {
 
 function articleJsonLd(lang, art, c) {
   const headline = c.headline || c.title;
-  return JSON.stringify({
+  const obj = {
     '@context': 'https://schema.org', '@type': 'Article', inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
     headline, description: c.description,
     datePublished: art.published, dateModified: art.modified,
     author: { '@type': 'Person', name: art.author, url: art.authorUrl, sameAs: [art.authorUrl] },
     publisher: { '@type': 'Organization', name: 'Check.AI', url: 'https://checkaimodels.com/' },
-  });
+  };
+  if (c.sources && c.sources.length) {
+    obj.citation = c.sources.map((s) => ({ '@type': 'CreativeWork', name: s.claim, url: s.url }));
+  }
+  return JSON.stringify(obj);
 }
 
 function faqJsonLd(lang, faq) {
@@ -56,6 +60,15 @@ function footerFor(lang, c) {
   const home = lang === 'zh' ? '<a href="/zh/">返回中文首页</a>' : '<a href="/en/">Back to home</a>';
   const rel = c.related ? ` · <a href="${c.related.href}">${esc(c.related.label)}</a>` : '';
   return `<footer class="seo-footer">${home}${rel}</footer>`;
+}
+
+function sourcesSection(lang, c) {
+  if (!c.sources || !c.sources.length) return '';
+  const label = lang === 'zh' ? '参考来源' : 'Sources';
+  const items = c.sources.map((s) =>
+    `<li><a href="${esc(s.url)}" target="_blank" rel="noopener nofollow">${esc(s.claim)}</a>${s.checked ? ` <span style="color:var(--muted)">· ${esc(s.checked)}</span>` : ''}</li>`
+  ).join('\n');
+  return `\n<section class="seo-card"><h2>${label}</h2><ul>\n${items}\n</ul></section>`;
 }
 
 function renderArticle(lang, art) {
@@ -91,6 +104,7 @@ ${navFor(lang, slug, art)}
 <p class="eyebrow">${eyebrow}</p>
 <h1>${esc(c.title)}</h1>
 ${body}
+${sourcesSection(lang, c)}
 </main>
 ${footerFor(lang, c)}
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "df6bb0324e4c458fb4e8b979d3feed3c"}'></script>
