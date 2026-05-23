@@ -91,6 +91,11 @@
           "q": "我应该升级到 Opus 4.7 吗？",
           "a": "用 Opus 4.6 在做 agent 编程 / computer use / 长 agentic loop 的：必须升级，SWE-bench Pro +10.9 分质变。用 Sonnet 4.6 但成本不敏感的：可以试，质量明显上一档。用 GPT-5.4 Pro 做 Web research 重度场景的：不用换，那块 GPT 更强。用 DeepSeek R1 / Qwen 省成本的：不用换，Opus 4.7 是 $5/$25，DeepSeek 是 $0.55/$2.19，差 9 倍。"
         }
+      ],
+      "sources": [
+        { "claim": "Claude Opus 4.7 官方发布与规格", "url": "https://www.anthropic.com/news", "checked": "2026-05-22" },
+        { "claim": "SWE-bench / 跑分对比", "url": "https://artificialanalysis.ai/", "checked": "2026-05-22" },
+        { "claim": "Vellum 实测", "url": "https://www.vellum.ai/", "checked": "2026-05-22" }
       ]
     },
     "en": {
