@@ -6,6 +6,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs';
 import { dirname } from 'node:path';
+import { indexableSlugs } from './lib/model-subset.mjs';
 
 const data = JSON.parse(readFileSync('data/models.json', 'utf8'));
 const providersIndex = Object.fromEntries((data.providers || []).map((p) => [p.key, p]));
@@ -54,6 +55,8 @@ for (const m of data.models || []) {
   groups.get(slug).listings.push(m);
 }
 
+const INDEXABLE = indexableSlugs([...groups.values()]);
+
 console.log(`[build-models] ${groups.size} unique canonical models from ${data.models.length} raw`);
 
 function bestListing(listings) {
@@ -94,7 +97,7 @@ function relatedSlugs(thisSlug, allSlugs) {
     .slice(0, 5);
 }
 
-function pageHtml(group, allSlugs) {
+function pageHtml(group, allSlugs, indexable) {
   const { slug, displayName, listings } = group;
   const best = bestListing(listings);
   const meta = describe(listings, best);
@@ -149,7 +152,7 @@ function pageHtml(group, allSlugs) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="robots" content="noindex,follow">
+<meta name="robots" content="${indexable ? 'index,follow' : 'noindex,follow'}">
 <title>${escAttr(title)} | Check.AI</title>
 <meta name="description" content="${escAttr(desc)}">
 <link rel="canonical" href="${url}">
@@ -243,11 +246,19 @@ function main() {
     const dir = `models/${slug}`;
     ensureDir(dir);
     const g = groups.get(slug);
-    writeFileSync(`${dir}/index.html`, pageHtml(g, slugs));
+    writeFileSync(`${dir}/index.html`, pageHtml(g, slugs, INDEXABLE.has(slug)));
     urls.push(`https://checkaimodels.com/models/${slug}/`);
     written++;
   }
   console.log(`[build-models] wrote ${written} pages`);
+
+  const manifest = [...groups.values()].map((g) => ({
+    slug: g.slug,
+    name: g.displayName,
+    indexable: INDEXABLE.has(g.slug),
+  }));
+  writeFileSync('data/model-slugs.json', JSON.stringify(manifest) + '\n');
+  console.log(`[build-models] manifest: data/model-slugs.json (${manifest.length} slugs, ${manifest.filter((m) => m.indexable).length} indexable)`);
 
   // Write sitemap fragment for piping into sitemap.xml later
   const sitemapFrag = urls
