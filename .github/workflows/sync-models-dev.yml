@@ -53,38 +53,32 @@ jobs:
           echo "..."
           git status --short | wc -l
 
-      - name: Commit and push to main
-        if: steps.sync.outputs.changed == 'true'
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/ models/ sitemap.xml
-          git commit -m "chore(data): sync models.dev (${{ steps.sync.outputs.providers }} providers, ${{ steps.sync.outputs.models }} models) + rebuild pages"
-          if git push origin HEAD:main; then
-            echo "Pushed to main."
-          else
-            echo "Direct push to main blocked. Falling back to bot/sync-models-dev branch."
-            git push -f origin HEAD:bot/sync-models-dev
-            echo "Open a PR at: https://github.com/${{ github.repository }}/compare/main...bot/sync-models-dev"
-            exit 1
-          fi
-
-      - name: Trigger Cloudflare Pages deploy
-        # The push above is made with GITHUB_TOKEN, which by design does NOT
-        # trigger other workflows (push/pull_request). workflow_dispatch is the
-        # documented exception, so we dispatch the deploy explicitly — otherwise
-        # synced data is committed but never published.
+      - name: Open auto-merging PR with synced data
+        # main is protected (PR + e2e required), so GITHUB_TOKEN can't push to it
+        # directly and the PRs it opens don't trigger workflows. We use a PAT
+        # (secrets.SYNC_PAT) so the PR triggers the e2e check and can auto-merge.
+        # On merge, the push to main fires cloudflare-pages.yml, which deploys and
+        # pings IndexNow.
         if: steps.sync.outputs.changed == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh workflow run cloudflare-pages.yml --ref main
-
-      - name: Ping IndexNow (Bing/Yandex) after deploy
-        if: steps.sync.outputs.changed == 'true'
+          GH_TOKEN: ${{ secrets.SYNC_PAT }}
+          REPO: ${{ github.repository }}
         run: |
-          echo "Waiting 150s for Cloudflare Pages to deploy the new sitemap..."
-          sleep 150
-          node scripts/indexnow-ping.mjs
+          BRANCH="bot/sync-models-dev"
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add data/ models/ sitemap.xml
+          git commit -m "chore(data): sync models.dev (${{ steps.sync.outputs.providers }} providers, ${{ steps.sync.outputs.models }} models) + rebuild pages"
+          # Push as the PAT user so the PR (and its e2e check) actually triggers.
+          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git" "HEAD:$BRANCH"
+          # Reuse the open PR if there is one; the force-push above updated its head.
+          if ! gh pr view "$BRANCH" --json state --jq '.state' 2>/dev/null | grep -q OPEN; then
+            gh pr create --base main --head "$BRANCH" \
+              --title "chore(data): daily models.dev sync (${{ steps.sync.outputs.providers }} providers, ${{ steps.sync.outputs.models }} models)" \
+              --body "Automated daily models.dev sync. Auto-merges once the e2e check passes; merge then triggers the Cloudflare Pages deploy + IndexNow ping."
+          fi
+          gh pr merge "$BRANCH" --squash --auto
 
       - name: No changes
         if: steps.sync.outputs.changed != 'true'
