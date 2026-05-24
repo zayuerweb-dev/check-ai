@@ -143,4 +143,17 @@ function injectHub(file, lang) {
 injectHub('zh/index.html', 'zh');
 injectHub('en/index.html', 'en');
 
+function injectHomeArticles(file) {
+  if (!existsSync(file)) return;
+  let html = readFileSync(file, 'utf8');
+  const START = '<!-- HOME_ARTICLES:start -->', END = '<!-- HOME_ARTICLES:end -->';
+  if (!html.includes(START) || !html.includes(END)) return;
+  const items = registry.filter((a) => a.zh && a.zh.status === 'published')
+    .map((a) => `<a class="home-arti" href="/zh/articles/${a.slug}/">${esc(a.zh.title)}</a>`).join('\n');
+  html = html.replace(new RegExp(`${START}[\\s\\S]*?${END}`), `${START}\n<div class="home-arts">\n${items}\n</div>\n${END}`);
+  writeFileSync(file, html);
+  console.log(`[build-articles] injected home articles into ${file}`);
+}
+injectHomeArticles('index.html');
+
 if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `articles_written=${written}\n`);

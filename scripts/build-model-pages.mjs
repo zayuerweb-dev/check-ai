@@ -137,6 +137,12 @@ const MAKER_ZH = {
   zhipu: '智谱', minimax: 'MiniMax', meta: 'Meta',
 };
 function makerZh(name) { return MAKER_ZH[brandOfName(name)] || ''; }
+const MAKER_EN = {
+  openai: 'OpenAI', anthropic: 'Anthropic', google: 'Google', deepseek: 'DeepSeek',
+  xai: 'xAI', qwen: 'Alibaba (Qwen)', mistral: 'Mistral', moonshot: 'Moonshot AI',
+  zhipu: 'Zhipu', minimax: 'MiniMax', meta: 'Meta',
+};
+function makerEn(name) { return MAKER_EN[brandOfName(name)] || ''; }
 function zhCaps(caps) {
   const out = caps.map((c) => ZH_CAP[c]).filter(Boolean);
   return out.length ? out.join('、') : '文本生成';
@@ -341,6 +347,49 @@ ${relatedHtml}
 
 function ensureDir(p) { if (!existsSync(p)) mkdirSync(p, { recursive: true }); }
 
+function injectHomeLatest(file) {
+  if (!existsSync(file)) return;
+  let html = readFileSync(file, 'utf8');
+  const START = '<!-- HOME_LATEST:start -->', END = '<!-- HOME_LATEST:end -->';
+  if (!html.includes(START) || !html.includes(END)) return;
+  const norm = (s) => s.toLowerCase().replace(/^[^:]+:\s*/, '').replace(/[^a-z0-9]/g, '');
+  const seen = new Set();
+  const latest = [];
+  for (const x of [...groups.values()]
+    .map((g) => ({ g, best: bestListing(g.listings) }))
+    .filter((x) => x.best && x.best.release_date)
+    .sort((a, b) => Date.parse(b.best.release_date) - Date.parse(a.best.release_date))) {
+    const key = norm(x.g.displayName);
+    if (seen.has(x.g.slug) || seen.has(key)) continue;
+    seen.add(x.g.slug); seen.add(key);
+    latest.push(x);
+    if (latest.length >= 6) break;
+  }
+  const cards = latest.map(({ g, best }) => {
+    const m = makerZh(g.displayName);
+    const d = String(best.release_date).slice(5);
+    return `<a class="home-newsc" href="/models/${g.slug}/"><span><strong>${escAttr(g.displayName)}</strong>${m ? `<span class="maker">${escAttr(m)}</span>` : ''}</span><span class="when">${d} 新发布</span></a>`;
+  }).join('\n');
+  html = html.replace(new RegExp(`${START}[\\s\\S]*?${END}`), `${START}\n<div class="home-news">\n${cards}\n</div>\n${END}`);
+  writeFileSync(file, html);
+  console.log(`[build-models] injected home latest into ${file}`);
+}
+
+function injectHomePopular(file) {
+  if (!existsSync(file)) return;
+  let html = readFileSync(file, 'utf8');
+  const START = '<!-- HOME_POPULAR:start -->', END = '<!-- HOME_POPULAR:end -->';
+  if (!html.includes(START) || !html.includes(END)) return;
+  const picked = [...groups.values()].filter((g) => INDEXABLE.has(g.slug)).slice(0, 6);
+  const cards = picked.map((g, i) => {
+    const m = makerZh(g.displayName);
+    return `<a class="home-popi" href="/models/${g.slug}/"><span class="rk">${i + 1}</span><strong>${escAttr(g.displayName)}</strong>${m ? `<span class="maker">${escAttr(m)}</span>` : ''}</a>`;
+  }).join('\n');
+  html = html.replace(new RegExp(`${START}[\\s\\S]*?${END}`), `${START}\n<div class="home-pop">\n${cards}\n</div>\n${END}`);
+  writeFileSync(file, html);
+  console.log(`[build-models] injected home popular into ${file}`);
+}
+
 function main() {
   const slugs = [...groups.keys()];
 
@@ -370,6 +419,8 @@ function main() {
 
   injectLatest('zh/index.html', 'zh');
   injectLatest('en/index.html', 'en');
+  injectHomeLatest('index.html');
+  injectHomePopular('index.html');
 
   // Write sitemap fragment for piping into sitemap.xml later
   const sitemapFrag = urls

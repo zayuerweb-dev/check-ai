@@ -27,4 +27,15 @@ test.describe('home view', () => {
     await expect(page.locator('#home')).toBeVisible();
     await expect(page.locator('.platform-summary')).toBeHidden();
   });
+
+  test('home latest + popular cards link to real model pages', async ({ page }) => {
+    await page.goto('/');
+    const latest = await page.locator('#home .home-newsc').first().getAttribute('href');
+    expect(latest).toMatch(/^\/models\/.+\/$/);
+    expect((await page.goto(latest)).status()).toBe(200);
+    await page.goto('/');
+    const pop = await page.locator('#home .home-popi').first().getAttribute('href');
+    expect(pop).toMatch(/^\/models\/.+\/$/);
+    expect((await page.goto(pop)).status()).toBe(200);
+  });
 });
