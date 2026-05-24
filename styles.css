@@ -666,3 +666,18 @@ h2[id],h3[id]{scroll-margin-top:20px}
   #models tr.model-row td.td-radar svg{width:128px;height:128px}
   #models tr.model-row td.td-lmarena b{font-size:18px;color:var(--ink)}
 }
+
+/* T3 portal panels */
+.portal-hero{text-align:center;padding:8px 0 18px}
+.portal-hero h1{font-size:clamp(30px,5vw,46px);line-height:1.08;color:var(--ink);margin:0 0 10px}
+.portal-grid{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
+.portal-grid.cols4{grid-template-columns:repeat(4,1fr)}
+.portal-card{border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:13px 14px;display:block}
+.portal-card:hover{border-color:var(--accent);background:#fbfffd}
+.portal-card strong{display:block;color:var(--ink);font-size:16px}
+.portal-card .maker{color:var(--muted);font-size:13px}
+.portal-card .when{color:#0c6f68;font-size:12px;font-weight:700;margin-top:4px;display:block}
+.company-row{display:flex;flex-wrap:wrap;gap:8px}
+.company-chip{border:1px solid #8ec7bd;background:#e8f5f1;color:#0c6f68;border-radius:999px;padding:7px 14px;font-weight:700;font-size:14px;display:inline-block}
+.company-chip:hover{background:#dcefe9}
+@media(max-width:760px){.portal-grid,.portal-grid.cols4{grid-template-columns:1fr 1fr}}
