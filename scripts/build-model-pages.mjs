@@ -6,6 +6,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs';
 import { dirname } from 'node:path';
+import { indexableSlugs } from './lib/model-subset.mjs';
 
 const data = JSON.parse(readFileSync('data/models.json', 'utf8'));
 const providersIndex = Object.fromEntries((data.providers || []).map((p) => [p.key, p]));
@@ -54,6 +55,8 @@ for (const m of data.models || []) {
   groups.get(slug).listings.push(m);
 }
 
+const INDEXABLE = indexableSlugs([...groups.values()]);
+
 console.log(`[build-models] ${groups.size} unique canonical models from ${data.models.length} raw`);
 
 function bestListing(listings) {
@@ -94,27 +97,96 @@ function relatedSlugs(thisSlug, allSlugs) {
     .slice(0, 5);
 }
 
-function pageHtml(group, allSlugs) {
+const OVERRIDES = JSON.parse(readFileSync('data/model-pages.json', 'utf8'));
+
+const ZH_BRAND = {
+  openai: 'OpenAI', anthropic: 'Anthropic', google: 'Google', deepseek: 'DeepSeek',
+  xai: 'xAI', qwen: '阿里通义千问', alibaba: '阿里', mistral: 'Mistral',
+  meta: 'Meta', llama: 'Meta Llama', moonshot: '月之暗面', zhipu: '智谱',
+};
+const ZH_CAP = {
+  reasoning: '推理', tools: '工具调用', vision: '多模态视觉', audio: '音频', open: '开放权重',
+};
+
+function zhBrand(platform) { return ZH_BRAND[platform] || vendorOf(platform); }
+function zhCaps(caps) {
+  const out = caps.map((c) => ZH_CAP[c]).filter(Boolean);
+  return out.length ? out.join('、') : '文本生成';
+}
+
+// percentile: fraction (0-100) of groups whose `metric(best)` is LESS than this
+// group's. Used for "cheaper than X%" / "longer context than X%".
+function percentile(allBests, value, lowerIsBetter) {
+  const vals = allBests.filter((v) => v != null);
+  if (!vals.length || value == null) return null;
+  const below = vals.filter((v) => (lowerIsBetter ? v > value : v < value)).length;
+  return Math.round((below / vals.length) * 100);
+}
+
+function priceTierZh(pct) {
+  if (pct == null) return '中等';
+  if (pct >= 66) return '偏便宜';
+  if (pct >= 33) return '中等';
+  return '偏贵';
+}
+
+// Pick up to 4 peers: same brand first, then nearest input price, by quality.
+function peerGroups(group, allGroups) {
+  const best = bestListing(group.listings);
+  const brand = best.platform;
+  const others = allGroups.filter((g) => g.slug !== group.slug);
+  const sameBrand = others.filter((g) => bestListing(g.listings).platform === brand);
+  const pool = sameBrand.length >= 3 ? sameBrand : others;
+  return [...pool]
+    .sort((a, b) => Math.abs((bestListing(a.listings).price?.input ?? 0) - (best.price?.input ?? 0))
+      - Math.abs((bestListing(b.listings).price?.input ?? 0) - (best.price?.input ?? 0)))
+    .slice(0, 4);
+}
+
+function verdictZh(group, best, meta, pricePct) {
+  if (OVERRIDES[group.slug]?.verdictZh) return OVERRIDES[group.slug].verdictZh;
+  const tier = priceTierZh(pricePct);
+  const sceneByCap = best.capabilities?.includes('reasoning')
+    ? '复杂推理、写代码和需要思考链的任务'
+    : best.capabilities?.includes('vision')
+      ? '图文理解和多模态场景'
+      : '日常问答、写作和轻量集成';
+  return `${group.displayName} 是 ${zhBrand(best.platform)} 的模型，主打${zhCaps(meta.caps ? [...meta.caps] : [])}。`
+    + `它的上下文窗口为 ${meta.ctx}，价格在同类中${tier}`
+    + `${pricePct != null ? `（比约 ${pricePct}% 的同类便宜）` : ''}。适合${sceneByCap}。`;
+}
+
+function pageHtml(group, allSlugs, indexable, allGroups) {
   const { slug, displayName, listings } = group;
   const best = bestListing(listings);
   const meta = describe(listings, best);
   const url = `https://checkaimodels.com/models/${slug}/`;
-  const title = `${displayName}: Price, Context, Providers (2026)`;
-  const desc = `${displayName} API reference: ${meta.ctx} context, from ${fmtMoney(best.price?.input)} / 1M input tokens. Available on ${meta.provCount} provider${meta.provCount === 1 ? '' : 's'}. Capabilities: ${meta.tagStr}.`;
 
-  // Provider rows sorted by input price asc
-  const rows = [...listings]
-    .sort((a, b) => (a.price?.input ?? Infinity) - (b.price?.input ?? Infinity))
-    .map((l) => `<tr>
-<td>${escAttr(vendorOf(l.platform))}</td>
-<td>${fmtMoney(l.price?.input)}</td>
-<td>${fmtMoney(l.price?.output)}</td>
-<td>${fmtCtx(l.limit?.context)}</td>
-<td>${fmtDate(l.release_date)}</td>
-</tr>`).join('\n');
+  const allInputs = allGroups.map((g) => bestListing(g.listings).price?.input);
+  const allCtx = allGroups.map((g) => bestListing(g.listings).limit?.context);
+  const pricePct = percentile(allInputs, best.price?.input, true);   // cheaper than X%
+  const ctxPct = percentile(allCtx, best.limit?.context, false);     // longer than X%
+  const ratio = best.price?.input > 0 ? (best.price.output / best.price.input).toFixed(1) : '—';
+
+  const title = `${displayName}：价格、上下文、能力对比（2026）`;
+  const desc = `${displayName} 中文资料：${meta.ctx} 上下文，最低 ${fmtMoney(best.price?.input)}/1M 输入 token，由 ${zhBrand(best.platform)} 提供。能力：${zhCaps([...meta.caps])}。`;
 
   const compareKey = `${best.platform}:${best.id}`;
   const compareTool = `/?compare=${encodeURIComponent(compareKey)}`;
+
+  // Provider pricing rows
+  const rows = [...listings]
+    .sort((a, b) => (a.price?.input ?? Infinity) - (b.price?.input ?? Infinity))
+    .map((l) => `<tr><td>${escAttr(zhBrand(l.platform))}</td><td>${fmtMoney(l.price?.input)}</td><td>${fmtMoney(l.price?.output)}</td><td>${fmtCtx(l.limit?.context)}</td><td>${fmtDate(l.release_date)}</td></tr>`).join('\n');
+
+  // Peer comparison table
+  const peers = peerGroups(group, allGroups);
+  const peerRows = peers.map((g) => {
+    const b = bestListing(g.listings);
+    return `<tr><td><a href="/models/${g.slug}/">${escAttr(g.displayName)}</a></td><td>${escAttr(zhBrand(b.platform))}</td><td>${fmtMoney(b.price?.input)}</td><td>${fmtMoney(b.price?.output)}</td><td>${fmtCtx(b.limit?.context)}</td></tr>`;
+  }).join('\n');
+
+  const verdict = verdictZh(group, best, meta, pricePct);
 
   const related = relatedSlugs(slug, allSlugs);
   const relatedHtml = related.length
@@ -122,107 +194,115 @@ function pageHtml(group, allSlugs) {
     : '';
 
   const faq = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
+    '@context': 'https://schema.org', '@type': 'FAQPage', inLanguage: 'zh-CN',
     mainEntity: [
-      { '@type': 'Question', name: `How much does ${displayName} cost?`, acceptedAnswer: { '@type': 'Answer', text: `${fmtMoney(best.price?.input)} per 1M input tokens and ${fmtMoney(best.price?.output)} per 1M output tokens at the cheapest provider listing. Other providers may price it differently — see the comparison table on this page.` } },
-      { '@type': 'Question', name: `What is the context window of ${displayName}?`, acceptedAnswer: { '@type': 'Answer', text: `${meta.ctx} tokens.` } },
-      { '@type': 'Question', name: `Which providers offer ${displayName}?`, acceptedAnswer: { '@type': 'Answer', text: `${meta.provCount} provider${meta.provCount === 1 ? '' : 's'} list this model: ${[...new Set(listings.map((l) => vendorOf(l.platform)))].slice(0, 10).join(', ')}.` } },
-      { '@type': 'Question', name: `What can ${displayName} do?`, acceptedAnswer: { '@type': 'Answer', text: `Capabilities: ${meta.tagStr}.${best.knowledge ? ' Knowledge cutoff: ' + best.knowledge + '.' : ''}` } },
+      { '@type': 'Question', name: `${displayName} 多少钱？`, acceptedAnswer: { '@type': 'Answer', text: `最低 ${fmtMoney(best.price?.input)}/1M 输入 token、${fmtMoney(best.price?.output)}/1M 输出 token（最便宜的供应商）。不同供应商价格不同，见本页价格表。` } },
+      { '@type': 'Question', name: `${displayName} 的上下文窗口多大？`, acceptedAnswer: { '@type': 'Answer', text: `${meta.ctx} token。` } },
+      { '@type': 'Question', name: `哪些平台提供 ${displayName}？`, acceptedAnswer: { '@type': 'Answer', text: `${meta.provCount} 个平台：${[...new Set(listings.map((l) => zhBrand(l.platform)))].slice(0, 10).join('、')}。` } },
+      { '@type': 'Question', name: `${displayName} 能做什么？`, acceptedAnswer: { '@type': 'Answer', text: `能力：${zhCaps([...meta.caps])}。${best.knowledge ? '知识截止：' + best.knowledge + '。' : ''}` } },
     ],
   });
 
   const article = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'TechArticle',
-    headline: title,
-    description: desc,
-    datePublished: '2026-05-10',
-    dateModified: '2026-05-10',
+    '@context': 'https://schema.org', '@type': 'TechArticle', inLanguage: 'zh-CN',
+    headline: title, description: desc,
+    datePublished: '2026-05-10', dateModified: data.models[0]?.last_updated || '2026-05-10',
     author: { '@type': 'Organization', name: 'Check.AI' },
     publisher: { '@type': 'Organization', name: 'Check.AI', url: 'https://checkaimodels.com/' },
     about: { '@type': 'SoftwareApplication', name: displayName, applicationCategory: 'AI model' },
   });
 
   return `<!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="robots" content="noindex,follow">
+<meta name="robots" content="${indexable ? 'index,follow' : 'noindex,follow'}">
 <title>${escAttr(title)} | Check.AI</title>
 <meta name="description" content="${escAttr(desc)}">
 <link rel="canonical" href="${url}">
-<link rel="alternate" hreflang="en" href="${url}">
+<link rel="alternate" hreflang="zh" href="${url}">
 <link rel="alternate" hreflang="x-default" href="${url}">
-<meta property="og:title" content="${escAttr(displayName + ' (2026)')}">
+<meta property="og:title" content="${escAttr(displayName + '（2026）')}">
 <meta property="og:description" content="${escAttr(desc)}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="${url}">
-<link rel="stylesheet" href="/styles.css?v=20260514-2">
+<link rel="stylesheet" href="/styles.css?v=20260522-1">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">${article}</script>
 <script type="application/ld+json">${faq}</script>
 </head>
 <body class="seo-page">
-<header class="seo-header"><a class="brand-link" href="/en/">Check.AI</a><nav><a href="/">Compare</a><a href="/about">About</a><a href="/privacy.html">Privacy</a><a href="/contact">Contact</a></nav></header>
+<header class="seo-header"><a class="brand-link" href="/zh/">Check.AI</a><nav><a href="/">对比工具</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a></nav></header>
 <main class="seo-main">
-<p class="eyebrow">Model reference · Synced ${data.models[0]?.last_updated || 'May 2026'}</p>
+<p class="eyebrow">模型资料 · 数据同步于 ${data.models[0]?.last_updated || '2026 年 5 月'}</p>
 <h1>${escAttr(displayName)}</h1>
-<p class="seo-lead"><strong>${escAttr(displayName)}</strong> is an AI model from <strong>${escAttr(vendorOf(best.platform))}</strong>. ${meta.ctx} context window. Capabilities: ${meta.tagStr}. Available on <strong>${meta.provCount} provider${meta.provCount === 1 ? '' : 's'}</strong>. Cheapest listing: ${fmtMoney(best.price?.input)} input / ${fmtMoney(best.price?.output)} output per 1M tokens.</p>
+<p class="seo-lead">${verdict}</p>
 
 <section class="seo-card">
-<h2>Quick facts</h2>
+<h2>速览</h2>
 <ul>
-<li><strong>Cheapest input:</strong> ${fmtMoney(best.price?.input)} per 1M tokens (${escAttr(vendorOf(best.platform))})</li>
-<li><strong>Cheapest output:</strong> ${fmtMoney(best.price?.output)} per 1M tokens</li>
-<li><strong>Context window:</strong> ${meta.ctx} tokens</li>
-<li><strong>Max output:</strong> ${fmtCtx(best.limit?.output)} tokens</li>
-<li><strong>Release date:</strong> ${fmtDate(best.release_date)}</li>
-${best.knowledge ? `<li><strong>Knowledge cutoff:</strong> ${escAttr(best.knowledge)}</li>` : ''}
-<li><strong>Capabilities:</strong> ${meta.tagStr}</li>
-<li><strong>Provider count:</strong> ${meta.provCount}</li>
+<li><strong>最低输入价：</strong>${fmtMoney(best.price?.input)}/1M token（${escAttr(zhBrand(best.platform))}）${pricePct != null ? `，比约 ${pricePct}% 的同类便宜` : ''}</li>
+<li><strong>最低输出价：</strong>${fmtMoney(best.price?.output)}/1M token</li>
+<li><strong>输出/输入比：</strong>${ratio}×（输出贵几倍）</li>
+<li><strong>上下文窗口：</strong>${meta.ctx} token${ctxPct != null ? `，比约 ${ctxPct}% 的同类更长` : ''}</li>
+<li><strong>发布日期：</strong>${fmtDate(best.release_date)}</li>
+${best.knowledge ? `<li><strong>知识截止：</strong>${escAttr(best.knowledge)}</li>` : ''}
+<li><strong>能力：</strong>${zhCaps([...meta.caps])}</li>
+<li><strong>可用平台数：</strong>${meta.provCount}</li>
 </ul>
-<p><a class="section-link" href="${compareTool}">→ Add ${escAttr(displayName)} to the comparison tool</a></p>
+<p><a class="section-link" href="${compareTool}">→ 把 ${escAttr(displayName)} 加入对比工具</a></p>
 </section>
 
 <section class="seo-card">
-<h2>Provider pricing</h2>
-<p>Same model, different providers, different prices. Cheapest first.</p>
+<h2>各平台价格</h2>
+<p>同一个模型，不同平台价格不同。最便宜的排在前面。</p>
 <table>
-<thead><tr><th>Provider</th><th>Input / 1M</th><th>Output / 1M</th><th>Context</th><th>Listed</th></tr></thead>
+<thead><tr><th>平台</th><th>输入/1M</th><th>输出/1M</th><th>上下文</th><th>上架</th></tr></thead>
 <tbody>
 ${rows}
 </tbody>
 </table>
-<p style="font-size:13px;color:var(--muted);margin-top:10px">Prices synced daily from <a href="https://models.dev" rel="noopener">models.dev</a> + provider docs.</p>
+<p style="font-size:13px;color:var(--muted);margin-top:10px">价格每日同步自 <a href="https://models.dev" rel="noopener">models.dev</a> + 各家官方文档。</p>
 </section>
 
+${peerRows ? `<section class="seo-card">
+<h2>同类对比</h2>
+<p>和价位/厂商相近的模型放一起看。</p>
+<table>
+<thead><tr><th>模型</th><th>厂商</th><th>输入/1M</th><th>输出/1M</th><th>上下文</th></tr></thead>
+<tbody>
+${peerRows}
+</tbody>
+</table>
+<p><a class="section-link" href="${compareTool}">→ 在对比工具里并排看完整六维</a></p>
+</section>` : ''}
+
 <section class="seo-card">
-<h2>How to use this model</h2>
-<p>If you're picking ${escAttr(displayName)} for a project, the three things that matter most:</p>
+<h2>该不该选它</h2>
+<p>${verdict}</p>
 <ul>
-<li><strong>Compare it side-by-side</strong> with one or two alternatives in the <a href="${compareTool}">live comparison tool</a>. Pricing differences matter more than benchmarks at scale.</li>
-<li><strong>Pick the cheapest provider that meets your latency / SLA need.</strong> Big spread across providers for the same weights.</li>
-<li><strong>Re-evaluate every 3 months.</strong> Frontier prices drop fast; a model that's cheapest today may not be in a quarter.</li>
+<li><strong>先并排对比：</strong>在<a href="${compareTool}">对比工具</a>里和 1-2 个候选放一起，规模化时价格差比跑分更重要。</li>
+<li><strong>挑满足延迟/SLA 的最便宜平台：</strong>同样的权重，不同平台价差很大。</li>
+<li><strong>每 3 个月重估一次：</strong>前沿价格降得快，今天最便宜的下个季度未必。</li>
 </ul>
 </section>
 
 ${related.length ? `<section class="seo-card">
-<h2>Related models</h2>
+<h2>相关模型</h2>
 ${relatedHtml}
 </section>` : ''}
 
 <section class="seo-card">
-<h2>FAQ</h2>
-<p><strong>How much does ${escAttr(displayName)} cost?</strong> ${fmtMoney(best.price?.input)} input / ${fmtMoney(best.price?.output)} output per 1M tokens at the cheapest listing. See the table above for other providers.</p>
-<p><strong>What is the context window?</strong> ${meta.ctx} tokens.</p>
-<p><strong>Which providers offer it?</strong> ${[...new Set(listings.map((l) => vendorOf(l.platform)))].slice(0, 10).join(', ')}${listings.length > 10 ? ', and others — see the full table above.' : '.'}</p>
-<p><strong>Where do these numbers come from?</strong> models.dev + provider documentation, synced daily. <a href="/about.html">About the data</a>.</p>
+<h2>常见问题</h2>
+<p><strong>${escAttr(displayName)} 多少钱？</strong>最低 ${fmtMoney(best.price?.input)} 输入 / ${fmtMoney(best.price?.output)} 输出（每 1M token，最便宜平台）。其他平台见上表。</p>
+<p><strong>上下文窗口多大？</strong>${meta.ctx} token。</p>
+<p><strong>哪些平台提供？</strong>${[...new Set(listings.map((l) => zhBrand(l.platform)))].slice(0, 10).join('、')}${listings.length > 10 ? ' 等，见上方完整表格。' : '。'}</p>
+<p><strong>数据来源？</strong>models.dev + 各家官方文档，每日同步。<a href="/zh/about/">关于数据</a>。</p>
 </section>
 
 </main>
-<footer class="seo-footer"><a href="/">Open the interactive comparison tool</a></footer>
+<footer class="seo-footer"><a href="/zh/">返回中文首页</a> · <a href="/">打开对比工具</a></footer>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "df6bb0324e4c458fb4e8b979d3feed3c"}'></script>
 </body>
 </html>
@@ -237,17 +317,26 @@ function main() {
   // Clear out the existing hand-curated stubs - we have richer data now.
   if (existsSync('models')) rmSync('models', { recursive: true, force: true });
 
+  const allGroups = [...groups.values()];
   const urls = [];
   let written = 0;
   for (const slug of slugs) {
     const dir = `models/${slug}`;
     ensureDir(dir);
     const g = groups.get(slug);
-    writeFileSync(`${dir}/index.html`, pageHtml(g, slugs));
+    writeFileSync(`${dir}/index.html`, pageHtml(g, slugs, INDEXABLE.has(slug), allGroups));
     urls.push(`https://checkaimodels.com/models/${slug}/`);
     written++;
   }
   console.log(`[build-models] wrote ${written} pages`);
+
+  const manifest = [...groups.values()].map((g) => ({
+    slug: g.slug,
+    name: g.displayName,
+    indexable: INDEXABLE.has(g.slug),
+  }));
+  writeFileSync('data/model-slugs.json', JSON.stringify(manifest) + '\n');
+  console.log(`[build-models] manifest: data/model-slugs.json (${manifest.length} slugs, ${manifest.filter((m) => m.indexable).length} indexable)`);
 
   // Write sitemap fragment for piping into sitemap.xml later
   const sitemapFrag = urls
