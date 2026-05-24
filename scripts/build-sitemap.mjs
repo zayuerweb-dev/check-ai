@@ -18,7 +18,7 @@ const TOP_LEVEL_HTML = ['index.html', 'about.html', 'contact.html', 'privacy.htm
 // the whole site. Model pages stay live + crawlable via internal links but are
 // noindex'd and kept out of the sitemap, so Google concentrates its budget on
 // the ~85 high-value editorial/compare/topic pages.
-const WALK_DIRS = ['topics', 'platforms', 'compare', 'zh'];
+const WALK_DIRS = ['topics', 'platforms', 'compare', 'zh', 'en'];
 // Anything matching these is skipped.
 const SKIP = new Set(['node_modules', '.git', '.github', 'data', 'scripts']);
 
@@ -46,8 +46,8 @@ function urlFromPath(absPath) {
 
 function priorityFor(url) {
   const path = url.replace(ORIGIN, '');
-  if (path === '/' || path === '/zh/') return { p: '0.9', cf: 'weekly' };
-  if (path.startsWith('/zh/articles/') || path.startsWith('/articles/')) return { p: '0.9', cf: 'monthly' };
+  if (path === '/' || path === '/zh/' || path === '/en/') return { p: '0.9', cf: 'weekly' };
+  if (path.startsWith('/zh/articles/') || path.startsWith('/articles/') || path.startsWith('/en/articles/')) return { p: '0.9', cf: 'monthly' };
   if (path.startsWith('/topics/') || path.startsWith('/zh/topics/')) return { p: '0.8', cf: 'weekly' };
   if (path.startsWith('/compare/') || path.startsWith('/zh/compare/')) return { p: '0.7', cf: 'monthly' };
   if (path.startsWith('/models/')) return { p: '0.6', cf: 'weekly' };
