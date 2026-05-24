@@ -6,7 +6,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs';
 import { dirname } from 'node:path';
-import { indexableSlugs } from './lib/model-subset.mjs';
+import { indexableSlugs, brandOfName } from './lib/model-subset.mjs';
 
 const data = JSON.parse(readFileSync('data/models.json', 'utf8'));
 const providersIndex = Object.fromEntries((data.providers || []).map((p) => [p.key, p]));
@@ -109,6 +109,15 @@ const ZH_CAP = {
 };
 
 function zhBrand(platform) { return ZH_BRAND[platform] || vendorOf(platform); }
+// The MAKER, inferred from the model name — NOT the cheapest-listing platform
+// (a model's cheapest seller is often a reseller/cloud, e.g. GPT-5.5 on GitHub
+// Copilot). Used for "X 是 ... 的模型" attribution; the price table still shows sellers.
+const MAKER_ZH = {
+  openai: 'OpenAI', anthropic: 'Anthropic', google: 'Google', deepseek: 'DeepSeek',
+  xai: 'xAI', qwen: '阿里通义千问', mistral: 'Mistral', moonshot: '月之暗面',
+  zhipu: '智谱', minimax: 'MiniMax', meta: 'Meta',
+};
+function makerZh(name) { return MAKER_ZH[brandOfName(name)] || ''; }
 function zhCaps(caps) {
   const out = caps.map((c) => ZH_CAP[c]).filter(Boolean);
   return out.length ? out.join('、') : '文本生成';
@@ -151,7 +160,8 @@ function verdictZh(group, best, meta, pricePct) {
     : best.capabilities?.includes('vision')
       ? '图文理解和多模态场景'
       : '日常问答、写作和轻量集成';
-  return `${group.displayName} 是 ${zhBrand(best.platform)} 的模型，主打${zhCaps(meta.caps ? [...meta.caps] : [])}。`
+  const maker = makerZh(group.displayName);
+  return `${group.displayName} ${maker ? '是 ' + maker + ' 的模型，' : '是一款 AI 模型，'}主打${zhCaps(meta.caps ? [...meta.caps] : [])}。`
     + `它的上下文窗口为 ${meta.ctx}，价格在同类中${tier}`
     + `${pricePct != null ? `（比约 ${pricePct}% 的同类便宜）` : ''}。适合${sceneByCap}。`;
 }
@@ -169,7 +179,8 @@ function pageHtml(group, allSlugs, indexable, allGroups) {
   const ratio = best.price?.input > 0 ? (best.price.output / best.price.input).toFixed(1) : '—';
 
   const title = `${displayName}：价格、上下文、能力对比（2026）`;
-  const desc = `${displayName} 中文资料：${meta.ctx} 上下文，最低 ${fmtMoney(best.price?.input)}/1M 输入 token，由 ${zhBrand(best.platform)} 提供。能力：${zhCaps([...meta.caps])}。`;
+  const makerName = makerZh(displayName);
+  const desc = `${displayName} 中文资料：${meta.ctx} 上下文，最低 ${fmtMoney(best.price?.input)}/1M 输入 token${makerName ? `，由 ${makerName} 出品` : ''}。能力：${zhCaps([...meta.caps])}。`;
 
   const compareKey = `${best.platform}:${best.id}`;
   const compareTool = `/?compare=${encodeURIComponent(compareKey)}`;
