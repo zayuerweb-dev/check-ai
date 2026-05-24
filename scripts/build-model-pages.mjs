@@ -97,6 +97,25 @@ function relatedSlugs(thisSlug, allSlugs) {
     .slice(0, 5);
 }
 
+function injectLatest(file, lang) {
+  if (!existsSync(file)) return;
+  let html = readFileSync(file, 'utf8');
+  const START = '<!-- LATEST:start -->', END = '<!-- LATEST:end -->';
+  if (!html.includes(START) || !html.includes(END)) return;
+  const latest = [...groups.values()]
+    .map((g) => ({ g, best: bestListing(g.listings) }))
+    .filter((x) => x.best && x.best.release_date)
+    .sort((a, b) => Date.parse(b.best.release_date) - Date.parse(a.best.release_date))
+    .slice(0, 8);
+  const relWord = lang === 'zh' ? '发布 ' : 'released ';
+  const items = latest.map(({ g, best }) =>
+    `<li><a class="section-link" href="/models/${g.slug}/">${escAttr(g.displayName)}</a> <span style="color:var(--muted);font-size:13px">${relWord}${best.release_date}</span></li>`).join('\n');
+  const block = `<ul>\n${items}\n</ul>`;
+  html = html.replace(new RegExp(`${START}[\\s\\S]*?${END}`), `${START}\n${block}\n${END}`);
+  writeFileSync(file, html);
+  console.log(`[build-models] injected ${lang} latest-models into ${file}`);
+}
+
 const OVERRIDES = JSON.parse(readFileSync('data/model-pages.json', 'utf8'));
 
 const ZH_BRAND = {
@@ -348,6 +367,9 @@ function main() {
   }));
   writeFileSync('data/model-slugs.json', JSON.stringify(manifest) + '\n');
   console.log(`[build-models] manifest: data/model-slugs.json (${manifest.length} slugs, ${manifest.filter((m) => m.indexable).length} indexable)`);
+
+  injectLatest('zh/index.html', 'zh');
+  injectLatest('en/index.html', 'en');
 
   // Write sitemap fragment for piping into sitemap.xml later
   const sitemapFrag = urls
