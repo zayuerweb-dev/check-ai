@@ -233,7 +233,7 @@ function pageHtml(group, allSlugs, indexable, allGroups) {
   const desc = `${displayName} 中文资料：${meta.ctx} 上下文，最低 ${fmtMoney(best.price?.input)}/1M 输入 token${makerName ? `，由 ${makerName} 出品` : ''}。能力：${zhCaps([...meta.caps])}。`;
 
   const compareKey = `${best.platform}:${best.id}`;
-  const compareTool = `/?compare=${encodeURIComponent(compareKey)}`;
+  const compareTool = `/app/?compare=${encodeURIComponent(compareKey)}`;
 
   // Provider pricing rows
   const rows = [...listings]

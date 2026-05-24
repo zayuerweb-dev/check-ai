@@ -329,7 +329,7 @@ function pageHtml(a, b, locale) {
   const desc = isZh
     ? `${a.name} 与 ${b.name} 并排对比：API 价格、上下文窗口、SWE-bench / HumanEval / LMArena 跑分、各自最适合的场景。`
     : `Side-by-side: ${a.name} vs ${b.name}. Compare API pricing, context window, SWE-bench / HumanEval / LMArena scores, and which model wins on which task.`;
-  const compareUrl = `/?compare=${a.platform}:${a.id},${b.platform}:${b.id}`;
+  const compareUrl = `/app/?compare=${a.platform}:${a.id},${b.platform}:${b.id}`;
   const lo = isZh ? a.zh : a.en;
   const lo2 = isZh ? b.zh : b.en;
   const ogTitle = isZh ? `${a.name} vs ${b.name}（2026）` : title;
