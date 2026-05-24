@@ -43,7 +43,39 @@
       ]
     },
     "en": {
-      "status": "none"
+      "title": "The 2026 Chinese AI Model Landscape: How to Choose Among DeepSeek, Qwen, Kimi, GLM, MiniMax",
+      "metaTitle": "The 2026 Chinese AI Model Landscape: How to Choose Among DeepSeek, Qwen, Kimi, GLM, MiniMax",
+      "description": "A full 2026 comparison of Chinese open models: DeepSeek R1, Qwen3 Max, Kimi K2, GLM-4.6, MiniMax abab, Yi, Baichuan. Price, long context, Chinese quality, access, and international availability in one read.",
+      "ogTitle": "The 2026 Chinese AI Model Landscape: DeepSeek, Qwen, Kimi, GLM, MiniMax",
+      "ogDescription": "How to choose a Chinese model: price, long context, Chinese, access, and international availability compared.",
+      "headline": "The 2026 Chinese AI Model Landscape: How to Choose Among DeepSeek, Qwen, Kimi, GLM, MiniMax",
+      "status": "published",
+      "related": {
+        "href": "/topics/open-source-ai-models/",
+        "label": "Open-Source Model Selection Guide"
+      },
+      "faq": [
+        {
+          "q": "Which is the strongest Chinese AI model in 2026?",
+          "a": "The strongest all-round is DeepSeek R1 (front of the pack on reasoning, code, and value). The strongest on Chinese quality and multimodal is Qwen3 Max. The strongest on long context is Kimi K2 (2 million tokens). The most reliable for structured output and tool calling is GLM-4.6. The standout for voice and creative writing is MiniMax abab. Each model has its own strength; there is no single winner that takes all."
+        },
+        {
+          "q": "How do international users handle access and compliance for Chinese models?",
+          "a": "Two paths. One is overseas hosting via OpenRouter / Together AI / Fireworks, which deploy the same open weights (both DeepSeek and Qwen are open) without data entering mainland China. The other is self-hosting: buy GPUs or rent AWS/GCP to run the open versions, with full control over your data. When using a vendor's official API directly, international users and Western enterprises commonly have data-compliance concerns."
+        },
+        {
+          "q": "Which writes better code, DeepSeek or Qwen?",
+          "a": "DeepSeek R1 edges ahead on SWE-bench Verified, HumanEval, and LiveCodeBench scores, and is steadier overall at agent coding. Qwen3 Coder gets better feedback on front-end, HTML/CSS/Tailwind, and component generation. Pick DeepSeek for agents and refactoring, Qwen3 Coder for web pages and demos."
+        },
+        {
+          "q": "Can Chinese models keep their price advantage?",
+          "a": "Short term, yes. In 2026 DeepSeek R1 and Qwen3 Max cost only 1/5 and 1/3 of GPT-5 respectively. The reasons behind it: in-house MoE architectures cutting cost, domestic government subsidies, and cutthroat competition. Over the medium-to-long term it depends on US GPU export controls, the training + inference cost curve, and commercial pressure on the vendors. Worth watching."
+        },
+        {
+          "q": "Which should a typical indie developer or founder use?",
+          "a": "DeepSeek R1 as the main model (a balance of value and quality), add Qwen3 Max for Chinese-heavy or multilingual cases, and switch to Kimi K2 when you need very long context (a whole book, a whole repo). International users route through OpenRouter. The three together cover 95% of scenarios."
+        }
+      ]
     }
   },
   {
@@ -111,7 +143,60 @@
       ]
     },
     "en": {
-      "status": "none"
+      "title": "Claude Opus 4.7 Review: SWE-bench 87.6%, Same Price, Who Should Upgrade",
+      "metaTitle": "Claude Opus 4.7 Review 2026: SWE-bench 87.6%, Same Price, Who Should Upgrade",
+      "description": "A full review of Anthropic Claude Opus 4.7: SWE-bench Verified 87.6%, SWE-bench Pro 64.3%, Terminal-Bench 69.4%. 1M context, unchanged $5/$25 pricing, 35% more tokens from the new tokenizer, xhigh effort, task budgets, high-resolution images, hallucination rate down from 61% to 36%. Compared head-to-head with GPT-5.4, Gemini 3.1 Pro, and Sonnet 4.6.",
+      "ogTitle": "Claude Opus 4.7 Review 2026: SWE-bench 87.6%, Same Price, Who Should Upgrade",
+      "ogDescription": "Anthropic's latest flagship: benchmarks, price, the hidden tokenizer hike, agent / vision gains, and a head-to-head with GPT-5.4 / Gemini 3.1 Pro.",
+      "headline": "Claude Opus 4.7 Review 2026: SWE-bench 87.6%, Same Price, Who Should Upgrade",
+      "status": "published",
+      "related": {
+        "href": "/topics/best-ai-models-for-coding/",
+        "label": "Best AI Models for Coding"
+      },
+      "faq": [
+        {
+          "q": "When was Claude Opus 4.7 released?",
+          "a": "Released on April 16, 2026. The API model ID is claude-opus-4-7, available simultaneously across four channels: the official Anthropic API, AWS Bedrock, Azure, and Google Vertex. It is the strongest model Anthropic has made public as of May 2026."
+        },
+        {
+          "q": "How much does Claude Opus 4.7 cost?",
+          "a": "$5 per million input tokens and $25 per million output tokens, the same as Opus 4.6. A prompt-cache hit saves 90%, and the batch API is half price. But 4.7 uses a new tokenizer, so the same text consumes 1.0 to 1.35x the tokens, which means your real bill could rise 0-35%. On Artificial Analysis, running the same benchmark suite, Anthropic actually saved 11% ($4,406 vs $4,970), showing that efficiency gains can partly offset the tokenizer hike."
+        },
+        {
+          "q": "How much stronger is Opus 4.7 than Opus 4.6?",
+          "a": "SWE-bench Verified 87.6% vs 80.8% (+6.8), SWE-bench Pro 64.3% vs 53.4% (+10.9, the biggest jump), Terminal-Bench 69.4% vs 65.4%, OSWorld 78% vs 72.7%, CharXiv vision 82.1% vs 69.1% (+13), hallucination rate 36% vs 61% (an important improvement). All three directions, agent, vision, and long-running tasks, clearly improved."
+        },
+        {
+          "q": "Is Opus 4.7 stronger than GPT-5.4 and Gemini 3.1 Pro?",
+          "a": "It depends on the use case. Agent coding: Opus 4.7 leads on SWE-bench Pro at 64.3% (GPT-5.4 is 57.7%, Gemini 3.1 Pro 54.2%). Terminal code: GPT-5.5 scores 82.7% on Terminal-Bench 2.0, clearly above Opus 4.7's 69.4%. Web research: GPT-5.4 Pro takes 89.3%, well ahead of Opus 4.7's 79.3%. Scientific reasoning GPQA: the three are nearly tied at 94%. In one line: Opus 4.7 is the king of agent coding and long-running workflows, but it is not first on every single benchmark."
+        },
+        {
+          "q": "What new features does Opus 4.7 have?",
+          "a": "Four: (1) high-resolution image support, up to 2576px / 3.75MP, a big improvement for computer use, screenshot understanding, and document processing; (2) a new xhigh effort level for coding and agent use; (3) task budgets (beta), giving an agent a token budget to allocate itself; (4) adaptive thinking as the only reasoning mode, with extended thinking's budget_tokens config removed. temperature / top_p / top_k can no longer be set either."
+        },
+        {
+          "q": "Should I upgrade to Opus 4.7?",
+          "a": "If you use Opus 4.6 for agent coding / computer use / long agentic loops: upgrade, the +10.9 on SWE-bench Pro is a step change. If you use Sonnet 4.6 and cost isn't a concern: worth a try, the quality is a clear notch higher. If you use GPT-5.4 Pro heavily for web research: don't switch, GPT is stronger there. If you use DeepSeek R1 / Qwen to save cost: don't switch, Opus 4.7 is $5/$25 and DeepSeek is $0.55/$2.19, a 9x difference."
+        }
+      ],
+      "sources": [
+        {
+          "claim": "Claude Opus 4.7 official release and specs",
+          "url": "https://www.anthropic.com/news",
+          "checked": "2026-05-22"
+        },
+        {
+          "claim": "SWE-bench / benchmark comparison",
+          "url": "https://artificialanalysis.ai/",
+          "checked": "2026-05-22"
+        },
+        {
+          "claim": "Vellum hands-on testing",
+          "url": "https://www.vellum.ai/",
+          "checked": "2026-05-22"
+        }
+      ]
     }
   },
   {
@@ -158,7 +243,39 @@
       ]
     },
     "en": {
-      "status": "none"
+      "title": "DeepSeek R1 vs GPT-5: How Many Times Cheaper, Really",
+      "metaTitle": "DeepSeek R1 vs GPT-5 Value Showdown: How Many Times Cheaper? (2026 Tested)",
+      "description": "A full DeepSeek R1 vs GPT-5 value comparison. Real per-million-token prices, SWE-bench / MMLU benchmarks, cost math on 3 real workflows, and when GPT-5 is worth paying more for. One read to stop second-guessing.",
+      "ogTitle": "DeepSeek R1 vs GPT-5 Value Showdown (2026)",
+      "ogDescription": "Price, benchmarks, and cost math on 3 real workflows. One read to stop second-guessing.",
+      "headline": "DeepSeek R1 vs GPT-5 Value Showdown: How Many Times Cheaper",
+      "status": "published",
+      "related": {
+        "href": "/topics/cheapest-ai-api-models/",
+        "label": "Cheapest API Guide"
+      },
+      "faq": [
+        {
+          "q": "How many times cheaper is DeepSeek R1 than GPT-5?",
+          "a": "On input price, GPT-5 is 4.5x DeepSeek R1 ($2.50 vs $0.55); on output, 4.6x ($10 vs $2.19). For the same workload GPT-5 is usually about 5x more expensive. With batch + cache on, the gap can widen to 6-8x."
+        },
+        {
+          "q": "Can DeepSeek R1 really match GPT-5 on performance?",
+          "a": "On math (AIME), code (HumanEval, LiveCodeBench), and reasoning benchmarks, DeepSeek R1 has matched or slightly surpassed GPT-5. But on long agent loops, tool-calling reliability, and understanding fuzzy instructions, GPT-5 still leads. In short: DeepSeek is enough for single-point tasks, GPT-5 is steadier for complex agents."
+        },
+        {
+          "q": "When should you use GPT-5 instead of DeepSeek?",
+          "a": "For agents that need 5+ tool-call steps, fuzzy requirements that need clarifying questions, deep reasoning combined with creativity, or production that demands 99%+ quality on every output, GPT-5 is worth more. A DeepSeek that is 5x cheaper but loops 5 times can end up costing more overall."
+        },
+        {
+          "q": "Is DeepSeek R1's data safe?",
+          "a": "The official API stores data in China, which may pose compliance issues for users outside China. Alternatives: use third-party hosting (Together AI, Fireworks, OpenRouter, and other overseas servers running the same model weights), or self-host (open weights, 48GB GPU and up)."
+        },
+        {
+          "q": "Is DeepSeek cheaper on OpenRouter than the official API?",
+          "a": "The price is basically the same, with OpenRouter adding a small routing fee. The advantage is that one OpenAI-compatible endpoint can call GPT-5, Claude, and Gemini at the same time, so A/B testing doesn't require signing up multiple times."
+        }
+      ]
     }
   },
   {
@@ -201,7 +318,35 @@
       ]
     },
     "en": {
-      "status": "none"
+      "title": "GPT-5 vs Claude Sonnet 4.6: Which to Pick for Coding",
+      "metaTitle": "GPT-5 vs Claude Sonnet 4.6: Which to Pick for Coding (2026 Tested)",
+      "description": "A full GPT-5 vs Claude Sonnet 4.6 coding comparison. SWE-bench / HumanEval benchmarks, Cursor hands-on testing, API price, multi-file refactoring, tool-calling reliability. One read and you are done.",
+      "ogTitle": "GPT-5 vs Claude Sonnet 4.6: Which to Pick for Coding (2026)",
+      "ogDescription": "Benchmarks, Cursor testing, price, multi-file refactoring, tool calling, decided in one read.",
+      "headline": "GPT-5 vs Claude Sonnet 4.6: Which to Pick for Coding (2026 Tested)",
+      "status": "published",
+      "related": {
+        "href": "/topics/best-ai-models-for-coding/",
+        "label": "Best AI Models for Coding"
+      },
+      "faq": [
+        {
+          "q": "Which writes better code, GPT-5 or Claude Sonnet 4.6?",
+          "a": "For agent coding (Cursor, Cline, Aider, SWE-bench), Claude Sonnet 4.6 is stronger; for single-point reasoning, algorithm problems, and HumanEval-style benchmarks, GPT-5 is stronger. In 2026 most working engineers lean Claude because its tool calling is steadier and it does not edit unrelated code."
+        },
+        {
+          "q": "How much do the two differ in price?",
+          "a": "Claude Sonnet 4.6 is about $3 input / $15 output per million tokens. GPT-5 is about $2.50 / $10. GPT-5 is 30-40% cheaper overall, and Claude Haiku 4.5 is much cheaper than both ($0.80 / $4)."
+        },
+        {
+          "q": "Which is better for Cursor?",
+          "a": "Claude Sonnet 4.6 is Cursor's default recommendation, steadier on multi-file edits, tool calling, and not breaking the existing code style. GPT-5 is the best alternative for explaining code, refactoring approaches, and solving tricky problems."
+        },
+        {
+          "q": "Which has the longer context?",
+          "a": "GPT-5 is 400K, Claude Sonnet 4.6 is 200K standard (1M beta). Both recall well within 100K, and beyond 500K Claude is slightly steadier. For repos over 500,000 tokens, Gemini 2.5 Pro is still the recommendation."
+        }
+      ]
     }
   },
   {
@@ -252,7 +397,43 @@
       ]
     },
     "en": {
-      "status": "none"
+      "title": "The Complete Guide to Running Open-Source LLMs Locally: GPU, VRAM, Frameworks, Models",
+      "metaTitle": "The Complete Guide to Running Open-Source LLMs Locally 2026: GPU, VRAM, Frameworks, Models",
+      "description": "A complete 2026 guide to running open-source LLMs locally: VRAM requirements for DeepSeek R1 distilled, Qwen3, Llama 4, and GLM-4, how to size INT4/INT8/FP16 quantization, how to choose Ollama / vLLM / llama.cpp / LM Studio, how big a model each GPU from RTX 4060 to A100 can run, Apple Silicon unified-memory setups, and real electricity costs. One read and no pitfalls.",
+      "ogTitle": "The Complete Guide to Running Open-Source LLMs Locally 2026",
+      "ogDescription": "GPU, VRAM, quantization, frameworks, models: one piece on how to choose for running LLMs locally.",
+      "headline": "The Complete Guide to Running Open-Source LLMs Locally 2026",
+      "status": "published",
+      "related": {
+        "href": "/topics/open-source-ai-models/",
+        "label": "Open-Source Model Selection Guide"
+      },
+      "faq": [
+        {
+          "q": "What is the minimum GPU to run an LLM locally?",
+          "a": "It depends on model size and quantization. A 7B model at INT4 needs only 4-5GB of VRAM, so an RTX 3060 12GB / 4060 8GB can run it. Full FP16 precision for a 7B needs 16GB (RTX 4060 Ti 16GB / 4080). A 32B at INT4 needs about 20GB (RTX 4090/5090 32GB). A 70B at INT4 needs about 40GB, so an RTX 6000 Ada 48GB or dual cards. With no discrete GPU you can still use llama.cpp on CPU + RAM, but it is slow."
+        },
+        {
+          "q": "What is the difference between Ollama and vLLM, and which should I use?",
+          "a": "Ollama: one command to install and run, supports mixed CPU/GPU and dynamic offloading, good for personal, single-machine, desktop, experimental use. vLLM: production-grade high throughput, supports Chunked Prefill, Prefix Caching, and multi-card parallelism, needs CUDA 12.4+, good for serving to many users. For personal local use pick Ollama; for a product API pick vLLM. Mac users use LM Studio or llama.cpp (Metal/MLX acceleration)."
+        },
+        {
+          "q": "How do I choose among INT4, INT8, and FP16 quantization?",
+          "a": "FP16 = original precision, 2 bytes per parameter, best quality but the most VRAM (about 16GB for 7B). INT8 halves the VRAM (about 8GB for 7B) with very small quality loss. INT4 (q4_k_m) drops VRAM to about 1/4 (about 4-5GB for 7B), is the fastest, and loses only a single-digit percentage of quality, the sweet spot for personal deployment. Unless you are doing serious production or benchmarking, start at INT4 for personal local use."
+        },
+        {
+          "q": "Which open-source model is best to run locally in 2026?",
+          "a": "All-round reasoning: DeepSeek-R1-Distill-Qwen-7B/32B (distilled, small but strong). Chinese + multilingual: the Qwen3 series. General + ecosystem: Llama 4. Agent / tool calling: GLM-4-9B. Code: Qwen3 Coder / DeepSeek Coder. The top pick for indie developers is DeepSeek-R1-Distill-Qwen-7B (runs in 4GB of VRAM, with reasoning quality close to mid-tier cloud models)."
+        },
+        {
+          "q": "Is local deployment cheaper than using an API?",
+          "a": "It depends on volume. Low frequency (a few dozen calls a day): the API is cheaper, no GPU needed. High frequency + long-term + sensitive data: local pays off. One RTX 4090 (about ¥13,000) plus electricity (about 0.4 kWh/hour under load) running DeepSeek distilled 7B for a few thousand calls a day pays back in six months to a year, after which the marginal cost is close to electricity. The biggest value is not saving money, it is data staying local + unlimited calls + offline availability."
+        },
+        {
+          "q": "Can a Mac run LLMs locally?",
+          "a": "Yes, and Apple Silicon's unified memory is a hidden advantage. On an M3/M4 Max with 64-128GB, most of the memory can serve as VRAM, so a quantized 70B will run. Use LM Studio (GUI) or llama.cpp (command line, Metal acceleration); the newer MLX framework is Apple-native and faster than generic options. A 128GB M4 Max running a quantized 70B is close to the experience of a professional card, while staying quiet and power-efficient."
+        }
+      ]
     }
   },
   {
@@ -303,7 +484,43 @@
       ]
     },
     "en": {
-      "status": "none"
+      "title": "RAG vs Long Context vs Fine-tune 2026: A Complete Guide to What to Pick When",
+      "metaTitle": "RAG vs Long Context vs Fine-tune 2026: A Complete Guide to What to Pick and What It Costs",
+      "description": "A 2026 comparison of the real cost, performance, pitfalls, and hybrid best practices of three approaches: RAG, long context + prompt caching, and fine-tune. A 10K query/day RAG system runs $4-9K/month, Claude caching saves 90%, fine-tune is 10-50x cheaper, but lost-in-the-middle drops long-context accuracy 20%. Read it to know what to pick when and how to combine them.",
+      "ogTitle": "RAG vs Long Context vs Fine-tune 2026: A Pick-One Guide",
+      "ogDescription": "Real cost, a decision tree, and 5 tested scenarios, telling you which path to pick in 2026.",
+      "headline": "RAG vs Long Context vs Fine-tune 2026: A Complete Guide",
+      "status": "published",
+      "related": {
+        "href": "/topics/long-context-ai-models/",
+        "label": "Long-Context Model Selection Guide"
+      },
+      "faq": [
+        {
+          "q": "How do I choose among RAG, long context, and fine-tune?",
+          "a": "Choose by the nature of the problem: knowledge base changes often + at GB scale → RAG; a single large document asked repeatedly + under 200K tokens → long context + prompt caching; need stable tone / format / policy / classification → fine-tune. 90% of production is hybrid: RAG for facts + fine-tune for behavior + long context for whole documents."
+        },
+        {
+          "q": "Is long context about to replace RAG?",
+          "a": "For single-document scenarios it already is. Claude Sonnet 4.6 / Opus 4.7 / Gemini 3.1 Pro all offer 1M-token context, and with prompt caching giving cached input a 90% discount, per-query cost drops from $0.30 to $0.03. But for truly large knowledge bases (GB / TB scale, hundreds of thousands of documents), long context can't hold it and RAG is still the only answer. They are not replacements for each other, they divide by scale."
+        },
+        {
+          "q": "How much does prompt caching actually save?",
+          "a": "Anthropic's official figure: the cache-hit price is 0.1x the normal input price (90% off). Tested on a book-chat running a 100K-token context: the first request's cost is unchanged, and from the second on TTFT drops 79% and cached input token cost drops 90%. In production, a stable system prompt typically gets an 80-95% cache hit rate. A $5,000/month RAG app can drop below $1,000 after adding prompt caching."
+        },
+        {
+          "q": "Is fine-tune still worth doing in 2026?",
+          "a": "Two kinds of cases are still very worth it: (1) 100,000+ high-frequency queries a day with a clear task definition (support classification, content moderation, fixed-format extraction), where per-query cost can be 10-50x cheaper than a big model + RAG, paying back within weeks. (2) Products that need a stable brand tone / company policy adherence / strict output format. Fine-tune is not good at teaching the model new facts, that is RAG's job."
+        },
+        {
+          "q": "What are the pitfalls of long context?",
+          "a": "Three: (1) Lost-in-the-middle: when key info sits in the middle of a long document, accuracy drops 10-20 points versus the start/end, and more than 20% for some models. (2) Slow: a single long-context query takes 30-60 seconds, while RAG is usually around 1 second. (3) Although caching lowers cost, the first request is billed at full price, so it isn't worth it for low-frequency documents."
+        },
+        {
+          "q": "What are the best practices for a hybrid system?",
+          "a": "The 2026 production mainstream: RAG for facts + fine-tune for behavior + long context for whole-document queries. Measured accuracy: hybrid 96%, pure RAG 89%, pure fine-tune 91%. Anthropic's Contextual Retrieval further cuts RAG recall failure by 49%, and 67% with a reranker. The specific split: volatile knowledge into RAG, stable behavior into fine-tune, single-session multi-turn deep Q&A via long context + caching."
+        }
+      ]
     }
   },
   {
