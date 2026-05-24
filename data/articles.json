@@ -367,7 +367,52 @@
       ]
     },
     "en": {
-      "status": "none"
+      "title": "ChatGPT vs Claude vs Gemini: Which Subscription to Buy (2026)",
+      "metaTitle": "ChatGPT vs Claude vs Gemini Subscriptions (2026): Price + Decision Table",
+      "description": "ChatGPT Plus $20, Claude Pro $20, Google AI Pro $19.99: which AI subscription should you buy? A decision table by budget and use case, plus a 2026-05 price snapshot across Free, Go, Plus, Pro, Max and Ultra.",
+      "ogTitle": "ChatGPT vs Claude vs Gemini: Which Subscription to Buy (2026)",
+      "ogDescription": "Three plans cluster at $20. A decision table by budget and use case, plus a current price snapshot.",
+      "headline": "ChatGPT vs Claude vs Gemini: Which Subscription to Buy (2026)",
+      "status": "published",
+      "related": {
+        "href": "/",
+        "label": "Compare all models live"
+      },
+      "faq": [
+        {
+          "q": "ChatGPT Plus, Claude Pro, or Gemini AI Pro: which is best value?",
+          "a": "All three are $20. By use case: ChatGPT Plus for the most complete toolkit; Claude Pro for coding on a budget ($17 annual); Google AI Pro ($19.99) if you want YouTube Premium Lite + 5TB and you are already on Google."
+        },
+        {
+          "q": "Is the $8 ChatGPT Go worth it?",
+          "a": "Not against Gemini AI Plus ($7.99). Go just adds messages and still shows ads; AI Plus is a cent cheaper and bundles 200GB storage plus video-generation credits."
+        },
+        {
+          "q": "What is the difference between the $100 ChatGPT Pro and Claude Max?",
+          "a": "ChatGPT Pro $100 is a tier OpenAI opened in April 2026 to match Claude Max; Claude Max 5x $100 is 5x the Pro usage. Each reserves its top capabilities (GPT-5.4 Pro / Max 20x) for the $200 step."
+        },
+        {
+          "q": "Do prices change often?",
+          "a": "Yes, and quickly. ChatGPT Pro only split into $100/$200 in April 2026 and Gemini changed its plans in May. This snapshot is from 2026-05-22; confirm on the official pages before subscribing."
+        }
+      ],
+      "sources": [
+        {
+          "claim": "ChatGPT subscription tiers and pricing",
+          "url": "https://chatgpt.com/pricing/",
+          "checked": "2026-05-22"
+        },
+        {
+          "claim": "Claude subscription tiers and pricing",
+          "url": "https://claude.com/pricing",
+          "checked": "2026-05-22"
+        },
+        {
+          "claim": "Google AI (Gemini) subscription tiers and pricing",
+          "url": "https://gemini.google/subscriptions/",
+          "checked": "2026-05-22"
+        }
+      ]
     },
     "distribution": [
       {
