@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The Complete Guide to Running Open-Source LLMs Locally 2026: GPU, VRAM, Frameworks, Models | Check.AI</title>
+<meta name="description" content="A complete 2026 guide to running open-source LLMs locally: VRAM requirements for DeepSeek R1 distilled, Qwen3, Llama 4, and GLM-4, how to size INT4/INT8/FP16 quantization, how to choose Ollama / vLLM / llama.cpp / LM Studio, how big a model each GPU from RTX 4060 to A100 can run, Apple Silicon unified-memory setups, and real electricity costs. One read and no pitfalls.">
+<link rel="canonical" href="https://checkaimodels.com/en/articles/local-llm-deployment-guide-2026/">
+<link rel="alternate" hreflang="en" href="https://checkaimodels.com/en/articles/local-llm-deployment-guide-2026/">
+<link rel="alternate" hreflang="zh" href="https://checkaimodels.com/zh/articles/local-llm-deployment-guide-2026/">
+<link rel="alternate" hreflang="x-default" href="https://checkaimodels.com/en/articles/local-llm-deployment-guide-2026/">
+<meta property="og:title" content="The Complete Guide to Running Open-Source LLMs Locally 2026">
+<meta property="og:description" content="GPU, VRAM, quantization, frameworks, models: one piece on how to choose for running LLMs locally.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://checkaimodels.com/en/articles/local-llm-deployment-guide-2026/">
+<link rel="stylesheet" href="/styles.css?v=20260520-1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","inLanguage":"en","headline":"The Complete Guide to Running Open-Source LLMs Locally 2026","description":"A complete 2026 guide to running open-source LLMs locally: VRAM requirements for DeepSeek R1 distilled, Qwen3, Llama 4, and GLM-4, how to size INT4/INT8/FP16 quantization, how to choose Ollama / vLLM / llama.cpp / LM Studio, how big a model each GPU from RTX 4060 to A100 can run, Apple Silicon unified-memory setups, and real electricity costs. One read and no pitfalls.","datePublished":"2026-05-18","dateModified":"2026-05-18","author":{"@type":"Person","name":"zayuerweb-dev","url":"https://github.com/zayuerweb-dev","sameAs":["https://github.com/zayuerweb-dev"]},"publisher":{"@type":"Organization","name":"Check.AI","url":"https://checkaimodels.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"en","mainEntity":[{"@type":"Question","name":"What is the minimum GPU to run an LLM locally?","acceptedAnswer":{"@type":"Answer","text":"It depends on model size and quantization. A 7B model at INT4 needs only 4-5GB of VRAM, so an RTX 3060 12GB / 4060 8GB can run it. Full FP16 precision for a 7B needs 16GB (RTX 4060 Ti 16GB / 4080). A 32B at INT4 needs about 20GB (RTX 4090/5090 32GB). A 70B at INT4 needs about 40GB, so an RTX 6000 Ada 48GB or dual cards. With no discrete GPU you can still use llama.cpp on CPU + RAM, but it is slow."}},{"@type":"Question","name":"What is the difference between Ollama and vLLM, and which should I use?","acceptedAnswer":{"@type":"Answer","text":"Ollama: one command to install and run, supports mixed CPU/GPU and dynamic offloading, good for personal, single-machine, desktop, experimental use. vLLM: production-grade high throughput, supports Chunked Prefill, Prefix Caching, and multi-card parallelism, needs CUDA 12.4+, good for serving to many users. For personal local use pick Ollama; for a product API pick vLLM. Mac users use LM Studio or llama.cpp (Metal/MLX acceleration)."}},{"@type":"Question","name":"How do I choose among INT4, INT8, and FP16 quantization?","acceptedAnswer":{"@type":"Answer","text":"FP16 = original precision, 2 bytes per parameter, best quality but the most VRAM (about 16GB for 7B). INT8 halves the VRAM (about 8GB for 7B) with very small quality loss. INT4 (q4_k_m) drops VRAM to about 1/4 (about 4-5GB for 7B), is the fastest, and loses only a single-digit percentage of quality, the sweet spot for personal deployment. Unless you are doing serious production or benchmarking, start at INT4 for personal local use."}},{"@type":"Question","name":"Which open-source model is best to run locally in 2026?","acceptedAnswer":{"@type":"Answer","text":"All-round reasoning: DeepSeek-R1-Distill-Qwen-7B/32B (distilled, small but strong). Chinese + multilingual: the Qwen3 series. General + ecosystem: Llama 4. Agent / tool calling: GLM-4-9B. Code: Qwen3 Coder / DeepSeek Coder. The top pick for indie developers is DeepSeek-R1-Distill-Qwen-7B (runs in 4GB of VRAM, with reasoning quality close to mid-tier cloud models)."}},{"@type":"Question","name":"Is local deployment cheaper than using an API?","acceptedAnswer":{"@type":"Answer","text":"It depends on volume. Low frequency (a few dozen calls a day): the API is cheaper, no GPU needed. High frequency + long-term + sensitive data: local pays off. One RTX 4090 (about ¥13,000) plus electricity (about 0.4 kWh/hour under load) running DeepSeek distilled 7B for a few thousand calls a day pays back in six months to a year, after which the marginal cost is close to electricity. The biggest value is not saving money, it is data staying local + unlimited calls + offline availability."}},{"@type":"Question","name":"Can a Mac run LLMs locally?","acceptedAnswer":{"@type":"Answer","text":"Yes, and Apple Silicon's unified memory is a hidden advantage. On an M3/M4 Max with 64-128GB, most of the memory can serve as VRAM, so a quantized 70B will run. Use LM Studio (GUI) or llama.cpp (command line, Metal acceleration); the newer MLX framework is Apple-native and faster than generic options. A 128GB M4 Max running a quantized 70B is close to the experience of a professional card, while staying quiet and power-efficient."}}]}</script>
+</head>
+<body class="seo-page">
+<header class="seo-header"><a class="brand-link" href="/en/">Check.AI</a><nav><a href="/">Compare</a><a href="/about">About</a><a href="/privacy.html">Privacy</a><a href="/contact">Contact</a><a href="/zh/articles/local-llm-deployment-guide-2026/">中文</a></nav></header>
+<main class="seo-main">
+<p class="eyebrow">深度指南 · 2026-05-18 · by <a href="https://github.com/zayuerweb-dev" rel="author">@zayuerweb-dev</a></p>
+<h1>The Complete Guide to Running Open-Source LLMs Locally: GPU, VRAM, Frameworks, Models</h1>
+<p class="seo-lead">"How big a model can my GPU run?" "Ollama or vLLM?" "Does DeepSeek 70B really need a server?" These come up constantly. Running models locally stopped being an enthusiast-only thing well before 2026: DeepSeek pushed distilled small models close to mid-tier cloud quality, quantization fits a 7B into 4GB of VRAM, and Ollama gets you running with one command. This guide uses real VRAM numbers, framework trade-offs, GPU tiers, and an electricity-cost breakdown to settle "how do I run a model on my own machine" in one read.</p>
+
+<nav class="article-toc" aria-label="Contents">
+<p class="article-toc-label">Contents</p>
+<ol>
+<li><a href="#conclusion">30-second verdict</a></li>
+<li><a href="#why">When to run locally (and when not to)</a></li>
+<li><a href="#vram">How to size VRAM: quantization is the key</a></li>
+<li><a href="#gpu">GPU tiers: how big a model your card can run</a></li>
+<li><a href="#framework">Picking a framework: Ollama / vLLM / llama.cpp / LM Studio</a></li>
+<li><a href="#models">Which models to run locally in 2026</a></li>
+<li><a href="#mac">Apple Silicon: the underrated option</a></li>
+<li><a href="#cost">Real cost: local vs API</a></li>
+<li><a href="#related">Related reading</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ol>
+</nav>
+
+<section class="seo-card">
+<h2 id="conclusion">30-second verdict</h2>
+<ul>
+<li><strong>Entry (8-16GB VRAM):</strong> RTX 4060 / 4060 Ti, runs 7B-14B INT4. DeepSeek-R1-Distill-Qwen-7B is the sweet spot.</li>
+<li><strong>Main (24-32GB):</strong> RTX 4090 / 5090, runs 32B INT4 or 14B FP16, gets real work done.</li>
+<li><strong>Professional (48GB+):</strong> RTX 6000 Ada / dual cards, runs 70B INT4.</li>
+<li><strong>Mac users:</strong> M3/M4 Max with 64-128GB unified memory + MLX runs 70B quantized, quiet and power-efficient.</li>
+<li><strong>No discrete GPU:</strong> llama.cpp + CPU + lots of RAM, runs but slowly, only for low frequency.</li>
+<li><strong>Framework:</strong> Ollama for personal use, vLLM for serving, LM Studio / llama.cpp on Mac.</li>
+<li><strong>Model:</strong> DeepSeek-R1 distilled all-round, Qwen3 for Chinese, GLM-4-9B for agents, Qwen3 Coder for code.</li>
+<li><strong>When in doubt:</strong> get Ollama + DeepSeek-R1-Distill-Qwen-7B running first, then upgrade hardware when it can't keep up.</li>
+</ul>
+<p><a class="section-link" href="/">Compare open-source models' specs and capabilities on Check.AI →</a></p>
+</section>
+
+<section class="seo-card">
+<h2 id="why">When to run locally (and when not to)</h2>
+<p>A cold splash first: <strong>most people don't need local deployment</strong>. The DeepSeek API costs a few cents per million tokens, light use won't run up much in a year, and you skip buying a GPU, setting up the environment, and tuning a framework.</p>
+<p>Three cases where local is genuinely worth it:</p>
+<ul>
+<li><strong>Data can't leave the premises:</strong> healthcare, legal, internal corporate data, personal privacy. This is the hardest reason; however expensive, it has to be local.</li>
+<li><strong>High-frequency, high-volume calls:</strong> tens of thousands a day, where the API bill snowballs and local marginal cost approaches electricity.</li>
+<li><strong>Offline / weak network / full control:</strong> no dependence on any vendor, no fear of price hikes, throttling, shutdowns, or censorship.</li>
+</ul>
+<p>Conversely, if you just want to play with AI or call it a few dozen times a day, <strong>skip local, use the API</strong>. The money for a GPU buys years of API credit.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="vram">How to size VRAM: quantization is the key</h2>
+<p>VRAM is the first hurdle in local deployment. The formula is simple: <strong>parameter count × bytes per parameter + 30% headroom (activations, KV cache)</strong>. Bytes per parameter is set by the quantization precision:</p>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">Precision</th>
+<th style="text-align:left;padding:8px">Per param</th>
+<th style="text-align:left;padding:8px">Quality</th>
+<th style="text-align:left;padding:8px">7B VRAM</th>
+<th style="text-align:left;padding:8px">Best for</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:8px">FP16</td><td style="padding:8px">2 bytes</td><td style="padding:8px">Original</td><td style="padding:8px">~16GB</td><td style="padding:8px">Production / benchmarking</td></tr>
+<tr><td style="padding:8px">INT8</td><td style="padding:8px">1 byte</td><td style="padding:8px">Minimal loss</td><td style="padding:8px">~8GB</td><td style="padding:8px">Quality-sensitive</td></tr>
+<tr><td style="padding:8px"><strong>INT4 (q4_k_m)</strong></td><td style="padding:8px">0.5 bytes</td><td style="padding:8px">Single-digit % loss</td><td style="padding:8px"><strong>~4-5GB</strong></td><td style="padding:8px">Personal sweet spot</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:var(--muted)">Sources: llama.cpp GGUF quantization benchmarks, hands-on LLM inference testing (2026-02), and the models' HuggingFace cards.</p>
+<h3 style="margin-top:18px">INT4 VRAM cheat sheet by size</h3>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">Model size</th>
+<th style="text-align:left;padding:8px">INT4 VRAM</th>
+<th style="text-align:left;padding:8px">FP16 VRAM</th>
+<th style="text-align:left;padding:8px">Minimum GPU</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:8px">7B</td><td style="padding:8px">~5GB</td><td style="padding:8px">~16GB</td><td style="padding:8px">RTX 3060 12GB</td></tr>
+<tr><td style="padding:8px">13-14B</td><td style="padding:8px">~9GB</td><td style="padding:8px">~28GB</td><td style="padding:8px">RTX 4060 Ti 16GB</td></tr>
+<tr><td style="padding:8px">32B</td><td style="padding:8px">~20GB</td><td style="padding:8px">~64GB</td><td style="padding:8px">RTX 4090/5090 32GB</td></tr>
+<tr><td style="padding:8px">70B</td><td style="padding:8px">~40GB</td><td style="padding:8px">~140GB</td><td style="padding:8px">RTX 6000 Ada 48GB / dual card</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px"><strong>Remember one thing: for personal local use, always start at INT4.</strong> The quality loss is usually imperceptible, you save 75% of the VRAM, and it's faster too. Original precision is only needed for production and benchmarking.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="gpu">GPU tiers: how big a model your card can run</h2>
+
+<h3 style="margin-top:18px">Entry tier (8-16GB)</h3>
+<p>RTX 3060 12GB / 4060 8GB / 4060 Ti 16GB. Comfortably runs 7B-14B INT4. This tier is enough for a personal assistant, local RAG, and code completion. The 4060 Ti 16GB is the value king: 16GB fits a 14B INT4 with headroom to spare.</p>
+
+<h3 style="margin-top:18px">Main tier (24-32GB)</h3>
+<p>RTX 4090 24GB / 5090 32GB. Runs 32B INT4, or 14B FP16 if you want the quality. This tier does real work: local agents, batch processing, serious reasoning. Two RTX 5060 Ti 16G cards (32G combined) on vLLM can also run 32B AWQ, a budget option.</p>
+
+<h3 style="margin-top:18px">Professional tier (48GB+)</h3>
+<p>RTX 6000 Ada 48GB, or dual RTX 4090/5090 with NVLink memory pooling. The threshold for 70B INT4. Beyond that, 70B FP16 needs dual 80GB cards (A100/H100), which is a server room, not a desktop, and basically off-limits for individuals.</p>
+
+<h3 style="margin-top:18px">No discrete GPU / integrated graphics</h3>
+<p>llama.cpp on CPU + system RAM. 32GB of RAM can run 7B INT4, but the speed may be a few tokens per second (GPUs do tens to hundreds). Only for very low frequency where you don't mind waiting. Don't expect to do real-time conversation with it.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="framework">Picking a framework: Ollama / vLLM / llama.cpp / LM Studio</h2>
+
+<h3 style="margin-top:18px">Ollama: the personal pick</h3>
+<p>One command, <code>ollama run deepseek-r1:7b</code>, and you're running. Version 0.5+ supports mixed CPU/GPU inference and dynamic model offloading. The model library is ready-made and switching is easy. <strong>For personal, single-machine, desktop, experimental use, pick Ollama with your eyes closed.</strong> The downside is high-concurrency throughput trails vLLM.</p>
+
+<h3 style="margin-top:18px">vLLM: production serving</h3>
+<p>To turn a model into an API for many people or many requests, vLLM is the standard answer. The Chunked Prefill + Prefix Caching in v0.7+ manages VRAM fragmentation efficiently, with throughput far beyond Ollama. It needs CUDA 12.4+ and supports multi-card parallelism natively. <strong>Pick vLLM for a product backend.</strong> Configuration is a notch more complex than Ollama.</p>
+
+<h3 style="margin-top:18px">llama.cpp: the most portable</h3>
+<p>Written in C++, it runs almost anywhere: CPU, Mac Metal, all kinds of edge devices. The birthplace of the GGUF quantization format. The top pick for those with no Nvidia card, who want maximum portability, or who use the Mac command line. Lots of room for performance tuning, but it takes fiddling.</p>
+
+<h3 style="margin-top:18px">LM Studio: GUI, beginner-friendly</h3>
+<p>It has a GUI: click to download a model and start chatting, and it works well on Mac (with MLX acceleration) and Windows. For people who don't want to touch the command line at all, start here. It's less deep than the other three, but the barrier is lowest.</p>
+
+<p style="margin-top:14px"><strong>The one-line path:</strong> try LM Studio as a beginner → switch to Ollama for daily use once comfortable → move to vLLM for a product → heavy Mac users go straight to llama.cpp / MLX.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="models">Which models to run locally in 2026</h2>
+<ul>
+<li><strong>All-round reasoning leader:</strong> DeepSeek-R1-Distill-Qwen-7B / 32B. The distilled versions are small but strong; the 7B's reasoning quality is close to mid-tier cloud, and it runs in 4-5GB of VRAM. It should be the first thing an indie developer installs.</li>
+<li><strong>Chinese + multilingual:</strong> the Qwen3 series (7B/14B/32B). Native Chinese training, strong on classical Chinese, policy text, and Southeast Asian languages, the top pick for local Chinese use.</li>
+<li><strong>General + ecosystem:</strong> the Llama 4 series. The biggest community, the most complete toolchain, the most fine-tuning material.</li>
+<li><strong>Agent / tool calling:</strong> GLM-4-9B. The most reliable structured output and function calling among small models, pick it for local agents.</li>
+<li><strong>Code:</strong> Qwen3 Coder / DeepSeek Coder. Use these for local code completion and when wiring Cline/Aider to a local model.</li>
+</ul>
+<p>The selection logic is the same as in the cloud: there's no do-everything king, so match the model to the use case. The steadiest personal starter combo is <strong>DeepSeek-R1-Distill-Qwen-7B (reasoning) + Qwen3-7B (Chinese)</strong>: together they cover 90% of needs in 10GB of VRAM.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="mac">Apple Silicon: the underrated option</h2>
+<p>Many people don't realize it: <strong>the Mac's unified memory is a hidden advantage for local models</strong>. On a regular PC, VRAM and RAM are separate, so a 16GB card is 16GB. Apple Silicon's memory is shared between CPU and GPU, so an M4 Max 128GB can hand 100GB+ over as "VRAM."</p>
+<ul>
+<li><strong>M3/M4 Max 64GB:</strong> runs 32B quantized smoothly, 70B just barely.</li>
+<li><strong>M4 Max 128GB:</strong> runs 70B quantized at an experience close to a professional card, while staying quiet, power-efficient, and case-free.</li>
+</ul>
+<p>Use <strong>LM Studio</strong> (GUI, MLX built in) or <strong>llama.cpp</strong> (Metal acceleration). MLX is Apple's own ML framework, optimized natively for unified memory and a notch faster than generic options.</p>
+<p>Bottom line: if you already have a high-memory Mac, stop researching an Nvidia card. The one in your hands may already be enough, and the experience is quieter.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="cost">Real cost: local vs API</h2>
+<p>Let's run the numbers on a concrete scenario: 5,000 calls a day, 800 tokens in and 200 out each, on a 7B-class model.</p>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">Option</th>
+<th style="text-align:left;padding:8px">Upfront</th>
+<th style="text-align:left;padding:8px">Monthly cost</th>
+<th style="text-align:left;padding:8px">Payback period</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:8px">DeepSeek API (cloud)</td><td style="padding:8px">¥0</td><td style="padding:8px">~¥150-300</td><td style="padding:8px">None (ongoing)</td></tr>
+<tr><td style="padding:8px">Local RTX 4090</td><td style="padding:8px">~¥13,000</td><td style="padding:8px">~¥80 electricity</td><td style="padding:8px">About 8-14 months</td></tr>
+<tr><td style="padding:8px">Local Mac M4 Max (already owned)</td><td style="padding:8px">¥0 (reuse)</td><td style="padding:8px">~¥30 electricity</td><td style="padding:8px">Immediate</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:var(--muted)">Electricity estimated at 0.4 kWh/hour under full load, 8 hours a day, ¥0.6/kWh. Upfront cost at China retail prices as of May 2026.</p>
+<p><strong>In plain terms:</strong> light use, stick with the API and don't buy a card. High-frequency plus long-term is when local pays off, and payback runs 8-14 months, during which you have to genuinely use it heavily every day. <strong>What's truly irreplaceable about local isn't saving money, it's "data never leaves the premises + unlimited calls + offline availability + no vendor holding you hostage."</strong> The people paying for those four things are the ones who should deploy locally.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="related">Related reading</h2>
+<ul>
+<li><a href="/en/articles/rag-vs-long-context-vs-fine-tune-2026/">RAG vs Long Context vs Fine-tune: What to Pick</a></li>
+<li><a href="/en/articles/china-ai-models-landscape-2026/">The 2026 Chinese AI Model Landscape</a></li>
+<li><a href="/en/articles/deepseek-r1-vs-gpt-5-cost-2026/">DeepSeek R1 vs GPT-5 Cost-Effectiveness</a></li>
+<li><a href="/topics/open-source-ai-models/">Open-Source AI Models Compared</a></li>
+<li><a href="/topics/cheapest-ai-api-models/">The Cheapest AI API Models</a></li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="faq">FAQ</h2>
+<p><strong>What's the minimum GPU?</strong> 7B INT4 needs only 4-5GB, so an RTX 3060 is fine. With no discrete GPU, llama.cpp on CPU works but is slow.</p>
+<p><strong>Ollama or vLLM?</strong> Ollama for personal use (one command), vLLM for serving (high throughput). LM Studio / llama.cpp on Mac.</p>
+<p><strong>Which quantization?</strong> For personal use, always start at INT4: 75% VRAM saved, single-digit % quality loss.</p>
+<p><strong>Which model to run?</strong> DeepSeek-R1 distilled all-round, Qwen3 for Chinese, GLM-4-9B for agents, Qwen3 Coder for code.</p>
+<p><strong>Is it cheaper than the API?</strong> Not for light use; only high-frequency plus long-term pays off (8-14 months). The core value is data privacy + unlimited calls.</p>
+<p><strong>Can a Mac run it?</strong> Yes, unified memory is the advantage. An M4 Max 128GB runs 70B quantized, using MLX.</p>
+</section>
+
+<p><a class="section-link" href="/">→ Compare every open-source model's specs, context, and capabilities on Check.AI</a></p>
+
+</main>
+<footer class="seo-footer"><a href="/en/">Back to home</a> · <a href="/topics/open-source-ai-models/">Open-Source Model Selection Guide</a></footer>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "df6bb0324e4c458fb4e8b979d3feed3c"}'></script>
+</body>
+</html>

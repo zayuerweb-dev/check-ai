@@ -1,0 +1,134 @@
+<p class="seo-lead">For serious coding there are really two AI choices: OpenAI's GPT-5 (including Pro) and Anthropic's Claude Sonnet 4.6. I wired both into Cursor and ran them for a week, cross-checked against SWE-bench numbers and official prices. This piece tells you which to use for which job. None of the "they're both great" hand-waving.</p>
+
+<nav class="article-toc" aria-label="Contents">
+<p class="article-toc-label">Contents</p>
+<ol>
+<li><a href="#conclusion">30-second verdict</a></li>
+<li><a href="#specs">Core specs compared</a></li>
+<li><a href="#scenario-1">Real scenario 1: fixing a cross-file bug in Cursor</a></li>
+<li><a href="#scenario-2">Real scenario 2: algorithm / system design</a></li>
+<li><a href="#scenario-3">Real scenario 3: cost-effectiveness</a></li>
+<li><a href="#when-gpt5">When GPT-5 is the better fit</a></li>
+<li><a href="#when-claude">When Claude is the must-pick</a></li>
+<li><a href="#both">How to use both</a></li>
+<li><a href="#openrouter">Call both with one API key</a></li>
+<li><a href="#summary">The one-line summary</a></li>
+<li><a href="#related">Related reading</a></li>
+</ol>
+</nav>
+
+<section class="seo-card">
+<h2 id="conclusion">30-second verdict</h2>
+<ul>
+<li><strong>Daily agent coding (Cursor / Cline / Aider):</strong> Claude Sonnet 4.6. Steady tool calling, doesn't go off-script, first on SWE-bench.</li>
+<li><strong>System design, hard algorithms, fuzzy requirements:</strong> GPT-5 / GPT-5 Pro. Leads on asking the right questions and reasoning depth.</li>
+<li><strong>Tight budget or high volume:</strong> GPT-5 (30-40% cheaper), or go further with Claude Haiku 4.5 / DeepSeek R1.</li>
+<li><strong>Loading a whole repo to ask about it:</strong> neither is optimal, pick Gemini 2.5 Pro (2 million context).</li>
+<li><strong>If you can't decide:</strong> Claude as the default, switch to GPT-5 Pro for hard problems.</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="specs">Core specs compared</h2>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)"><th style="text-align:left;padding:8px">Dimension</th><th style="text-align:left;padding:8px">Claude Sonnet 4.6</th><th style="text-align:left;padding:8px">GPT-5</th></tr></thead>
+<tbody>
+<tr><td style="padding:8px">Input price (per 1M tokens)</td><td style="padding:8px">$3.00</td><td style="padding:8px">$2.50</td></tr>
+<tr><td style="padding:8px">Output price</td><td style="padding:8px">$15.00</td><td style="padding:8px">$10.00</td></tr>
+<tr><td style="padding:8px">Context window</td><td style="padding:8px">200K (1M beta)</td><td style="padding:8px">400K</td></tr>
+<tr><td style="padding:8px">SWE-bench Verified</td><td style="padding:8px">~70%</td><td style="padding:8px">~65%</td></tr>
+<tr><td style="padding:8px">HumanEval</td><td style="padding:8px">~94%</td><td style="padding:8px">~96%</td></tr>
+<tr><td style="padding:8px">LiveCodeBench</td><td style="padding:8px">~72%</td><td style="padding:8px">~78%</td></tr>
+<tr><td style="padding:8px">Tool-calling reliability</td><td style="padding:8px">Strongest</td><td style="padding:8px">Very good</td></tr>
+<tr><td style="padding:8px">Cursor default</td><td style="padding:8px">Yes</td><td style="padding:8px">Alternative</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:var(--muted)">Sources: Anthropic / OpenAI official pricing pages, SWE-bench Verified, LiveCodeBench, and public Vellum evaluations, current as of May 2026.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="scenario-1">Real scenario 1: fixing a cross-file bug in Cursor</h2>
+<p>Same task: "the error message doesn't show when login fails, please find and fix it." It spans three files: a front-end component, an API route, and error-handling middleware.</p>
+<p><strong>How Claude Sonnet 4.6 did:</strong> read the 3 relevant files, traced it to the middleware swallowing the error, produced a patch, passed type checks, and changed only the necessary lines. Done in one pass.</p>
+<p><strong>How GPT-5 did:</strong> read the same files, found the same root cause, but also "optimized" two unrelated early-return styles in the middleware. The code was correct, but the diff was 3x larger than Claude's. You have to manually strip out the unrelated changes.</p>
+<p><strong>Verdict:</strong> Claude is more restrained in agent mode. That's why Cursor, Cline, and Aider set it as the default. The bigger the codebase and the more people reviewing PRs, the more this matters.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="scenario-2">Real scenario 2: algorithm / system design</h2>
+<p>"Design a URL shortener that handles 1 million QPS, covering consistency, capacity estimates, and a degradation plan."</p>
+<p><strong>GPT-5 Pro:</strong> asked clarifying questions first: "Read-heavy or write-heavy? What's the budget? Do you need custom-suffix analytics?" Then gave three designs and noted the trade-offs of each.</p>
+<p><strong>Claude Sonnet 4.6:</strong> went straight to a complete, good-quality design, but with a weaker instinct to ask questions.</p>
+<p><strong>Verdict:</strong> for open-ended questions, system design, and interview problems, GPT-5 Pro is clearly steadier. The real reasoning edge is "knowing to ask," not how prettily it writes up the answer.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="scenario-3">Real scenario 3: cost-effectiveness</h2>
+<p>The same 100-file monorepo run through one AI code review. Estimated totals: 800K tokens in, 200K out.</p>
+<ul>
+<li><strong>Claude Sonnet 4.6:</strong> $3 × 0.8 + $15 × 0.2 = $5.40 per run.</li>
+<li><strong>GPT-5:</strong> $2.50 × 0.8 + $10 × 0.2 = $4.00 per run.</li>
+<li><strong>Claude with prompt caching:</strong> ~$1.50.</li>
+<li><strong>GPT-5 with batch:</strong> ~$2.00.</li>
+</ul>
+<p>GPT-5's sticker price is cheaper, but Claude's prompt-caching discount is more aggressive. For a product that reuses the same system prompt repeatedly, Claude's real cost can come out below GPT-5. Test it on your own data.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="when-gpt5">When GPT-5 is the better fit</h2>
+<ul>
+<li><strong>Agents that need to ask questions.</strong> For example, having the model read a spec before writing code, GPT-5 Pro's question quality is clearly higher.</li>
+<li><strong>Competitive programming, LeetCode.</strong> GPT-5 edges ahead on HumanEval and LiveCodeBench.</li>
+<li><strong>Image understanding alongside.</strong> GPT-5's multimodal ability is slightly stronger.</li>
+<li><strong>Already in the OpenAI ecosystem.</strong> If you use the Assistants API, file search, or Code Interpreter, migration costs are high.</li>
+<li><strong>Budget-sensitive.</strong> Token prices are 30-40% cheaper.</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="when-claude">When Claude is the must-pick</h2>
+<ul>
+<li><strong>Using Cursor / Windsurf / Cline / Aider.</strong> Every major agent tool is tuned most deeply for Claude.</li>
+<li><strong>Multi-file refactors.</strong> No stray edits, keeps the code style consistent.</li>
+<li><strong>Structured output.</strong> Tables, comparisons, and normalized documents are steadier with Claude.</li>
+<li><strong>Long agent loops (10+ tool calls).</strong> Claude's drift rate is clearly lower.</li>
+<li><strong>Teams picky about code style.</strong> Claude follows existing conventions by default; GPT-5 occasionally takes liberties.</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="both">How to use both</h2>
+<p>The most common engineer setup in 2026:</p>
+<ol>
+<li><strong>Cursor defaulting to Claude Sonnet 4.6</strong> for daily edits, completions, and refactors.</li>
+<li><strong>Switch to GPT-5 Pro for hard problems</strong> (built into Cursor), letting it clarify first, then propose a design.</li>
+<li><strong>Switch batch, low-value tasks (lint, doc generation, commit messages) to DeepSeek R1 or Claude Haiku 4.5</strong> to save money.</li>
+<li><strong>Switch whole-repo Q&A to Gemini 2.5 Pro</strong>, fitting the whole project into 2M context.</li>
+</ol>
+<p>Don't bet on a single model. The frontier swaps leaders every 3-6 months. Switch when you can, and don't dig yourself a hole.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="openrouter">Call both with one API key</h2>
+<p>If you're building your own tool or agent, <strong>OpenRouter</strong> gives you one OpenAI-compatible endpoint that routes to GPT-5, Claude, DeepSeek, and Gemini, which makes switching and A/B testing easy. Note: OpenRouter has no public referral program; the link below is a plain recommendation.</p>
+<p><a class="section-link" target="_blank" rel="nofollow noopener" href="https://openrouter.ai/?utm_source=checkai&utm_medium=article_en&utm_campaign=gpt5-vs-claude">Go to OpenRouter →</a></p>
+</section>
+
+<section class="seo-card">
+<h2 id="summary">The one-line summary</h2>
+<p>Claude Sonnet 4.6 as the default, switch to GPT-5 Pro for hard problems, switch batch tasks to DeepSeek R1. Use Gemini for whole-repo Q&A. Don't try to bet on one model. Switching is the best practice for 2026.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="related">Related reading</h2>
+<ul>
+<li><a href="/en/articles/local-llm-deployment-guide-2026/">The Complete Guide to Running Open-Source LLMs Locally 2026</a></li>
+<li><a href="/en/articles/rag-vs-long-context-vs-fine-tune-2026/">RAG vs Long Context vs Fine-tune 2026: What to Pick When</a></li>
+<li><a href="/en/articles/claude-opus-4-7-review-2026/">Claude Opus 4.7 Review: SWE-bench 87.6%, Who Should Upgrade</a></li>
+<li><a href="/en/articles/deepseek-r1-vs-gpt-5-cost-2026/">DeepSeek R1 vs GPT-5: How Many Times Cheaper, Really</a></li>
+<li><a href="/en/articles/china-ai-models-landscape-2026/">The 2026 Chinese AI Model Landscape</a></li>
+<li><a href="/topics/best-ai-models-for-coding/">Best AI Models for Coding 2026</a></li>
+</ul>
+</section>
+
+<p><a class="section-link" href="/">→ Compare all models side by side on Check.AI</a></p>

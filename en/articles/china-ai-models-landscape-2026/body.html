@@ -1,0 +1,147 @@
+<p class="seo-lead">In 2025 Chinese models went from "chasing GPT-4" to "matching the closed frontier in specific areas." By May 2026 the picture looks like this: <strong>reasoning quality matches GPT-5 at one-fifth the price; Chinese-language output beats Western models; long context leads the world; agent tool-calling and multimodal still trail by a notch</strong>. This piece lines up the six main Chinese models on three axes that matter to anyone evaluating them: real benchmarks, price, and access. No marketing fluff to wade through.</p>
+
+<nav class="article-toc" aria-label="Contents">
+<p class="article-toc-label">Contents</p>
+<ol>
+<li><a href="#conclusion">30-second verdict</a></li>
+<li><a href="#pricing">Pricing: Chinese models vs the closed frontier</a></li>
+<li><a href="#reviews">Model-by-model breakdown</a></li>
+<li><a href="#scenarios">Recommendations by use case</a></li>
+<li><a href="#compliance">Access and compliance: 3 facts to know</a></li>
+<li><a href="#future">What to watch over the next 6 months</a></li>
+<li><a href="#related">Related reading</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ol>
+</nav>
+
+<section class="seo-card">
+<h2 id="conclusion">30-second verdict</h2>
+<ul>
+<li><strong>Best all-round value:</strong> DeepSeek R1. Front of the pack on reasoning, code, and math, lowest price, open weights.</li>
+<li><strong>Strongest Chinese + multilingual:</strong> Qwen3 Max (Alibaba). Leads on classical Chinese, policy text, and Southeast Asian languages.</li>
+<li><strong>Longest context:</strong> Kimi K2 (Moonshot AI). 2 million tokens, the best choice for whole books and full contract sets.</li>
+<li><strong>Tool calling + structured output:</strong> GLM-4.6 (Zhipu). The most reliable for agent workflows.</li>
+<li><strong>Voice and creative:</strong> MiniMax abab + Hailuo voice. Top tier for Chinese speech synthesis.</li>
+<li><strong>When in doubt:</strong> DeepSeek R1 as your default, switch to Qwen3 Max for heavy Chinese, Kimi K2 for very long context. Those three cover 95% of use cases.</li>
+</ul>
+<p><a class="section-link" href="/">Compare every Chinese model live on Check.AI →</a></p>
+</section>
+
+<section class="seo-card">
+<h2 id="pricing">Pricing: Chinese models vs the closed frontier</h2>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">Model</th>
+<th style="text-align:left;padding:8px">Input</th>
+<th style="text-align:left;padding:8px">Output</th>
+<th style="text-align:left;padding:8px">Context</th>
+<th style="text-align:left;padding:8px">Open weights</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:8px"><strong>DeepSeek R1</strong></td><td style="padding:8px">$0.55</td><td style="padding:8px">$2.19</td><td style="padding:8px">128K</td><td style="padding:8px">Yes</td></tr>
+<tr><td style="padding:8px"><strong>Qwen3 Max</strong></td><td style="padding:8px">$1.00</td><td style="padding:8px">$4.00</td><td style="padding:8px">1M</td><td style="padding:8px">Yes (smaller variants)</td></tr>
+<tr><td style="padding:8px"><strong>Kimi K2</strong></td><td style="padding:8px">$0.60</td><td style="padding:8px">$2.50</td><td style="padding:8px">2M</td><td style="padding:8px">No</td></tr>
+<tr><td style="padding:8px"><strong>GLM-4.6</strong></td><td style="padding:8px">$0.50</td><td style="padding:8px">$1.50</td><td style="padding:8px">200K</td><td style="padding:8px">Yes (smaller variants)</td></tr>
+<tr><td style="padding:8px"><strong>MiniMax abab 7</strong></td><td style="padding:8px">$0.80</td><td style="padding:8px">$3.00</td><td style="padding:8px">256K</td><td style="padding:8px">No</td></tr>
+<tr><td style="padding:8px">GPT-5 (reference)</td><td style="padding:8px">$2.50</td><td style="padding:8px">$10.00</td><td style="padding:8px">400K</td><td style="padding:8px">No</td></tr>
+<tr><td style="padding:8px">Claude Sonnet 4.6 (reference)</td><td style="padding:8px">$3.00</td><td style="padding:8px">$15.00</td><td style="padding:8px">200K-1M</td><td style="padding:8px">No</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:var(--muted)">Prices in USD per million tokens, from each vendor's official pricing page, current as of May 2026.</p>
+<p>The short read: Chinese model pricing generally runs one-third to one-tenth of the closed frontier. Several offer long context. Kimi K2's 2 million tokens is beaten globally only by Gemini 2.5 Pro.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="reviews">Model-by-model breakdown</h2>
+
+<h3 style="margin-top:18px">1. DeepSeek R1 (DeepSeek): the all-round leader</h3>
+<p><strong>Strengths:</strong> 671B MoE with only 37B active parameters, so inference is cheap. SWE-bench Verified around 52%, AIME math close to GPT-5. Open weights plus unbeatable value.</p>
+<p><strong>Weaknesses:</strong> tool-calling reliability is weaker than GPT-5 or Claude, mid-pack on the Berkeley Function Calling leaderboard. The 128K context is no longer especially long.</p>
+<p><strong>Who it's for:</strong> cost-sensitive production, batch jobs, self-hosted privacy use cases, and indie developers' main model.</p>
+<p><strong>Access:</strong> the official API is hosted in China; international users should route through OpenRouter, Together AI, or self-host.</p>
+
+<h3 style="margin-top:18px">2. Qwen3 Max (Alibaba Tongyi): Chinese and multilingual leader</h3>
+<p><strong>Strengths:</strong> clearly ahead on Chinese quality (top tier on C-Eval and CMMLU), strong multilingual coverage (Southeast Asian languages, Arabic), 1M long context, and a complete Alibaba Cloud ecosystem. Qwen3 Coder is one of the best open models for front-end coding.</p>
+<p><strong>Weaknesses:</strong> a weaker English agent ecosystem, and IDE integration that lags behind Claude.</p>
+<p><strong>Who it's for:</strong> Chinese-language products, multilingual RAG, Southeast Asian markets, and teams already on Alibaba Cloud.</p>
+<p><strong>Access:</strong> Apache 2.0 open versions exist (Qwen3 32B and others) and can be self-hosted. Qwen3 Max itself runs through Alibaba Cloud International.</p>
+
+<h3 style="margin-top:18px">3. Kimi K2 (Moonshot AI): long-context leader</h3>
+<p><strong>Strengths:</strong> 2 million token context (level with Gemini 2.5 Pro). Long-document summarization, whole-book reading, and full contract processing are its unique selling point. Fluent, natural long-form Chinese writing.</p>
+<p><strong>Weaknesses:</strong> code and math trail DeepSeek. The ecosystem leans consumer (the Kimi assistant) more than API.</p>
+<p><strong>Who it's for:</strong> legal, academic, publishing, and long-read products. "Summarize this entire book" is the killer feature.</p>
+<p><strong>Access:</strong> no large-scale open weights yet.</p>
+
+<h3 style="margin-top:18px">4. GLM-4.6 (Zhipu / Tsinghua): agent and enterprise</h3>
+<p><strong>Strengths:</strong> the most reliable tool calling among Chinese models, with Berkeley Function Calling scores close to GPT-5. Dependable structured JSON output. A complete enterprise edition with full compliance tooling. The open GLM-4 versions have broad ecosystem support (both vLLM and Ollama work).</p>
+<p><strong>Weaknesses:</strong> native Chinese creative writing is slightly behind Qwen and Kimi. Raw reasoning quality is below DeepSeek.</p>
+<p><strong>Who it's for:</strong> agents, function calling, structured extraction, and internal enterprise tools.</p>
+<p><strong>Access:</strong> the open GLM-4-9B and similar can be self-hosted; the enterprise edition ships with a full compliance setup.</p>
+
+<h3 style="margin-top:18px">5. MiniMax abab 7 / Hailuo: multimodal and voice</h3>
+<p><strong>Strengths:</strong> one of the strongest Chinese speech synthesizers (Hailuo offers varied, natural-sounding voices) plus differentiated multimodal work (image and abab-video generation).</p>
+<p><strong>Weaknesses:</strong> pure text ability trails the top four. The developer documentation and ecosystem are thinner.</p>
+<p><strong>Who it's for:</strong> voice-dialogue products (support bots, audiobooks, AI podcast hosts) and multimodal demos.</p>
+<p><strong>Access:</strong> not open-sourced; the official API is hosted in China.</p>
+
+<h3 style="margin-top:18px">6. The second tier: Yi, Baichuan, SenseTime, iFlytek, Baidu Ernie</h3>
+<p>This tier has its uses in specific situations, but overall the top five already cover 95% of real-world needs. Yi (01.AI) has a solid open-source ecosystem; Baichuan has a customer base in verticals like finance and healthcare; iFlytek and Baidu have B2B channel strength. When choosing, start with the top five and only drop to this tier if none of them fit.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="scenarios">Recommendations by use case</h2>
+<ul>
+<li><strong>Indie developer / startup default:</strong> DeepSeek R1. A monthly budget under $50 buys a fairly large workflow.</li>
+<li><strong>Building a Chinese SaaS:</strong> Qwen3 Max as the main model with DeepSeek R1 as fallback (Chinese-quality edge plus value).</li>
+<li><strong>Legal / academic / publishing:</strong> Kimi K2 for long documents plus Qwen3 Max for fact-checking.</li>
+<li><strong>Enterprise agents / internal tools:</strong> GLM-4.6 for reliable tool calling plus DeepSeek R1 for reasoning sub-tasks.</li>
+<li><strong>Voice-dialogue products:</strong> MiniMax Hailuo for voice plus DeepSeek R1 for text generation.</li>
+<li><strong>International products / overseas users:</strong> call the overseas-hosted DeepSeek or Qwen on OpenRouter to avoid compliance issues.</li>
+<li><strong>Finance / healthcare / government:</strong> self-host DeepSeek R1 or Qwen3 32B, with data kept fully local.</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="compliance">Access and compliance: 3 facts to know</h2>
+<ol>
+<li><strong>The official APIs are hosted in mainland China by default.</strong> Most vendors store API data domestically, which gives many Western enterprises and healthcare or finance customers compliance concerns. To avoid it, use overseas hosting or self-host.</li>
+<li><strong>Open weights are fully legal to use internationally.</strong> The weights for DeepSeek, the Qwen series, and the smaller GLM-4 variants are public on HuggingFace and can be downloaded and used in any jurisdiction (just check the specific license).</li>
+<li><strong>OpenRouter, Together AI, and Fireworks are the top picks for international access.</strong> All three host open versions of DeepSeek and Qwen, deployed in US and European data centers. Pricing runs slightly above the vendors' official rates (5-15%), but it sidesteps all cross-border compliance issues.</li>
+</ol>
+</section>
+
+<section class="seo-card">
+<h2 id="future">What to watch over the next 6 months</h2>
+<ul>
+<li><strong>DeepSeek R2:</strong> expected Q3 2026. Can it pull ahead of GPT again?</li>
+<li><strong>Qwen3.5 / Qwen4:</strong> Alibaba is pushing deeper into multimodal. Can it differentiate on video understanding?</li>
+<li><strong>Kimi K2 monetization:</strong> can it shift from a consumer assistant to B2B API revenue?</li>
+<li><strong>The fallout from US GPU export controls:</strong> will they affect the training and inference cost curve for Chinese models?</li>
+<li><strong>Open vs closed:</strong> whether DeepSeek and Qwen keep their open-source strategy will decide the ecosystem's direction into 2027.</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="related">Related reading</h2>
+<ul>
+<li><a href="/en/articles/local-llm-deployment-guide-2026/">The Complete Guide to Running Open-Source LLMs Locally 2026</a></li>
+<li><a href="/en/articles/rag-vs-long-context-vs-fine-tune-2026/">RAG vs Long Context vs Fine-tune 2026: What to Pick When</a></li>
+<li><a href="/en/articles/claude-opus-4-7-review-2026/">Claude Opus 4.7 Review: SWE-bench 87.6%, Who Should Upgrade</a></li>
+<li><a href="/en/articles/deepseek-r1-vs-gpt-5-cost-2026/">DeepSeek R1 vs GPT-5: How Many Times Cheaper, Really</a></li>
+<li><a href="/en/articles/gpt-5-vs-claude-coding-2026/">GPT-5 vs Claude Sonnet 4.6: Which to Pick for Coding</a></li>
+<li><a href="/topics/cheapest-ai-api-models/">The Cheapest AI API Models 2026</a></li>
+<li><a href="/topics/open-source-ai-models/">Open-Source AI Models Compared (DeepSeek, Qwen, Llama)</a></li>
+<li><a href="/topics/long-context-ai-models/">Long-Context AI Models Compared</a></li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="faq">FAQ</h2>
+<p><strong>Which is the strongest Chinese AI model in 2026?</strong> All-round, DeepSeek R1. For Chinese, Qwen3 Max. For long context, Kimi K2. For tools, GLM-4.6. For voice, MiniMax.</p>
+<p><strong>What about access and compliance for international use?</strong> Use the open-weight versions hosted by OpenRouter or Together AI, or self-host.</p>
+<p><strong>Which writes better code, DeepSeek or Qwen?</strong> On SWE-bench and HumanEval, DeepSeek R1 edges ahead; for front-end, Tailwind, and component work, Qwen3 Coder gets better feedback.</p>
+<p><strong>Can Chinese models keep their price advantage?</strong> Short term, yes; over the longer run it depends on GPU export controls and commercial pressure on the vendors.</p>
+<p><strong>How should an indie developer choose?</strong> DeepSeek R1 as default, Qwen3 Max for heavy Chinese, Kimi K2 for very long context.</p>
+</section>
+
+<p><a class="section-link" href="/">→ Compare every Chinese model live on Check.AI</a></p>

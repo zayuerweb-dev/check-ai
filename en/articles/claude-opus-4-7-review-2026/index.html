@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Claude Opus 4.7 Review 2026: SWE-bench 87.6%, Same Price, Who Should Upgrade | Check.AI</title>
+<meta name="description" content="A full review of Anthropic Claude Opus 4.7: SWE-bench Verified 87.6%, SWE-bench Pro 64.3%, Terminal-Bench 69.4%. 1M context, unchanged $5/$25 pricing, 35% more tokens from the new tokenizer, xhigh effort, task budgets, high-resolution images, hallucination rate down from 61% to 36%. Compared head-to-head with GPT-5.4, Gemini 3.1 Pro, and Sonnet 4.6.">
+<link rel="canonical" href="https://checkaimodels.com/en/articles/claude-opus-4-7-review-2026/">
+<link rel="alternate" hreflang="en" href="https://checkaimodels.com/en/articles/claude-opus-4-7-review-2026/">
+<link rel="alternate" hreflang="zh" href="https://checkaimodels.com/zh/articles/claude-opus-4-7-review-2026/">
+<link rel="alternate" hreflang="x-default" href="https://checkaimodels.com/en/articles/claude-opus-4-7-review-2026/">
+<meta property="og:title" content="Claude Opus 4.7 Review 2026: SWE-bench 87.6%, Same Price, Who Should Upgrade">
+<meta property="og:description" content="Anthropic's latest flagship: benchmarks, price, the hidden tokenizer hike, agent / vision gains, and a head-to-head with GPT-5.4 / Gemini 3.1 Pro.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://checkaimodels.com/en/articles/claude-opus-4-7-review-2026/">
+<link rel="stylesheet" href="/styles.css?v=20260520-1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","inLanguage":"en","headline":"Claude Opus 4.7 Review 2026: SWE-bench 87.6%, Same Price, Who Should Upgrade","description":"A full review of Anthropic Claude Opus 4.7: SWE-bench Verified 87.6%, SWE-bench Pro 64.3%, Terminal-Bench 69.4%. 1M context, unchanged $5/$25 pricing, 35% more tokens from the new tokenizer, xhigh effort, task budgets, high-resolution images, hallucination rate down from 61% to 36%. Compared head-to-head with GPT-5.4, Gemini 3.1 Pro, and Sonnet 4.6.","datePublished":"2026-05-12","dateModified":"2026-05-12","author":{"@type":"Person","name":"zayuerweb-dev","url":"https://github.com/zayuerweb-dev","sameAs":["https://github.com/zayuerweb-dev"]},"publisher":{"@type":"Organization","name":"Check.AI","url":"https://checkaimodels.com/"},"citation":[{"@type":"CreativeWork","name":"Claude Opus 4.7 official release and specs","url":"https://www.anthropic.com/news"},{"@type":"CreativeWork","name":"SWE-bench / benchmark comparison","url":"https://artificialanalysis.ai/"},{"@type":"CreativeWork","name":"Vellum hands-on testing","url":"https://www.vellum.ai/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"en","mainEntity":[{"@type":"Question","name":"When was Claude Opus 4.7 released?","acceptedAnswer":{"@type":"Answer","text":"Released on April 16, 2026. The API model ID is claude-opus-4-7, available simultaneously across four channels: the official Anthropic API, AWS Bedrock, Azure, and Google Vertex. It is the strongest model Anthropic has made public as of May 2026."}},{"@type":"Question","name":"How much does Claude Opus 4.7 cost?","acceptedAnswer":{"@type":"Answer","text":"$5 per million input tokens and $25 per million output tokens, the same as Opus 4.6. A prompt-cache hit saves 90%, and the batch API is half price. But 4.7 uses a new tokenizer, so the same text consumes 1.0 to 1.35x the tokens, which means your real bill could rise 0-35%. On Artificial Analysis, running the same benchmark suite, Anthropic actually saved 11% ($4,406 vs $4,970), showing that efficiency gains can partly offset the tokenizer hike."}},{"@type":"Question","name":"How much stronger is Opus 4.7 than Opus 4.6?","acceptedAnswer":{"@type":"Answer","text":"SWE-bench Verified 87.6% vs 80.8% (+6.8), SWE-bench Pro 64.3% vs 53.4% (+10.9, the biggest jump), Terminal-Bench 69.4% vs 65.4%, OSWorld 78% vs 72.7%, CharXiv vision 82.1% vs 69.1% (+13), hallucination rate 36% vs 61% (an important improvement). All three directions, agent, vision, and long-running tasks, clearly improved."}},{"@type":"Question","name":"Is Opus 4.7 stronger than GPT-5.4 and Gemini 3.1 Pro?","acceptedAnswer":{"@type":"Answer","text":"It depends on the use case. Agent coding: Opus 4.7 leads on SWE-bench Pro at 64.3% (GPT-5.4 is 57.7%, Gemini 3.1 Pro 54.2%). Terminal code: GPT-5.5 scores 82.7% on Terminal-Bench 2.0, clearly above Opus 4.7's 69.4%. Web research: GPT-5.4 Pro takes 89.3%, well ahead of Opus 4.7's 79.3%. Scientific reasoning GPQA: the three are nearly tied at 94%. In one line: Opus 4.7 is the king of agent coding and long-running workflows, but it is not first on every single benchmark."}},{"@type":"Question","name":"What new features does Opus 4.7 have?","acceptedAnswer":{"@type":"Answer","text":"Four: (1) high-resolution image support, up to 2576px / 3.75MP, a big improvement for computer use, screenshot understanding, and document processing; (2) a new xhigh effort level for coding and agent use; (3) task budgets (beta), giving an agent a token budget to allocate itself; (4) adaptive thinking as the only reasoning mode, with extended thinking's budget_tokens config removed. temperature / top_p / top_k can no longer be set either."}},{"@type":"Question","name":"Should I upgrade to Opus 4.7?","acceptedAnswer":{"@type":"Answer","text":"If you use Opus 4.6 for agent coding / computer use / long agentic loops: upgrade, the +10.9 on SWE-bench Pro is a step change. If you use Sonnet 4.6 and cost isn't a concern: worth a try, the quality is a clear notch higher. If you use GPT-5.4 Pro heavily for web research: don't switch, GPT is stronger there. If you use DeepSeek R1 / Qwen to save cost: don't switch, Opus 4.7 is $5/$25 and DeepSeek is $0.55/$2.19, a 9x difference."}}]}</script>
+</head>
+<body class="seo-page">
+<header class="seo-header"><a class="brand-link" href="/en/">Check.AI</a><nav><a href="/">Compare</a><a href="/about">About</a><a href="/privacy.html">Privacy</a><a href="/contact">Contact</a><a href="/zh/articles/claude-opus-4-7-review-2026/">中文</a></nav></header>
+<main class="seo-main">
+<p class="eyebrow">深度评测 · 2026-05-12 · by <a href="https://github.com/zayuerweb-dev" rel="author">@zayuerweb-dev</a></p>
+<h1>Claude Opus 4.7 Review: SWE-bench 87.6%, Same Price, Who Should Upgrade</h1>
+<p class="seo-lead"><strong>Claude Opus 4.7</strong>, which Anthropic shipped on 2026-04-16, is the most substantial Claude release of the past year. SWE-bench Pro jumped 10.9 points in a single version, the hallucination rate dropped from 61% to 36%, high-resolution image support arrived, and the price held steady (though a new tokenizer means a hidden 0-35% increase). This review uses Anthropic's official docs, hands-on testing from Vellum, and Artificial Analysis data to put Opus 4.7 next to 4.6, GPT-5.4, Gemini 3.1 Pro, and Sonnet 4.6. By the end you'll know whether to upgrade, how to upgrade, and which cases actually argue against it.</p>
+
+<nav class="article-toc" aria-label="Contents">
+<p class="article-toc-label">Contents</p>
+<ol>
+<li><a href="#conclusion">30-second verdict</a></li>
+<li><a href="#specs">Core specs</a></li>
+<li><a href="#benchmarks">Key benchmarks vs the last gen and rivals</a></li>
+<li><a href="#changes">5 changes that actually matter</a></li>
+<li><a href="#api-changes">3 breaking API changes to read before upgrading</a></li>
+<li><a href="#who-upgrades">Who should upgrade, who shouldn't, who can skip</a></li>
+<li><a href="#cost">Real cost estimate</a></li>
+<li><a href="#future">What to watch over the next 6 months</a></li>
+<li><a href="#related">Related reading</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ol>
+</nav>
+
+<section class="seo-card">
+<h2 id="conclusion">30-second verdict</h2>
+<ul>
+<li><strong>Agent coding / long agentic loops:</strong> upgrade. SWE-bench Pro 64.3% is first in the industry.</li>
+<li><strong>Computer use / screenshot understanding:</strong> upgrade. OSWorld 78%, 2576px high-resolution image support.</li>
+<li><strong>Knowledge work (docs, slides, charts):</strong> upgrade. CharXiv vision 82.1% (+13 points).</li>
+<li><strong>Web research / long tool chains:</strong> not necessary. GPT-5.4 Pro still leads on BrowseComp at 89.3%.</li>
+<li><strong>Terminal coding (CLI-heavy):</strong> not necessary. GPT-5.5 hits 82.7% on Terminal-Bench, well above Opus 4.7's 69.4%.</li>
+<li><strong>Cost-sensitive batch jobs:</strong> do not. At $5/$25 it's 9x DeepSeek R1 and 1.67x Sonnet 4.6.</li>
+<li><strong>When in doubt:</strong> Opus 4.7 for the hard tasks, Sonnet 4.6 for routine calls, DeepSeek R1 for batch.</li>
+</ul>
+<p><a class="section-link" href="/">Compare every model live on Check.AI →</a></p>
+</section>
+
+<section class="seo-card">
+<h2 id="specs">Core specs</h2>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">Item</th>
+<th style="text-align:left;padding:8px">Claude Opus 4.7</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:8px">API model ID</td><td style="padding:8px"><code>claude-opus-4-7</code></td></tr>
+<tr><td style="padding:8px">Release date</td><td style="padding:8px">2026-04-16</td></tr>
+<tr><td style="padding:8px">Context window</td><td style="padding:8px">1,000,000 tokens</td></tr>
+<tr><td style="padding:8px">Max output</td><td style="padding:8px">128,000 tokens</td></tr>
+<tr><td style="padding:8px">Input price</td><td style="padding:8px">$5.00 / million tokens</td></tr>
+<tr><td style="padding:8px">Output price</td><td style="padding:8px">$25.00 / million tokens</td></tr>
+<tr><td style="padding:8px">Cache hit</td><td style="padding:8px">input price × 0.1 (90% off)</td></tr>
+<tr><td style="padding:8px">Batch API</td><td style="padding:8px">half price on input/output</td></tr>
+<tr><td style="padding:8px">High-resolution images</td><td style="padding:8px">2576px / 3.75MP (previous gen 1568px / 1.15MP)</td></tr>
+<tr><td style="padding:8px">Availability</td><td style="padding:8px">Anthropic API, AWS Bedrock, Azure, Google Vertex</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="seo-card">
+<h2 id="benchmarks">Key benchmarks vs the last gen and rivals</h2>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">Benchmark</th>
+<th style="text-align:left;padding:8px">Opus 4.7</th>
+<th style="text-align:left;padding:8px">Opus 4.6</th>
+<th style="text-align:left;padding:8px">GPT-5.4</th>
+<th style="text-align:left;padding:8px">Gemini 3.1 Pro</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:8px">SWE-bench Verified (agent coding)</td><td style="padding:8px"><strong>87.6%</strong></td><td style="padding:8px">80.8%</td><td style="padding:8px">N/A</td><td style="padding:8px">80.6%</td></tr>
+<tr><td style="padding:8px">SWE-bench Pro (harder)</td><td style="padding:8px"><strong>64.3%</strong></td><td style="padding:8px">53.4%</td><td style="padding:8px">57.7%</td><td style="padding:8px">54.2%</td></tr>
+<tr><td style="padding:8px">Terminal-Bench 2.0 (CLI)</td><td style="padding:8px">69.4%</td><td style="padding:8px">65.4%</td><td style="padding:8px">82.7% (GPT-5.5)</td><td style="padding:8px">68.5%</td></tr>
+<tr><td style="padding:8px">MCP-Atlas (multi-tool calling)</td><td style="padding:8px"><strong>77.3%</strong></td><td style="padding:8px">75.8%</td><td style="padding:8px">68.1%</td><td style="padding:8px">73.9%</td></tr>
+<tr><td style="padding:8px">Finance Agent v1.1</td><td style="padding:8px"><strong>64.4%</strong></td><td style="padding:8px">60.1%</td><td style="padding:8px">61.5% (Pro)</td><td style="padding:8px">59.7%</td></tr>
+<tr><td style="padding:8px">OSWorld-Verified (computer use)</td><td style="padding:8px"><strong>78.0%</strong></td><td style="padding:8px">72.7%</td><td style="padding:8px">75.0%</td><td style="padding:8px">N/A</td></tr>
+<tr><td style="padding:8px">BrowseComp (web research)</td><td style="padding:8px">79.3%</td><td style="padding:8px">83.7%</td><td style="padding:8px"><strong>89.3% (Pro)</strong></td><td style="padding:8px">85.9%</td></tr>
+<tr><td style="padding:8px">GPQA Diamond (scientific reasoning)</td><td style="padding:8px">94.2%</td><td style="padding:8px">91.3%</td><td style="padding:8px"><strong>94.4% (Pro)</strong></td><td style="padding:8px">94.3%</td></tr>
+<tr><td style="padding:8px">CharXiv (visual reasoning)</td><td style="padding:8px"><strong>82.1%</strong></td><td style="padding:8px">69.1%</td><td style="padding:8px">N/A</td><td style="padding:8px">N/A</td></tr>
+<tr><td style="padding:8px">Hallucination rate (lower is better)</td><td style="padding:8px"><strong>36%</strong></td><td style="padding:8px">61%</td><td style="padding:8px">N/A</td><td style="padding:8px">N/A</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:var(--muted)">Data from Anthropic's official docs, Vellum evaluations, and the Artificial Analysis Intelligence Index, current as of May 2026. "N/A" means that source did not publish the figure. GPT-5.4 Pro is OpenAI's higher-effort version, at a higher price.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="changes">5 changes that actually matter</h2>
+
+<h3 style="margin-top:18px">1. SWE-bench Pro +10.9 points: the agent-coding inflection point</h3>
+<p>SWE-bench Verified has been pushed past 80% to the point that nobody cares. <strong>SWE-bench Pro is the real agent-coding benchmark for 2026</strong>: harder, demands multi-step planning, requires cross-file coordination. The 10.9-point jump from Opus 4.6 to 4.7 (53.4% to 64.3%) is the largest single-version gain across all frontier models in the past year, leaving GPT-5.4's 57.7% and Gemini 3.1 Pro's 54.2% well behind.</p>
+<p>What it means in practice: where Claude Code used to land a large refactor on the first try about 60% of the time, it's now 75%+. One fewer retry pays for the upgrade.</p>
+
+<h3 style="margin-top:18px">2. Hallucination rate cut from 61% to 36%</h3>
+<p>This is the most dramatic number Anthropic published. On the same test suite, Opus 4.6 hallucinated 61% of the time; 4.7 only 36%. The mechanism is that the model is more willing to say "I don't know" rather than make something up. For production that matters most where <strong>a wrong answer costs more than no answer</strong>: automated support, legal RAG, medical assistance. For those, 4.7 is a mandatory upgrade.</p>
+
+<h3 style="margin-top:18px">3. High-resolution image support (computer use is finally usable)</h3>
+<p>The image ceiling rose from 1568px / 1.15MP to <strong>2576px / 3.75MP</strong>. Coordinates now map 1:1 to pixels, so no scale-factor conversion. That's a step change for three cases:</p>
+<ul>
+<li><strong>Computer use:</strong> full-screen captures aren't blurry, and button targeting is far more accurate.</li>
+<li><strong>Document / form understanding:</strong> scanned PDFs and contract screenshots are much more readable.</li>
+<li><strong>Artifact / chart analysis:</strong> CharXiv vision rose from 69.1% to 82.1% (+13).</li>
+</ul>
+
+<h3 style="margin-top:18px">4. New tokenizer: your bill could rise 0-35%</h3>
+<p>The price sheet still says $5/$25, but <strong>the same Chinese text, code, or data now uses 1.0 to 1.35x the tokens on 4.7</strong>. In other words:</p>
+<ul>
+<li>Plain short English: essentially no difference.</li>
+<li>Chinese, code, data: possibly 20-35% more.</li>
+<li>The real effect may be offset by Opus 4.7's smaller output (35% fewer output tokens on the same Artificial Analysis benchmark suite).</li>
+</ul>
+<p><strong>Best practice:</strong> before upgrading, run 100-500 of your real requests and measure the bill change yourself. Don't take "the price is unchanged" at face value.</p>
+
+<h3 style="margin-top:18px">5. xhigh effort + task budgets (new tools for agent workflows)</h3>
+<p>Anthropic added an <code>xhigh</code> effort level (harder-working than high, spends more tokens but is steadier). There's also a new <code>task_budget</code> beta header that gives an agent a total token budget to allocate itself. The model can see the countdown, so it prioritizes and wraps up on time.</p>
+<p>It doesn't mean much for indie developers, but it's a step change for enterprise agent workflows (CI/CD integration, automated PR review).</p>
+</section>
+
+<section class="seo-card">
+<h2 id="api-changes">3 breaking API changes to read before upgrading</h2>
+<ol>
+<li><strong>Extended thinking is gone.</strong> Setting <code>thinking: {"type": "enabled", "budget_tokens": N}</code> returns a 400. Use <code>thinking: {"type": "adaptive"}</code> + <code>effort: "high"</code> instead.</li>
+<li><strong>temperature / top_p / top_k are all gone.</strong> Setting a non-default value returns a 400. Control behavior through the prompt.</li>
+<li><strong>Thinking content isn't returned by default.</strong> Products that stream the reasoning process in the UI will see long blank stretches. You have to explicitly turn on <code>display: "summarized"</code>.</li>
+</ol>
+<p>Adaptive thinking is also <strong>off by default</strong>: set nothing and it won't think at all. That's the biggest behavioral difference from 4.6. Claude Code, Cursor, and Cline have already updated; if you wrote your own SDK integration, you'll need to change it.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="who-upgrades">Who should upgrade, who shouldn't, who can skip</h2>
+
+<h3 style="margin-top:18px">🟢 Upgrade</h3>
+<ul>
+<li>Using Opus 4.6 for <strong>Claude Code, agent coding, long agentic loops</strong>.</li>
+<li>Running <strong>computer use</strong>, screenshot understanding, document extraction.</li>
+<li>Doing <strong>RAG / support</strong> where you'd rather not answer than answer wrong.</li>
+<li>Using a <strong>multi-tool agent</strong> (MCP-Atlas 77.3%, first in the industry).</li>
+</ul>
+
+<h3 style="margin-top:18px">🟡 Worth upgrading, but A/B test first</h3>
+<ul>
+<li>On Sonnet 4.6 and wanting a quality bump: Opus is 1.67x the price, so check whether your task complexity justifies it.</li>
+<li>Web research / multi-search apps: GPT-5.4 Pro still leads BrowseComp at 89.3%.</li>
+<li>Chinese-heavy traffic: the tokenizer change adds +20-35% for Chinese, so run the numbers.</li>
+</ul>
+
+<h3 style="margin-top:18px">🔴 Don't bother</h3>
+<ul>
+<li>Using DeepSeek R1 / Qwen3 / GLM-4.6 for <strong>cost-sensitive batch</strong>: Opus is 5-10x their price.</li>
+<li>Pure <strong>terminal CLI</strong> heavy use: GPT-5.5 leads Terminal-Bench by a wide margin at 82.7%.</li>
+<li>Already on GPT-5.4 Pro for <strong>web research / deep search</strong>: same generation, no reason to switch.</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="cost">Real cost estimate (same workload)</h2>
+<p>Assume a code-review agent handling 500 PRs a month, each averaging 40K tokens in, 4K tokens out, and 3 tool calls.</p>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">Model</th>
+<th style="text-align:left;padding:8px">Monthly cost</th>
+<th style="text-align:left;padding:8px">SWE-bench Pro</th>
+<th style="text-align:left;padding:8px">Recommendation</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:8px"><strong>Opus 4.7</strong></td><td style="padding:8px">~$150</td><td style="padding:8px">64.3%</td><td style="padding:8px">Critical PRs + complex refactors</td></tr>
+<tr><td style="padding:8px">Opus 4.6</td><td style="padding:8px">~$130</td><td style="padding:8px">53.4%</td><td style="padding:8px">No reason to keep it, upgrade to 4.7</td></tr>
+<tr><td style="padding:8px">Sonnet 4.6</td><td style="padding:8px">~$90</td><td style="padding:8px">~50%</td><td style="padding:8px">Routine PRs, the value pick</td></tr>
+<tr><td style="padding:8px">GPT-5.4</td><td style="padding:8px">~$75</td><td style="padding:8px">57.7%</td><td style="padding:8px">CLI / terminal tasks</td></tr>
+<tr><td style="padding:8px">DeepSeek R1</td><td style="padding:8px">~$15</td><td style="padding:8px">~52%</td><td style="padding:8px">Cost-sensitive batch</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:var(--muted)">Estimates for reference only, before prompt cache and batch discounts. Heavy cache reuse can lower Opus 4.7's real cost by 40-60%.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="future">What to watch over the next 6 months</h2>
+<ul>
+<li><strong>When Sonnet 4.7 arrives.</strong> The historical pattern: a Sonnet version follows an Opus release by 2-4 months. Expected Q3 2026.</li>
+<li><strong>Whether Gemini 3.5 / GPT-6 overtake it.</strong> All three have clustered above 80% on SWE-bench Verified; the next jump comes down to who breaks 90% first.</li>
+<li><strong>The price war.</strong> DeepSeek R2 is expected in Q3 and could widen the 1:9 value gap again.</li>
+<li><strong>Whether task budget / xhigh become an industry standard.</strong> If OpenAI and Google follow, agent workflows will standardize around them.</li>
+<li><strong>Whether the tokenizer "hidden hike" becomes the new normal.</strong> Sticker price unchanged but more tokens used: other vendors may copy it.</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="related">Related reading</h2>
+<ul>
+<li><a href="/en/articles/local-llm-deployment-guide-2026/">The Complete Guide to Running Open-Source LLMs Locally 2026</a></li>
+<li><a href="/en/articles/rag-vs-long-context-vs-fine-tune-2026/">RAG vs Long Context vs Fine-tune 2026: What to Pick When</a></li>
+<li><a href="/en/articles/gpt-5-vs-claude-coding-2026/">GPT-5 vs Claude Sonnet 4.6: Which to Pick for Coding</a></li>
+<li><a href="/en/articles/deepseek-r1-vs-gpt-5-cost-2026/">DeepSeek R1 vs GPT-5: How Many Times Cheaper, Really</a></li>
+<li><a href="/en/articles/china-ai-models-landscape-2026/">The 2026 Chinese AI Model Landscape</a></li>
+<li><a href="/topics/best-ai-models-for-coding/">Best AI Models for Coding</a></li>
+<li><a href="/topics/long-context-ai-models/">Long-Context AI Models Compared</a></li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="faq">FAQ</h2>
+<p><strong>When was Opus 4.7 released?</strong> April 16, 2026. API ID <code>claude-opus-4-7</code>.</p>
+<p><strong>Did the price change?</strong> Not on the surface ($5/$25), but the new tokenizer uses 1-1.35x the tokens for Chinese/code, so your real bill could rise 0-35%.</p>
+<p><strong>Do I have to upgrade?</strong> For agent coding / computer use / RAG, yes. For low-value batch and CLI-heavy work, no.</p>
+<p><strong>How does it compare to GPT-5.4?</strong> Opus is stronger on SWE-bench Pro (64.3% vs 57.7%); GPT is stronger on BrowseComp (89.3% vs 79.3%). On GPQA the three are nearly tied.</p>
+<p><strong>Does upgrading require code changes?</strong> Yes. Extended thinking budget and temperature/top_p/top_k are all gone, and thinking content isn't returned by default.</p>
+<p><strong>Does the 1M context cost extra?</strong> No. The 1M context is standard pricing, with no long-context premium.</p>
+</section>
+
+<p><a class="section-link" href="/">→ Compare Opus 4.7 vs other models live on Check.AI</a></p>
+
+<section class="seo-card"><h2>Sources</h2><ul>
+<li><a href="https://www.anthropic.com/news" target="_blank" rel="noopener nofollow">Claude Opus 4.7 official release and specs</a> <span style="color:var(--muted)">· 2026-05-22</span></li>
+<li><a href="https://artificialanalysis.ai/" target="_blank" rel="noopener nofollow">SWE-bench / benchmark comparison</a> <span style="color:var(--muted)">· 2026-05-22</span></li>
+<li><a href="https://www.vellum.ai/" target="_blank" rel="noopener nofollow">Vellum hands-on testing</a> <span style="color:var(--muted)">· 2026-05-22</span></li>
+</ul></section>
+</main>
+<footer class="seo-footer"><a href="/en/">Back to home</a> · <a href="/topics/best-ai-models-for-coding/">Best AI Models for Coding</a></footer>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "df6bb0324e4c458fb4e8b979d3feed3c"}'></script>
+</body>
+</html>

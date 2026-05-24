@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DeepSeek R1 vs GPT-5 Value Showdown: How Many Times Cheaper? (2026 Tested) | Check.AI</title>
+<meta name="description" content="A full DeepSeek R1 vs GPT-5 value comparison. Real per-million-token prices, SWE-bench / MMLU benchmarks, cost math on 3 real workflows, and when GPT-5 is worth paying more for. One read to stop second-guessing.">
+<link rel="canonical" href="https://checkaimodels.com/en/articles/deepseek-r1-vs-gpt-5-cost-2026/">
+<link rel="alternate" hreflang="en" href="https://checkaimodels.com/en/articles/deepseek-r1-vs-gpt-5-cost-2026/">
+<link rel="alternate" hreflang="zh" href="https://checkaimodels.com/zh/articles/deepseek-r1-vs-gpt-5-cost-2026/">
+<link rel="alternate" hreflang="x-default" href="https://checkaimodels.com/en/articles/deepseek-r1-vs-gpt-5-cost-2026/">
+<meta property="og:title" content="DeepSeek R1 vs GPT-5 Value Showdown (2026)">
+<meta property="og:description" content="Price, benchmarks, and cost math on 3 real workflows. One read to stop second-guessing.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://checkaimodels.com/en/articles/deepseek-r1-vs-gpt-5-cost-2026/">
+<link rel="stylesheet" href="/styles.css?v=20260520-1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","inLanguage":"en","headline":"DeepSeek R1 vs GPT-5 Value Showdown: How Many Times Cheaper","description":"A full DeepSeek R1 vs GPT-5 value comparison. Real per-million-token prices, SWE-bench / MMLU benchmarks, cost math on 3 real workflows, and when GPT-5 is worth paying more for. One read to stop second-guessing.","datePublished":"2026-05-10","dateModified":"2026-05-10","author":{"@type":"Person","name":"zayuerweb-dev","url":"https://github.com/zayuerweb-dev","sameAs":["https://github.com/zayuerweb-dev"]},"publisher":{"@type":"Organization","name":"Check.AI","url":"https://checkaimodels.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"en","mainEntity":[{"@type":"Question","name":"How many times cheaper is DeepSeek R1 than GPT-5?","acceptedAnswer":{"@type":"Answer","text":"On input price, GPT-5 is 4.5x DeepSeek R1 ($2.50 vs $0.55); on output, 4.6x ($10 vs $2.19). For the same workload GPT-5 is usually about 5x more expensive. With batch + cache on, the gap can widen to 6-8x."}},{"@type":"Question","name":"Can DeepSeek R1 really match GPT-5 on performance?","acceptedAnswer":{"@type":"Answer","text":"On math (AIME), code (HumanEval, LiveCodeBench), and reasoning benchmarks, DeepSeek R1 has matched or slightly surpassed GPT-5. But on long agent loops, tool-calling reliability, and understanding fuzzy instructions, GPT-5 still leads. In short: DeepSeek is enough for single-point tasks, GPT-5 is steadier for complex agents."}},{"@type":"Question","name":"When should you use GPT-5 instead of DeepSeek?","acceptedAnswer":{"@type":"Answer","text":"For agents that need 5+ tool-call steps, fuzzy requirements that need clarifying questions, deep reasoning combined with creativity, or production that demands 99%+ quality on every output, GPT-5 is worth more. A DeepSeek that is 5x cheaper but loops 5 times can end up costing more overall."}},{"@type":"Question","name":"Is DeepSeek R1's data safe?","acceptedAnswer":{"@type":"Answer","text":"The official API stores data in China, which may pose compliance issues for users outside China. Alternatives: use third-party hosting (Together AI, Fireworks, OpenRouter, and other overseas servers running the same model weights), or self-host (open weights, 48GB GPU and up)."}},{"@type":"Question","name":"Is DeepSeek cheaper on OpenRouter than the official API?","acceptedAnswer":{"@type":"Answer","text":"The price is basically the same, with OpenRouter adding a small routing fee. The advantage is that one OpenAI-compatible endpoint can call GPT-5, Claude, and Gemini at the same time, so A/B testing doesn't require signing up multiple times."}}]}</script>
+</head>
+<body class="seo-page">
+<header class="seo-header"><a class="brand-link" href="/en/">Check.AI</a><nav><a href="/">Compare</a><a href="/about">About</a><a href="/privacy.html">Privacy</a><a href="/contact">Contact</a><a href="/zh/articles/deepseek-r1-vs-gpt-5-cost-2026/">中文</a></nav></header>
+<main class="seo-main">
+<p class="eyebrow">深度对比 · 2026-05-10 · by <a href="https://github.com/zayuerweb-dev" rel="author">@zayuerweb-dev</a></p>
+<h1>DeepSeek R1 vs GPT-5: How Many Times Cheaper, Really</h1>
+<p class="seo-lead">"Is DeepSeek really that much cheaper?" "Does the cheap option come with a catch?" Someone asks this every week. This piece uses May 2026 official prices, four kinds of benchmarks, and the cost math on three real workflows to give a straight answer. The headline first: <strong>in most production scenarios, DeepSeek R1's all-in cost is one-fifth to one-eighth of GPT-5, at about 90% of the quality</strong>. But in 5 kinds of cases GPT-5 is the better buy. We'll unpack those.</p>
+
+<nav class="article-toc" aria-label="Contents">
+<p class="article-toc-label">Contents</p>
+<ol>
+<li><a href="#conclusion">30-second verdict</a></li>
+<li><a href="#pricing">Pricing: per million tokens</a></li>
+<li><a href="#performance">Performance: don't read just one benchmark</a></li>
+<li><a href="#cost">Real workflow cost math</a></li>
+<li><a href="#when-gpt5">When GPT-5 is worth the extra money</a></li>
+<li><a href="#when-deepseek-fails">When DeepSeek actually costs you</a></li>
+<li><a href="#routing">The recommended combo: two-model routing</a></li>
+<li><a href="#related">Related reading</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ol>
+</nav>
+
+<section class="seo-card">
+<h2 id="conclusion">30-second verdict</h2>
+<ul>
+<li><strong>Routine reasoning / coding / Chinese:</strong> DeepSeek R1 wins on value.</li>
+<li><strong>Multi-step agents / tool calling / fuzzy requirements:</strong> GPT-5 is steadier, and the engineering time it saves is worth the money.</li>
+<li><strong>Batch jobs (labeling, classification, generation):</strong> DeepSeek R1 + batch API is almost untouchable.</li>
+<li><strong>Paying consumer users (every output must be 99%+ usable):</strong> GPT-5 has a lower failure rate and less refund risk.</li>
+<li><strong>When in doubt:</strong> DeepSeek as the default, switch to GPT-5 for hard problems, and drop to GPT-5 mini or a DeepSeek distilled small model for cheap tasks.</li>
+</ul>
+<p><a class="section-link" href="/">Compare the two live on Check.AI →</a></p>
+</section>
+
+<section class="seo-card">
+<h2 id="pricing">Pricing: per million tokens (May 2026)</h2>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">Item</th>
+<th style="text-align:left;padding:8px">DeepSeek R1</th>
+<th style="text-align:left;padding:8px">GPT-5</th>
+<th style="text-align:left;padding:8px">Gap</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:8px">Input</td><td style="padding:8px">$0.55</td><td style="padding:8px">$2.50</td><td style="padding:8px"><strong>4.5×</strong></td></tr>
+<tr><td style="padding:8px">Output</td><td style="padding:8px">$2.19</td><td style="padding:8px">$10.00</td><td style="padding:8px"><strong>4.6×</strong></td></tr>
+<tr><td style="padding:8px">Cached input</td><td style="padding:8px">$0.14</td><td style="padding:8px">$0.625</td><td style="padding:8px"><strong>4.5×</strong></td></tr>
+<tr><td style="padding:8px">Batch (async 24h)</td><td style="padding:8px">No official option</td><td style="padding:8px">Half price in/out</td><td style="padding:8px">GPT-5 narrows the gap</td></tr>
+<tr><td style="padding:8px">Context window</td><td style="padding:8px">128K</td><td style="padding:8px">400K</td><td style="padding:8px">GPT-5 is 3× bigger</td></tr>
+<tr><td style="padding:8px">Open weights</td><td style="padding:8px">Yes (671B MoE)</td><td style="padding:8px">No</td><td style="padding:8px">DeepSeek is self-hostable</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:var(--muted)">Sources: DeepSeek's official pricing page and OpenAI's official pricing page, current as of 2026-05-10.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="performance">Performance: don't read just one benchmark</h2>
+<p>Everyone loves to quote a single HumanEval number. But reading one benchmark gets you burned. DeepSeek R1 is nearly level with GPT-5 on 4 kinds of benchmarks and clearly behind on 2. It's 5x cheaper and works for 80% of cases. For the other 20% you need a fallback.</p>
+<ul>
+<li><strong>Math (AIME 2025, MATH-500):</strong> DeepSeek R1 ≈ GPT-5, slightly ahead on some subsets.</li>
+<li><strong>Code (HumanEval, LiveCodeBench):</strong> gap &lt; 3 points.</li>
+<li><strong>Reasoning (MMLU-Pro, GPQA):</strong> DeepSeek 2-5 points lower.</li>
+<li><strong>Chinese (C-Eval, CMMLU):</strong> DeepSeek ahead (native Chinese training), especially classical Chinese and policy text.</li>
+<li><strong>SWE-bench Verified (agent coding):</strong> DeepSeek R1 ~52%, GPT-5 ~65%, a clear 13-point gap.</li>
+<li><strong>Tool-calling reliability (Berkeley FCC):</strong> GPT-5 clearly ahead; DeepSeek occasionally hallucinates tool names or arguments.</li>
+</ul>
+<p><strong>In plain terms:</strong> for asking questions, writing code snippets, doing math, or writing Chinese, DeepSeek is enough. Ask it to chain 5 tool calls to fix a bug, refactor across files, or run an agent off a long list of fuzzy requirements, and GPT-5 fails far less often.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="cost">Real workflow cost math (real money, not the token sticker price)</h2>
+
+<h3 style="margin-top:18px">Scenario A: support chatbot (1 million conversations a month)</h3>
+<p>Assume each conversation averages 3 turns, with 800 tokens in and 200 out per turn, and prompt cache enabled (the system prompt is reused).</p>
+<ul>
+<li><strong>DeepSeek R1:</strong> with the system prompt cached, ≈ <strong>$650/month</strong>.</li>
+<li><strong>GPT-5:</strong> same setup ≈ <strong>$3,200/month</strong>.</li>
+<li><strong>Gap:</strong> 4.9×. That's $2,550 saved a month, $30,600 a year.</li>
+</ul>
+<p>If the bot can tolerate a 5% failure rate (with human handoff as backup): DeepSeek wins outright. If these are paying users who need every answer right: consider GPT-5 or Claude.</p>
+
+<h3 style="margin-top:18px">Scenario B: code-review agent (10,000 PRs a month)</h3>
+<p>Assume each PR averages 50K tokens in (diff + context) and 5K out, with 1.3 tool calls on average.</p>
+<ul>
+<li><strong>DeepSeek R1:</strong> ~$1,500/month, but the lower SWE-bench means roughly 8% of reviews need a rerun, so ~$1,620/month in practice.</li>
+<li><strong>GPT-5:</strong> ~$7,000/month, 3% rerun rate, so ~$7,210/month.</li>
+<li><strong>Gap:</strong> 4.4×. But DeepSeek's "rerun cost" lands on your engineers' attention, and that hidden cost depends on your team's pace.</li>
+</ul>
+<p>Conclusion: DeepSeek for internal tools, GPT-5 for external delivery (a code-review SaaS you ship to customers).</p>
+
+<h3 style="margin-top:18px">Scenario C: bulk content generation (500,000 product descriptions a month)</h3>
+<p>Assume 500 tokens in and 300 out each, a single call, no agent needed.</p>
+<ul>
+<li><strong>DeepSeek R1:</strong> ~$465/month.</li>
+<li><strong>GPT-5 (list price):</strong> ~$2,375/month.</li>
+<li><strong>GPT-5 (batch, half price):</strong> ~$1,188/month.</li>
+<li><strong>Gap (vs GPT-5 batch):</strong> 2.6×. GPT-5 batch narrows the gap sharply, a detail many people miss.</li>
+</ul>
+<p>Conclusion: for batch jobs that can run async, the gap isn't as dramatic; but DeepSeek is still cheaper, and you don't wait 24 hours.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="when-gpt5">When GPT-5 is worth the extra money</h2>
+<ol>
+<li><strong>Multi-step agents (5+ tool calls):</strong> every failure reruns the whole chain, and DeepSeek's higher failure rate can make total cost overtake GPT-5.</li>
+<li><strong>Fuzzy requirements + system design:</strong> GPT-5 Pro asks clarifying questions; DeepSeek just charges ahead. Building the wrong design is worse than paying 5x.</li>
+<li><strong>The core path of a paid consumer product:</strong> a user who paid will cancel after one failure, so $0.10 vs $0.02 per call isn't the deciding factor.</li>
+<li><strong>Compliance audit scenarios:</strong> Western enterprises, healthcare, and finance have concerns about data flowing to a Chinese API (even though the weights are self-hostable).</li>
+<li><strong>Need for 200K+ context:</strong> DeepSeek only has 128K, GPT-5 has 400K.</li>
+</ol>
+</section>
+
+<section class="seo-card">
+<h2 id="when-deepseek-fails">When DeepSeek actually costs you</h2>
+<ol>
+<li><strong>Production with no fallback:</strong> DeepSeek occasionally goes down, rate-limits, or is unavailable, and single-vendor risk is real. Wire up at least two providers.</li>
+<li><strong>Multimodal needs (image, video, voice):</strong> DeepSeek R1 is text-first, so for images you switch to Qwen-VL or GPT-5.</li>
+<li><strong>No one on the team can write prompts:</strong> GPT-5 is more "obedient" and beginners' prompts vary a lot; DeepSeek is more sensitive to prompt quality.</li>
+<li><strong>Big budget, tight timeline:</strong> GPT-5 + Claude minimize engineering time, with price a secondary concern.</li>
+</ol>
+</section>
+
+<section class="seo-card">
+<h2 id="routing">The recommended combo: two-model routing (best practice)</h2>
+<p>Mature products in 2026 almost never bet on a single model. The most common routing:</p>
+<ol>
+<li><strong>DeepSeek R1 as the main model</strong> handling 80% of requests (chat, extraction, classification, code snippets, Chinese content).</li>
+<li><strong>GPT-5 / Claude Sonnet 4.6 as the fallback</strong>, switched in when DeepSeek's confidence is low, a tool call fails, or a user flags dissatisfaction.</li>
+<li><strong>GPT-5 mini / Gemini Flash / a DeepSeek distilled small model</strong> for high-frequency, low-value tasks (lint, simple classification, keyword extraction).</li>
+</ol>
+<p>You implement it with OpenRouter or your own routing layer, a 5-line job. All-in cost is 25-40% of a pure-GPT-5 setup, with quality loss &lt; 5%.</p>
+<p><a class="section-link" target="_blank" rel="nofollow noopener" href="https://openrouter.ai/?utm_source=checkai&utm_medium=article_en&utm_campaign=deepseek-vs-gpt5">Go to OpenRouter →</a></p>
+<p style="font-size:13px;color:var(--muted)">OpenRouter has no public referral program; this is a plain recommendation link.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="related">Related reading</h2>
+<ul>
+<li><a href="/en/articles/local-llm-deployment-guide-2026/">The Complete Guide to Running Open-Source LLMs Locally 2026</a></li>
+<li><a href="/en/articles/rag-vs-long-context-vs-fine-tune-2026/">RAG vs Long Context vs Fine-tune 2026: What to Pick When</a></li>
+<li><a href="/en/articles/claude-opus-4-7-review-2026/">Claude Opus 4.7 Review: SWE-bench 87.6%, Who Should Upgrade</a></li>
+<li><a href="/en/articles/china-ai-models-landscape-2026/">The 2026 Chinese AI Model Landscape</a></li>
+<li><a href="/en/articles/gpt-5-vs-claude-coding-2026/">GPT-5 vs Claude Sonnet 4.6: Which to Pick for Coding</a></li>
+<li><a href="/topics/cheapest-ai-api-models/">The Cheapest AI API Models 2026</a></li>
+<li><a href="/topics/best-ai-models-for-coding/">Best AI Models for Coding 2026</a></li>
+<li><a href="/topics/open-source-ai-models/">Open-Source AI Models Compared (DeepSeek, Qwen, Llama)</a></li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="faq">FAQ</h2>
+<p><strong>How many times cheaper is DeepSeek R1 than GPT-5?</strong> 4.5x on input, 4.6x on output. With cache + batch the gap can stretch to 6-8x, or narrow to 2.6x (when GPT-5 uses batch).</p>
+<p><strong>Has performance really caught up?</strong> On math, code snippets, and Chinese, yes; on agents, tool calling, and 200K+ long context, GPT-5 still leads.</p>
+<p><strong>When must I choose GPT-5?</strong> Multi-step agents, fuzzy requirements, paid consumer products, compliance, and 200K+ context.</p>
+<p><strong>Is DeepSeek's data safe?</strong> The official API stores data in China, so international users should consider OpenRouter / Together AI / self-hosting.</p>
+<p><strong>Should I switch everything to DeepSeek?</strong> No. Best practice is two-model routing: DeepSeek as the default plus GPT-5/Claude as fallback.</p>
+</section>
+
+<p><a class="section-link" href="/">→ Compare DeepSeek and GPT-5 live on Check.AI</a></p>
+
+</main>
+<footer class="seo-footer"><a href="/en/">Back to home</a> · <a href="/topics/cheapest-ai-api-models/">Cheapest API Guide</a></footer>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "df6bb0324e4c458fb4e8b979d3feed3c"}'></script>
+</body>
+</html>

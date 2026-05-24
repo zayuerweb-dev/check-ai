@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>RAG vs Long Context vs Fine-tune 2026: A Complete Guide to What to Pick and What It Costs | Check.AI</title>
+<meta name="description" content="A 2026 comparison of the real cost, performance, pitfalls, and hybrid best practices of three approaches: RAG, long context + prompt caching, and fine-tune. A 10K query/day RAG system runs $4-9K/month, Claude caching saves 90%, fine-tune is 10-50x cheaper, but lost-in-the-middle drops long-context accuracy 20%. Read it to know what to pick when and how to combine them.">
+<link rel="canonical" href="https://checkaimodels.com/en/articles/rag-vs-long-context-vs-fine-tune-2026/">
+<link rel="alternate" hreflang="en" href="https://checkaimodels.com/en/articles/rag-vs-long-context-vs-fine-tune-2026/">
+<link rel="alternate" hreflang="zh" href="https://checkaimodels.com/zh/articles/rag-vs-long-context-vs-fine-tune-2026/">
+<link rel="alternate" hreflang="x-default" href="https://checkaimodels.com/en/articles/rag-vs-long-context-vs-fine-tune-2026/">
+<meta property="og:title" content="RAG vs Long Context vs Fine-tune 2026: A Pick-One Guide">
+<meta property="og:description" content="Real cost, a decision tree, and 5 tested scenarios, telling you which path to pick in 2026.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://checkaimodels.com/en/articles/rag-vs-long-context-vs-fine-tune-2026/">
+<link rel="stylesheet" href="/styles.css?v=20260520-1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","inLanguage":"en","headline":"RAG vs Long Context vs Fine-tune 2026: A Complete Guide","description":"A 2026 comparison of the real cost, performance, pitfalls, and hybrid best practices of three approaches: RAG, long context + prompt caching, and fine-tune. A 10K query/day RAG system runs $4-9K/month, Claude caching saves 90%, fine-tune is 10-50x cheaper, but lost-in-the-middle drops long-context accuracy 20%. Read it to know what to pick when and how to combine them.","datePublished":"2026-05-15","dateModified":"2026-05-15","author":{"@type":"Person","name":"zayuerweb-dev","url":"https://github.com/zayuerweb-dev","sameAs":["https://github.com/zayuerweb-dev"]},"publisher":{"@type":"Organization","name":"Check.AI","url":"https://checkaimodels.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"en","mainEntity":[{"@type":"Question","name":"How do I choose among RAG, long context, and fine-tune?","acceptedAnswer":{"@type":"Answer","text":"Choose by the nature of the problem: knowledge base changes often + at GB scale → RAG; a single large document asked repeatedly + under 200K tokens → long context + prompt caching; need stable tone / format / policy / classification → fine-tune. 90% of production is hybrid: RAG for facts + fine-tune for behavior + long context for whole documents."}},{"@type":"Question","name":"Is long context about to replace RAG?","acceptedAnswer":{"@type":"Answer","text":"For single-document scenarios it already is. Claude Sonnet 4.6 / Opus 4.7 / Gemini 3.1 Pro all offer 1M-token context, and with prompt caching giving cached input a 90% discount, per-query cost drops from $0.30 to $0.03. But for truly large knowledge bases (GB / TB scale, hundreds of thousands of documents), long context can't hold it and RAG is still the only answer. They are not replacements for each other, they divide by scale."}},{"@type":"Question","name":"How much does prompt caching actually save?","acceptedAnswer":{"@type":"Answer","text":"Anthropic's official figure: the cache-hit price is 0.1x the normal input price (90% off). Tested on a book-chat running a 100K-token context: the first request's cost is unchanged, and from the second on TTFT drops 79% and cached input token cost drops 90%. In production, a stable system prompt typically gets an 80-95% cache hit rate. A $5,000/month RAG app can drop below $1,000 after adding prompt caching."}},{"@type":"Question","name":"Is fine-tune still worth doing in 2026?","acceptedAnswer":{"@type":"Answer","text":"Two kinds of cases are still very worth it: (1) 100,000+ high-frequency queries a day with a clear task definition (support classification, content moderation, fixed-format extraction), where per-query cost can be 10-50x cheaper than a big model + RAG, paying back within weeks. (2) Products that need a stable brand tone / company policy adherence / strict output format. Fine-tune is not good at teaching the model new facts, that is RAG's job."}},{"@type":"Question","name":"What are the pitfalls of long context?","acceptedAnswer":{"@type":"Answer","text":"Three: (1) Lost-in-the-middle: when key info sits in the middle of a long document, accuracy drops 10-20 points versus the start/end, and more than 20% for some models. (2) Slow: a single long-context query takes 30-60 seconds, while RAG is usually around 1 second. (3) Although caching lowers cost, the first request is billed at full price, so it isn't worth it for low-frequency documents."}},{"@type":"Question","name":"What are the best practices for a hybrid system?","acceptedAnswer":{"@type":"Answer","text":"The 2026 production mainstream: RAG for facts + fine-tune for behavior + long context for whole-document queries. Measured accuracy: hybrid 96%, pure RAG 89%, pure fine-tune 91%. Anthropic's Contextual Retrieval further cuts RAG recall failure by 49%, and 67% with a reranker. The specific split: volatile knowledge into RAG, stable behavior into fine-tune, single-session multi-turn deep Q&A via long context + caching."}}]}</script>
+</head>
+<body class="seo-page">
+<header class="seo-header"><a class="brand-link" href="/en/">Check.AI</a><nav><a href="/">Compare</a><a href="/about">About</a><a href="/privacy.html">Privacy</a><a href="/contact">Contact</a><a href="/zh/articles/rag-vs-long-context-vs-fine-tune-2026/">中文</a></nav></header>
+<main class="seo-main">
+<p class="eyebrow">深度对比 · 2026-05-15 · by <a href="https://github.com/zayuerweb-dev" rel="author">@zayuerweb-dev</a></p>
+<h1>RAG vs Long Context vs Fine-tune 2026: A Complete Guide to What to Pick When</h1>
+<p class="seo-lead">In 2024 everyone was building RAG and someone posted a LangChain tutorial daily. In 2025 Gemini pushed context to 2M and Claude to 1M, and the forums started shouting "RAG is dead." Then in 2026 we all came back to find that projects betting on a single approach end up half-patched, and the products that actually work in production are nearly all a three-part hybrid. This piece lays out the numbers from the production reports I've read (Anthropic, Vellum, Redis, Towards Data Science) and tells you which path to pick for which scenario, when to move to a hybrid, and how to cut a $5K/month RAG app down to $1K.</p>
+
+<nav class="article-toc" aria-label="Contents">
+<p class="article-toc-label">Contents</p>
+<ol>
+<li><a href="#conclusion">30-second verdict</a></li>
+<li><a href="#three">What the three methods actually do</a></li>
+<li><a href="#cost">Real cost comparison (production data)</a></li>
+<li><a href="#decision">5-minute decision tree</a></li>
+<li><a href="#scenarios">What to pick across 5 real scenarios</a></li>
+<li><a href="#traps">3 counterintuitive long-context traps</a></li>
+<li><a href="#hybrid">2026 hybrid best practices</a></li>
+<li><a href="#future">What to watch over the next 6 months</a></li>
+<li><a href="#related">Related reading</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ol>
+</nav>
+
+<section class="seo-card">
+<h2 id="conclusion">30-second verdict</h2>
+<ul>
+<li><strong>Knowledge base &lt; 200K tokens + asked repeatedly:</strong> long context + prompt caching. Simple, cheap, the default.</li>
+<li><strong>Knowledge base at GB-TB scale / hundreds of thousands of documents:</strong> RAG. Long context can't hold it, no choice.</li>
+<li><strong>Knowledge changes daily (news, prices, inventory):</strong> RAG. A fine-tune is stale the moment training ends.</li>
+<li><strong>Need stable tone / format / policy adherence:</strong> fine-tune. Teach the model how to say it, not what to say.</li>
+<li><strong>100K+ high-frequency fixed tasks a day:</strong> fine-tune a small model. 10-50x cheaper than a big model + RAG.</li>
+<li><strong>Best for production:</strong> hybrid. Fine-tune for behavior, RAG for facts, long context for whole documents. 96% accuracy vs 89-91% for a single method.</li>
+<li><strong>When in doubt:</strong> run long context + caching for two weeks, move to RAG when it can't keep up, fine-tune when behavior gets unstable.</li>
+</ul>
+<p><a class="section-link" href="/">Compare every model's context window and price live on Check.AI →</a></p>
+</section>
+
+<section class="seo-card">
+<h2 id="three">What the three methods actually do</h2>
+
+<h3 style="margin-top:18px">RAG (Retrieval-Augmented Generation)</h3>
+<p>The typical flow: chunk documents → embed → store in a vector DB → retrieve the top-K relevant chunks when a user asks → stitch them into the prompt for the LLM to answer. In plain terms, "pull the 5 chunks most like the answer out of a big pile of documents, then have the model read those 5 and write the answer."</p>
+<ul>
+<li><strong>Strengths:</strong> no scale ceiling (gigabytes, terabytes, millions of documents all work); knowledge can update any time (just re-index); you can cite sources for the user, which helps debug wrong answers.</li>
+<li><strong>Weaknesses:</strong> the whole system's lifeline is retrieval, so if recall is wrong the answer is guaranteed wrong; the architecture has many components (vector DB, embedding model, reranker, chunking strategy); it needs ongoing tuning after launch.</li>
+</ul>
+
+<h3 style="margin-top:18px">Long context + prompt caching</h3>
+<p>Stuff a whole document or codebase into the prompt at once (Claude and Gemini now both offer 1M tokens, roughly 750,000 Chinese characters, a thick book). On each question, the model reasons over the full content. Prompt caching gives the repeated portion a 90%-off token price.</p>
+<ul>
+<li><strong>Strengths:</strong> the architecture shrinks to a single API call, with no vector DB and no chunking; the model reads the whole thing at once, so there's no "retrieval miss"; cross-passage reasoning (such as "what's the contradiction between X in the first 5 chapters and Y in the last") is far stronger than RAG.</li>
+<li><strong>Weaknesses:</strong> a "lost-in-the-middle" problem starts above 200K (more below); single queries run a slow 30-60 seconds; a GB-scale knowledge base simply won't fit.</li>
+</ul>
+
+<h3 style="margin-top:18px">Fine-tune</h3>
+<p>Train a small model on your own data: a Llama 8B, Qwen2.5 7B, Mistral 7B, or similar. Once trained, it has "learned" your tone, format, terminology, and policies.</p>
+<ul>
+<li><strong>Strengths:</strong> cheap inference (small models use little GPU), very stable behavior (it won't be polite today and curt tomorrow), no dependence on retrieval infrastructure, can run fully offline.</li>
+<li><strong>Weaknesses:</strong> it doesn't teach new facts (the weights freeze after training, so it doesn't know the world changed); training + maintenance needs MLOps, a high bar for indie developers; iterating once every six months is normal for a small company, which can't keep pace.</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="cost">Real cost comparison (production data)</h2>
+
+<h3 style="margin-top:18px">RAG system monthly cost</h3>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">Component</th>
+<th style="text-align:left;padding:8px">Monthly (small)</th>
+<th style="text-align:left;padding:8px">Monthly (medium, 10K query/day)</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:8px">Vector DB (Pinecone / Weaviate / Qdrant)</td><td style="padding:8px">$70-500</td><td style="padding:8px">$1,200</td></tr>
+<tr><td style="padding:8px">Embedding API</td><td style="padding:8px">$10-50</td><td style="padding:8px">$800</td></tr>
+<tr><td style="padding:8px">LLM API calls</td><td style="padding:8px">$200-2,000</td><td style="padding:8px">$2,500-5,500</td></tr>
+<tr><td style="padding:8px">Document processing + reranker</td><td style="padding:8px">$20-100</td><td style="padding:8px">$300</td></tr>
+<tr><td style="padding:8px">Observability / monitoring</td><td style="padding:8px">$50-200</td><td style="padding:8px">$500</td></tr>
+<tr><td style="padding:8px"><strong>Total</strong></td><td style="padding:8px"><strong>$350-2,850</strong></td><td style="padding:8px"><strong>$5,300-8,300</strong></td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:var(--muted)">Sources: Anthropic, Pinecone's product page, Redis case studies, and Towards Data Science's 2026 RAG cost survey. The medium scenario assumes 500K documents and 10K query/day.</p>
+
+<h3 style="margin-top:18px">Long context + prompt caching cost</h3>
+<p>Same 10K query/day, a single 100K-token document, on Claude Sonnet 4.6:</p>
+<ul>
+<li><strong>No caching:</strong> $0.30 input each → 10K × $0.30 = $3,000/day ≈ <strong>$90,000/month</strong> (not viable).</li>
+<li><strong>With prompt caching (85% hit rate):</strong> $0.03 cache-hit price × 85% + $0.30 × 15% = an average $0.07/query → <strong>$21,000/month</strong>.</li>
+<li><strong>With Haiku 4.5 (small model + caching):</strong> the same setup is about <strong>$5,000/month</strong>.</li>
+</ul>
+<p>Against medium RAG at $5,300-8,300/month, <strong>Haiku + long context + caching can match or even beat it</strong>, as long as the document fits (&lt; 200K tokens).</p>
+
+<h3 style="margin-top:18px">Fine-tuned small model cost</h3>
+<p>A support-classification scenario at 100,000 queries a day:</p>
+<ul>
+<li><strong>GPT-5 + RAG for everything:</strong> ~$8,000/month.</li>
+<li><strong>Fine-tune Qwen2.5-7B (one training run $200, 100K query/day × $0.0001 inference):</strong> ~$500/month.</li>
+<li><strong>Gap:</strong> <strong>16x cheaper</strong>, training cost recovered in 1 week.</li>
+</ul>
+<p>For high-frequency fixed tasks, fine-tune is the only economically scalable option. But for low-frequency complex tasks (a lawyer's workflow at 100 a day), fine-tune's training + maintenance cost is higher than either RAG or long context.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="decision">5-minute decision tree</h2>
+<p>Ask yourself 4 questions, in order:</p>
+<ol>
+<li><strong>How big is your knowledge base?</strong>
+  <ul>
+    <li>&lt; 200K tokens (a book / a manual / a contract) → go to question 2</li>
+    <li>&gt; 200K tokens (multiple documents) → go to question 3</li>
+  </ul>
+</li>
+<li><strong>Are you asking the same document repeatedly?</strong>
+  <ul>
+    <li>Yes → ✅ <strong>long context + prompt caching</strong> (simplest, cheapest)</li>
+    <li>No (query once and discard) → run long context bare, but cost is high, consider extracting the key passages</li>
+  </ul>
+</li>
+<li><strong>Does the knowledge change daily?</strong>
+  <ul>
+    <li>Yes (news, inventory, customer records) → ✅ <strong>RAG</strong> (a fine-tune is stale once trained)</li>
+    <li>No → go to question 4</li>
+  </ul>
+</li>
+<li><strong>What's your failure mode?</strong>
+  <ul>
+    <li>Wrong facts / can't find info → ✅ <strong>RAG</strong></li>
+    <li>Unstable tone / messy format / breaks the rules → ✅ <strong>fine-tune</strong> (teach behavior)</li>
+    <li>Both → ✅ <strong>hybrid: RAG + fine-tune</strong></li>
+  </ul>
+</li>
+</ol>
+<p style="margin-top:14px"><strong>One plain rule of thumb:</strong> if you can fit it into Claude's 1M context in 30 minutes and get an 80% satisfactory result, start there. Upgrade to RAG / fine-tune when traffic outgrows it or accuracy drops. Solve the problem first, optimize the architecture later.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="scenarios">What to pick across 5 real scenarios</h2>
+
+<h3 style="margin-top:18px">Scenario 1: internal knowledge-base Q&A (500 PDFs, company wiki + policy manuals)</h3>
+<p>Pick RAG. 500 PDFs run about 5-15M tokens, which long context can't hold; dozens are added monthly, so a fine-tune is stale once trained. Vector DB + reranker + GPT-5 / Claude is the standard combo. Monthly cost is usually $3,000-6,000, depending on query volume.</p>
+
+<h3 style="margin-top:18px">Scenario 2: chatting with 1 thick book / 1 codebase</h3>
+<p>Pick long context + caching. Load it into Claude 1M or Gemini 1M: the first request is $1-3, and each later one runs through cache at about $0.10. Architecturally there's only one API call, no vector DB, no chunking, no reranker tuning. Cursor's agent mode and GitHub Copilot Workspace both take this route.</p>
+
+<h3 style="margin-top:18px">Scenario 3: support auto-classification (500,000 tickets a day)</h3>
+<p>Pick a fine-tuned small model. The task is clear (sort into 50 categories), high-volume, and needs to be stable. Fine-tune a Qwen2.5-7B or Llama-8B, with per-query cost on the order of $0.0001 and a monthly cost around $1,500. The same workload on GPT-5 + RAG starts at $15,000 minimum. That's 10x+ cheaper, recovered in a few weeks.</p>
+
+<h3 style="margin-top:18px">Scenario 4: legal contract review (200 new contracts a month + historical case library)</h3>
+<p>Use all three together. The contract currently under review (single document, tens of KB) goes through long context + caching, so a lawyer can ask dozens of follow-ups; the historical case library (GB scale, retrieval of similar clauses) goes through RAG; the final output format and legal phrasing are locked down with fine-tune (to stop the model from occasionally getting too casual). This combo fits the needs of a "professional product" most closely, with tested accuracy reaching 96%.</p>
+
+<h3 style="margin-top:18px">Scenario 5: real-time news Q&A chatbot</h3>
+<p>RAG is the only answer. News changes by the minute, so a fine-tune is stale once trained; long context can't hold the whole news archive. What you build is a continuous embedding pipeline that ingests new articles in real time, paired with a reranker for precision. This kind of product has no "pick another path" option.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="traps">3 counterintuitive long-context traps</h2>
+
+<h3 style="margin-top:18px">1. Lost-in-the-middle: key info in the middle drops accuracy 10-20 points</h3>
+<p>Model memory is U-shaped: it remembers the start and end clearly, and "drops" the middle most. Since Stanford's 2023 "Lost in the Middle" paper, Anthropic and Google have reproduced it repeatedly: in the same 100K document, recall is 95% when the key sentence is at the start or end, but drops to 75-80% when it's dead center. GPT-3.5-Turbo can drop more than 20 points in extreme cases.</p>
+<p>What to do in practice: put important instructions, names, and key numbers once each at the start and end of the prompt; above 200K tokens, chunk and use RAG. Don't expect the model to reliably find the name at the 470,000th token in a 1M context.</p>
+
+<h3 style="margin-top:18px">2. Slow: long context is 30-60 seconds per query, RAG is 1 second</h3>
+<p>A 1M-token input means the model has to "finish reading" before it starts outputting. Running the same knowledge base for real: RAG's end-to-end retrieval + inference is about 1 second; long context at 1M usually takes 30-60 seconds, even with streaming on.</p>
+<p>A consumer real-time chat product can't bear that wait, the users have already left. Long context suits batch, async, and agent setups, the "hand it a task and go do something else" kind, not a pure chat UI.</p>
+
+<h3 style="margin-top:18px">3. Caching only saves on the "repeated part," and costs more for low-frequency access</h3>
+<p>Prompt caching discounts from the second request on. The first request is billed at full price, and Claude also charges a 1.25× write premium. A 100K document queried only twice a month is actually more expensive with caching on than off.</p>
+<p>The practical move: monitor query frequency per document, leave caching off below a 30% hit rate, turn it fully on above 80%. Judge the gray zone in the middle by business value.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="hybrid">2026 hybrid best practices</h2>
+<p>The 2026 guides from Vellum, Anthropic, Redis, and others all point to the same conclusion: <strong>a single method is no longer competitive, and 90% of production is hybrid</strong>.</p>
+
+<h3 style="margin-top:18px">Splitting responsibilities</h3>
+<ul>
+<li><strong>RAG → volatile facts:</strong> news, prices, inventory, customer records, newly added documents.</li>
+<li><strong>Fine-tune → stable behavior:</strong> brand tone, output format, policy adherence, classification rules.</li>
+<li><strong>Long context + caching → single-session depth:</strong> the full context of the current conversation, all clauses of the current contract, the complete code of the current codebase.</li>
+</ul>
+
+<h3 style="margin-top:18px">Measured data</h3>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">Approach</th>
+<th style="text-align:left;padding:8px">Domain accuracy</th>
+<th style="text-align:left;padding:8px">Monthly cost (medium)</th>
+<th style="text-align:left;padding:8px">Maintenance complexity</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding:8px">Pure RAG</td><td style="padding:8px">89%</td><td style="padding:8px">$5,300-8,300</td><td style="padding:8px">Medium (needs vector DB ops)</td></tr>
+<tr><td style="padding:8px">Pure fine-tune</td><td style="padding:8px">91%</td><td style="padding:8px">$500-2,000</td><td style="padding:8px">Medium (needs MLOps)</td></tr>
+<tr><td style="padding:8px">Pure long context + caching</td><td style="padding:8px">82-87% (lost-in-middle)</td><td style="padding:8px">$3,000-15,000</td><td style="padding:8px">Very low</td></tr>
+<tr><td style="padding:8px"><strong>Hybrid (RAG + fine-tune + long context)</strong></td><td style="padding:8px"><strong>96%</strong></td><td style="padding:8px">$4,000-10,000</td><td style="padding:8px">High (three stacks to maintain)</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:var(--muted)">Sources: Vellum, Umesh Malik's production guide, Anthropic's Contextual Retrieval paper. Accuracy is the median across typical domain benchmarks.</p>
+
+<h3 style="margin-top:18px">Anthropic Contextual Retrieval (late 2024, widespread by 2026)</h3>
+<p>It cuts traditional RAG's recall failure rate by <strong>49%</strong>, and by <strong>67%</strong> with a reranker on. The mechanism: prepend each chunk with context about which document and section it came from, so the embeddings are more accurate. <strong>Doing RAG in 2026 without Contextual Retrieval means losing at the starting line.</strong></p>
+</section>
+
+<section class="seo-card">
+<h2 id="future">What to watch over the next 6 months</h2>
+<ul>
+<li><strong>3M / 5M token context.</strong> Gemini is already testing a public 2M+ version. Once stable, RAG's value for &lt; 1M knowledge bases depreciates fast.</li>
+<li><strong>Persistent prompt cache.</strong> Claude's current cache TTL is 5 minutes (1 hour in beta). If it reaches 24h / permanent, long-context cost gets cut in half again.</li>
+<li><strong>Smaller, cheaper, easier-to-fine-tune open models.</strong> Qwen3 Coder and DeepSeek's distilled small models keep lowering the fine-tune barrier.</li>
+<li><strong>RAG tool-stack consolidation.</strong> The LangChain / LlamaIndex / Vespa / Pinecone contest will eventually thin out, leaving 2-3.</li>
+<li><strong>Native memory-tool APIs.</strong> Claude Opus 4.7 already introduced a memory tool, and future versions may make "persistent knowledge + current query" more native, sitting between RAG and long context.</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="related">Related reading</h2>
+<ul>
+<li><a href="/en/articles/local-llm-deployment-guide-2026/">The Complete Guide to Running Open-Source LLMs Locally 2026</a></li>
+<li><a href="/en/articles/claude-opus-4-7-review-2026/">Claude Opus 4.7 Review</a></li>
+<li><a href="/en/articles/deepseek-r1-vs-gpt-5-cost-2026/">DeepSeek R1 vs GPT-5 Cost Comparison</a></li>
+<li><a href="/en/articles/gpt-5-vs-claude-coding-2026/">GPT-5 vs Claude: Which Writes Better Code</a></li>
+<li><a href="/topics/long-context-ai-models/">Long-Context AI Models Compared</a></li>
+<li><a href="/topics/cheapest-ai-api-models/">The Cheapest AI API Models</a></li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="faq">FAQ</h2>
+<p><strong>How do I pick among the three?</strong> Knowledge base changes often + large → RAG; single document &lt; 200K tokens asked repeatedly → long context + caching; need stable behavior → fine-tune. 90% of production is hybrid.</p>
+<p><strong>Is RAG obsolete?</strong> No. For GB-TB knowledge bases and real-time data, RAG is still the only answer. But for single documents under 200K tokens, long context + caching is simpler.</p>
+<p><strong>How much does prompt caching save?</strong> The hit price is 1/10 of normal input, and at an 80-95% hit rate overall cost drops 70-90%. $5K/month can fall to $1K.</p>
+<p><strong>Is fine-tune still worth it?</strong> A must for 100K+ high-frequency fixed tasks a day, where it's 10-50x cheaper than GPT-5 + RAG.</p>
+<p><strong>The biggest long-context trap?</strong> Lost-in-the-middle: info in the middle drops accuracy 10-20%. Put the key parts at the start/end.</p>
+<p><strong>Where do I start building a hybrid system?</strong> RAG for facts first (the base), add fine-tune for behavior (stability), then use long context + caching for deep session Q&A.</p>
+</section>
+
+<p><a class="section-link" href="/">→ Compare every model's context window, price, and cache support live on Check.AI</a></p>
+
+</main>
+<footer class="seo-footer"><a href="/en/">Back to home</a> · <a href="/topics/long-context-ai-models/">Long-Context Model Selection Guide</a></footer>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "df6bb0324e4c458fb4e8b979d3feed3c"}'></script>
+</body>
+</html>
