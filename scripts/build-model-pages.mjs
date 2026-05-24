@@ -294,7 +294,7 @@ function pageHtml(group, allSlugs, indexable, allGroups) {
 <script type="application/ld+json">${faq}</script>
 </head>
 <body class="seo-page">
-<header class="seo-header"><a class="brand-link" href="/zh/">Check.AI</a><nav><a href="/">对比工具</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a></nav></header>
+<header class="seo-header"><a class="brand-link" href="/zh/">Check.AI</a><nav><a href="/app/">对比工具</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a></nav></header>
 <main class="seo-main">
 <p class="eyebrow">模型资料 · 数据同步于 ${data.models[0]?.last_updated || '2026 年 5 月'}</p>
 <h1>${escAttr(displayName)}</h1>
@@ -363,7 +363,7 @@ ${relatedHtml}
 </section>
 
 </main>
-<footer class="seo-footer"><a href="/zh/">返回中文首页</a> · <a href="/">打开对比工具</a></footer>
+<footer class="seo-footer"><a href="/zh/">返回中文首页</a> · <a href="/app/">打开对比工具</a></footer>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "df6bb0324e4c458fb4e8b979d3feed3c"}'></script>
 </body>
 </html>

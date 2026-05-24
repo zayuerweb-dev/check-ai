@@ -13,10 +13,10 @@ const zhDate = (iso) => { const [y, m, d] = iso.split('-'); return `${y} 年 ${+
 function navFor(lang, slug, art) {
   if (lang === 'zh') {
     const en = art.en && art.en.status === 'published' ? `<a href="/en/articles/${slug}/">EN</a>` : '';
-    return `<header class="seo-header"><a class="brand-link" href="/zh/">Check.AI</a><nav><a href="/">对比工具</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a>${en}</nav></header>`;
+    return `<header class="seo-header"><a class="brand-link" href="/zh/">Check.AI</a><nav><a href="/app/">对比工具</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a>${en}</nav></header>`;
   }
   const zh = art.zh && art.zh.status === 'published' ? `<a href="/zh/articles/${slug}/">中文</a>` : '';
-  return `<header class="seo-header"><a class="brand-link" href="/en/">Check.AI</a><nav><a href="/">Compare</a><a href="/about">About</a><a href="/privacy.html">Privacy</a><a href="/contact">Contact</a>${zh}</nav></header>`;
+  return `<header class="seo-header"><a class="brand-link" href="/en/">Check.AI</a><nav><a href="/app/">Compare</a><a href="/about">About</a><a href="/privacy.html">Privacy</a><a href="/contact">Contact</a>${zh}</nav></header>`;
 }
 
 function hreflangFor(lang, slug, art) {
