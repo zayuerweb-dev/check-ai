@@ -74309,13 +74309,13 @@
         },
         "open_weights": true,
         "limit": {
-          "context": 1048575,
-          "output": 131072
+          "context": 1048576,
+          "output": 16384
         },
         "cost": {
-          "input": 0.112,
-          "output": 0.224,
-          "cache_read": 0.022
+          "input": 0.1,
+          "output": 0.2,
+          "cache_read": 0.02
         }
       },
       "meta-llama/llama-3.3-70b-instruct:free": {
@@ -96062,6 +96062,68 @@
           "output": 0,
           "cache_read": 0,
           "cache_write": 0
+        }
+      },
+      "qwen3.7-max": {
+        "id": "qwen3.7-max",
+        "name": "Qwen3.7 Max",
+        "family": "qwen",
+        "attachment": false,
+        "reasoning": true,
+        "tool_call": true,
+        "temperature": true,
+        "release_date": "2026-05-21",
+        "last_updated": "2026-05-21",
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "open_weights": false,
+        "limit": {
+          "context": 1000000,
+          "output": 65536
+        },
+        "cost": {
+          "input": 2.5,
+          "output": 7.5,
+          "cache_read": 0.5,
+          "cache_write": 3.125
+        }
+      },
+      "qwen3.6-flash": {
+        "id": "qwen3.6-flash",
+        "name": "Qwen3.6 Flash",
+        "family": "qwen3.6",
+        "attachment": true,
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "temperature": true,
+        "release_date": "2026-04-27",
+        "last_updated": "2026-04-27",
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "open_weights": false,
+        "limit": {
+          "context": 1000000,
+          "output": 65536
+        },
+        "cost": {
+          "input": 0.1875,
+          "output": 1.125,
+          "cache_write": 0.234375
         }
       }
     }
@@ -118492,6 +118554,68 @@
           "cache_read": 0,
           "cache_write": 0
         }
+      },
+      "qwen3.7-max": {
+        "id": "qwen3.7-max",
+        "name": "Qwen3.7 Max",
+        "family": "qwen",
+        "attachment": false,
+        "reasoning": true,
+        "tool_call": true,
+        "temperature": true,
+        "release_date": "2026-05-21",
+        "last_updated": "2026-05-21",
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "open_weights": false,
+        "limit": {
+          "context": 1000000,
+          "output": 65536
+        },
+        "cost": {
+          "input": 2.5,
+          "output": 7.5,
+          "cache_read": 0.5,
+          "cache_write": 3.125
+        }
+      },
+      "qwen3.6-flash": {
+        "id": "qwen3.6-flash",
+        "name": "Qwen3.6 Flash",
+        "family": "qwen3.6",
+        "attachment": true,
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "temperature": true,
+        "release_date": "2026-04-27",
+        "last_updated": "2026-04-27",
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "open_weights": false,
+        "limit": {
+          "context": 1000000,
+          "output": 65536
+        },
+        "cost": {
+          "input": 0.1875,
+          "output": 1.125,
+          "cache_write": 0.234375
+        }
       }
     }
   },
@@ -137597,40 +137721,7 @@
         "cost": {
           "input": 0.3,
           "output": 1.2,
-          "cache_read": 0.03
-        }
-      },
-      "accounts/fireworks/models/glm-4p7": {
-        "id": "accounts/fireworks/models/glm-4p7",
-        "name": "GLM 4.7",
-        "family": "glm",
-        "attachment": false,
-        "reasoning": true,
-        "tool_call": true,
-        "interleaved": {
-          "field": "reasoning_content"
-        },
-        "temperature": true,
-        "knowledge": "2025-04",
-        "release_date": "2025-12-22",
-        "last_updated": "2025-12-22",
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "open_weights": true,
-        "limit": {
-          "context": 198000,
-          "output": 198000
-        },
-        "cost": {
-          "input": 0.6,
-          "output": 2.2,
-          "cache_read": 0.3
+          "cache_read": 0.06
         }
       },
       "accounts/fireworks/models/qwen3p6-plus": {
@@ -137661,35 +137752,6 @@
           "input": 0.5,
           "output": 3,
           "cache_read": 0.1
-        }
-      },
-      "accounts/fireworks/models/kimi-k2-instruct": {
-        "id": "accounts/fireworks/models/kimi-k2-instruct",
-        "name": "Kimi K2 Instruct",
-        "family": "kimi",
-        "attachment": false,
-        "reasoning": false,
-        "tool_call": true,
-        "temperature": true,
-        "knowledge": "2024-10",
-        "release_date": "2025-07-11",
-        "last_updated": "2025-07-11",
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "open_weights": true,
-        "limit": {
-          "context": 128000,
-          "output": 16384
-        },
-        "cost": {
-          "input": 1,
-          "output": 3
         }
       },
       "accounts/fireworks/models/kimi-k2p6": {
@@ -137749,105 +137811,9 @@
           "output": 32768
         },
         "cost": {
-          "input": 0.05,
-          "output": 0.2
-        }
-      },
-      "accounts/fireworks/models/deepseek-v3p2": {
-        "id": "accounts/fireworks/models/deepseek-v3p2",
-        "name": "DeepSeek V3.2",
-        "family": "deepseek",
-        "attachment": false,
-        "reasoning": true,
-        "tool_call": true,
-        "interleaved": {
-          "field": "reasoning_content"
-        },
-        "temperature": true,
-        "knowledge": "2025-09",
-        "release_date": "2025-12-01",
-        "last_updated": "2025-12-01",
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "open_weights": true,
-        "limit": {
-          "context": 160000,
-          "output": 160000
-        },
-        "cost": {
-          "input": 0.56,
-          "output": 1.68,
-          "cache_read": 0.28
-        }
-      },
-      "accounts/fireworks/models/kimi-k2-thinking": {
-        "id": "accounts/fireworks/models/kimi-k2-thinking",
-        "name": "Kimi K2 Thinking",
-        "family": "kimi-thinking",
-        "attachment": false,
-        "reasoning": true,
-        "tool_call": true,
-        "interleaved": {
-          "field": "reasoning_content"
-        },
-        "temperature": true,
-        "release_date": "2025-11-06",
-        "last_updated": "2025-11-06",
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "open_weights": true,
-        "limit": {
-          "context": 256000,
-          "output": 256000
-        },
-        "cost": {
-          "input": 0.6,
-          "output": 2.5,
-          "cache_read": 0.3
-        }
-      },
-      "accounts/fireworks/models/glm-4p5": {
-        "id": "accounts/fireworks/models/glm-4p5",
-        "name": "GLM 4.5",
-        "family": "glm",
-        "attachment": false,
-        "reasoning": true,
-        "tool_call": true,
-        "interleaved": {
-          "field": "reasoning_content"
-        },
-        "temperature": true,
-        "knowledge": "2025-04",
-        "release_date": "2025-07-29",
-        "last_updated": "2025-07-29",
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "open_weights": true,
-        "limit": {
-          "context": 131072,
-          "output": 131072
-        },
-        "cost": {
-          "input": 0.55,
-          "output": 2.19
+          "input": 0.07,
+          "output": 0.3,
+          "cache_read": 0.035
         }
       },
       "accounts/fireworks/models/minimax-m2p5": {
@@ -137917,67 +137883,6 @@
           "cache_read": 0.1
         }
       },
-      "accounts/fireworks/models/minimax-m2p1": {
-        "id": "accounts/fireworks/models/minimax-m2p1",
-        "name": "MiniMax-M2.1",
-        "family": "minimax",
-        "attachment": false,
-        "reasoning": true,
-        "tool_call": true,
-        "interleaved": {
-          "field": "reasoning_content"
-        },
-        "temperature": true,
-        "release_date": "2025-12-23",
-        "last_updated": "2025-12-23",
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "open_weights": true,
-        "limit": {
-          "context": 200000,
-          "output": 200000
-        },
-        "cost": {
-          "input": 0.3,
-          "output": 1.2,
-          "cache_read": 0.03
-        }
-      },
-      "accounts/fireworks/models/deepseek-v3p1": {
-        "id": "accounts/fireworks/models/deepseek-v3p1",
-        "name": "DeepSeek V3.1",
-        "family": "deepseek",
-        "attachment": false,
-        "reasoning": true,
-        "tool_call": true,
-        "temperature": true,
-        "knowledge": "2025-07",
-        "release_date": "2025-08-21",
-        "last_updated": "2025-08-21",
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "open_weights": true,
-        "limit": {
-          "context": 163840,
-          "output": 163840
-        },
-        "cost": {
-          "input": 0.56,
-          "output": 1.68
-        }
-      },
       "accounts/fireworks/models/gpt-oss-120b": {
         "id": "accounts/fireworks/models/gpt-oss-120b",
         "name": "GPT OSS 120B",
@@ -138003,68 +137908,8 @@
         },
         "cost": {
           "input": 0.15,
-          "output": 0.6
-        }
-      },
-      "accounts/fireworks/models/glm-4p5-air": {
-        "id": "accounts/fireworks/models/glm-4p5-air",
-        "name": "GLM 4.5 Air",
-        "family": "glm-air",
-        "attachment": false,
-        "reasoning": true,
-        "tool_call": true,
-        "temperature": true,
-        "knowledge": "2025-04",
-        "release_date": "2025-08-01",
-        "last_updated": "2025-08-01",
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "open_weights": true,
-        "limit": {
-          "context": 131072,
-          "output": 131072
-        },
-        "cost": {
-          "input": 0.22,
-          "output": 0.88
-        }
-      },
-      "accounts/fireworks/models/glm-5": {
-        "id": "accounts/fireworks/models/glm-5",
-        "name": "GLM 5",
-        "family": "glm",
-        "attachment": false,
-        "reasoning": true,
-        "tool_call": true,
-        "interleaved": {
-          "field": "reasoning_content"
-        },
-        "temperature": true,
-        "release_date": "2026-02-11",
-        "last_updated": "2026-02-11",
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "open_weights": true,
-        "limit": {
-          "context": 202752,
-          "output": 131072
-        },
-        "cost": {
-          "input": 1,
-          "output": 3.2,
-          "cache_read": 0.5
+          "output": 0.6,
+          "cache_read": 0.015
         }
       },
       "accounts/fireworks/models/glm-5p1": {
@@ -138099,9 +137944,9 @@
           "cache_read": 0.26
         }
       },
-      "accounts/fireworks/routers/kimi-k2p5-turbo": {
-        "id": "accounts/fireworks/routers/kimi-k2p5-turbo",
-        "name": "Kimi K2.5 Turbo",
+      "accounts/fireworks/routers/kimi-k2p6-turbo": {
+        "id": "accounts/fireworks/routers/kimi-k2p6-turbo",
+        "name": "Kimi K2.6 Turbo",
         "family": "kimi-thinking",
         "attachment": false,
         "reasoning": true,
@@ -138110,9 +137955,8 @@
           "field": "reasoning_content"
         },
         "temperature": true,
-        "knowledge": "2025-01",
-        "release_date": "2026-01-27",
-        "last_updated": "2026-01-27",
+        "release_date": "2026-04-17",
+        "last_updated": "2026-04-17",
         "modalities": {
           "input": [
             "text",
@@ -138124,13 +137968,45 @@
         },
         "open_weights": true,
         "limit": {
-          "context": 256000,
-          "output": 256000
+          "context": 262000,
+          "output": 262000
         },
         "cost": {
-          "input": 0,
-          "output": 0,
-          "cache_read": 0
+          "input": 2,
+          "output": 8,
+          "cache_read": 0.3
+        }
+      },
+      "accounts/fireworks/routers/glm-5p1-fast": {
+        "id": "accounts/fireworks/routers/glm-5p1-fast",
+        "name": "GLM 5.1 Fast",
+        "family": "glm",
+        "attachment": false,
+        "reasoning": true,
+        "tool_call": true,
+        "interleaved": {
+          "field": "reasoning_content"
+        },
+        "temperature": true,
+        "release_date": "2026-04-01",
+        "last_updated": "2026-04-01",
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "open_weights": true,
+        "limit": {
+          "context": 202800,
+          "output": 131072
+        },
+        "cost": {
+          "input": 2.8,
+          "output": 8.8,
+          "cache_read": 0.52
         }
       },
       "accounts/fireworks/models/deepseek-v4-pro": {
@@ -138164,7 +138040,7 @@
         "cost": {
           "input": 1.74,
           "output": 3.48,
-          "cache_read": 0.15
+          "cache_read": 0.145
         }
       },
       "accounts/fireworks/models/deepseek-v4-flash": {
@@ -139548,6 +139424,38 @@
         "cost": {
           "input": 0.3,
           "output": 2.4
+        }
+      },
+      "qwen3.6-flash": {
+        "id": "qwen3.6-flash",
+        "name": "Qwen3.6 Flash",
+        "family": "qwen3.6",
+        "attachment": true,
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "temperature": true,
+        "release_date": "2026-04-27",
+        "last_updated": "2026-04-27",
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "open_weights": false,
+        "limit": {
+          "context": 1000000,
+          "output": 65536
+        },
+        "cost": {
+          "input": 0.1875,
+          "output": 1.125,
+          "cache_write": 0.234375
         }
       },
       "qwen-vl-max": {
@@ -146608,6 +146516,36 @@
           "cache_read": 0.145
         }
       },
+      "qwen3.7-max": {
+        "id": "qwen3.7-max",
+        "name": "Qwen3.7 Max",
+        "family": "qwen",
+        "attachment": false,
+        "reasoning": true,
+        "tool_call": true,
+        "temperature": true,
+        "release_date": "2026-05-21",
+        "last_updated": "2026-05-21",
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "open_weights": false,
+        "limit": {
+          "context": 1000000,
+          "output": 65536
+        },
+        "cost": {
+          "input": 2.5,
+          "output": 7.5,
+          "cache_read": 0.5,
+          "cache_write": 3.125
+        }
+      },
       "deepseek-v4-flash": {
         "id": "deepseek-v4-flash",
         "name": "DeepSeek V4 Flash",
@@ -146640,6 +146578,38 @@
           "input": 0.14,
           "output": 0.28,
           "cache_read": 0.028
+        }
+      },
+      "qwen3.6-flash": {
+        "id": "qwen3.6-flash",
+        "name": "Qwen3.6 Flash",
+        "family": "qwen3.6",
+        "attachment": true,
+        "reasoning": true,
+        "tool_call": true,
+        "structured_output": true,
+        "temperature": true,
+        "release_date": "2026-04-27",
+        "last_updated": "2026-04-27",
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "open_weights": false,
+        "limit": {
+          "context": 1000000,
+          "output": 65536
+        },
+        "cost": {
+          "input": 0.1875,
+          "output": 1.125,
+          "cache_write": 0.234375
         }
       }
     }

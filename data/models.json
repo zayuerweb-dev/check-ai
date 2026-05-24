@@ -758,7 +758,7 @@
         "ALIBABA_CODING_PLAN_API_KEY"
       ],
       "api": "https://coding.dashscope.aliyuncs.com/v1",
-      "models_count": 9
+      "models_count": 11
     },
     {
       "key": "minimax-cn",
@@ -940,7 +940,7 @@
         "ALIBABA_CODING_PLAN_API_KEY"
       ],
       "api": "https://coding-intl.dashscope.aliyuncs.com/v1",
-      "models_count": 9
+      "models_count": 11
     },
     {
       "key": "meganova",
@@ -1124,7 +1124,7 @@
         "FIREWORKS_API_KEY"
       ],
       "api": "https://api.fireworks.ai/inference/v1/",
-      "models_count": 20
+      "models_count": 12
     },
     {
       "key": "alibaba",
@@ -1134,7 +1134,7 @@
         "DASHSCOPE_API_KEY"
       ],
       "api": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
-      "models_count": 49
+      "models_count": 50
     },
     {
       "key": "302ai",
@@ -1234,7 +1234,7 @@
         "DASHSCOPE_API_KEY"
       ],
       "api": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-      "models_count": 80
+      "models_count": 82
     },
     {
       "key": "drun",
@@ -57183,14 +57183,14 @@
       "id": "deepseek/deepseek-v4-flash",
       "name": "DeepSeek V4 Flash",
       "price": {
-        "input": 0.112,
-        "output": 0.224,
-        "cache_read": 0.022,
+        "input": 0.1,
+        "output": 0.2,
+        "cache_read": 0.02,
         "cache_write": null
       },
       "limit": {
-        "context": 1048575,
-        "output": 131072
+        "context": 1048576,
+        "output": 16384
       },
       "capabilities": [
         "text",
@@ -73337,6 +73337,54 @@
       "release_date": "2025-07-23",
       "knowledge": "2025-04",
       "last_updated": "2025-07-23"
+    },
+    {
+      "platform": "alibaba-coding-plan-cn",
+      "id": "qwen3.7-max",
+      "name": "Qwen3.7 Max",
+      "price": {
+        "input": 2.5,
+        "output": 7.5,
+        "cache_read": 0.5,
+        "cache_write": 3.125
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-05-21",
+      "knowledge": null,
+      "last_updated": "2026-05-21"
+    },
+    {
+      "platform": "alibaba-coding-plan-cn",
+      "id": "qwen3.6-flash",
+      "name": "Qwen3.6 Flash",
+      "price": {
+        "input": 0.1875,
+        "output": 1.125,
+        "cache_read": null,
+        "cache_write": 0.234375
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-27",
+      "knowledge": null,
+      "last_updated": "2026-04-27"
     },
     {
       "platform": "minimax-cn",
@@ -89880,6 +89928,54 @@
       "last_updated": "2025-07-23"
     },
     {
+      "platform": "alibaba-coding-plan",
+      "id": "qwen3.7-max",
+      "name": "Qwen3.7 Max",
+      "price": {
+        "input": 2.5,
+        "output": 7.5,
+        "cache_read": 0.5,
+        "cache_write": 3.125
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-05-21",
+      "knowledge": null,
+      "last_updated": "2026-05-21"
+    },
+    {
+      "platform": "alibaba-coding-plan",
+      "id": "qwen3.6-flash",
+      "name": "Qwen3.6 Flash",
+      "price": {
+        "input": 0.1875,
+        "output": 1.125,
+        "cache_read": null,
+        "cache_write": 0.234375
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-27",
+      "knowledge": null,
+      "last_updated": "2026-04-27"
+    },
+    {
       "platform": "meganova",
       "id": "deepseek-ai/DeepSeek-R1-0528",
       "name": "DeepSeek R1 0528",
@@ -104150,7 +104246,7 @@
       "price": {
         "input": 0.3,
         "output": 1.2,
-        "cache_read": 0.03,
+        "cache_read": 0.06,
         "cache_write": null
       },
       "limit": {
@@ -104166,30 +104262,6 @@
       "release_date": "2026-04-12",
       "knowledge": null,
       "last_updated": "2026-04-12"
-    },
-    {
-      "platform": "fireworks-ai",
-      "id": "accounts/fireworks/models/glm-4p7",
-      "name": "GLM 4.7",
-      "price": {
-        "input": 0.6,
-        "output": 2.2,
-        "cache_read": 0.3,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 198000,
-        "output": 198000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-12-22",
-      "knowledge": "2025-04",
-      "last_updated": "2025-12-22"
     },
     {
       "platform": "fireworks-ai",
@@ -104214,29 +104286,6 @@
       "release_date": "2026-04-04",
       "knowledge": null,
       "last_updated": "2026-04-04"
-    },
-    {
-      "platform": "fireworks-ai",
-      "id": "accounts/fireworks/models/kimi-k2-instruct",
-      "name": "Kimi K2 Instruct",
-      "price": {
-        "input": 1,
-        "output": 3,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 128000,
-        "output": 16384
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "open"
-      ],
-      "release_date": "2025-07-11",
-      "knowledge": "2024-10",
-      "last_updated": "2025-07-11"
     },
     {
       "platform": "fireworks-ai",
@@ -104268,9 +104317,9 @@
       "id": "accounts/fireworks/models/gpt-oss-20b",
       "name": "GPT OSS 20B",
       "price": {
-        "input": 0.05,
-        "output": 0.2,
-        "cache_read": null,
+        "input": 0.07,
+        "output": 0.3,
+        "cache_read": 0.035,
         "cache_write": null
       },
       "limit": {
@@ -104286,78 +104335,6 @@
       "release_date": "2025-08-05",
       "knowledge": null,
       "last_updated": "2025-08-05"
-    },
-    {
-      "platform": "fireworks-ai",
-      "id": "accounts/fireworks/models/deepseek-v3p2",
-      "name": "DeepSeek V3.2",
-      "price": {
-        "input": 0.56,
-        "output": 1.68,
-        "cache_read": 0.28,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 160000,
-        "output": 160000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-12-01",
-      "knowledge": "2025-09",
-      "last_updated": "2025-12-01"
-    },
-    {
-      "platform": "fireworks-ai",
-      "id": "accounts/fireworks/models/kimi-k2-thinking",
-      "name": "Kimi K2 Thinking",
-      "price": {
-        "input": 0.6,
-        "output": 2.5,
-        "cache_read": 0.3,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 256000,
-        "output": 256000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-11-06",
-      "knowledge": null,
-      "last_updated": "2025-11-06"
-    },
-    {
-      "platform": "fireworks-ai",
-      "id": "accounts/fireworks/models/glm-4p5",
-      "name": "GLM 4.5",
-      "price": {
-        "input": 0.55,
-        "output": 2.19,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131072,
-        "output": 131072
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-07-29",
-      "knowledge": "2025-04",
-      "last_updated": "2025-07-29"
     },
     {
       "platform": "fireworks-ai",
@@ -104411,60 +104388,12 @@
     },
     {
       "platform": "fireworks-ai",
-      "id": "accounts/fireworks/models/minimax-m2p1",
-      "name": "MiniMax-M2.1",
-      "price": {
-        "input": 0.3,
-        "output": 1.2,
-        "cache_read": 0.03,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 200000,
-        "output": 200000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-12-23",
-      "knowledge": null,
-      "last_updated": "2025-12-23"
-    },
-    {
-      "platform": "fireworks-ai",
-      "id": "accounts/fireworks/models/deepseek-v3p1",
-      "name": "DeepSeek V3.1",
-      "price": {
-        "input": 0.56,
-        "output": 1.68,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 163840,
-        "output": 163840
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-08-21",
-      "knowledge": "2025-07",
-      "last_updated": "2025-08-21"
-    },
-    {
-      "platform": "fireworks-ai",
       "id": "accounts/fireworks/models/gpt-oss-120b",
       "name": "GPT OSS 120B",
       "price": {
         "input": 0.15,
         "output": 0.6,
-        "cache_read": null,
+        "cache_read": 0.015,
         "cache_write": null
       },
       "limit": {
@@ -104480,54 +104409,6 @@
       "release_date": "2025-08-05",
       "knowledge": null,
       "last_updated": "2025-08-05"
-    },
-    {
-      "platform": "fireworks-ai",
-      "id": "accounts/fireworks/models/glm-4p5-air",
-      "name": "GLM 4.5 Air",
-      "price": {
-        "input": 0.22,
-        "output": 0.88,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131072,
-        "output": 131072
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-08-01",
-      "knowledge": "2025-04",
-      "last_updated": "2025-08-01"
-    },
-    {
-      "platform": "fireworks-ai",
-      "id": "accounts/fireworks/models/glm-5",
-      "name": "GLM 5",
-      "price": {
-        "input": 1,
-        "output": 3.2,
-        "cache_read": 0.5,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 202752,
-        "output": 131072
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-02-11",
-      "knowledge": null,
-      "last_updated": "2026-02-11"
     },
     {
       "platform": "fireworks-ai",
@@ -104555,17 +104436,17 @@
     },
     {
       "platform": "fireworks-ai",
-      "id": "accounts/fireworks/routers/kimi-k2p5-turbo",
-      "name": "Kimi K2.5 Turbo",
+      "id": "accounts/fireworks/routers/kimi-k2p6-turbo",
+      "name": "Kimi K2.6 Turbo",
       "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": 0,
+        "input": 2,
+        "output": 8,
+        "cache_read": 0.3,
         "cache_write": null
       },
       "limit": {
-        "context": 256000,
-        "output": 256000
+        "context": 262000,
+        "output": 262000
       },
       "capabilities": [
         "text",
@@ -104574,9 +104455,33 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-01-27",
-      "knowledge": "2025-01",
-      "last_updated": "2026-01-27"
+      "release_date": "2026-04-17",
+      "knowledge": null,
+      "last_updated": "2026-04-17"
+    },
+    {
+      "platform": "fireworks-ai",
+      "id": "accounts/fireworks/routers/glm-5p1-fast",
+      "name": "GLM 5.1 Fast",
+      "price": {
+        "input": 2.8,
+        "output": 8.8,
+        "cache_read": 0.52,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 202800,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-01",
+      "knowledge": null,
+      "last_updated": "2026-04-01"
     },
     {
       "platform": "fireworks-ai",
@@ -104585,7 +104490,7 @@
       "price": {
         "input": 1.74,
         "output": 3.48,
-        "cache_read": 0.15,
+        "cache_read": 0.145,
         "cache_write": null
       },
       "limit": {
@@ -105653,6 +105558,31 @@
       "release_date": "2026-02-23",
       "knowledge": null,
       "last_updated": "2026-02-23"
+    },
+    {
+      "platform": "alibaba",
+      "id": "qwen3.6-flash",
+      "name": "Qwen3.6 Flash",
+      "price": {
+        "input": 0.1875,
+        "output": 1.125,
+        "cache_read": null,
+        "cache_write": 0.234375
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-27",
+      "knowledge": null,
+      "last_updated": "2026-04-27"
     },
     {
       "platform": "alibaba",
@@ -110907,6 +110837,29 @@
     },
     {
       "platform": "alibaba-cn",
+      "id": "qwen3.7-max",
+      "name": "Qwen3.7 Max",
+      "price": {
+        "input": 2.5,
+        "output": 7.5,
+        "cache_read": 0.5,
+        "cache_write": 3.125
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-05-21",
+      "knowledge": null,
+      "last_updated": "2026-05-21"
+    },
+    {
+      "platform": "alibaba-cn",
       "id": "deepseek-v4-flash",
       "name": "DeepSeek V4 Flash",
       "price": {
@@ -110928,6 +110881,31 @@
       "release_date": "2026-04-24",
       "knowledge": "2025-05",
       "last_updated": "2026-04-24"
+    },
+    {
+      "platform": "alibaba-cn",
+      "id": "qwen3.6-flash",
+      "name": "Qwen3.6 Flash",
+      "price": {
+        "input": 0.1875,
+        "output": 1.125,
+        "cache_read": null,
+        "cache_write": 0.234375
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-27",
+      "knowledge": null,
+      "last_updated": "2026-04-27"
     },
     {
       "platform": "drun",
