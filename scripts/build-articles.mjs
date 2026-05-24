@@ -140,7 +140,7 @@ function injectHub(file, lang) {
   writeFileSync(file, html);
   console.log(`[build-articles] injected ${lang} hub list into ${file}`);
 }
-injectHub('zh/index.html', 'zh');
+injectHub('index.html', 'zh');
 injectHub('en/index.html', 'en');
 
 if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `articles_written=${written}\n`);
