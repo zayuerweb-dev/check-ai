@@ -62,7 +62,7 @@ export function isFlagship(name) {
 }
 
 // Brand inferred from the name (platform is unreliable across providers).
-function brandOfName(name) {
+export function brandOfName(name) {
   const n = String(name || '').toLowerCase();
   if (/^gpt-|^o\d/.test(n)) return 'openai';
   if (/claude/.test(n)) return 'anthropic';
