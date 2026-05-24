@@ -4,6 +4,8 @@ import { ready } from './helpers.mjs';
 test.describe('model detail', () => {
   test('opening a model row shows the detail dialog with a radar chart', async ({ page }) => {
     await ready(page);
+    // Since the SPA now starts in home view, click a company card first to enter detail view.
+    await page.locator('#platformList .platform-card').first().click();
     await page.click('.tab[data-tab="models"]');
     await page.waitForSelector('#modelRows .model-row');
     await page.locator('#modelRows .model-row').first().click();

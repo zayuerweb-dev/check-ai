@@ -117,6 +117,13 @@ function initialLang() {
   return matched || 'en';
 }
 let lang = initialLang(), activePlatform = 'openai', platformFilter = '', functionFilter = '', modelCap = '', sortKey = 'releaseDate', sortDir = 'desc', compareCompany = 'openai';
+let view = 'home';
+function setView(v) {
+  view = v;
+  document.body.classList.toggle('home-view', v === 'home');
+  const hb = document.getElementById('homeButton');
+  if (hb) hb.classList.toggle('active', v === 'home');
+}
 let selectedModels = new Set(), compareCaps = new Set(), dataState = { kind: 'seed', count: 0 };
 let modelSlugSet = new Set();
 function canonSlug(name) {
@@ -569,6 +576,7 @@ function renderList() {
     mr.querySelectorAll('.model-result').forEach((b) => b.onclick = () => openModel(b.dataset.key));
   }
   document.querySelectorAll('.platform-card').forEach((b) => b.onclick = () => {
+    setView('detail');
     activePlatform = b.dataset.id;
     // Mobile list→detail nav: remember scroll, open workspace overlay
     if (window.innerWidth <= 760) {
@@ -710,6 +718,8 @@ document.querySelectorAll('.sort-button').forEach((b) => b.onclick = () => { sor
 $('platformSearch').oninput = renderList; $('languageSelect').onchange = (e) => { lang = e.target.value; localStorage.setItem('checkai.lang', lang); render(); };
 $('platformFilterToggle').onclick = () => document.querySelector('.quick-filters').classList.toggle('expanded');
 $('globalCompareButton').onclick = () => { $('compareModal').classList.add('open'); renderCompare(); };
+const homeBtn = document.getElementById('homeButton');
+if (homeBtn) homeBtn.onclick = () => { setView('home'); try { history.replaceState(null, '', '/'); } catch (_) {} };
 $('closeCompareButton').onclick = () => $('compareModal').classList.remove('open');
 $('clearSelectedModels').onclick = () => { selectedModels.clear(); renderCompare(); };
 $('selectScopedModels').onclick = () => { platformModels(compareCompany).forEach((m) => selectedModels.add(keyOf(m))); renderCompare(); };
@@ -728,4 +738,5 @@ window.addEventListener('scroll', () => btt.classList.toggle('visible', window.s
 btt.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 const urlQ = new URLSearchParams(location.search).get('q');
 if (urlQ) $('platformSearch').value = urlQ;
+setView('home');
 render(); loadLive(); loadModelSlugs();
