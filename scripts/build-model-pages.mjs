@@ -102,19 +102,11 @@ function injectLatest(file, lang) {
   let html = readFileSync(file, 'utf8');
   const START = '<!-- LATEST:start -->', END = '<!-- LATEST:end -->';
   if (!html.includes(START) || !html.includes(END)) return;
-  const norm = (s) => s.toLowerCase().replace(/^[^:]+:\s*/, '').replace(/[^a-z0-9]/g, '');
-  const seenLatest = new Set();
-  const latest = [];
-  for (const x of [...groups.values()]
+  const latest = [...groups.values()]
     .map((g) => ({ g, best: bestListing(g.listings) }))
     .filter((x) => x.best && x.best.release_date)
-    .sort((a, b) => Date.parse(b.best.release_date) - Date.parse(a.best.release_date))) {
-    const key = norm(x.g.displayName);
-    if (seenLatest.has(x.g.slug) || seenLatest.has(key)) continue;
-    seenLatest.add(x.g.slug); seenLatest.add(key);
-    latest.push(x);
-    if (latest.length >= 8) break;
-  }
+    .sort((a, b) => Date.parse(b.best.release_date) - Date.parse(a.best.release_date))
+    .slice(0, 8);
   const relWord = lang === 'zh' ? '发布 ' : 'released ';
   const items = latest.map(({ g, best }) =>
     `<li><a class="section-link" href="/models/${g.slug}/">${escAttr(g.displayName)}</a> <span style="color:var(--muted);font-size:13px">${relWord}${best.release_date}</span></li>`).join('\n');
@@ -122,23 +114,6 @@ function injectLatest(file, lang) {
   html = html.replace(new RegExp(`${START}[\\s\\S]*?${END}`), `${START}\n${block}\n${END}`);
   writeFileSync(file, html);
   console.log(`[build-models] injected ${lang} latest-models into ${file}`);
-}
-
-function injectPopular(file, lang) {
-  if (!existsSync(file)) return;
-  let html = readFileSync(file, 'utf8');
-  const START = '<!-- POPULAR:start -->', END = '<!-- POPULAR:end -->';
-  if (!html.includes(START) || !html.includes(END)) return;
-  const picked = [...groups.values()].filter((g) => INDEXABLE.has(g.slug)).slice(0, 8);
-  const maker = lang === 'zh' ? makerZh : makerEn;
-  const cards = picked.map((g) => {
-    const m = maker(g.displayName);
-    return `<a class="portal-card" href="/models/${g.slug}/"><strong>${escAttr(g.displayName)}</strong>${m ? `<span class="maker">${escAttr(m)}</span>` : ''}</a>`;
-  }).join('\n');
-  const block = `<div class="portal-grid cols4">\n${cards}\n</div>`;
-  html = html.replace(new RegExp(`${START}[\\s\\S]*?${END}`), `${START}\n${block}\n${END}`);
-  writeFileSync(file, html);
-  console.log(`[build-models] injected ${lang} popular-models into ${file}`);
 }
 
 const OVERRIDES = JSON.parse(readFileSync('data/model-pages.json', 'utf8'));
@@ -162,12 +137,6 @@ const MAKER_ZH = {
   zhipu: '智谱', minimax: 'MiniMax', meta: 'Meta',
 };
 function makerZh(name) { return MAKER_ZH[brandOfName(name)] || ''; }
-const MAKER_EN = {
-  openai: 'OpenAI', anthropic: 'Anthropic', google: 'Google', deepseek: 'DeepSeek',
-  xai: 'xAI', qwen: 'Alibaba (Qwen)', mistral: 'Mistral', moonshot: 'Moonshot AI',
-  zhipu: 'Zhipu', minimax: 'MiniMax', meta: 'Meta',
-};
-function makerEn(name) { return MAKER_EN[brandOfName(name)] || ''; }
 function zhCaps(caps) {
   const out = caps.map((c) => ZH_CAP[c]).filter(Boolean);
   return out.length ? out.join('、') : '文本生成';
@@ -233,7 +202,7 @@ function pageHtml(group, allSlugs, indexable, allGroups) {
   const desc = `${displayName} 中文资料：${meta.ctx} 上下文，最低 ${fmtMoney(best.price?.input)}/1M 输入 token${makerName ? `，由 ${makerName} 出品` : ''}。能力：${zhCaps([...meta.caps])}。`;
 
   const compareKey = `${best.platform}:${best.id}`;
-  const compareTool = `/app/?compare=${encodeURIComponent(compareKey)}`;
+  const compareTool = `/?compare=${encodeURIComponent(compareKey)}`;
 
   // Provider pricing rows
   const rows = [...listings]
@@ -294,7 +263,7 @@ function pageHtml(group, allSlugs, indexable, allGroups) {
 <script type="application/ld+json">${faq}</script>
 </head>
 <body class="seo-page">
-<header class="seo-header"><a class="brand-link" href="/zh/">Check.AI</a><nav><a href="/app/">对比工具</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a></nav></header>
+<header class="seo-header"><a class="brand-link" href="/zh/">Check.AI</a><nav><a href="/">对比工具</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a></nav></header>
 <main class="seo-main">
 <p class="eyebrow">模型资料 · 数据同步于 ${data.models[0]?.last_updated || '2026 年 5 月'}</p>
 <h1>${escAttr(displayName)}</h1>
@@ -363,7 +332,7 @@ ${relatedHtml}
 </section>
 
 </main>
-<footer class="seo-footer"><a href="/zh/">返回中文首页</a> · <a href="/app/">打开对比工具</a></footer>
+<footer class="seo-footer"><a href="/zh/">返回中文首页</a> · <a href="/">打开对比工具</a></footer>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "df6bb0324e4c458fb4e8b979d3feed3c"}'></script>
 </body>
 </html>
@@ -399,10 +368,8 @@ function main() {
   writeFileSync('data/model-slugs.json', JSON.stringify(manifest) + '\n');
   console.log(`[build-models] manifest: data/model-slugs.json (${manifest.length} slugs, ${manifest.filter((m) => m.indexable).length} indexable)`);
 
-  injectLatest('index.html', 'zh');
+  injectLatest('zh/index.html', 'zh');
   injectLatest('en/index.html', 'en');
-  injectPopular('index.html', 'zh');
-  injectPopular('en/index.html', 'en');
 
   // Write sitemap fragment for piping into sitemap.xml later
   const sitemapFrag = urls

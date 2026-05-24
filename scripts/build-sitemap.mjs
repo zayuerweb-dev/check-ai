@@ -18,7 +18,7 @@ const TOP_LEVEL_HTML = ['index.html', 'about.html', 'contact.html', 'privacy.htm
 // the whole site. Model pages stay live + crawlable via internal links but are
 // noindex'd and kept out of the sitemap, so Google concentrates its budget on
 // the ~85 high-value editorial/compare/topic pages.
-const WALK_DIRS = ['topics', 'platforms', 'compare', 'zh', 'en', 'app'];
+const WALK_DIRS = ['topics', 'platforms', 'compare', 'zh', 'en'];
 // Anything matching these is skipped.
 const SKIP = new Set(['node_modules', '.git', '.github', 'data', 'scripts']);
 
@@ -78,10 +78,7 @@ function main() {
     modelUrls = manifest.filter((m) => m.indexable).map((m) => `${ORIGIN}/models/${m.slug}/`);
   } catch { /* manifest absent on first run — skip */ }
 
-  const allUrls = [...new Set([...files.map(urlFromPath), ...modelUrls])].sort();
-  // /zh/ now 301-redirects to /; exclude the bare hub so the sitemap only lists
-  // canonical destinations. Sub-pages (/zh/articles/…, /zh/topics/…) are kept.
-  const urls = allUrls.filter((u) => u !== `${ORIGIN}/zh/`);
+  const urls = [...new Set([...files.map(urlFromPath), ...modelUrls])].sort();
   const lastmod = todayISO();
 
   const entries = urls.map((u) => {

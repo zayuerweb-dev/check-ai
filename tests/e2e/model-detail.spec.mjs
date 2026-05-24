@@ -30,7 +30,7 @@ test.describe('share', () => {
     await page.click('#globalCompareButton');
     await page.waitForSelector('#modelFilters .model-chip');
     const key = await page.locator('#modelFilters .model-chip').first().getAttribute('data-key');
-    await page.goto(`/app/?lang=zh&compare=${encodeURIComponent(key)}`);
+    await page.goto(`/?lang=zh&compare=${encodeURIComponent(key)}`);
     await expect(page.locator('#selectedModelList .selected-model-pill')).toHaveCount(1, { timeout: 10_000 });
   });
 });
