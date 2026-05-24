@@ -2,7 +2,7 @@
 // (an aggregator like a Gateway/OpenRouter only exists after loadLive() runs,
 // so waiting for one guarantees the full model set is present, not just seed).
 export async function ready(page, lang = 'zh') {
-  await page.goto(`/?lang=${lang}`);
+  await page.goto(`/app/?lang=${lang}`);
   await page.waitForSelector('#platformList .platform-card');
   await page.waitForFunction(
     () => [...document.querySelectorAll('#platformList .platform-card strong')]
