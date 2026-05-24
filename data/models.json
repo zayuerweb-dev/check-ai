@@ -1084,7 +1084,7 @@
         "WAFER_API_KEY"
       ],
       "api": "https://pass.wafer.ai/v1",
-      "models_count": 2
+      "models_count": 4
     },
     {
       "key": "evroc",
@@ -102234,6 +102234,31 @@
     },
     {
       "platform": "wafer.ai",
+      "id": "Kimi-K2.6",
+      "name": "Kimi K2.6",
+      "price": {
+        "input": 1.1,
+        "output": 4.8,
+        "cache_read": 0.11,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 262144,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-05-13",
+      "knowledge": "2025-01",
+      "last_updated": "2026-05-13"
+    },
+    {
+      "platform": "wafer.ai",
       "id": "Qwen3.5-397B-A17B",
       "name": "Qwen3.5 397B A17B",
       "price": {
@@ -102281,6 +102306,32 @@
       "release_date": "2026-04-07",
       "knowledge": "2025-04",
       "last_updated": "2026-04-07"
+    },
+    {
+      "platform": "wafer.ai",
+      "id": "Qwen3.6-35B-A3B",
+      "name": "Qwen3.6 35B A3B",
+      "price": {
+        "input": 0.19,
+        "output": 1.25,
+        "cache_read": 0.02,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 32768,
+        "output": 16384
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-05-11",
+      "knowledge": "2025-04",
+      "last_updated": "2026-05-11"
     },
     {
       "platform": "evroc",
