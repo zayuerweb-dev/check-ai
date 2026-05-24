@@ -3,6 +3,7 @@ const zh = {
   brandName: '查找.AI', brandSubtitle: '会员、API、模型与跑分', search: '搜索', compare: '比较',
   all: '全部', mainstream: '主流', modelLab: '自研', openSource: '开源', aggregator: '供应商', cloud: '云平台', hasMembership: '有会员',
   showMore: '展开', functionFilter: '功能', functionCode: '写代码', functionWeb: '联网', functionWriting: '写作', functionVision: '图像', functionLongContext: '长文档', functionLocal: '本地部署',
+  home: '主页', homeTitle: '挑 AI 模型，先来 Check 一下', homeLead: '对比 60+ 平台、1700+ 模型的能力、价格与上下文。用左侧搜索，或选一家公司开始。', homeLatest: '最新动态', homePopular: '热门模型', homeScenario: '按场景选模型', homeArticles: '深度文章',
   eyebrow: 'AI 平台模型数据库', language: '语言', companyWebsite: '公司官网', subscription: '订阅', apiPricing: 'API 价格',
   overview: '总览', models: '模型', pricing: '官网套餐', bestFor: '使用案例', plainConclusion: '摘要', capabilities: '能力',
   model: '模型', inputPrice: '输入/$1M', outputPrice: '输出/$1M', context: '上下文', releaseDate: '发布日期', lmArena: 'LMArena', sixDimChart: '六维示意图',
@@ -13,6 +14,7 @@ const en = {
   brandName: 'Check.AI', brandSubtitle: 'Plans, APIs, models, scores', search: 'Search', compare: 'Compare',
   all: 'All', mainstream: 'Mainstream', modelLab: 'Owned', openSource: 'Open Source', aggregator: 'Providers', cloud: 'Cloud', hasMembership: 'Plans',
   showMore: 'Show more', functionFilter: 'Functions', functionCode: 'Coding', functionWeb: 'Web', functionWriting: 'Writing', functionVision: 'Vision', functionLongContext: 'Long docs', functionLocal: 'Local',
+  home: 'Home', homeTitle: 'Pick an AI model — Check first', homeLead: 'Compare capabilities, price and context across 60+ platforms and 1700+ models. Search on the left, or pick a company.', homeLatest: 'Latest', homePopular: 'Popular', homeScenario: 'Pick by scenario', homeArticles: 'Articles',
   eyebrow: 'AI platform model database', language: 'Language', companyWebsite: 'Company website', subscription: 'Subscription', apiPricing: 'API pricing',
   overview: 'Overview', models: 'Models', pricing: 'Official Plans', bestFor: 'Use cases', plainConclusion: 'Plain conclusion', capabilities: 'Capabilities',
   model: 'Model', inputPrice: 'Input/$1M', outputPrice: 'Output/$1M', context: 'Context', releaseDate: 'Release date', lmArena: 'LMArena', sixDimChart: 'Six-axis visual',
@@ -115,6 +117,13 @@ function initialLang() {
   return matched || 'en';
 }
 let lang = initialLang(), activePlatform = 'openai', platformFilter = '', functionFilter = '', modelCap = '', sortKey = 'releaseDate', sortDir = 'desc', compareCompany = 'openai';
+let view = 'home';
+function setView(v) {
+  view = v;
+  document.body.classList.toggle('home-view', v === 'home');
+  const hb = document.getElementById('homeButton');
+  if (hb) hb.classList.toggle('active', v === 'home');
+}
 let selectedModels = new Set(), compareCaps = new Set(), dataState = { kind: 'seed', count: 0 };
 let modelSlugSet = new Set();
 function canonSlug(name) {
@@ -567,6 +576,7 @@ function renderList() {
     mr.querySelectorAll('.model-result').forEach((b) => b.onclick = () => openModel(b.dataset.key));
   }
   document.querySelectorAll('.platform-card').forEach((b) => b.onclick = () => {
+    setView('detail');
     activePlatform = b.dataset.id;
     // Mobile list→detail nav: remember scroll, open workspace overlay
     if (window.innerWidth <= 760) {
@@ -708,6 +718,8 @@ document.querySelectorAll('.sort-button').forEach((b) => b.onclick = () => { sor
 $('platformSearch').oninput = renderList; $('languageSelect').onchange = (e) => { lang = e.target.value; localStorage.setItem('checkai.lang', lang); render(); };
 $('platformFilterToggle').onclick = () => document.querySelector('.quick-filters').classList.toggle('expanded');
 $('globalCompareButton').onclick = () => { $('compareModal').classList.add('open'); renderCompare(); };
+const homeBtn = document.getElementById('homeButton');
+if (homeBtn) homeBtn.onclick = () => { setView('home'); try { history.replaceState(null, '', '/'); } catch (_) {} };
 $('closeCompareButton').onclick = () => $('compareModal').classList.remove('open');
 $('clearSelectedModels').onclick = () => { selectedModels.clear(); renderCompare(); };
 $('selectScopedModels').onclick = () => { platformModels(compareCompany).forEach((m) => selectedModels.add(keyOf(m))); renderCompare(); };
@@ -726,4 +738,5 @@ window.addEventListener('scroll', () => btt.classList.toggle('visible', window.s
 btt.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 const urlQ = new URLSearchParams(location.search).get('q');
 if (urlQ) $('platformSearch').value = urlQ;
+setView('home');
 render(); loadLive(); loadModelSlugs();

@@ -13,10 +13,10 @@ const zhDate = (iso) => { const [y, m, d] = iso.split('-'); return `${y} 年 ${+
 function navFor(lang, slug, art) {
   if (lang === 'zh') {
     const en = art.en && art.en.status === 'published' ? `<a href="/en/articles/${slug}/">EN</a>` : '';
-    return `<header class="seo-header"><a class="brand-link" href="/zh/">Check.AI</a><nav><a href="/app/">对比工具</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a>${en}</nav></header>`;
+    return `<header class="seo-header"><a class="brand-link" href="/zh/">Check.AI</a><nav><a href="/">对比工具</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a>${en}</nav></header>`;
   }
   const zh = art.zh && art.zh.status === 'published' ? `<a href="/zh/articles/${slug}/">中文</a>` : '';
-  return `<header class="seo-header"><a class="brand-link" href="/en/">Check.AI</a><nav><a href="/app/">Compare</a><a href="/about">About</a><a href="/privacy.html">Privacy</a><a href="/contact">Contact</a>${zh}</nav></header>`;
+  return `<header class="seo-header"><a class="brand-link" href="/en/">Check.AI</a><nav><a href="/">Compare</a><a href="/about">About</a><a href="/privacy.html">Privacy</a><a href="/contact">Contact</a>${zh}</nav></header>`;
 }
 
 function hreflangFor(lang, slug, art) {
@@ -140,7 +140,20 @@ function injectHub(file, lang) {
   writeFileSync(file, html);
   console.log(`[build-articles] injected ${lang} hub list into ${file}`);
 }
-injectHub('index.html', 'zh');
+injectHub('zh/index.html', 'zh');
 injectHub('en/index.html', 'en');
+
+function injectHomeArticles(file) {
+  if (!existsSync(file)) return;
+  let html = readFileSync(file, 'utf8');
+  const START = '<!-- HOME_ARTICLES:start -->', END = '<!-- HOME_ARTICLES:end -->';
+  if (!html.includes(START) || !html.includes(END)) return;
+  const items = registry.filter((a) => a.zh && a.zh.status === 'published')
+    .map((a) => `<a class="home-arti" href="/zh/articles/${a.slug}/">${esc(a.zh.title)}</a>`).join('\n');
+  html = html.replace(new RegExp(`${START}[\\s\\S]*?${END}`), `${START}\n<div class="home-arts">\n${items}\n</div>\n${END}`);
+  writeFileSync(file, html);
+  console.log(`[build-articles] injected home articles into ${file}`);
+}
+injectHomeArticles('index.html');
 
 if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `articles_written=${written}\n`);
