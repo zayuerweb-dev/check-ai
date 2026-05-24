@@ -724,4 +724,6 @@ $('mobileBackBtn').onclick = () => {
 const btt = $('backToTopBtn');
 window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 600), { passive: true });
 btt.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+const urlQ = new URLSearchParams(location.search).get('q');
+if (urlQ) $('platformSearch').value = urlQ;
 render(); loadLive(); loadModelSlugs();
