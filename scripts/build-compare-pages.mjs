@@ -184,8 +184,8 @@ const T = {
 <li><a href="/zh/articles/gpt-5-vs-claude-coding-2026/">GPT-5 vs Claude（中文深度对比）</a></li>
 <li><a href="/zh/articles/deepseek-r1-vs-gpt-5-cost-2026/">DeepSeek R1 vs GPT-5 性价比（中文）</a></li>
 </ul>`,
-    nav: '<a href="/">Compare tool</a><a href="/zh/">中文</a><a href="/about.html">About</a>',
-    footer: '<a href="/">Open the interactive comparison tool</a>',
+    nav: '<a href="/app/">Compare tool</a><a href="/zh/">中文</a><a href="/about.html">About</a>',
+    footer: '<a href="/app/">Open the interactive comparison tool</a>',
     specCols: ['Spec', 'Vendor', 'Input price (per 1M tokens)', 'Output price', 'Context window', 'Release date', 'SWE-bench Verified', 'HumanEval', 'LMArena (approx)', 'Open weights', 'Capabilities'],
     yes: 'Yes', no: 'No',
   },
@@ -218,8 +218,8 @@ const T = {
 <li><a href="/zh/articles/gpt-5-vs-claude-coding-2026/">GPT-5 vs Claude：写代码选哪个</a></li>
 <li><a href="/zh/articles/deepseek-r1-vs-gpt-5-cost-2026/">DeepSeek R1 vs GPT-5：性价比</a></li>
 </ul>`,
-    nav: '<a href="/">English</a><a href="/zh/">中文首页</a><a href="/about.html">关于</a>',
-    footer: '<a href="/">打开实时对比工具</a>',
+    nav: '<a href="/app/">English</a><a href="/zh/">中文首页</a><a href="/about.html">关于</a>',
+    footer: '<a href="/app/">打开实时对比工具</a>',
     specCols: ['项目', '厂商', '输入价（每 1M token）', '输出价', '上下文窗口', '发布日期', 'SWE-bench Verified', 'HumanEval', 'LMArena（近似）', '开放权重', '能力'],
     yes: '是', no: '否',
   },
@@ -321,15 +321,15 @@ function pageHtml(a, b, locale) {
   const altPath = isZh ? `/compare/${slug}/` : `/zh/compare/${slug}/`;
   const altUrl = `https://checkaimodels.com${altPath}`;
   const navHtml = isZh
-    ? `<a href="/">对比工具</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="${altPath}">EN</a>`
-    : `<a href="/">Compare</a><a href="/about">About</a><a href="/privacy.html">Privacy</a><a href="/contact">Contact</a><a href="${altPath}">中文</a>`;
+    ? `<a href="/app/">对比工具</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="${altPath}">EN</a>`
+    : `<a href="/app/">Compare</a><a href="/about">About</a><a href="/privacy.html">Privacy</a><a href="/contact">Contact</a><a href="${altPath}">中文</a>`;
   const title = isZh
     ? `${a.name} vs ${b.name}：价格、上下文、跑分对比（2026）`
     : `${a.name} vs ${b.name}: Price, Context, Benchmarks (2026)`;
   const desc = isZh
     ? `${a.name} 与 ${b.name} 并排对比：API 价格、上下文窗口、SWE-bench / HumanEval / LMArena 跑分、各自最适合的场景。`
     : `Side-by-side: ${a.name} vs ${b.name}. Compare API pricing, context window, SWE-bench / HumanEval / LMArena scores, and which model wins on which task.`;
-  const compareUrl = `/?compare=${a.platform}:${a.id},${b.platform}:${b.id}`;
+  const compareUrl = `/app/?compare=${a.platform}:${a.id},${b.platform}:${b.id}`;
   const lo = isZh ? a.zh : a.en;
   const lo2 = isZh ? b.zh : b.en;
   const ogTitle = isZh ? `${a.name} vs ${b.name}（2026）` : title;
