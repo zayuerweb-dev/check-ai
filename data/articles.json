@@ -636,6 +636,12 @@
         "platform": "juejin",
         "url": "https://juejin.cn/spost/7642603151204155444",
         "date": "2026-05-23"
+      },
+      {
+        "platform": "juejin",
+        "url": "https://juejin.cn/post/7642633524384858112",
+        "date": "2026-05-24",
+        "note": "技术向改写：开发者按 API 成本/任务选模型"
       }
     ]
   }
