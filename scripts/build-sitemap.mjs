@@ -78,10 +78,7 @@ function main() {
     modelUrls = manifest.filter((m) => m.indexable).map((m) => `${ORIGIN}/models/${m.slug}/`);
   } catch { /* manifest absent on first run — skip */ }
 
-  const allUrls = [...new Set([...files.map(urlFromPath), ...modelUrls])].sort();
-  // Drop the bare /zh/ hub — it is now a markerless redirect stub to /.
-  // Article/topic/compare pages under /zh/ are kept.
-  const urls = allUrls.filter((u) => u !== `${ORIGIN}/zh/`);
+  const urls = [...new Set([...files.map(urlFromPath), ...modelUrls])].sort();
   const lastmod = todayISO();
 
   const entries = urls.map((u) => {
