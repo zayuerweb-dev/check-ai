@@ -494,7 +494,7 @@
         "VULTR_API_KEY"
       ],
       "api": "https://api.vultrinference.com/v1",
-      "models_count": 5
+      "models_count": 7
     },
     {
       "key": "kuae-cloud-coding-plan",
@@ -1355,6 +1355,16 @@
       ],
       "api": "https://inference.net/v1",
       "models_count": 9
+    },
+    {
+      "key": "poolside",
+      "name": "Poolside",
+      "doc": "https://platform.poolside.ai",
+      "env": [
+        "POOLSIDE_API_KEY"
+      ],
+      "api": "https://inference.poolside.ai/v1",
+      "models_count": 2
     }
   ],
   "models": [
@@ -17994,7 +18004,7 @@
       "price": {
         "input": 0.14,
         "output": 0.28,
-        "cache_read": 0.028,
+        "cache_read": 0.0028,
         "cache_write": null
       },
       "limit": {
@@ -18016,9 +18026,9 @@
       "id": "deepseek-ai/DeepSeek-V4-Pro",
       "name": "DeepSeek V4 Pro",
       "price": {
-        "input": 1.74,
-        "output": 3.48,
-        "cache_read": 0.145,
+        "input": 0.435,
+        "output": 0.87,
+        "cache_read": 0.003625,
         "cache_write": null
       },
       "limit": {
@@ -20669,7 +20679,7 @@
       "price": {
         "input": 0.4928,
         "output": 0.7392,
-        "cache_read": 0.145,
+        "cache_read": 0.003625,
         "cache_write": null
       },
       "limit": {
@@ -20936,7 +20946,7 @@
       "price": {
         "input": 0.4928,
         "output": 0.7392,
-        "cache_read": 0.145,
+        "cache_read": 0.003625,
         "cache_write": null
       },
       "limit": {
@@ -20960,7 +20970,7 @@
       "price": {
         "input": 0.4928,
         "output": 0.7392,
-        "cache_read": 0.028,
+        "cache_read": 0.0028,
         "cache_write": null
       },
       "limit": {
@@ -21008,7 +21018,7 @@
       "price": {
         "input": 0.4928,
         "output": 0.7392,
-        "cache_read": 0.028,
+        "cache_read": 0.0028,
         "cache_write": null
       },
       "limit": {
@@ -22902,7 +22912,7 @@
       "price": {
         "input": 1.553,
         "output": 3.106,
-        "cache_read": 0.145,
+        "cache_read": 0.003625,
         "cache_write": null
       },
       "limit": {
@@ -22974,7 +22984,7 @@
       "price": {
         "input": 0.133,
         "output": 0.266,
-        "cache_read": 0.028,
+        "cache_read": 0.0028,
         "cache_write": null
       },
       "limit": {
@@ -42354,9 +42364,9 @@
       "id": "deepseek-v4-pro",
       "name": "DeepSeek V4 Pro",
       "price": {
-        "input": 1.74,
-        "output": 3.48,
-        "cache_read": 0.145,
+        "input": 0.435,
+        "output": 0.87,
+        "cache_read": 0.003625,
         "cache_write": null
       },
       "limit": {
@@ -44162,44 +44172,44 @@
     },
     {
       "platform": "vultr",
-      "id": "Kimi-K2.5",
-      "name": "Kimi K2 Instruct",
+      "id": "nvidia/Llama-3.1-Nemotron-Safety-Guard-8B-v3",
+      "name": "Llama 3.1 Nemotron Safety Guard",
       "price": {
-        "input": 0.55,
-        "output": 2.75,
+        "input": 0.01,
+        "output": 0.01,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 254000,
-        "output": 32768
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "open"
-      ],
-      "release_date": "2026-01-27",
-      "knowledge": "2024-04",
-      "last_updated": "2026-01-27"
-    },
-    {
-      "platform": "vultr",
-      "id": "DeepSeek-V3.2",
-      "name": "DeepSeek V3.2",
-      "price": {
-        "input": 0.55,
-        "output": 1.65,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 127000,
+        "context": 8192,
         "output": 4096
       },
       "capabilities": [
         "text",
+        "open"
+      ],
+      "release_date": "2025-10-28",
+      "knowledge": "2023-12",
+      "last_updated": "2025-10-28"
+    },
+    {
+      "platform": "vultr",
+      "id": "nvidia/Nemotron-Cascade-2-30B-A3B",
+      "name": "NVIDIA Nemotron Cascade 2",
+      "price": {
+        "input": 0.15,
+        "output": 0.6,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
         "tools",
+        "reasoning",
         "open"
       ],
       "release_date": "2025-12-01",
@@ -44208,31 +44218,56 @@
     },
     {
       "platform": "vultr",
-      "id": "MiniMax-M2.5",
-      "name": "MiniMax M2.5",
+      "id": "nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+      "name": "NVIDIA Nemotron 3 Nano Omni",
       "price": {
-        "input": 0.3,
-        "output": 1.2,
+        "input": 0.13,
+        "output": 0.38,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 194000,
-        "output": 4096
+        "context": 262144,
+        "output": 131072
       },
       "capabilities": [
         "text",
         "tools",
+        "reasoning",
         "open"
       ],
-      "release_date": "2025-02-11",
-      "knowledge": "2024-09",
-      "last_updated": "2025-02-11"
+      "release_date": "2026-04-28",
+      "knowledge": "2025-05",
+      "last_updated": "2026-04-28"
     },
     {
       "platform": "vultr",
-      "id": "gpt-oss-120b",
-      "name": "GPT OSS 120B",
+      "id": "nvidia/DeepSeek-V3.2-NVFP4",
+      "name": "DeepSeek V3.2",
+      "price": {
+        "input": 0.55,
+        "output": 1.65,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 131072,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2025-12-01",
+      "knowledge": "2024-07",
+      "last_updated": "2025-12-01"
+    },
+    {
+      "platform": "vultr",
+      "id": "moonshotai/Kimi-K2.6",
+      "name": "Kimi K2.6",
       "price": {
         "input": 0.15,
         "output": 0.6,
@@ -44240,22 +44275,23 @@
         "cache_write": null
       },
       "limit": {
-        "context": 129000,
-        "output": 4096
+        "context": 262144,
+        "output": 131072
       },
       "capabilities": [
         "text",
         "tools",
+        "reasoning",
         "open"
       ],
-      "release_date": "2025-08-05",
-      "knowledge": "2024-06",
-      "last_updated": "2025-08-05"
+      "release_date": "2026-04-21",
+      "knowledge": "2025-01",
+      "last_updated": "2026-04-21"
     },
     {
       "platform": "vultr",
-      "id": "GLM-5-FP8",
-      "name": "GLM 5 FP8",
+      "id": "zai-org/GLM-5.1-FP8",
+      "name": "GLM-5.1",
       "price": {
         "input": 0.85,
         "output": 3.1,
@@ -44269,11 +44305,35 @@
       "capabilities": [
         "text",
         "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-03-27",
+      "knowledge": null,
+      "last_updated": "2026-03-27"
+    },
+    {
+      "platform": "vultr",
+      "id": "MiniMaxAI/MiniMax-M2.7",
+      "name": "MiniMax-M2.7",
+      "price": {
+        "input": 0.3,
+        "output": 1.2,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 204800,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
         "open"
       ],
-      "release_date": "2026-02-11",
-      "knowledge": "2025-05",
-      "last_updated": "2026-02-11"
+      "release_date": "2026-03-18",
+      "knowledge": null,
+      "last_updated": "2026-03-18"
     },
     {
       "platform": "kuae-cloud-coding-plan",
@@ -59597,7 +59657,7 @@
       "price": {
         "input": 0.56,
         "output": 1.12,
-        "cache_read": 0.145,
+        "cache_read": 0.003625,
         "cache_write": null
       },
       "limit": {
@@ -59645,7 +59705,7 @@
       "price": {
         "input": 0.19,
         "output": 0.37,
-        "cache_read": 0.028,
+        "cache_read": 0.0028,
         "cache_write": null
       },
       "limit": {
@@ -62195,9 +62255,9 @@
       "id": "deepseek-v4-pro",
       "name": "DeepSeek V4 Pro",
       "price": {
-        "input": 1.74,
-        "output": 3.48,
-        "cache_read": 0.145,
+        "input": 0.435,
+        "output": 0.87,
+        "cache_read": 0.003625,
         "cache_write": null
       },
       "limit": {
@@ -63366,7 +63426,7 @@
       "price": {
         "input": 0.14,
         "output": 0.28,
-        "cache_read": 0.028,
+        "cache_read": 0.0028,
         "cache_write": null
       },
       "limit": {
@@ -79631,9 +79691,9 @@
       "id": "deepseek-ai/deepseek-v4-pro",
       "name": "DeepSeek V4 Pro",
       "price": {
-        "input": 1.74,
-        "output": 3.48,
-        "cache_read": 0.145,
+        "input": 0.435,
+        "output": 0.87,
+        "cache_read": 0.003625,
         "cache_write": null
       },
       "limit": {
@@ -79657,7 +79717,7 @@
       "price": {
         "input": 0.14,
         "output": 0.28,
-        "cache_read": 0.028,
+        "cache_read": 0.0028,
         "cache_write": null
       },
       "limit": {
@@ -89108,9 +89168,9 @@
       "id": "deepseek/deepseek-v4-pro",
       "name": "DeepSeek V4 Pro",
       "price": {
-        "input": 1.74,
-        "output": 3.48,
-        "cache_read": 0.145,
+        "input": 0.435,
+        "output": 0.87,
+        "cache_read": 0.003625,
         "cache_write": null
       },
       "limit": {
@@ -89134,7 +89194,7 @@
       "price": {
         "input": 0.14,
         "output": 0.28,
-        "cache_read": 0.028,
+        "cache_read": 0.0028,
         "cache_write": null
       },
       "limit": {
@@ -101571,9 +101631,9 @@
       "id": "deepseek-v4-pro",
       "name": "DeepSeek V4 Pro",
       "price": {
-        "input": 1.74,
-        "output": 3.48,
-        "cache_read": 0.145,
+        "input": 0.435,
+        "output": 0.87,
+        "cache_read": 0.003625,
         "cache_write": null
       },
       "limit": {
@@ -101621,7 +101681,7 @@
       "price": {
         "input": 0.14,
         "output": 0.28,
-        "cache_read": 0.028,
+        "cache_read": 0.0028,
         "cache_write": null
       },
       "limit": {
@@ -110867,9 +110927,9 @@
       "id": "deepseek-v4-pro",
       "name": "DeepSeek V4 Pro",
       "price": {
-        "input": 1.74,
-        "output": 3.48,
-        "cache_read": 0.145,
+        "input": 0.435,
+        "output": 0.87,
+        "cache_read": 0.003625,
         "cache_write": null
       },
       "limit": {
@@ -110916,7 +110976,7 @@
       "price": {
         "input": 0.14,
         "output": 0.28,
-        "cache_read": 0.028,
+        "cache_read": 0.0028,
         "cache_write": null
       },
       "limit": {
@@ -111580,9 +111640,9 @@
       "id": "deepseek-ai/DeepSeek-V4-Pro",
       "name": "DeepSeek V4 Pro",
       "price": {
-        "input": 1.74,
-        "output": 3.48,
-        "cache_read": 0.145,
+        "input": 0.435,
+        "output": 0.87,
+        "cache_read": 0.003625,
         "cache_write": null
       },
       "limit": {
@@ -114448,6 +114508,53 @@
       "release_date": "2025-01-01",
       "knowledge": "2023-12",
       "last_updated": "2025-01-01"
+    },
+    {
+      "platform": "poolside",
+      "id": "poolside/laguna-xs.2",
+      "name": "Laguna XS.2",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": 0,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 131040,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-28",
+      "knowledge": null,
+      "last_updated": "2026-04-28"
+    },
+    {
+      "platform": "poolside",
+      "id": "poolside/laguna-m.1",
+      "name": "Laguna M.1",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": 0,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 131040,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-28",
+      "knowledge": null,
+      "last_updated": "2026-04-28"
     }
   ]
 }
