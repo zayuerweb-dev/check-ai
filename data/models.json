@@ -595,7 +595,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 358
+      "models_count": 357
     },
     {
       "key": "regolo-ai",
@@ -54604,30 +54604,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "alibaba/tongyi-deepresearch-30b-a3b",
-      "name": "Tongyi DeepResearch 30B A3B",
-      "price": {
-        "input": 0.09,
-        "output": 0.45,
-        "cache_read": 0.09,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131072,
-        "output": 131072
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-09-18",
-      "knowledge": "2025-03-31",
-      "last_updated": "2025-09-18"
-    },
-    {
-      "platform": "openrouter",
       "id": "stepfun/step-3.5-flash",
       "name": "Step 3.5 Flash",
       "price": {
@@ -57172,14 +57148,14 @@
       "id": "deepseek/deepseek-chat",
       "name": "DeepSeek Chat",
       "price": {
-        "input": 0.32,
-        "output": 0.89,
+        "input": 0.2288,
+        "output": 0.9144,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 163840,
-        "output": 16384
+        "context": 128000,
+        "output": 16000
       },
       "capabilities": [
         "text",
@@ -102937,10 +102913,10 @@
       "id": "qwen-3-7-max",
       "name": "Qwen 3.7 Max",
       "price": {
-        "input": 3.125,
-        "output": 9.375,
-        "cache_read": 0.3125,
-        "cache_write": 3.90625
+        "input": 2.7,
+        "output": 8.05,
+        "cache_read": 0.27,
+        "cache_write": 3.35
       },
       "limit": {
         "context": 1000000,
@@ -102953,7 +102929,7 @@
       ],
       "release_date": "2026-05-22",
       "knowledge": null,
-      "last_updated": "2026-05-22"
+      "last_updated": "2026-05-25"
     },
     {
       "platform": "venice",
@@ -103465,7 +103441,7 @@
       },
       "limit": {
         "context": 256000,
-        "output": 65536
+        "output": 16384
       },
       "capabilities": [
         "text",
@@ -103477,7 +103453,7 @@
       ],
       "release_date": "2026-02-25",
       "knowledge": null,
-      "last_updated": "2026-04-16"
+      "last_updated": "2026-05-25"
     },
     {
       "platform": "venice",
@@ -104303,8 +104279,8 @@
       "id": "google-gemma-4-31b-it",
       "name": "Google Gemma 4 31B Instruct",
       "price": {
-        "input": 0.175,
-        "output": 0.5,
+        "input": 0.155,
+        "output": 0.44,
         "cache_read": null,
         "cache_write": null
       },
@@ -104322,17 +104298,17 @@
       ],
       "release_date": "2026-04-03",
       "knowledge": null,
-      "last_updated": "2026-04-12"
+      "last_updated": "2026-05-25"
     },
     {
       "platform": "venice",
       "id": "gemini-3-5-flash",
       "name": "Gemini 3.5 Flash",
       "price": {
-        "input": 1.8,
-        "output": 11,
-        "cache_read": 0.18,
-        "cache_write": 0.1
+        "input": 1.55,
+        "output": 9.45,
+        "cache_read": 0.155,
+        "cache_write": 0.086
       },
       "limit": {
         "context": 1000000,
@@ -104348,7 +104324,7 @@
       ],
       "release_date": "2026-05-22",
       "knowledge": null,
-      "last_updated": "2026-05-22"
+      "last_updated": "2026-05-25"
     },
     {
       "platform": "fireworks-ai",

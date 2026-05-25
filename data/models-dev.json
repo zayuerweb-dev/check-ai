@@ -70651,37 +70651,6 @@
           "output": 0.15
         }
       },
-      "alibaba/tongyi-deepresearch-30b-a3b": {
-        "id": "alibaba/tongyi-deepresearch-30b-a3b",
-        "name": "Tongyi DeepResearch 30B A3B",
-        "family": "yi",
-        "attachment": false,
-        "reasoning": true,
-        "tool_call": true,
-        "structured_output": true,
-        "temperature": true,
-        "knowledge": "2025-03-31",
-        "release_date": "2025-09-18",
-        "last_updated": "2025-09-18",
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "open_weights": true,
-        "limit": {
-          "context": 131072,
-          "output": 131072
-        },
-        "cost": {
-          "input": 0.09,
-          "output": 0.45,
-          "cache_read": 0.09
-        }
-      },
       "stepfun/step-3.5-flash": {
         "id": "stepfun/step-3.5-flash",
         "name": "Step 3.5 Flash",
@@ -74273,12 +74242,12 @@
         },
         "open_weights": true,
         "limit": {
-          "context": 163840,
-          "output": 16384
+          "context": 128000,
+          "output": 16000
         },
         "cost": {
-          "input": 0.32,
-          "output": 0.89
+          "input": 0.2288,
+          "output": 0.9144
         }
       },
       "deepseek/deepseek-v4-pro": {
@@ -135864,7 +135833,7 @@
         "tool_call": true,
         "temperature": true,
         "release_date": "2026-05-22",
-        "last_updated": "2026-05-22",
+        "last_updated": "2026-05-25",
         "modalities": {
           "input": [
             "text"
@@ -135879,10 +135848,10 @@
           "output": 65536
         },
         "cost": {
-          "input": 3.125,
-          "output": 9.375,
-          "cache_read": 0.3125,
-          "cache_write": 3.90625
+          "input": 2.7,
+          "output": 8.05,
+          "cache_read": 0.27,
+          "cache_write": 3.35
         }
       },
       "mistral-small-2603": {
@@ -136557,7 +136526,7 @@
         "structured_output": true,
         "temperature": true,
         "release_date": "2026-02-25",
-        "last_updated": "2026-04-16",
+        "last_updated": "2026-05-25",
         "modalities": {
           "input": [
             "text",
@@ -136571,7 +136540,7 @@
         "open_weights": true,
         "limit": {
           "context": 256000,
-          "output": 65536
+          "output": 16384
         },
         "cost": {
           "input": 0.3125,
@@ -137756,7 +137725,7 @@
         "structured_output": true,
         "temperature": true,
         "release_date": "2026-04-03",
-        "last_updated": "2026-04-12",
+        "last_updated": "2026-05-25",
         "modalities": {
           "input": [
             "text",
@@ -137773,8 +137742,8 @@
           "output": 8192
         },
         "cost": {
-          "input": 0.175,
-          "output": 0.5
+          "input": 0.155,
+          "output": 0.44
         }
       },
       "gemini-3-5-flash": {
@@ -137787,7 +137756,7 @@
         "structured_output": true,
         "temperature": true,
         "release_date": "2026-05-22",
-        "last_updated": "2026-05-22",
+        "last_updated": "2026-05-25",
         "modalities": {
           "input": [
             "text",
@@ -137805,10 +137774,10 @@
           "output": 65536
         },
         "cost": {
-          "input": 1.8,
-          "output": 11,
-          "cache_read": 0.18,
-          "cache_write": 0.1
+          "input": 1.55,
+          "output": 9.45,
+          "cache_read": 0.155,
+          "cache_write": 0.086
         }
       }
     }
