@@ -198,7 +198,7 @@
         "ROUTING_RUN_API_KEY"
       ],
       "api": "https://api.routing.run/v1",
-      "models_count": 24
+      "models_count": 26
     },
     {
       "key": "the-grid-ai",
@@ -20636,7 +20636,7 @@
       },
       "limit": {
         "context": 202752,
-        "output": 202752
+        "output": 65536
       },
       "capabilities": [
         "text",
@@ -20658,13 +20658,11 @@
         "cache_write": null
       },
       "limit": {
-        "context": 262144,
-        "output": 262144
+        "context": 202000,
+        "output": 32768
       },
       "capabilities": [
         "text",
-        "vision",
-        "video",
         "tools",
         "open"
       ],
@@ -20708,7 +20706,7 @@
       },
       "limit": {
         "context": 202752,
-        "output": 202752
+        "output": 65536
       },
       "capabilities": [
         "text",
@@ -21013,6 +21011,32 @@
     },
     {
       "platform": "routing-run",
+      "id": "route/mimo-v2.5",
+      "name": "MiMo V2.5",
+      "price": {
+        "input": 0.45,
+        "output": 1.35,
+        "cache_read": 0.2,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": "2024-12",
+      "last_updated": "2026-04-22"
+    },
+    {
+      "platform": "routing-run",
       "id": "route/deepseek-v4-flash",
       "name": "DeepSeek V4 Flash",
       "price": {
@@ -21084,6 +21108,29 @@
       "release_date": "2026-01-29",
       "knowledge": "2025-01",
       "last_updated": "2026-02-13"
+    },
+    {
+      "platform": "routing-run",
+      "id": "route/qwen3.6-27b-202k",
+      "name": "Qwen3.6 27B 202K",
+      "price": {
+        "input": 1.1,
+        "output": 3.3,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 202000,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": null,
+      "last_updated": "2026-04-22"
     },
     {
       "platform": "routing-run",
@@ -38084,7 +38131,7 @@
       "price": {
         "input": 1.25,
         "output": 10,
-        "cache_read": 0.13,
+        "cache_read": 0.125,
         "cache_write": null
       },
       "limit": {
@@ -38204,7 +38251,7 @@
       "price": {
         "input": 0.1,
         "output": 0.4,
-        "cache_read": 0.03,
+        "cache_read": 0.025,
         "cache_write": null
       },
       "limit": {
@@ -38227,7 +38274,7 @@
       "price": {
         "input": 1.1,
         "output": 4.4,
-        "cache_read": 0.28,
+        "cache_read": 0.275,
         "cache_write": null
       },
       "limit": {
@@ -40860,7 +40907,7 @@
       "price": {
         "input": 0.5,
         "output": 1.5,
-        "cache_read": 1.25,
+        "cache_read": 0,
         "cache_write": null
       },
       "limit": {
@@ -40951,7 +40998,7 @@
       "price": {
         "input": 1.25,
         "output": 10,
-        "cache_read": null,
+        "cache_read": 0.125,
         "cache_write": null
       },
       "limit": {
@@ -41297,7 +41344,7 @@
       "price": {
         "input": 1.25,
         "output": 10,
-        "cache_read": 0.13,
+        "cache_read": 0.125,
         "cache_write": null
       },
       "limit": {
@@ -41369,7 +41416,7 @@
       "price": {
         "input": 0.15,
         "output": 0.6,
-        "cache_read": 0.08,
+        "cache_read": 0.075,
         "cache_write": null
       },
       "limit": {
@@ -41607,7 +41654,7 @@
       "price": {
         "input": 0.1,
         "output": 0.4,
-        "cache_read": 0.03,
+        "cache_read": 0.025,
         "cache_write": null
       },
       "limit": {
@@ -41652,7 +41699,7 @@
       "price": {
         "input": 1.1,
         "output": 4.4,
-        "cache_read": 0.28,
+        "cache_read": 0.275,
         "cache_write": null
       },
       "limit": {
@@ -46952,7 +46999,7 @@
       "price": {
         "input": 1.1,
         "output": 4.4,
-        "cache_read": 0.28,
+        "cache_read": 0.275,
         "cache_write": null
       },
       "limit": {
@@ -46976,7 +47023,7 @@
       "price": {
         "input": 0.1,
         "output": 0.4,
-        "cache_read": 0.03,
+        "cache_read": 0.025,
         "cache_write": null
       },
       "limit": {
@@ -47069,7 +47116,7 @@
       "price": {
         "input": 0.15,
         "output": 0.6,
-        "cache_read": 0.08,
+        "cache_read": 0.075,
         "cache_write": null
       },
       "limit": {
@@ -52171,13 +52218,13 @@
       "name": "Qwen3.6 27B",
       "price": {
         "input": 0.3,
-        "output": 3.2,
-        "cache_read": null,
+        "output": 2,
+        "cache_read": 0.15,
         "cache_write": null
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 65536
       },
       "capabilities": [
         "text",
@@ -57976,7 +58023,7 @@
       "price": {
         "input": 0.5,
         "output": 1.5,
-        "cache_read": 1.25,
+        "cache_read": 0,
         "cache_write": null
       },
       "limit": {
@@ -58021,7 +58068,7 @@
       "price": {
         "input": 1.25,
         "output": 10,
-        "cache_read": null,
+        "cache_read": 0.125,
         "cache_write": null
       },
       "limit": {
@@ -58257,7 +58304,7 @@
       "price": {
         "input": 1.25,
         "output": 10,
-        "cache_read": 0.13,
+        "cache_read": 0.125,
         "cache_write": null
       },
       "limit": {
@@ -58329,7 +58376,7 @@
       "price": {
         "input": 0.15,
         "output": 0.6,
-        "cache_read": 0.08,
+        "cache_read": 0.075,
         "cache_write": null
       },
       "limit": {
@@ -58495,7 +58542,7 @@
       "price": {
         "input": 0.1,
         "output": 0.4,
-        "cache_read": 0.03,
+        "cache_read": 0.025,
         "cache_write": null
       },
       "limit": {
@@ -61602,29 +61649,6 @@
     },
     {
       "platform": "llmgateway",
-      "id": "qwen37-max",
-      "name": "Qwen3.7 Max",
-      "price": {
-        "input": 2.5,
-        "output": 7.5,
-        "cache_read": 0.5,
-        "cache_write": 3.125
-      },
-      "limit": {
-        "context": 1000000,
-        "output": 65536
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2026-05-21",
-      "knowledge": null,
-      "last_updated": "2026-05-21"
-    },
-    {
-      "platform": "llmgateway",
       "id": "claude-opus-4-1-20250805",
       "name": "Claude Opus 4.1",
       "price": {
@@ -61946,7 +61970,7 @@
       "price": {
         "input": 0.5,
         "output": 1.5,
-        "cache_read": 1.25,
+        "cache_read": 0,
         "cache_write": null
       },
       "limit": {
@@ -62091,7 +62115,7 @@
       "price": {
         "input": 1.25,
         "output": 10,
-        "cache_read": null,
+        "cache_read": 0.125,
         "cache_write": null
       },
       "limit": {
@@ -62321,6 +62345,29 @@
       "release_date": "2026-02-15",
       "knowledge": null,
       "last_updated": "2026-02-15"
+    },
+    {
+      "platform": "llmgateway",
+      "id": "qwen3.7-max",
+      "name": "Qwen3.7 Max",
+      "price": {
+        "input": 2.5,
+        "output": 7.5,
+        "cache_read": 0.5,
+        "cache_write": 3.125
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-05-21",
+      "knowledge": null,
+      "last_updated": "2026-05-21"
     },
     {
       "platform": "llmgateway",
@@ -62828,7 +62875,7 @@
       "price": {
         "input": 1.25,
         "output": 10,
-        "cache_read": 0.13,
+        "cache_read": 0.125,
         "cache_write": null
       },
       "limit": {
@@ -62922,7 +62969,7 @@
       "price": {
         "input": 0.15,
         "output": 0.6,
-        "cache_read": 0.08,
+        "cache_read": 0.075,
         "cache_write": null
       },
       "limit": {
@@ -63721,7 +63768,7 @@
       "price": {
         "input": 0.1,
         "output": 0.4,
-        "cache_read": 0.03,
+        "cache_read": 0.025,
         "cache_write": null
       },
       "limit": {
@@ -63766,7 +63813,7 @@
       "price": {
         "input": 1.1,
         "output": 4.4,
-        "cache_read": 0.28,
+        "cache_read": 0.275,
         "cache_write": null
       },
       "limit": {
@@ -72801,7 +72848,7 @@
       "price": {
         "input": 1.25,
         "output": 10,
-        "cache_read": 0.13,
+        "cache_read": 0.125,
         "cache_write": null
       },
       "limit": {
@@ -86444,7 +86491,7 @@
       },
       "limit": {
         "context": 200000,
-        "output": 128000
+        "output": 32000
       },
       "capabilities": [
         "text",
@@ -93378,7 +93425,7 @@
       "price": {
         "input": 0.15,
         "output": 0.6,
-        "cache_read": 0.08,
+        "cache_read": 0.075,
         "cache_write": null
       },
       "limit": {
@@ -93543,7 +93590,7 @@
       "price": {
         "input": 0.1,
         "output": 0.4,
-        "cache_read": 0.03,
+        "cache_read": 0.025,
         "cache_write": null
       },
       "limit": {
@@ -93566,7 +93613,7 @@
       "price": {
         "input": 1.1,
         "output": 4.4,
-        "cache_read": 0.28,
+        "cache_read": 0.275,
         "cache_write": null
       },
       "limit": {
@@ -98212,7 +98259,7 @@
       "price": {
         "input": 1.1,
         "output": 4.4,
-        "cache_read": 0.28,
+        "cache_read": 0.275,
         "cache_write": null
       },
       "limit": {
@@ -98236,7 +98283,7 @@
       "price": {
         "input": 0.1,
         "output": 0.4,
-        "cache_read": 0.03,
+        "cache_read": 0.025,
         "cache_write": null
       },
       "limit": {
@@ -98306,7 +98353,7 @@
       "price": {
         "input": 0.15,
         "output": 0.6,
-        "cache_read": 0.08,
+        "cache_read": 0.075,
         "cache_write": null
       },
       "limit": {
@@ -108082,8 +108129,8 @@
         "cache_write": null
       },
       "limit": {
-        "context": 400000,
-        "output": 128000
+        "context": 1000000,
+        "output": 384000
       },
       "capabilities": [
         "text",
@@ -108093,7 +108140,7 @@
       ],
       "release_date": "2026-05-01",
       "knowledge": "2025-12-30",
-      "last_updated": "2026-05-15"
+      "last_updated": "2026-05-25"
     },
     {
       "platform": "stepfun",
