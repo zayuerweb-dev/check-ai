@@ -268,7 +268,7 @@
         "NOVITA_API_KEY"
       ],
       "api": "https://api.novita.ai/openai",
-      "models_count": 99
+      "models_count": 104
     },
     {
       "key": "digitalocean",
@@ -308,7 +308,7 @@
         "KILO_API_KEY"
       ],
       "api": "https://api.kilo.ai/api/gateway",
-      "models_count": 344
+      "models_count": 345
     },
     {
       "key": "google-vertex-anthropic",
@@ -351,7 +351,7 @@
         "XIAOMI_API_KEY"
       ],
       "api": "https://token-plan-cn.xiaomimimo.com/v1",
-      "models_count": 6
+      "models_count": 8
     },
     {
       "key": "v0",
@@ -422,7 +422,7 @@
         "XIAOMI_API_KEY"
       ],
       "api": "https://token-plan-ams.xiaomimimo.com/v1",
-      "models_count": 6
+      "models_count": 8
     },
     {
       "key": "cloudferro-sherlock",
@@ -472,7 +472,7 @@
         "CEREBRAS_API_KEY"
       ],
       "api": null,
-      "models_count": 4
+      "models_count": 3
     },
     {
       "key": "cloudflare-ai-gateway",
@@ -595,7 +595,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 357
+      "models_count": 355
     },
     {
       "key": "regolo-ai",
@@ -635,7 +635,7 @@
         "OPENCODE_API_KEY"
       ],
       "api": "https://opencode.ai/zen/go/v1",
-      "models_count": 14
+      "models_count": 15
     },
     {
       "key": "llmgateway",
@@ -685,7 +685,7 @@
         "XIAOMI_API_KEY"
       ],
       "api": "https://token-plan-sgp.xiaomimimo.com/v1",
-      "models_count": 6
+      "models_count": 8
     },
     {
       "key": "siliconflow",
@@ -1414,28 +1414,6 @@
       "release_date": "2025-02-19",
       "knowledge": "2025-02",
       "last_updated": "2025-02-19"
-    },
-    {
-      "platform": "helicone",
-      "id": "mistral-small",
-      "name": "Mistral Small",
-      "price": {
-        "input": 75,
-        "output": 200,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 128000,
-        "output": 128000
-      },
-      "capabilities": [
-        "text",
-        "vision"
-      ],
-      "release_date": "2024-02-26",
-      "knowledge": "2024-02",
-      "last_updated": "2024-02-26"
     },
     {
       "platform": "helicone",
@@ -3410,6 +3388,30 @@
       "release_date": "2025-09-22",
       "knowledge": "2025-09",
       "last_updated": "2025-09-22"
+    },
+    {
+      "platform": "helicone",
+      "id": "mistral-small",
+      "name": "Mistral Small 3.2",
+      "price": {
+        "input": 0.075,
+        "output": 0.2,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 128000,
+        "output": 16384
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "open"
+      ],
+      "release_date": "2025-06-20",
+      "knowledge": "2025-03",
+      "last_updated": "2025-06-20"
     },
     {
       "platform": "auriko",
@@ -24282,6 +24284,29 @@
     },
     {
       "platform": "novita-ai",
+      "id": "inclusionai/ring-2.6-1t",
+      "name": "Ring-2.6-1T",
+      "price": {
+        "input": 0.3,
+        "output": 2.5,
+        "cache_read": 0.06,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-05-08",
+      "knowledge": null,
+      "last_updated": "2026-05-27"
+    },
+    {
+      "platform": "novita-ai",
       "id": "inclusionai/ling-2.6-1t",
       "name": "Ling-2.6-1T",
       "price": {
@@ -24542,6 +24567,29 @@
       "release_date": "2025-09-24",
       "knowledge": "2024-04",
       "last_updated": "2025-09-24"
+    },
+    {
+      "platform": "novita-ai",
+      "id": "qwen/qwen3.7-max",
+      "name": "Qwen3.7-Max",
+      "price": {
+        "input": 1.25,
+        "output": 3.75,
+        "cache_read": 0.125,
+        "cache_write": 1.5625
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-05-21",
+      "knowledge": null,
+      "last_updated": "2026-05-27"
     },
     {
       "platform": "novita-ai",
@@ -25886,6 +25934,30 @@
     },
     {
       "platform": "novita-ai",
+      "id": "minimax/minimax-m2.7-highspeed",
+      "name": "MiniMax-M2.7-highspeed",
+      "price": {
+        "input": 0.6,
+        "output": 2.4,
+        "cache_read": 0.06,
+        "cache_write": 0.375
+      },
+      "limit": {
+        "context": 204800,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-03-18",
+      "knowledge": null,
+      "last_updated": "2026-05-27"
+    },
+    {
+      "platform": "novita-ai",
       "id": "deepseek/deepseek-v4-pro",
       "name": "DeepSeek V4 Pro",
       "price": {
@@ -25931,6 +26003,53 @@
       "release_date": "2026-04-24",
       "knowledge": "2025-05",
       "last_updated": "2026-04-24"
+    },
+    {
+      "platform": "novita-ai",
+      "id": "xiaomimimo/mimo-v2.5-pro",
+      "name": "MiMo-V2.5-Pro",
+      "price": {
+        "input": 2,
+        "output": 6,
+        "cache_read": 0.4,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": "2024-12",
+      "last_updated": "2026-05-27"
+    },
+    {
+      "platform": "novita-ai",
+      "id": "xiaomimimo/mimo-v2-pro",
+      "name": "MiMo-V2-Pro",
+      "price": {
+        "input": 2,
+        "output": 6,
+        "cache_read": 0.4,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-03-18",
+      "knowledge": "2024-12",
+      "last_updated": "2026-05-27"
     },
     {
       "platform": "digitalocean",
@@ -29038,6 +29157,78 @@
     },
     {
       "platform": "kilo",
+      "id": "stealth/claude-sonnet-4.6",
+      "name": "Stealth: Claude Sonnet 4.6 (20% off)",
+      "price": {
+        "input": 2.4,
+        "output": 12,
+        "cache_read": 0.24,
+        "cache_write": 3
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 64000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-02-17",
+      "knowledge": null,
+      "last_updated": "2026-05-27"
+    },
+    {
+      "platform": "kilo",
+      "id": "stealth/claude-opus-4.6",
+      "name": "Stealth: Claude Opus 4.6 (20% off)",
+      "price": {
+        "input": 4,
+        "output": 20,
+        "cache_read": 0.4,
+        "cache_write": 5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-02-05",
+      "knowledge": null,
+      "last_updated": "2026-05-27"
+    },
+    {
+      "platform": "kilo",
+      "id": "stealth/claude-opus-4.7",
+      "name": "Stealth: Claude Opus 4.7 (20% off)",
+      "price": {
+        "input": 4,
+        "output": 20,
+        "cache_read": 0.4,
+        "cache_write": 5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-16",
+      "knowledge": null,
+      "last_updated": "2026-05-27"
+    },
+    {
+      "platform": "kilo",
       "id": "bytedance/ui-tars-1.5-7b",
       "name": "ByteDance: UI-TARS 7B ",
       "price": {
@@ -31827,26 +32018,27 @@
     },
     {
       "platform": "kilo",
-      "id": "x-ai/grok-code-fast-1:optimized:free",
-      "name": "xAI: Grok Code Fast 1 Optimized (experimental, free)",
+      "id": "x-ai/grok-build-0.1",
+      "name": "xAI: Grok Build 0.1",
       "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
+        "input": 1,
+        "output": 2,
+        "cache_read": 0.2,
         "cache_write": null
       },
       "limit": {
         "context": 256000,
-        "output": 10000
+        "output": 256000
       },
       "capabilities": [
         "text",
+        "vision",
         "tools",
         "reasoning"
       ],
-      "release_date": "2025-08-27",
+      "release_date": "2026-05-20",
       "knowledge": null,
-      "last_updated": "2026-03-15"
+      "last_updated": "2026-05-27"
     },
     {
       "platform": "kilo",
@@ -33380,6 +33572,29 @@
     },
     {
       "platform": "kilo",
+      "id": "qwen/qwen3.7-max",
+      "name": "Qwen: Qwen3.7 Max",
+      "price": {
+        "input": 1.625,
+        "output": 4.875,
+        "cache_read": 0.1625,
+        "cache_write": 2.03125
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-08-26",
+      "knowledge": null,
+      "last_updated": "2026-05-27"
+    },
+    {
+      "platform": "kilo",
       "id": "qwen/qwen-plus-2025-07-28:thinking",
       "name": "Qwen: Qwen Plus 0728 (thinking)",
       "price": {
@@ -34280,6 +34495,32 @@
       "release_date": "2026-04-03",
       "knowledge": null,
       "last_updated": "2026-04-11"
+    },
+    {
+      "platform": "kilo",
+      "id": "google/gemini-3.5-flash",
+      "name": "Google: Gemini 3.5 Flash",
+      "price": {
+        "input": 1.5,
+        "output": 9,
+        "cache_read": 0.15,
+        "cache_write": 0.08333
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-05-19",
+      "knowledge": null,
+      "last_updated": "2026-05-27"
     },
     {
       "platform": "kilo",
@@ -35219,29 +35460,6 @@
     },
     {
       "platform": "kilo",
-      "id": "deepseek/deepseek-v4-flash:free",
-      "name": "DeepSeek: DeepSeek V4 Flash (free)",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 1048576,
-        "output": 384000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2026-04-24",
-      "knowledge": null,
-      "last_updated": "2026-05-16"
-    },
-    {
-      "platform": "kilo",
       "id": "deepseek/deepseek-v4-flash",
       "name": "DeepSeek: DeepSeek V4 Flash",
       "price": {
@@ -35929,28 +36147,6 @@
     },
     {
       "platform": "kilo",
-      "id": "arcee-ai/trinity-large-preview",
-      "name": "Arcee AI: Trinity Large Preview",
-      "price": {
-        "input": 0.15,
-        "output": 0.45,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 32768
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2026-01-28",
-      "knowledge": null,
-      "last_updated": "2026-05-01"
-    },
-    {
-      "platform": "kilo",
       "id": "kilo-auto/frontier",
       "name": "Kilo Auto Frontier",
       "price": {
@@ -36068,29 +36264,6 @@
     },
     {
       "platform": "kilo",
-      "id": "alibaba/tongyi-deepresearch-30b-a3b",
-      "name": "Tongyi DeepResearch 30B A3B",
-      "price": {
-        "input": 0.09,
-        "output": 0.45,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131072,
-        "output": 131072
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-09-18",
-      "knowledge": null,
-      "last_updated": "2026-03-15"
-    },
-    {
-      "platform": "kilo",
       "id": "stepfun/step-3.5-flash",
       "name": "StepFun: Step 3.5 Flash",
       "price": {
@@ -36112,29 +36285,6 @@
       "release_date": "2026-01-29",
       "knowledge": null,
       "last_updated": "2026-01-29"
-    },
-    {
-      "platform": "kilo",
-      "id": "stepfun/step-3.5-flash:free",
-      "name": "StepFun: Step 3.5 Flash (free)",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262144,
-        "output": 262144
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-08-26",
-      "knowledge": null,
-      "last_updated": "2026-05-01"
     },
     {
       "platform": "kilo",
@@ -37577,7 +37727,7 @@
       },
       "limit": {
         "context": 8192,
-        "output": 16384
+        "output": 8192
       },
       "capabilities": [
         "text",
@@ -37586,6 +37736,72 @@
       "release_date": "2026-03-18",
       "knowledge": null,
       "last_updated": "2026-03-18"
+    },
+    {
+      "platform": "xiaomi-token-plan-cn",
+      "id": "mimo-v2.5-tts",
+      "name": "MiMo-V2.5-TTS",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 8192,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": null,
+      "last_updated": "2026-04-22"
+    },
+    {
+      "platform": "xiaomi-token-plan-cn",
+      "id": "mimo-v2.5-tts-voiceclone",
+      "name": "MiMo-V2.5-TTS-VoiceClone",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 8192,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": null,
+      "last_updated": "2026-04-22"
+    },
+    {
+      "platform": "xiaomi-token-plan-cn",
+      "id": "mimo-v2.5-tts-voicedesign",
+      "name": "MiMo-V2.5-TTS-VoiceDesign",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 8192,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": null,
+      "last_updated": "2026-04-22"
     },
     {
       "platform": "xiaomi-token-plan-cn",
@@ -37636,30 +37852,6 @@
       "release_date": "2026-04-22",
       "knowledge": "2024-12",
       "last_updated": "2026-04-22"
-    },
-    {
-      "platform": "xiaomi-token-plan-cn",
-      "id": "mimo-v2-flash",
-      "name": "MiMo-V2-Flash",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": 0,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262144,
-        "output": 65536
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-12-16",
-      "knowledge": "2024-12-01",
-      "last_updated": "2026-02-04"
     },
     {
       "platform": "xiaomi-token-plan-cn",
@@ -40549,6 +40741,72 @@
     },
     {
       "platform": "xiaomi-token-plan-ams",
+      "id": "mimo-v2.5-tts-voicedesign",
+      "name": "MiMo-V2.5-TTS-VoiceDesign",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 8192,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": null,
+      "last_updated": "2026-04-22"
+    },
+    {
+      "platform": "xiaomi-token-plan-ams",
+      "id": "mimo-v2.5-tts-voiceclone",
+      "name": "MiMo-V2.5-TTS-VoiceClone",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 8192,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": null,
+      "last_updated": "2026-04-22"
+    },
+    {
+      "platform": "xiaomi-token-plan-ams",
+      "id": "mimo-v2.5-tts",
+      "name": "MiMo-V2.5-TTS",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 8192,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": null,
+      "last_updated": "2026-04-22"
+    },
+    {
+      "platform": "xiaomi-token-plan-ams",
       "id": "mimo-v2-tts",
       "name": "MiMo-V2-TTS",
       "price": {
@@ -40559,7 +40817,7 @@
       },
       "limit": {
         "context": 8192,
-        "output": 16384
+        "output": 8192
       },
       "capabilities": [
         "text",
@@ -40618,30 +40876,6 @@
       "release_date": "2026-03-18",
       "knowledge": "2024-12",
       "last_updated": "2026-03-18"
-    },
-    {
-      "platform": "xiaomi-token-plan-ams",
-      "id": "mimo-v2-flash",
-      "name": "MiMo-V2-Flash",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": 0,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262144,
-        "output": 65536
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-12-16",
-      "knowledge": "2024-12-01",
-      "last_updated": "2026-02-04"
     },
     {
       "platform": "xiaomi-token-plan-ams",
@@ -42476,29 +42710,6 @@
       "release_date": "2026-01-10",
       "knowledge": null,
       "last_updated": "2026-01-10"
-    },
-    {
-      "platform": "cerebras",
-      "id": "qwen-3-235b-a22b-instruct-2507",
-      "name": "Qwen 3 235B Instruct",
-      "price": {
-        "input": 0.6,
-        "output": 1.2,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 32000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "open"
-      ],
-      "release_date": "2025-07-22",
-      "knowledge": "2025-04",
-      "last_updated": "2025-07-22"
     },
     {
       "platform": "cerebras",
@@ -50061,12 +50272,12 @@
       "price": {
         "input": 1.25,
         "output": 10,
-        "cache_read": 0.125,
+        "cache_read": 0.13,
         "cache_write": null
       },
       "limit": {
         "context": 128000,
-        "output": 16384
+        "output": 32000
       },
       "capabilities": [
         "text",
@@ -50409,7 +50620,7 @@
       },
       "limit": {
         "context": 128000,
-        "output": 32000
+        "output": 16384
       },
       "capabilities": [
         "text",
@@ -52171,7 +52382,7 @@
         "input": 0.3,
         "output": 1.8,
         "cache_read": null,
-        "cache_write": null
+        "cache_write": 0.375
       },
       "limit": {
         "context": 1000000,
@@ -52217,14 +52428,14 @@
       "id": "qwen/qwen3.6-27b",
       "name": "Qwen3.6 27B",
       "price": {
-        "input": 0.3,
-        "output": 2,
-        "cache_read": 0.15,
+        "input": 0.29,
+        "output": 3.2,
+        "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 262144,
-        "output": 65536
+        "context": 262140,
+        "output": 262140
       },
       "capabilities": [
         "text",
@@ -52269,7 +52480,7 @@
         "input": 0.26,
         "output": 1.56,
         "cache_read": null,
-        "cache_write": 0.325
+        "cache_write": null
       },
       "limit": {
         "context": 1000000,
@@ -52389,10 +52600,10 @@
       "id": "qwen/qwen3.7-max",
       "name": "Qwen3.7 Max",
       "price": {
-        "input": 2.5,
-        "output": 7.5,
-        "cache_read": null,
-        "cache_write": 3.125
+        "input": 1.25,
+        "output": 3.75,
+        "cache_read": 0.25,
+        "cache_write": 1.5625
       },
       "limit": {
         "context": 1000000,
@@ -52815,7 +53026,7 @@
         "input": 0.065,
         "output": 0.26,
         "cache_read": null,
-        "cache_write": 0.08125
+        "cache_write": null
       },
       "limit": {
         "context": 1000000,
@@ -52912,7 +53123,7 @@
       "id": "qwen/qwen3.6-35b-a3b",
       "name": "Qwen3.6 35B A3B",
       "price": {
-        "input": 0.15,
+        "input": 0.14,
         "output": 1,
         "cache_read": null,
         "cache_write": null
@@ -52941,7 +53152,7 @@
         "input": 0.26,
         "output": 0.78,
         "cache_read": null,
-        "cache_write": 0.325
+        "cache_write": null
       },
       "limit": {
         "context": 1000000,
@@ -54470,30 +54681,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "arcee-ai/trinity-large-thinking:free",
-      "name": "Trinity Large Thinking (free)",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262144,
-        "output": 80000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-01",
-      "knowledge": null,
-      "last_updated": "2026-04-01"
-    },
-    {
-      "platform": "openrouter",
       "id": "arcee-ai/spotlight",
       "name": "Spotlight",
       "price": {
@@ -54907,29 +55094,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "baidu/cobuddy:free",
-      "name": "CoBuddy (free)",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131072,
-        "output": 65536
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2026-05-06",
-      "knowledge": null,
-      "last_updated": "2026-05-06"
-    },
-    {
-      "platform": "openrouter",
       "id": "baidu/ernie-4.5-vl-28b-a3b",
       "name": "ERNIE 4.5 VL 28B A3B",
       "price": {
@@ -54988,8 +55152,8 @@
         "cache_write": null
       },
       "limit": {
-        "context": 131072,
-        "output": 8192
+        "context": 262144,
+        "output": 32768
       },
       "capabilities": [
         "text",
@@ -55012,8 +55176,8 @@
         "cache_write": null
       },
       "limit": {
-        "context": 131072,
-        "output": 8192
+        "context": 262144,
+        "output": 32768
       },
       "capabilities": [
         "text",
@@ -55219,14 +55383,14 @@
       "id": "z-ai/glm-4.5-air",
       "name": "GLM-4.5-Air",
       "price": {
-        "input": 0.13,
-        "output": 0.85,
-        "cache_read": 0.025,
+        "input": 0.125,
+        "output": 0.84,
+        "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 131072,
-        "output": 98304
+        "context": 131070,
+        "output": 131070
       },
       "capabilities": [
         "text",
@@ -55604,12 +55768,12 @@
       "price": {
         "input": 0.25,
         "output": 2,
-        "cache_read": 0.03,
+        "cache_read": 0.025,
         "cache_write": null
       },
       "limit": {
         "context": 400000,
-        "output": 128000
+        "output": 100000
       },
       "capabilities": [
         "text",
@@ -56123,7 +56287,7 @@
       "price": {
         "input": 1.25,
         "output": 10,
-        "cache_read": 0.125,
+        "cache_read": 0.13,
         "cache_write": null
       },
       "limit": {
@@ -57362,14 +57526,14 @@
       "id": "xiaomi/mimo-v2.5-pro",
       "name": "MiMo-V2.5-Pro",
       "price": {
-        "input": 1,
-        "output": 3,
-        "cache_read": 0.2,
+        "input": 0.435,
+        "output": 0.87,
+        "cache_read": 0.0036,
         "cache_write": null
       },
       "limit": {
         "context": 1048576,
-        "output": 16384
+        "output": 131072
       },
       "capabilities": [
         "text",
@@ -57433,9 +57597,9 @@
       "id": "xiaomi/mimo-v2.5",
       "name": "MiMo-V2.5",
       "price": {
-        "input": 0.4,
-        "output": 2,
-        "cache_read": 0.08,
+        "input": 0.14,
+        "output": 0.28,
+        "cache_read": 0.0028,
         "cache_write": null
       },
       "limit": {
@@ -59872,12 +60036,35 @@
     },
     {
       "platform": "opencode-go",
+      "id": "qwen3.7-max",
+      "name": "Qwen3.7 Max",
+      "price": {
+        "input": 2.5,
+        "output": 7.5,
+        "cache_read": 0.5,
+        "cache_write": 3.125
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-05-21",
+      "knowledge": null,
+      "last_updated": "2026-05-21"
+    },
+    {
+      "platform": "opencode-go",
       "id": "mimo-v2.5-pro",
       "name": "MiMo V2.5 Pro",
       "price": {
-        "input": 1,
-        "output": 3,
-        "cache_read": 0.2,
+        "input": 1.74,
+        "output": 3.48,
+        "cache_read": 0.0145,
         "cache_write": null
       },
       "limit": {
@@ -59996,9 +60183,9 @@
       "id": "mimo-v2.5",
       "name": "MiMo V2.5",
       "price": {
-        "input": 0.4,
-        "output": 2,
-        "cache_read": 0.08,
+        "input": 0.14,
+        "output": 0.28,
+        "cache_read": 0.0028,
         "cache_write": null
       },
       "limit": {
@@ -68145,7 +68332,7 @@
       "price": {
         "input": 1,
         "output": 3,
-        "cache_read": null,
+        "cache_read": 0.5,
         "cache_write": null
       },
       "limit": {
@@ -68159,7 +68346,7 @@
       ],
       "release_date": "2025-09-05",
       "knowledge": "2024-10",
-      "last_updated": "2025-09-05"
+      "last_updated": "2026-05-27"
     },
     {
       "platform": "groq",
@@ -68191,7 +68378,7 @@
       "price": {
         "input": 0.075,
         "output": 0.3,
-        "cache_read": null,
+        "cache_read": 0.0375,
         "cache_write": null
       },
       "limit": {
@@ -68206,7 +68393,7 @@
       ],
       "release_date": "2025-08-05",
       "knowledge": null,
-      "last_updated": "2025-08-05"
+      "last_updated": "2026-05-27"
     },
     {
       "platform": "groq",
@@ -68239,7 +68426,7 @@
       "price": {
         "input": 0.15,
         "output": 0.6,
-        "cache_read": null,
+        "cache_read": 0.075,
         "cache_write": null
       },
       "limit": {
@@ -68254,7 +68441,7 @@
       ],
       "release_date": "2025-08-05",
       "knowledge": null,
-      "last_updated": "2025-08-05"
+      "last_updated": "2026-05-27"
     },
     {
       "platform": "groq",
@@ -68485,6 +68672,72 @@
     },
     {
       "platform": "xiaomi-token-plan-sgp",
+      "id": "mimo-v2.5-tts-voicedesign",
+      "name": "MiMo-V2.5-TTS-VoiceDesign",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 8192,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": null,
+      "last_updated": "2026-04-22"
+    },
+    {
+      "platform": "xiaomi-token-plan-sgp",
+      "id": "mimo-v2.5-tts-voiceclone",
+      "name": "MiMo-V2.5-TTS-VoiceClone",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 8192,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": null,
+      "last_updated": "2026-04-22"
+    },
+    {
+      "platform": "xiaomi-token-plan-sgp",
+      "id": "mimo-v2.5-tts",
+      "name": "MiMo-V2.5-TTS",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 8192,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": null,
+      "last_updated": "2026-04-22"
+    },
+    {
+      "platform": "xiaomi-token-plan-sgp",
       "id": "mimo-v2-tts",
       "name": "MiMo-V2-TTS",
       "price": {
@@ -68495,7 +68748,7 @@
       },
       "limit": {
         "context": 8192,
-        "output": 16384
+        "output": 8192
       },
       "capabilities": [
         "text",
@@ -68554,30 +68807,6 @@
       "release_date": "2026-03-18",
       "knowledge": "2024-12",
       "last_updated": "2026-03-18"
-    },
-    {
-      "platform": "xiaomi-token-plan-sgp",
-      "id": "mimo-v2-flash",
-      "name": "MiMo-V2-Flash",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": 0,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262144,
-        "output": 65536
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-12-16",
-      "knowledge": "2024-12-01",
-      "last_updated": "2026-02-04"
     },
     {
       "platform": "xiaomi-token-plan-sgp",
