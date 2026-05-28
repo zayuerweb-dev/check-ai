@@ -630,19 +630,85 @@
           "checked": "2026-05-22"
         }
       ]
-    },
-    "distribution": [
-      {
-        "platform": "juejin",
-        "url": "https://juejin.cn/spost/7642603151204155444",
-        "date": "2026-05-23"
+    }
+  },
+  {
+    "slug": "ai-agent-model-selection-2026",
+    "topic": "选型指南",
+    "author": "zayuerweb-dev",
+    "authorUrl": "https://github.com/zayuerweb-dev",
+    "written": "2026-05-25",
+    "published": "2026-05-25",
+    "modified": "2026-05-25",
+    "zh": {
+      "title": "2026 做 AI Agent 用哪个模型：工具调用、长任务、成本实测",
+      "metaTitle": "2026 做 AI Agent 用哪个模型：工具调用、长任务、成本对比",
+      "description": "做 AI agent 选模型和聊天不一样：要工具调用稳、长任务不漂移、成本可控。Claude、GPT-5.5、Gemini、DeepSeek、Qwen 横评 + 真实 token 成本算例 + 决策表。",
+      "ogTitle": "2026 做 AI Agent 用哪个模型",
+      "ogDescription": "工具调用、长任务、成本——agent 选模型的四个硬指标和决策表。",
+      "headline": "2026 做 AI Agent 用哪个模型：工具调用、长任务、成本实测",
+      "status": "published",
+      "related": {
+        "href": "/zh/articles/gpt-5-vs-claude-coding-2026/",
+        "label": "写代码模型选型指南"
       },
-      {
-        "platform": "juejin",
-        "url": "https://juejin.cn/post/7642633524384858112",
-        "date": "2026-05-24",
-        "note": "技术向改写：开发者按 API 成本/任务选模型"
-      }
-    ]
+      "faq": [
+        {
+          "q": "做 AI agent 到底该用哪个模型？",
+          "a": "默认用 Claude Sonnet 4.6（工具调用稳、长任务不跑飞），难任务升 Opus 4.7。要最成熟的 function calling 和结构化输出选 GPT-5.5；要长记忆、塞大量历史选 Gemini；想省钱就把简单子步骤切给 DeepSeek / Qwen。最好按步骤路由，不要全程只用一家。"
+        },
+        {
+          "q": "为什么不能只看 LMArena 这类聊天榜单？",
+          "a": "聊天榜测的是单轮回答质量，agent 要的是多步工具调用不崩、长任务不漂移、成本可控。看 τ-bench（工具调用）、SWE-bench（agent 编程）、Terminal-Bench（终端操作）更对口。"
+        },
+        {
+          "q": "Agent 的成本为什么比聊天高这么多？",
+          "a": "因为 agent 每一步都把系统提示加全部历史加工具返回重新发一遍，token 随步数累积。一个 20 步的任务，token 量可能是单轮聊天的几十倍。用 prompt cache 缓存不变部分、把简单子步骤切给便宜模型，是控成本的两个主要手段。"
+        },
+        {
+          "q": "开源模型（DeepSeek、Qwen）能做 agent 主力吗？",
+          "a": "能做省钱的子步骤主力，但工具调用的稳定性和长任务一致性目前还是 Claude / GPT 更靠谱。务实的做法是混用：关键决策步用闭源旗舰，高频简单步骤用开源模型兜底。"
+        },
+        {
+          "q": "上下文越长对 agent 越好吗？",
+          "a": "长上下文能让 agent 记住更多历史和观察，减少丢状态，但也更贵、还可能迷失在中间。实践上是按需带历史加适当总结压缩，而不是无脑把全部都塞进去。"
+        }
+      ]
+    },
+    "en": {
+      "title": "Which Model to Use for AI Agents in 2026: Tool Calling, Long Tasks, Real Costs",
+      "metaTitle": "Which Model for AI Agents in 2026: Tool Calling, Long Tasks, Cost Compared",
+      "description": "Choosing a model for agents is not like chat: you need reliable tool calls, low drift on long tasks, and controllable cost. Claude, GPT-5.5, Gemini, DeepSeek, Qwen compared, with a real token-cost example and a decision table.",
+      "ogTitle": "Which Model to Use for AI Agents in 2026",
+      "ogDescription": "Tool calling, long tasks, cost — the four hard metrics for picking an agent model, plus a decision table.",
+      "headline": "Which Model to Use for AI Agents in 2026: Tool Calling, Long Tasks, Real Costs",
+      "status": "published",
+      "related": {
+        "href": "/en/articles/gpt-5-vs-claude-coding-2026/",
+        "label": "Coding Model Selection Guide"
+      },
+      "faq": [
+        {
+          "q": "Which model should I use to build an AI agent?",
+          "a": "Default to Claude Sonnet 4.6 (steady tool calls, low drift on long tasks), escalate hard tasks to Opus 4.7. For the most mature function calling and structured output, GPT-5.5; for long memory and lots of history, Gemini; to save money, route simple sub-steps to DeepSeek / Qwen. Route per step rather than binding everything to one model."
+        },
+        {
+          "q": "Why can't I just use a chat leaderboard like LMArena?",
+          "a": "Chat leaderboards measure single-turn answer quality. Agents need multi-step tool calls that do not break, long tasks that do not drift, and controllable cost. tau-bench (tool use), SWE-bench (agentic coding), and Terminal-Bench (terminal work) are the relevant ones."
+        },
+        {
+          "q": "Why is agent cost so much higher than chat?",
+          "a": "Because every step resends the system prompt plus full history plus tool returns, so tokens accumulate with the step count. A 20-step task can be tens of times the tokens of a single chat turn. Prompt caching for the unchanging parts and routing simple sub-steps to cheaper models are the two main levers."
+        },
+        {
+          "q": "Can open models (DeepSeek, Qwen) be the main agent model?",
+          "a": "They can carry the cheap sub-steps, but for tool-calling reliability and long-task consistency, Claude / GPT are still safer today. The pragmatic move is to mix: closed frontier models for decisions, open models as the fallback for high-frequency simple steps."
+        },
+        {
+          "q": "Is longer context always better for agents?",
+          "a": "Long context lets an agent remember more history and lose less state, but it is also more expensive and can get lost in the middle. In practice, carry history as needed and summarize, rather than stuffing everything in."
+        }
+      ]
+    }
   }
 ]
