@@ -697,3 +697,5 @@ body.home-view .topbar .eyebrow,body.home-view #platformTitle{display:none!impor
 .home-arti{display:flex;gap:8px;border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-size:13.5px;color:var(--ink)}
 .home-arti:hover{border-color:var(--accent)}
 @media(max-width:980px){.home-dash,.home-row2{grid-template-columns:1fr}}
+/* INP: defer painting off-screen radar charts in the model/compare tables (Core Web Vitals) */
+.td-radar .six-axis-button{content-visibility:auto;contain-intrinsic-size:74px 74px}
