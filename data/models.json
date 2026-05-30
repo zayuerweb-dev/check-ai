@@ -482,7 +482,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 357
+      "models_count": 356
     },
     {
       "key": "privatemode-ai",
@@ -494,6 +494,17 @@
       ],
       "api": "http://localhost:8080/v1",
       "models_count": 5
+    },
+    {
+      "key": "snowflake-cortex",
+      "name": "Snowflake Cortex",
+      "doc": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-rest-api",
+      "env": [
+        "SNOWFLAKE_ACCOUNT",
+        "SNOWFLAKE_CORTEX_PAT"
+      ],
+      "api": "https://${SNOWFLAKE_ACCOUNT}.snowflakecomputing.com/api/v2/cortex/v1",
+      "models_count": 11
     },
     {
       "key": "moonshotai",
@@ -897,7 +908,7 @@
         "CLOUDFLARE_GATEWAY_ID"
       ],
       "api": null,
-      "models_count": 75
+      "models_count": 76
     },
     {
       "key": "requesty",
@@ -952,7 +963,7 @@
     },
     {
       "key": "stepfun",
-      "name": "StepFun",
+      "name": "StepFun (China)",
       "doc": "https://platform.stepfun.com/docs/zh/overview/concept",
       "env": [
         "STEPFUN_API_KEY"
@@ -50983,14 +50994,14 @@
       "id": "~moonshotai/kimi-latest",
       "name": "MoonshotAI Kimi Latest",
       "price": {
-        "input": 0.73,
-        "output": 3.49,
-        "cache_read": 0.25,
+        "input": 0.684,
+        "output": 3.42,
+        "cache_read": 0.144,
         "cache_write": null
       },
       "limit": {
-        "context": 262142,
-        "output": 262142
+        "context": 262144,
+        "output": 262144
       },
       "capabilities": [
         "text",
@@ -53106,7 +53117,7 @@
         "cache_write": 0.083333
       },
       "limit": {
-        "context": 1000000,
+        "context": 1048576,
         "output": 8192
       },
       "capabilities": [
@@ -53813,29 +53824,6 @@
       "release_date": "2025-08-05",
       "knowledge": "2024-06-30",
       "last_updated": "2025-08-05"
-    },
-    {
-      "platform": "openrouter",
-      "id": "openai/gpt-4o-audio-preview",
-      "name": "GPT-4o Audio",
-      "price": {
-        "input": 2.5,
-        "output": 10,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 128000,
-        "output": 16384
-      },
-      "capabilities": [
-        "text",
-        "audio",
-        "tools"
-      ],
-      "release_date": "2025-08-15",
-      "knowledge": "2023-10-31",
-      "last_updated": "2025-08-15"
     },
     {
       "platform": "openrouter",
@@ -54686,14 +54674,14 @@
       "id": "deepseek/deepseek-v4-flash",
       "name": "DeepSeek V4 Flash",
       "price": {
-        "input": 0.1,
-        "output": 0.2,
-        "cache_read": 0.02,
+        "input": 0.0983,
+        "output": 0.1966,
+        "cache_read": 0.0197,
         "cache_write": null
       },
       "limit": {
         "context": 1048576,
-        "output": 16384
+        "output": 131072
       },
       "capabilities": [
         "text",
@@ -55142,14 +55130,14 @@
       "id": "moonshotai/kimi-k2.6",
       "name": "Kimi K2.6",
       "price": {
-        "input": 0.73,
-        "output": 3.49,
-        "cache_read": 0.25,
+        "input": 0.684,
+        "output": 3.42,
+        "cache_read": 0.144,
         "cache_write": null
       },
       "limit": {
-        "context": 262142,
-        "output": 262142
+        "context": 262144,
+        "output": 262144
       },
       "capabilities": [
         "text",
@@ -56820,6 +56808,269 @@
       "release_date": "2025-04",
       "knowledge": "2025-04",
       "last_updated": "2025-04"
+    },
+    {
+      "platform": "snowflake-cortex",
+      "id": "openai-gpt-5.2",
+      "name": "GPT-5.2",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 400000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-12-11",
+      "knowledge": "2025-08-31",
+      "last_updated": "2025-12-11"
+    },
+    {
+      "platform": "snowflake-cortex",
+      "id": "claude-sonnet-4-6",
+      "name": "Claude Sonnet 4.6",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 16384
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-02-17",
+      "knowledge": "2025-08-31",
+      "last_updated": "2026-03-13"
+    },
+    {
+      "platform": "snowflake-cortex",
+      "id": "openai-gpt-4.1",
+      "name": "GPT-4.1",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1047576,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools"
+      ],
+      "release_date": "2025-04-14",
+      "knowledge": "2024-04",
+      "last_updated": "2025-04-14"
+    },
+    {
+      "platform": "snowflake-cortex",
+      "id": "openai-gpt-5.4",
+      "name": "GPT-5.4",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1050000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-03-05",
+      "knowledge": "2025-08-31",
+      "last_updated": "2026-03-05"
+    },
+    {
+      "platform": "snowflake-cortex",
+      "id": "claude-haiku-4-5",
+      "name": "Claude Haiku 4.5 (latest)",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 200000,
+        "output": 16384
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-10-15",
+      "knowledge": "2025-02-28",
+      "last_updated": "2025-10-15"
+    },
+    {
+      "platform": "snowflake-cortex",
+      "id": "openai-gpt-5",
+      "name": "GPT-5",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 400000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-08-07",
+      "knowledge": "2024-09-30",
+      "last_updated": "2025-08-07"
+    },
+    {
+      "platform": "snowflake-cortex",
+      "id": "openai-gpt-5-mini",
+      "name": "GPT-5 Mini",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 272000,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-08-07",
+      "knowledge": "2024-05-30",
+      "last_updated": "2025-08-07"
+    },
+    {
+      "platform": "snowflake-cortex",
+      "id": "openai-gpt-5-nano",
+      "name": "GPT-5 Nano",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 400000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-08-07",
+      "knowledge": "2024-05-30",
+      "last_updated": "2025-08-07"
+    },
+    {
+      "platform": "snowflake-cortex",
+      "id": "openai-gpt-5.1",
+      "name": "GPT-5.1",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 400000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-11-13",
+      "knowledge": "2024-09-30",
+      "last_updated": "2025-11-13"
+    },
+    {
+      "platform": "snowflake-cortex",
+      "id": "claude-sonnet-4-5",
+      "name": "Claude Sonnet 4.5 (latest)",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 200000,
+        "output": 16384
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-09-29",
+      "knowledge": "2025-07-31",
+      "last_updated": "2025-09-29"
+    },
+    {
+      "platform": "snowflake-cortex",
+      "id": "claude-opus-4-7",
+      "name": "Claude Opus 4.7",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-16",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-04-16"
     },
     {
       "platform": "moonshotai",
@@ -82579,6 +82830,30 @@
       "release_date": "2023-11-06",
       "knowledge": "2023-11",
       "last_updated": "2024-04-09"
+    },
+    {
+      "platform": "cloudflare-ai-gateway",
+      "id": "anthropic/claude-opus-4-8",
+      "name": "Claude Opus 4.8",
+      "price": {
+        "input": 5,
+        "output": 25,
+        "cache_read": 0.5,
+        "cache_write": 6.25
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-05-28",
+      "knowledge": null,
+      "last_updated": "2026-05-28"
     },
     {
       "platform": "cloudflare-ai-gateway",
