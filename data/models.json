@@ -381,7 +381,7 @@
         "ZHIPU_API_KEY"
       ],
       "api": "https://open.bigmodel.cn/api/coding/paas/v4",
-      "models_count": 5
+      "models_count": 6
     },
     {
       "key": "xai",
@@ -482,7 +482,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 356
+      "models_count": 354
     },
     {
       "key": "privatemode-ai",
@@ -886,7 +886,7 @@
         "WAFER_API_KEY"
       ],
       "api": "https://pass.wafer.ai/v1",
-      "models_count": 4
+      "models_count": 7
     },
     {
       "key": "berget",
@@ -43625,6 +43625,32 @@
     },
     {
       "platform": "zhipuai-coding-plan",
+      "id": "glm-4.6v",
+      "name": "GLM-4.6V",
+      "price": {
+        "input": 0.3,
+        "output": 0.9,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 128000,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2025-12-08",
+      "knowledge": "2025-04",
+      "last_updated": "2025-12-08"
+    },
+    {
+      "platform": "zhipuai-coding-plan",
       "id": "glm-4.7",
       "name": "GLM-4.7",
       "price": {
@@ -48399,29 +48425,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "upstage/solar-pro-3",
-      "name": "Solar Pro 3",
-      "price": {
-        "input": 0.15,
-        "output": 0.6,
-        "cache_read": 0.015,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 128000,
-        "output": 128000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2026-01-27",
-      "knowledge": null,
-      "last_updated": "2026-01-27"
-    },
-    {
-      "platform": "openrouter",
       "id": "prime-intellect/intellect-3",
       "name": "INTELLECT-3",
       "price": {
@@ -48691,28 +48694,6 @@
       "release_date": "2025-01-30",
       "knowledge": "2023-10-31",
       "last_updated": "2025-01-30"
-    },
-    {
-      "platform": "openrouter",
-      "id": "mistralai/mistral-7b-instruct-v0.1",
-      "name": "Mistral 7B Instruct v0.1",
-      "price": {
-        "input": 0.11,
-        "output": 0.19,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 2824,
-        "output": 2824
-      },
-      "capabilities": [
-        "text",
-        "open"
-      ],
-      "release_date": "2023-09-28",
-      "knowledge": "2023-09-30",
-      "last_updated": "2023-09-28"
     },
     {
       "platform": "openrouter",
@@ -50343,14 +50324,14 @@
       "id": "qwen/qwen3-235b-a22b-thinking-2507",
       "name": "Qwen3 235B A22B Thinking 2507",
       "price": {
-        "input": 0.1495,
-        "output": 1.495,
-        "cache_read": null,
+        "input": 0.1,
+        "output": 0.1,
+        "cache_read": 0.1,
         "cache_write": null
       },
       "limit": {
-        "context": 131072,
-        "output": 81920
+        "context": 262144,
+        "output": 262144
       },
       "capabilities": [
         "text",
@@ -50607,14 +50588,14 @@
       "id": "qwen/qwen3.5-35b-a3b",
       "name": "Qwen3.5-35B-A3B",
       "price": {
-        "input": 0.139,
+        "input": 0.14,
         "output": 1,
-        "cache_read": null,
+        "cache_read": 0.05,
         "cache_write": null
       },
       "limit": {
         "context": 262144,
-        "output": 81920
+        "output": 262144
       },
       "capabilities": [
         "text",
@@ -51377,6 +51358,7 @@
       "capabilities": [
         "text",
         "vision",
+        "tools",
         "open"
       ],
       "release_date": "2025-04-05",
@@ -53669,7 +53651,7 @@
       "id": "openai/gpt-oss-20b",
       "name": "gpt-oss-20b",
       "price": {
-        "input": 0.03,
+        "input": 0.029,
         "output": 0.14,
         "cache_read": null,
         "cache_write": null
@@ -56603,7 +56585,7 @@
       "id": "minimax/minimax-m2.7",
       "name": "MiniMax-M2.7",
       "price": {
-        "input": 0.279,
+        "input": 0.26,
         "output": 1.2,
         "cache_read": null,
         "cache_write": null
@@ -80913,11 +80895,11 @@
     {
       "platform": "wafer.ai",
       "id": "Kimi-K2.6",
-      "name": "Kimi K2.6",
+      "name": "Kimi-K2.6",
       "price": {
-        "input": 1.1,
-        "output": 4.8,
-        "cache_read": 0.11,
+        "input": 0.88,
+        "output": 3.84,
+        "cache_read": 0.09,
         "cache_write": 0
       },
       "limit": {
@@ -80927,27 +80909,28 @@
       "capabilities": [
         "text",
         "vision",
+        "video",
         "tools",
         "reasoning",
         "open"
       ],
       "release_date": "2026-05-13",
       "knowledge": "2025-01",
-      "last_updated": "2026-05-13"
+      "last_updated": "2026-05-30"
     },
     {
       "platform": "wafer.ai",
       "id": "Qwen3.6-35B-A3B",
-      "name": "Qwen3.6 35B A3B",
+      "name": "Qwen3.6-35B-A3B",
       "price": {
-        "input": 0.19,
-        "output": 1.25,
+        "input": 0.15,
+        "output": 1,
         "cache_read": 0.02,
         "cache_write": 0
       },
       "limit": {
-        "context": 32768,
-        "output": 16384
+        "context": 256000,
+        "output": 65536
       },
       "capabilities": [
         "text",
@@ -80959,16 +80942,39 @@
       ],
       "release_date": "2026-05-11",
       "knowledge": "2025-04",
-      "last_updated": "2026-05-11"
+      "last_updated": "2026-05-30"
+    },
+    {
+      "platform": "wafer.ai",
+      "id": "qwen3.7-max",
+      "name": "Qwen3.7-Max",
+      "price": {
+        "input": 5,
+        "output": 15,
+        "cache_read": 0.5,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 256000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-05-21",
+      "knowledge": null,
+      "last_updated": "2026-05-30"
     },
     {
       "platform": "wafer.ai",
       "id": "Qwen3.5-397B-A17B",
-      "name": "Qwen3.5 397B A17B",
+      "name": "Qwen3.5-397B-A17B",
       "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": 0,
+        "input": 0.48,
+        "output": 2.88,
+        "cache_read": 0.05,
         "cache_write": 0
       },
       "limit": {
@@ -80985,16 +80991,16 @@
       ],
       "release_date": "2026-02-16",
       "knowledge": "2025-04",
-      "last_updated": "2026-02-16"
+      "last_updated": "2026-05-30"
     },
     {
       "platform": "wafer.ai",
       "id": "GLM-5.1",
       "name": "GLM-5.1",
       "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": 0,
+        "input": 1.2,
+        "output": 3.6,
+        "cache_read": 0.12,
         "cache_write": 0
       },
       "limit": {
@@ -81009,7 +81015,55 @@
       ],
       "release_date": "2026-04-07",
       "knowledge": "2025-04",
-      "last_updated": "2026-04-07"
+      "last_updated": "2026-05-30"
+    },
+    {
+      "platform": "wafer.ai",
+      "id": "deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash",
+      "price": {
+        "input": 0.14,
+        "output": 0.28,
+        "cache_read": 0.01,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 384000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-24",
+      "knowledge": "2025-05",
+      "last_updated": "2026-05-30"
+    },
+    {
+      "platform": "wafer.ai",
+      "id": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "price": {
+        "input": 1.74,
+        "output": 3.48,
+        "cache_read": 0.02,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 384000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-24",
+      "knowledge": "2025-05",
+      "last_updated": "2026-05-30"
     },
     {
       "platform": "berget",
@@ -96771,7 +96825,7 @@
     {
       "platform": "xpersona",
       "id": "xpersona-frieren-coder",
-      "name": "Xpersona Frieren Coder",
+      "name": "Xpersona Frieren 1",
       "price": {
         "input": 1.5,
         "output": 6,
