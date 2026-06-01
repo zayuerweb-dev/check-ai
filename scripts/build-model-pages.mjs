@@ -56,6 +56,29 @@ for (const m of data.models || []) {
   groups.get(slug).listings.push(m);
 }
 
+// The same canonical model can be listed under several name spellings across
+// providers (e.g. "claude-sonnet-4-6", "Claude Sonnet 4.6", "Claude-Sonnet-4.6").
+// The grouping above keeps whichever spelling appeared first, which is sometimes
+// the raw slug form. Pick the most human-readable label instead: prefer names
+// with spaces, then uppercase, then a version dot; break ties by frequency.
+function bestDisplayName(listings) {
+  const counts = new Map();
+  for (const m of listings) counts.set(m.name, (counts.get(m.name) || 0) + 1);
+  const cased = (n) => (/[A-Z]/.test(n) ? 1 : 0); // branded names have uppercase; raw slugs don't
+  const dot = (n) => (/\d\.\d/.test(n) ? 1 : 0);  // version dot 4.6 beats slug-style 4-6
+  // Prefer a branded (uppercase) label over a raw slug, then the most common
+  // spelling (usually the official one — e.g. "GPT-5.5" ×20 vs "GPT 5.5" ×1),
+  // then a version dot, then the shorter string.
+  return [...counts.keys()].sort(
+    (a, b) =>
+      cased(b) - cased(a) ||
+      counts.get(b) - counts.get(a) ||
+      dot(b) - dot(a) ||
+      a.length - b.length,
+  )[0];
+}
+for (const g of groups.values()) g.displayName = bestDisplayName(g.listings);
+
 const INDEXABLE = indexableSlugs([...groups.values()]);
 
 console.log(`[build-models] ${groups.size} unique canonical models from ${data.models.length} raw`);
