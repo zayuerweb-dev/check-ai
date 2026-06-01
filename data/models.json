@@ -482,7 +482,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 354
+      "models_count": 344
     },
     {
       "key": "privatemode-ai",
@@ -846,7 +846,7 @@
         "OPENCODE_API_KEY"
       ],
       "api": "https://opencode.ai/zen/go/v1",
-      "models_count": 15
+      "models_count": 16
     },
     {
       "key": "gitlab",
@@ -1244,7 +1244,7 @@
         "OPENCODE_API_KEY"
       ],
       "api": "https://opencode.ai/zen/v1",
-      "models_count": 64
+      "models_count": 66
     },
     {
       "key": "openai",
@@ -1355,7 +1355,7 @@
         "CLOUDFLARE_API_KEY"
       ],
       "api": "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/ai/v1",
-      "models_count": 27
+      "models_count": 20
     },
     {
       "key": "nebius",
@@ -48425,6 +48425,29 @@
     },
     {
       "platform": "openrouter",
+      "id": "upstage/solar-pro-3",
+      "name": "Solar Pro 3",
+      "price": {
+        "input": 0.15,
+        "output": 0.6,
+        "cache_read": 0.015,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 128000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-01-27",
+      "knowledge": null,
+      "last_updated": "2026-01-27"
+    },
+    {
+      "platform": "openrouter",
       "id": "prime-intellect/intellect-3",
       "name": "INTELLECT-3",
       "price": {
@@ -48446,28 +48469,6 @@
       "release_date": "2025-11-27",
       "knowledge": "2024-10",
       "last_updated": "2025-11-27"
-    },
-    {
-      "platform": "openrouter",
-      "id": "alfredpros/codellama-7b-instruct-solidity",
-      "name": "CodeLLaMa 7B Instruct Solidity",
-      "price": {
-        "input": 0.8,
-        "output": 1.2,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 4096,
-        "output": 4096
-      },
-      "capabilities": [
-        "text",
-        "open"
-      ],
-      "release_date": "2025-04-14",
-      "knowledge": "2023-06-30",
-      "last_updated": "2025-04-14"
     },
     {
       "platform": "openrouter",
@@ -48650,28 +48651,6 @@
       "release_date": "2025-08-26",
       "knowledge": "2024-08-31",
       "last_updated": "2025-08-26"
-    },
-    {
-      "platform": "openrouter",
-      "id": "mistralai/devstral-medium",
-      "name": "Devstral Medium",
-      "price": {
-        "input": 0.4,
-        "output": 2,
-        "cache_read": 0.04,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131072,
-        "output": 131072
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-07-10",
-      "knowledge": "2025-06-30",
-      "last_updated": "2025-07-10"
     },
     {
       "platform": "openrouter",
@@ -48975,29 +48954,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "mistralai/devstral-small",
-      "name": "Devstral Small 1.1",
-      "price": {
-        "input": 0.1,
-        "output": 0.3,
-        "cache_read": 0.01,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131072,
-        "output": 131072
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "open"
-      ],
-      "release_date": "2025-07-10",
-      "knowledge": "2025-03-31",
-      "last_updated": "2025-07-10"
-    },
-    {
-      "platform": "openrouter",
       "id": "mistralai/mistral-small-3.2-24b-instruct",
       "name": "Mistral Small 3.2 24B",
       "price": {
@@ -49041,29 +48997,6 @@
       "release_date": "2025-08-01",
       "knowledge": "2025-03-31",
       "last_updated": "2025-08-01"
-    },
-    {
-      "platform": "openrouter",
-      "id": "mistralai/pixtral-large-2411",
-      "name": "Pixtral Large 2411",
-      "price": {
-        "input": 2,
-        "output": 6,
-        "cache_read": 0.2,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131072,
-        "output": 131072
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools"
-      ],
-      "release_date": "2024-11-19",
-      "knowledge": "2024-07-31",
-      "last_updated": "2024-11-19"
     },
     {
       "platform": "openrouter",
@@ -50795,7 +50728,6 @@
       },
       "capabilities": [
         "text",
-        "tools",
         "open"
       ],
       "release_date": "2024-10-16",
@@ -51788,52 +51720,6 @@
         "vision",
         "tools",
         "reasoning",
-        "open"
-      ],
-      "release_date": "2025-08-12",
-      "knowledge": "2025-03-31",
-      "last_updated": "2025-08-12"
-    },
-    {
-      "platform": "openrouter",
-      "id": "baidu/ernie-4.5-21b-a3b-thinking",
-      "name": "ERNIE 4.5 21B A3B Thinking",
-      "price": {
-        "input": 0.07,
-        "output": 0.28,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131072,
-        "output": 65536
-      },
-      "capabilities": [
-        "text",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-10-09",
-      "knowledge": "2025-03-31",
-      "last_updated": "2025-10-09"
-    },
-    {
-      "platform": "openrouter",
-      "id": "baidu/ernie-4.5-21b-a3b",
-      "name": "ERNIE 4.5 21B A3B",
-      "price": {
-        "input": 0.07,
-        "output": 0.28,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 120000,
-        "output": 8000
-      },
-      "capabilities": [
-        "text",
-        "tools",
         "open"
       ],
       "release_date": "2025-08-12",
@@ -52981,9 +52867,9 @@
       "id": "inclusionai/ring-2.6-1t",
       "name": "Ring-2.6-1T",
       "price": {
-        "input": 0.075,
-        "output": 0.625,
-        "cache_read": 0.015,
+        "input": 0.3,
+        "output": 2.5,
+        "cache_read": 0.06,
         "cache_write": null
       },
       "limit": {
@@ -54488,29 +54374,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "mistralai/mistral-large-2411",
-      "name": "Mistral Large 2.1",
-      "price": {
-        "input": 2,
-        "output": 6,
-        "cache_read": 0.2,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131072,
-        "output": 131072
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "open"
-      ],
-      "release_date": "2024-11-01",
-      "knowledge": "2024-11",
-      "last_updated": "2024-11-04"
-    },
-    {
-      "platform": "openrouter",
       "id": "mistralai/mistral-small-2603",
       "name": "Mistral Small 4",
       "price": {
@@ -54603,30 +54466,6 @@
       "release_date": "2025-12-09",
       "knowledge": "2025-12",
       "last_updated": "2025-12-09"
-    },
-    {
-      "platform": "openrouter",
-      "id": "deepseek/deepseek-v4-flash:free",
-      "name": "DeepSeek V4 Flash (free)",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 1048576,
-        "output": 384000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-24",
-      "knowledge": "2025-05",
-      "last_updated": "2026-04-24"
     },
     {
       "platform": "openrouter",
@@ -54890,55 +54729,6 @@
       "release_date": "2026-05-28",
       "knowledge": null,
       "last_updated": "2026-05-28"
-    },
-    {
-      "platform": "openrouter",
-      "id": "xiaomi/mimo-v2-omni",
-      "name": "MiMo-V2-Omni",
-      "price": {
-        "input": 0.4,
-        "output": 2,
-        "cache_read": 0.08,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262144,
-        "output": 65536
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "audio",
-        "video",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2026-03-18",
-      "knowledge": "2024-12",
-      "last_updated": "2026-03-18"
-    },
-    {
-      "platform": "openrouter",
-      "id": "xiaomi/mimo-v2-pro",
-      "name": "MiMo-V2-Pro",
-      "price": {
-        "input": 1,
-        "output": 3,
-        "cache_read": 0.2,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 1048576,
-        "output": 131072
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2026-03-18",
-      "knowledge": "2024-12",
-      "last_updated": "2026-03-18"
     },
     {
       "platform": "openrouter",
@@ -56641,30 +56431,6 @@
       "limit": {
         "context": 196608,
         "output": 196608
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-02-12",
-      "knowledge": null,
-      "last_updated": "2026-02-12"
-    },
-    {
-      "platform": "openrouter",
-      "id": "minimax/minimax-m2.5:free",
-      "name": "MiniMax M2.5 (free)",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 196608,
-        "output": 8192
       },
       "capabilities": [
         "text",
@@ -78581,6 +78347,32 @@
     },
     {
       "platform": "opencode-go",
+      "id": "minimax-m3",
+      "name": "MiniMax M3",
+      "price": {
+        "input": 0.6,
+        "output": 2.4,
+        "cache_read": 0.12,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 512000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-05-31",
+      "knowledge": "2025-01",
+      "last_updated": "2026-05-31"
+    },
+    {
+      "platform": "opencode-go",
       "id": "qwen3.5-plus",
       "name": "Qwen3.5 Plus",
       "price": {
@@ -90661,10 +90453,10 @@
       "id": "eu.anthropic.claude-opus-4-7",
       "name": "Claude Opus 4.7 (EU)",
       "price": {
-        "input": 5,
-        "output": 25,
-        "cache_read": 0.5,
-        "cache_write": 6.25
+        "input": 5.5,
+        "output": 27.5,
+        "cache_read": 0.55,
+        "cache_write": 6.875
       },
       "limit": {
         "context": 1000000,
@@ -91578,10 +91370,10 @@
       "id": "eu.anthropic.claude-sonnet-4-5-20250929-v1:0",
       "name": "Claude Sonnet 4.5 (EU)",
       "price": {
-        "input": 3,
-        "output": 15,
-        "cache_read": 0.3,
-        "cache_write": 3.75
+        "input": 3.3,
+        "output": 16.5,
+        "cache_read": 0.33,
+        "cache_write": 4.125
       },
       "limit": {
         "context": 200000,
@@ -92100,10 +91892,10 @@
       "id": "eu.anthropic.claude-opus-4-6-v1",
       "name": "Claude Opus 4.6 (EU)",
       "price": {
-        "input": 5,
-        "output": 25,
-        "cache_read": 0.5,
-        "cache_write": 6.25
+        "input": 5.5,
+        "output": 27.5,
+        "cache_read": 0.55,
+        "cache_write": 6.875
       },
       "limit": {
         "context": 1000000,
@@ -92148,10 +91940,10 @@
       "id": "eu.anthropic.claude-sonnet-4-6",
       "name": "Claude Sonnet 4.6 (EU)",
       "price": {
-        "input": 3,
-        "output": 15,
-        "cache_read": 0.3,
-        "cache_write": 3.75
+        "input": 3.3,
+        "output": 16.5,
+        "cache_read": 0.33,
+        "cache_write": 4.125
       },
       "limit": {
         "context": 1000000,
@@ -92220,10 +92012,10 @@
       "id": "eu.anthropic.claude-opus-4-8",
       "name": "Claude Opus 4.8 (EU)",
       "price": {
-        "input": 5,
-        "output": 25,
-        "cache_read": 0.5,
-        "cache_write": 6.25
+        "input": 5.5,
+        "output": 27.5,
+        "cache_read": 0.55,
+        "cache_write": 6.875
       },
       "limit": {
         "context": 1000000,
@@ -104033,7 +103825,7 @@
     {
       "platform": "vercel",
       "id": "anthropic/claude-opus-4.1",
-      "name": "Claude Opus 4",
+      "name": "Claude Opus 4.1",
       "price": {
         "input": 15,
         "output": 75,
@@ -104050,9 +103842,9 @@
         "tools",
         "reasoning"
       ],
-      "release_date": "2025-05-22",
+      "release_date": "2025-08-05",
       "knowledge": "2025-03-31",
-      "last_updated": "2025-05-22"
+      "last_updated": "2025-08-05"
     },
     {
       "platform": "vercel",
@@ -112714,8 +112506,8 @@
         "cache_write": null
       },
       "limit": {
-        "context": 1000000,
-        "output": 128000
+        "context": 200000,
+        "output": 32000
       },
       "capabilities": [
         "text",
@@ -113190,6 +112982,32 @@
     },
     {
       "platform": "opencode",
+      "id": "minimax-m3-free",
+      "name": "MiniMax M3 Free",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": 0,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 200000,
+        "output": 32000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-05-31",
+      "knowledge": "2025-01",
+      "last_updated": "2026-05-31"
+    },
+    {
+      "platform": "opencode",
       "id": "minimax-m2.5",
       "name": "MiniMax M2.5",
       "price": {
@@ -113523,6 +113341,30 @@
       "release_date": "2026-04-23",
       "knowledge": "2025-12-01",
       "last_updated": "2026-04-23"
+    },
+    {
+      "platform": "opencode",
+      "id": "deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash",
+      "price": {
+        "input": 0.14,
+        "output": 0.28,
+        "cache_read": 0.03,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 384000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-24",
+      "knowledge": "2025-05",
+      "last_updated": "2026-04-24"
     },
     {
       "platform": "opencode",
@@ -116113,28 +115955,6 @@
     },
     {
       "platform": "cloudflare-workers-ai",
-      "id": "@cf/mistral/mistral-7b-instruct-v0.1",
-      "name": "Mistral 7B Instruct V0.1",
-      "price": {
-        "input": 0.11,
-        "output": 0.19,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 2824,
-        "output": 2824
-      },
-      "capabilities": [
-        "text",
-        "open"
-      ],
-      "release_date": "2023-11-07",
-      "knowledge": null,
-      "last_updated": "2023-11-07"
-    },
-    {
-      "platform": "cloudflare-workers-ai",
       "id": "@cf/qwen/qwen2.5-coder-32b-instruct",
       "name": "Qwen2.5 Coder 32B Instruct",
       "price": {
@@ -116226,31 +116046,6 @@
       "release_date": "2026-04-20",
       "knowledge": "2025-01",
       "last_updated": "2026-04-20"
-    },
-    {
-      "platform": "cloudflare-workers-ai",
-      "id": "@cf/moonshotai/kimi-k2.5",
-      "name": "Kimi K2.5",
-      "price": {
-        "input": 0.6,
-        "output": 3,
-        "cache_read": 0.1,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 256000,
-        "output": 256000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-01-27",
-      "knowledge": "2025-01",
-      "last_updated": "2026-01-27"
     },
     {
       "platform": "cloudflare-workers-ai",
@@ -116346,28 +116141,6 @@
     },
     {
       "platform": "cloudflare-workers-ai",
-      "id": "@cf/meta/llama-3.1-8b-instruct-awq",
-      "name": "Llama 3.1 8B Instruct Awq",
-      "price": {
-        "input": 0.123,
-        "output": 0.266,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 8192,
-        "output": 8192
-      },
-      "capabilities": [
-        "text",
-        "open"
-      ],
-      "release_date": "2024-07-25",
-      "knowledge": null,
-      "last_updated": "2024-07-25"
-    },
-    {
-      "platform": "cloudflare-workers-ai",
       "id": "@cf/meta/llama-4-scout-17b-16e-instruct",
       "name": "Llama 4 Scout 17B 16E Instruct",
       "price": {
@@ -116436,28 +116209,6 @@
     },
     {
       "platform": "cloudflare-workers-ai",
-      "id": "@cf/meta/llama-2-7b-chat-fp16",
-      "name": "Llama 2 7B Chat fp16",
-      "price": {
-        "input": 0.556,
-        "output": 6.667,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 4096,
-        "output": 4096
-      },
-      "capabilities": [
-        "text",
-        "open"
-      ],
-      "release_date": "2023-11-07",
-      "knowledge": null,
-      "last_updated": "2023-11-07"
-    },
-    {
-      "platform": "cloudflare-workers-ai",
       "id": "@cf/meta/llama-3.2-11b-vision-instruct",
       "name": "Llama 3.2 11B Vision Instruct",
       "price": {
@@ -116503,50 +116254,6 @@
     },
     {
       "platform": "cloudflare-workers-ai",
-      "id": "@cf/meta/llama-3-8b-instruct",
-      "name": "Llama 3 8B Instruct",
-      "price": {
-        "input": 0.282,
-        "output": 0.827,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 7968,
-        "output": 7968
-      },
-      "capabilities": [
-        "text",
-        "open"
-      ],
-      "release_date": "2024-04-18",
-      "knowledge": null,
-      "last_updated": "2024-04-18"
-    },
-    {
-      "platform": "cloudflare-workers-ai",
-      "id": "@cf/meta/llama-3-8b-instruct-awq",
-      "name": "Llama 3 8B Instruct Awq",
-      "price": {
-        "input": 0.123,
-        "output": 0.266,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 8192,
-        "output": 8192
-      },
-      "capabilities": [
-        "text",
-        "open"
-      ],
-      "release_date": "2024-05-09",
-      "knowledge": null,
-      "last_updated": "2024-05-09"
-    },
-    {
-      "platform": "cloudflare-workers-ai",
       "id": "@cf/meta/llama-guard-3-8b",
       "name": "Llama Guard 3 8B",
       "price": {
@@ -116589,28 +116296,6 @@
       "release_date": "2025-10-07",
       "knowledge": null,
       "last_updated": "2025-10-07"
-    },
-    {
-      "platform": "cloudflare-workers-ai",
-      "id": "@cf/google/gemma-3-12b-it",
-      "name": "Gemma 3 12B It",
-      "price": {
-        "input": 0.345,
-        "output": 0.556,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 80000,
-        "output": 80000
-      },
-      "capabilities": [
-        "text",
-        "open"
-      ],
-      "release_date": "2025-03-18",
-      "knowledge": null,
-      "last_updated": "2025-03-18"
     },
     {
       "platform": "cloudflare-workers-ai",
