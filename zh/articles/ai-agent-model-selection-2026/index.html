@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>2026 做 AI Agent 用哪个模型：工具调用、长任务、成本对比 | Check.AI</title>
+<meta name="description" content="做 AI agent 选模型和聊天不一样：要工具调用稳、长任务不漂移、成本可控。Claude、GPT-5.5、Gemini、DeepSeek、Qwen 横评 + 真实 token 成本算例 + 决策表。">
+<link rel="canonical" href="https://checkaimodels.com/zh/articles/ai-agent-model-selection-2026/">
+<link rel="alternate" hreflang="zh" href="https://checkaimodels.com/zh/articles/ai-agent-model-selection-2026/">
+<link rel="alternate" hreflang="en" href="https://checkaimodels.com/en/articles/ai-agent-model-selection-2026/">
+<link rel="alternate" hreflang="x-default" href="https://checkaimodels.com/zh/articles/ai-agent-model-selection-2026/">
+<meta property="og:title" content="2026 做 AI Agent 用哪个模型">
+<meta property="og:description" content="工具调用、长任务、成本——agent 选模型的四个硬指标和决策表。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://checkaimodels.com/zh/articles/ai-agent-model-selection-2026/">
+<link rel="stylesheet" href="/styles.css?v=20260520-1">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","inLanguage":"zh-CN","headline":"2026 做 AI Agent 用哪个模型：工具调用、长任务、成本实测","description":"做 AI agent 选模型和聊天不一样：要工具调用稳、长任务不漂移、成本可控。Claude、GPT-5.5、Gemini、DeepSeek、Qwen 横评 + 真实 token 成本算例 + 决策表。","datePublished":"2026-05-25","dateModified":"2026-05-25","author":{"@type":"Person","name":"zayuerweb-dev","url":"https://github.com/zayuerweb-dev","sameAs":["https://github.com/zayuerweb-dev"]},"publisher":{"@type":"Organization","name":"Check.AI","url":"https://checkaimodels.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"zh-CN","mainEntity":[{"@type":"Question","name":"做 AI agent 到底该用哪个模型？","acceptedAnswer":{"@type":"Answer","text":"默认用 Claude Sonnet 4.6（工具调用稳、长任务不跑飞），难任务升 Opus 4.7。要最成熟的 function calling 和结构化输出选 GPT-5.5；要长记忆、塞大量历史选 Gemini；想省钱就把简单子步骤切给 DeepSeek / Qwen。最好按步骤路由，不要全程只用一家。"}},{"@type":"Question","name":"为什么不能只看 LMArena 这类聊天榜单？","acceptedAnswer":{"@type":"Answer","text":"聊天榜测的是单轮回答质量，agent 要的是多步工具调用不崩、长任务不漂移、成本可控。看 τ-bench（工具调用）、SWE-bench（agent 编程）、Terminal-Bench（终端操作）更对口。"}},{"@type":"Question","name":"Agent 的成本为什么比聊天高这么多？","acceptedAnswer":{"@type":"Answer","text":"因为 agent 每一步都把系统提示加全部历史加工具返回重新发一遍，token 随步数累积。一个 20 步的任务，token 量可能是单轮聊天的几十倍。用 prompt cache 缓存不变部分、把简单子步骤切给便宜模型，是控成本的两个主要手段。"}},{"@type":"Question","name":"开源模型（DeepSeek、Qwen）能做 agent 主力吗？","acceptedAnswer":{"@type":"Answer","text":"能做省钱的子步骤主力，但工具调用的稳定性和长任务一致性目前还是 Claude / GPT 更靠谱。务实的做法是混用：关键决策步用闭源旗舰，高频简单步骤用开源模型兜底。"}},{"@type":"Question","name":"上下文越长对 agent 越好吗？","acceptedAnswer":{"@type":"Answer","text":"长上下文能让 agent 记住更多历史和观察，减少丢状态，但也更贵、还可能迷失在中间。实践上是按需带历史加适当总结压缩，而不是无脑把全部都塞进去。"}}]}</script>
+</head>
+<body class="seo-page">
+<header class="seo-header"><a class="brand-link" href="/zh/">Check.AI</a><nav><a href="/">对比工具</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/en/articles/ai-agent-model-selection-2026/">EN</a></nav></header>
+<main class="seo-main">
+<p class="eyebrow">选型指南 · 2026 年 5 月 25 日 · 作者 <a href="https://github.com/zayuerweb-dev" rel="author">@zayuerweb-dev</a></p>
+<h1>2026 做 AI Agent 用哪个模型：工具调用、长任务、成本实测</h1>
+<p class="seo-lead">用大模型搭 agent 的人很快会撞到一件事：单轮聊天里哪个模型"更聪明"，和它能不能稳稳跑完一个几十步的 agent 任务，几乎是两码事。Agent 真正吃的是另外几样——工具调用的格式崩不崩、多步下来会不会越跑越偏、一个任务下来 token 账单有多吓人。这篇按这几条，把 2026 年能拿来做 agent 的几家模型过一遍，最后给一张"什么任务交给谁"的决策表。价格和跑分是 2026-05 的快照，接入前以官网为准。</p>
+
+<nav class="article-toc" aria-label="目录">
+<p class="article-toc-label">目录</p>
+<ol>
+<li><a href="#conclusion">30 秒结论</a></li>
+<li><a href="#what-agents-need">Agent 对模型的四个硬要求</a></li>
+<li><a href="#lineup">五家模型横评</a></li>
+<li><a href="#cost">成本：一个 agent 任务到底烧多少 token</a></li>
+<li><a href="#bench">怎么看跑分（τ-bench / SWE-bench / Terminal-Bench）</a></li>
+<li><a href="#decision">决策表与路由策略</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ol>
+</nav>
+
+<section class="seo-card">
+<h2 id="conclusion">30 秒结论</h2>
+<ul>
+<li><strong>默认主力：Claude Sonnet 4.6 / Opus 4.7。</strong>工具调用格式最稳、长任务最不容易跑飞，做 agent 的默认值。</li>
+<li><strong>要最成熟的工程化：GPT-5.5。</strong>function calling、结构化输出（JSON schema）、SDK 生态最全，少踩坑。</li>
+<li><strong>长记忆 / 历史塞得多：Gemini。</strong>百万级上下文配最低的输入价，适合把整段历史和观察一直带着。</li>
+<li><strong>省钱跑子任务：DeepSeek、Qwen。</strong>分类、摘要、抽取这类高频低难度的步骤，别用旗舰烧钱。</li>
+<li><strong>别只看单轮榜单分数。</strong>agent 的成败在"几十步连着不崩 + 成本可控"，不在某次问答谁更聪明。</li>
+</ul>
+<p><a class="section-link" href="/">在对比工具里看这些模型的实时价格和能力 →</a></p>
+</section>
+
+<section class="seo-card">
+<h2 id="what-agents-need">Agent 对模型的四个硬要求</h2>
+<p>Agent 和聊天的根本区别是：它要自己**多步决策 + 调工具 + 看结果再决定下一步**，中间没人接管。所以选模型要看的不是"单轮回答质量"，而是下面四条：</p>
+<ul>
+<li><strong>1. 工具调用稳不稳。</strong>agent 靠 function calling 调工具，模型必须每次都吐出合法的参数格式。偶尔崩一次 JSON，整个链路就断。这是第一硬指标。</li>
+<li><strong>2. 多步会不会漂移。</strong>一个任务几十步走下来，模型容易"忘了目标""重复劳动""越走越偏"。能不能保持目标一致、自我纠错，决定 agent 能不能真的跑完。</li>
+<li><strong>3. 成本扛不扛得住。</strong>agent 一个任务 = 很多轮，每轮都把历史 + 工具结果重新喂一遍，token 累积非常快。单价 × 轮数，账单可能是聊天的几十倍。</li>
+<li><strong>4. 上下文够不够长。</strong>历史对话、工具返回、文档片段都要塞进上下文。上下文越大，agent 能"记住"的越多，越不容易丢状态。</li>
+</ul>
+<p>记住这四条，再看下面每家模型的取舍就清楚了。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="lineup">五家模型横评</h2>
+<ul>
+<li><strong>Claude Sonnet 4.6 / Opus 4.7——agent 之王。</strong>这两个是我做 agent 的默认值。工具调用的格式最稳，长 agent 任务连续几十步下来不容易跑飞，自我纠错也好。Opus 4.7 在 SWE-bench Verified 这种"给真实仓库 issue、看能不能改对"的任务上到 87.6%，SWE-bench Pro 64.3% 领先，正是 agent 编程要的能力。Sonnet 4.6 更便宜（$3/$15），日常 agent 主力够用；难任务再上 Opus。</li>
+<li><strong>GPT-5.5——工程化最成熟。</strong>未必每项单点最强，但 function calling、结构化输出（JSON schema 强约束）、并行工具调用、SDK 和文档生态都最全，接起来最少踩坑。终端类任务也很强（Terminal-Bench 2.0 拿到 82.7%）。代价是 token 最贵（$5/$30），适合放在确实需要它那套工程能力的环节。</li>
+<li><strong>Gemini——长记忆便宜。</strong>百万级上下文 + 最低的输入价（$1.25 输入），让你可以把整段历史、工具返回、文档一直带在上下文里而不心疼。做需要长期记忆、状态多的 agent，或者要把大量背景塞进去的，它是性价比最高的"记忆体"。</li>
+<li><strong>DeepSeek R1——省钱的推理子模型。</strong>$0.55/$2.19 的价格，推理和代码还不弱。适合把 agent 里那些"想一下但不难"的步骤交给它，成本只有旗舰的零头。</li>
+<li><strong>Qwen3 Max——中文 + 批量子任务。</strong>中文场景质量好，价格也低（$1/$4）。agent 里的分类、抽取、摘要这类高频步骤交给它，省下预算留给关键决策步。</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="cost">成本：一个 agent 任务到底烧多少 token</h2>
+<p>这是最容易被低估的一项。Agent 不是问一句答一句，而是**每一步都把"系统提示 + 历史 + 所有工具返回"重新发一遍**。假设一个任务跑 20 步，每步上下文累积到平均 8000 输入 token、500 输出 token：</p>
+<ul>
+<li>一个任务 ≈ 16 万输入 + 1 万输出 token。</li>
+<li>全用 GPT-5.5：16 万 × $5/1M + 1 万 × $30/1M ≈ <strong>$0.8 + $0.3 = $1.1 / 任务</strong>。</li>
+<li>全用 Claude Sonnet 4.6：≈ $0.48 + $0.15 = <strong>$0.63 / 任务</strong>。</li>
+<li>主决策用 Sonnet、把分类/摘要这种子步骤切给 DeepSeek：能压到 <strong>$0.3 以内</strong>。</li>
+</ul>
+<p>单个任务一块钱看着不多，但 agent 是要规模化跑的——一天几千个任务，差价就是几千美元一个月。所以 agent 选型里，<strong>"按步骤分配模型"比"全程用最强的"重要得多</strong>。能用 prompt cache 的（把不变的系统提示和历史缓存住）还能再省一大截。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="bench">怎么看跑分（τ-bench / SWE-bench / Terminal-Bench）</h2>
+<p>聊天榜单（比如 LMArena）对 agent 选型参考价值有限，要看专门测"会不会用工具、能不能跑完任务"的榜：</p>
+<ul>
+<li><strong>τ-bench / τ²-bench</strong>：测模型在多轮对话里**按规则调用工具、完成客服式任务**的能力——最贴近真实 agent。Claude 系列在这类工具调用任务上长期靠前。</li>
+<li><strong>SWE-bench Verified / Pro</strong>：给真实代码仓库的 issue，看 agent 能不能改对。这是 agent 编程的硬指标，Opus 4.7（Verified 87.6% / Pro 64.3%）领先。</li>
+<li><strong>Terminal-Bench</strong>：测在终端里多步操作完成任务，GPT-5.5（2.0 版 82.7%）表现突出。</li>
+</ul>
+<p>一句话：<strong>agent 编程看 SWE-bench，通用工具调用看 τ-bench，终端操作看 Terminal-Bench</strong>，别拿单轮聊天分数当 agent 能力。具体数字想横着比，可以在<a href="/">对比工具</a>里看各模型的能力维度。更细的 Opus 4.7 跑分拆解见<a class="section-link" href="/zh/articles/claude-opus-4-7-review-2026/">这篇评测</a>。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="decision">决策表与路由策略</h2>
+<ul>
+<li>默认主力（工具调用 + 长任务）：<strong>Claude Sonnet 4.6</strong>，难任务升 <strong>Opus 4.7</strong></li>
+<li>要最成熟的 function calling / 结构化输出 / 终端：<strong>GPT-5.5</strong></li>
+<li>长记忆、历史多、要塞大量背景：<strong>Gemini</strong>（长上下文 + 便宜输入）</li>
+<li>推理型子步骤省钱：<strong>DeepSeek R1</strong></li>
+<li>中文 / 批量子任务（分类、抽取、摘要）：<strong>Qwen3 Max</strong></li>
+</ul>
+<p>实践上最关键的一条：<strong>别让一个 agent 只绑一家模型。</strong>把模型调用抽象成一层接口，按步骤的难度和类型路由——关键决策步用 Claude/GPT，简单子步骤用 DeepSeek/Qwen，长背景塞 Gemini。这样既控成本，又能在某家限流或涨价时一键切换。三家旗舰的单点能力在收窄，<strong>工程适配度和成本结构的差距，反而更值得你花时间。</strong></p>
+</section>
+
+<section class="seo-card">
+<h2 id="related">相关阅读</h2>
+<ul>
+<li><a class="section-link" href="/zh/articles/gpt-5-vs-claude-coding-2026/">GPT-5 vs Claude Sonnet 4.6：写代码到底选哪个</a></li>
+<li><a class="section-link" href="/zh/articles/claude-opus-4-7-review-2026/">Claude Opus 4.7 深度评测：SWE-bench 87.6%、谁该升级</a></li>
+<li><a class="section-link" href="/zh/articles/deepseek-r1-vs-gpt-5-cost-2026/">DeepSeek R1 vs GPT-5：性价比到底差几倍</a></li>
+<li><a class="section-link" href="/">Check.AI 实时对比所有模型的价格、上下文和能力</a></li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="faq">FAQ</h2>
+<p><strong>做 AI agent 到底该用哪个模型？</strong>默认用 Claude Sonnet 4.6（工具调用稳、长任务不跑飞），难任务升 Opus 4.7。要最成熟的 function calling 和结构化输出选 GPT-5.5；要长记忆、塞大量历史选 Gemini；想省钱就把简单子步骤切给 DeepSeek / Qwen。最好按步骤路由，不要全程只用一家。</p>
+<p><strong>为什么不能只看 LMArena 这类聊天榜单？</strong>聊天榜测的是单轮回答质量，agent 要的是多步工具调用不崩、长任务不漂移、成本可控。看 τ-bench（工具调用）、SWE-bench（agent 编程）、Terminal-Bench（终端操作）更对口。</p>
+<p><strong>Agent 的成本为什么比聊天高这么多？</strong>因为 agent 每一步都把系统提示 + 全部历史 + 工具返回重新发一遍，token 随步数累积。一个 20 步的任务，token 量可能是单轮聊天的几十倍。用 prompt cache 缓存不变部分、把简单子步骤切给便宜模型，是控成本的两个主要手段。</p>
+<p><strong>开源模型（DeepSeek、Qwen）能做 agent 主力吗？</strong>能做省钱的子步骤主力，但工具调用的稳定性和长任务一致性目前还是 Claude / GPT 更靠谱。务实的做法是混用：关键决策步用闭源旗舰，高频简单步骤用开源模型兜底。</p>
+<p><strong>上下文越长对 agent 越好吗？</strong>长上下文能让 agent 记住更多历史和观察，减少丢状态，但也更贵、还可能"迷失在中间"（长上下文里的信息被忽略）。实践上是按需带历史 + 适当总结压缩，而不是无脑把全部都塞进去。</p>
+</section>
+
+</main>
+<footer class="seo-footer"><a href="/zh/">返回中文首页</a> · <a href="/zh/articles/gpt-5-vs-claude-coding-2026/">写代码模型选型指南</a></footer>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "df6bb0324e4c458fb4e8b979d3feed3c"}'></script>
+</body>
+</html>
