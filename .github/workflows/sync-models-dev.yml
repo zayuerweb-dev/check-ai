@@ -68,7 +68,9 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BRANCH"
-          git add data/ models/ sitemap.xml
+          # index.html + hubs carry the build-injected 最新动态 / 热门模型 /
+          # 深度文章 blocks — stage them so the home stays fresh each sync.
+          git add data/ models/ sitemap.xml index.html zh/index.html en/index.html
           git commit -m "chore(data): sync models.dev (${{ steps.sync.outputs.providers }} providers, ${{ steps.sync.outputs.models }} models) + rebuild pages"
           # Push as the PAT user so the PR (and its e2e check) actually triggers.
           git push -f "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git" "HEAD:$BRANCH"
