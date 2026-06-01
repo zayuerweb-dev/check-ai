@@ -1,0 +1,104 @@
+<p class="seo-lead">Anthropic shipped Claude Opus 4.8 on 2026-05-28. The first thing worth being clear about: <strong>the price is still $5 input / $25 output per million tokens — identical to Opus 4.7</strong>, and context is still 1M. So the question this time isn't "did it get more expensive," it's "same price, newer flagship — do you switch from 4.7?" Full benchmarks aren't out yet; this piece lays out what's confirmed and the selection logic, and I'll update the page when the numbers land. Prices are a May 2026 snapshot; check the official site before you build.</p>
+
+<nav class="article-toc" aria-label="Contents">
+<p class="article-toc-label">Contents</p>
+<ol>
+<li><a href="#conclusion">30-second answer</a></li>
+<li><a href="#facts">What's confirmed</a></li>
+<li><a href="#vs47">Versus Opus 4.7</a></li>
+<li><a href="#upgrade">Should you upgrade from 4.7</a></li>
+<li><a href="#vs-sonnet">Opus 4.8 or Sonnet 4.6</a></li>
+<li><a href="#bench">About the benchmarks</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ol>
+</nav>
+
+<section class="seo-card">
+<h2 id="conclusion">30-second answer</h2>
+<ul>
+<li><strong>Price unchanged:</strong> Opus 4.8 is $5 / $25 per 1M tokens (input/output), same as 4.7. The cheapest reseller is Poe (~$4.29 / $21.46).</li>
+<li><strong>1M context, broadly available:</strong> Anthropic API, AWS Bedrock, Google Vertex, Cloudflare, Vercel, and OpenRouter all carry it.</li>
+<li><strong>New projects: just use 4.8.</strong> Same price, newer flagship — no reason to start on the previous version.</li>
+<li><strong>Already stable on 4.7: don't rush.</strong> Full benchmarks and stability data aren't out; if your agent flow is tuned and steady, leave it and decide once the data lands.</li>
+<li><strong>Cost-sensitive / high volume:</strong> look at Sonnet 4.6 first ($2.6-3 / $15); save Opus for the hard tasks.</li>
+</ul>
+<p><a class="section-link" href="/models/claude-opus-4-8/">See the full Claude Opus 4.8 price table and capabilities →</a></p>
+</section>
+
+<section class="seo-card">
+<h2 id="facts">What's confirmed</h2>
+<p>As of May 2026, here's what's certain about Opus 4.8:</p>
+<ul>
+<li><strong>Release:</strong> 2026-05-28.</li>
+<li><strong>Price:</strong> $5 / 1M input, $25 / 1M output from Anthropic — the same line held across Opus 4.6, 4.7, and 4.8. Prompt cache and batch discounts per the official site.</li>
+<li><strong>Context:</strong> 1M tokens.</li>
+<li><strong>Availability:</strong> Anthropic API, AWS Bedrock, Google Vertex, Cloudflare AI Gateway, Vercel, OpenRouter, DigitalOcean — most major clouds and gateways had it the same day.</li>
+<li><strong>Cheapest:</strong> among resellers, Poe is ~$4.29 / $21.46, slightly under official; most platforms match Anthropic at $5 / $25.</li>
+</ul>
+<p>Note GitHub Copilot currently shows price as "not disclosed" (it doesn't meter a per-token price for subscribers) — that does not mean free.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="vs47">Versus Opus 4.7</h2>
+<p>The two directly comparable things — price and context — are <strong>identical</strong>:</p>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">Item</th>
+<th style="text-align:left;padding:8px">Opus 4.7</th>
+<th style="text-align:left;padding:8px">Opus 4.8</th>
+</tr></thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Official input /1M</td><td style="padding:8px">$5</td><td style="padding:8px">$5</td></tr>
+<tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Official output /1M</td><td style="padding:8px">$25</td><td style="padding:8px">$25</td></tr>
+<tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Context</td><td style="padding:8px">1M</td><td style="padding:8px">1M</td></tr>
+<tr><td style="padding:8px">Full benchmarks</td><td style="padding:8px">SWE-bench Verified 87.6% / Pro 64.3%, etc. (<a href="/en/articles/claude-opus-4-7-review-2026/">see the 4.7 review</a>)</td><td style="padding:8px">Not yet published</td></tr>
+</tbody>
+</table>
+<p style="font-size:13px;color:var(--muted);margin-top:10px">Anthropic has held the Opus price flat across these generations ($5/$25 from 4.6 to 4.8), letting efficiency and capability gains act as an implicit price cut. 4.8 most likely continues that, but <strong>exactly how much stronger it is has to wait for the official SWE-bench / Terminal-Bench numbers — we don't make them up here.</strong></p>
+</section>
+
+<section class="seo-card">
+<h2 id="upgrade">Should you upgrade from 4.7</h2>
+<p>Because price and context didn't change, the upgrade call is simpler than usual. By situation:</p>
+<ul>
+<li><strong>New project / not version-pinned:</strong> use 4.8. Same price, newer — no reason to start on the previous generation.</li>
+<li><strong>Already stable on 4.7 in an agent / production flow:</strong> don't rush. The biggest risk of a .x bump isn't price, it's <strong>behavior change</strong> — tool-call details, output style, and edge cases can shift and disturb prompts and agent chains you've tuned. Full benchmarks and stability feedback aren't out yet, so wait, then roll out to a small slice of traffic.</li>
+<li><strong>Everyday Q&A / writing:</strong> switch or don't; the felt difference is usually small. Use the newest if you like.</li>
+</ul>
+<p>In one line: <strong>new builds on 4.8, running systems shouldn't move too fast.</strong> A same-price upgrade removes the cost worry but also removes any "must upgrade" reason — so prioritize stability.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="vs-sonnet">Opus 4.8 or Sonnet 4.6</h2>
+<p>A more common question than "4.7 or 4.8" is "should you use Opus at all." Opus 4.8 is $5/$25; Claude Sonnet 4.6 is ~$2.6-3 / $15 — <strong>Opus output is roughly twice Sonnet's.</strong></p>
+<ul>
+<li><strong>Everyday, high volume, cost-sensitive:</strong> start with Sonnet 4.6 — capable and a lot cheaper.</li>
+<li><strong>Hard tasks, long agent chains, complex reasoning:</strong> this is where Opus earns its price.</li>
+<li><strong>Pragmatic move:</strong> Sonnet as the workhorse, route the hard steps to Opus 4.8 — don't burn Opus the whole way. For how to split by task, see <a class="section-link" href="/en/articles/ai-agent-model-selection-2026/">which model to use for AI agents</a>.</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="bench">About the benchmarks</h2>
+<p>At the time of writing, Anthropic hasn't published Opus 4.8's full benchmarks (SWE-bench Verified / Pro, Terminal-Bench, GPQA, etc.), and third-party testing is still early. So this piece <strong>gives 4.8 no scores</strong> — that's the line: better to say less than to make numbers up for a model.</p>
+<p>The baseline to anchor on is Opus 4.7: SWE-bench Verified 87.6%, SWE-bench Pro 64.3%, Terminal-Bench 69.4% (<a class="section-link" href="/en/articles/claude-opus-4-7-review-2026/">full breakdown here</a>). Once 4.8's official data is out, I'll update this page with the head-to-head against 4.7, GPT-5.5, and Gemini. To see live prices and capability dimensions any time, use the <a href="/">comparison tool</a>.</p>
+</section>
+
+<section class="seo-card">
+<h2 id="related">Related reading</h2>
+<ul>
+<li><a class="section-link" href="/en/articles/claude-opus-4-7-review-2026/">Claude Opus 4.7 Review: SWE-bench 87.6%, Who Should Upgrade</a></li>
+<li><a class="section-link" href="/en/articles/ai-agent-model-selection-2026/">Which Model to Use for AI Agents in 2026</a></li>
+<li><a class="section-link" href="/en/articles/gpt-5-vs-claude-coding-2026/">GPT-5 vs Claude Sonnet 4.6: Which to Pick for Coding</a></li>
+<li><a class="section-link" href="/models/claude-opus-4-8/">Claude Opus 4.8 live price table and capabilities</a></li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="faq">FAQ</h2>
+<p><strong>How much does Claude Opus 4.8 cost?</strong> Officially $5 / 1M input tokens and $25 / 1M output tokens, the same as Opus 4.7. Among resellers, Poe is slightly lower at ~$4.29 / $21.46; most platforms match the official price.</p>
+<p><strong>When was Opus 4.8 released?</strong> 2026-05-28. It went live the same day on Anthropic API, AWS Bedrock, Google Vertex, Cloudflare, Vercel, and OpenRouter, with a 1M context window.</p>
+<p><strong>How much better is 4.8 than 4.7?</strong> Price and context are identical ($5/$25, 1M). On performance, Anthropic hasn't published full benchmarks yet, so there's no reliable number; use the 4.7 baseline (SWE-bench Verified 87.6%) as the anchor. This page will update when the data lands.</p>
+<p><strong>Should I upgrade from Opus 4.7 to 4.8?</strong> Use 4.8 for new projects (same price, newer). For production/agent flows already stable on 4.7, wait — a .x bump can shift behavior; roll out to a small traffic slice once full benchmarks and real-world testing are in. For everyday writing it barely matters.</p>
+<p><strong>Opus 4.8 or Sonnet 4.6?</strong> Opus 4.8 is $5/$25; Sonnet 4.6 is ~$2.6-3/$15. Use Sonnet for everyday and high-volume work; reach for Opus on hard tasks, long agent chains, and complex reasoning. The pragmatic move is to route by task rather than use Opus throughout.</p>
+</section>
