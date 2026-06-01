@@ -23,8 +23,9 @@ function canonSlug(name) {
 }
 
 function fmtMoney(n) {
-  if (n == null) return '—';
-  if (n === 0) return '$0';
+  // 0 here means "not priced yet" (a freshly-listed model models.dev hasn't
+  // priced), not "free" — showing "$0" on a frontier model is misleading.
+  if (!n) return '未公开';
   if (n < 0.01) return `$${n.toFixed(4)}`;
   if (n < 1) return `$${n.toFixed(3).replace(/0+$/, '').replace(/\.$/, '')}`;
   return `$${n.toFixed(2).replace(/\.?0+$/, '')}`;
@@ -60,8 +61,13 @@ const INDEXABLE = indexableSlugs([...groups.values()]);
 console.log(`[build-models] ${groups.size} unique canonical models from ${data.models.length} raw`);
 
 function bestListing(listings) {
-  // canonical "best representative": the listing with lowest input price among non-null
-  return [...listings].sort((a, b) => (a.price?.input ?? Infinity) - (b.price?.input ?? Infinity))[0];
+  // "best representative" = lowest REAL input price. Treat 0/null as "no price":
+  // resellers/free tiers (e.g. GitHub Copilot) list frontier models at $0, which
+  // must not masquerade as the cheapest. Fall back to any listing when none are
+  // priced, so release_date / context still resolve.
+  const priced = [...listings].filter((l) => l.price?.input > 0);
+  if (priced.length) return priced.sort((a, b) => a.price.input - b.price.input)[0];
+  return listings[0];
 }
 
 function summarizeCapabilities(listings) {
@@ -355,7 +361,10 @@ function injectHomeLatest(file) {
   const norm = (s) => s.toLowerCase().replace(/^[^:]+:\s*/, '').replace(/[^a-z0-9]/g, '');
   const seen = new Set();
   const latest = [];
-  for (const x of [...groups.values()]
+  // Only the curated flagship set (INDEXABLE already dedups regional / Fast /
+  // variant entries by family), so "最新动态" shows newest notable models —
+  // not a flood of Opus 4.8 (JP)/(AU)/(Fast) or obscure one-offs.
+  for (const x of [...groups.values()].filter((g) => INDEXABLE.has(g.slug))
     .map((g) => ({ g, best: bestListing(g.listings) }))
     .filter((x) => x.best && x.best.release_date)
     .sort((a, b) => Date.parse(b.best.release_date) - Date.parse(a.best.release_date))) {
