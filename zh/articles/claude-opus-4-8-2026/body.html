@@ -1,0 +1,104 @@
+<p class="seo-lead">Anthropic 在 2026-05-28 放出了 Claude Opus 4.8。最值得先说清的一点：<strong>价格还是 $5 输入 / $25 输出（每百万 token），和 Opus 4.7 一模一样</strong>，上下文也还是 1M。所以这次该不该动，不取决于"贵了没"，而取决于"同样的价钱、更新的旗舰，要不要从 4.7 切过去"。完整 benchmark 官方暂时还没放，这篇先把已经确定的事实和选型逻辑讲清楚，跑分数据出来我会更新本页。价格为 2026-05 快照，接入前以官网为准。</p>
+
+<nav class="article-toc" aria-label="目录">
+<p class="article-toc-label">目录</p>
+<ol>
+<li><a href="#conclusion">30 秒结论</a></li>
+<li><a href="#facts">已确认的事实</a></li>
+<li><a href="#vs47">和 Opus 4.7 比</a></li>
+<li><a href="#upgrade">要不要从 4.7 升级</a></li>
+<li><a href="#vs-sonnet">Opus 4.8 还是 Sonnet 4.6</a></li>
+<li><a href="#bench">关于跑分</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ol>
+</nav>
+
+<section class="seo-card">
+<h2 id="conclusion">30 秒结论</h2>
+<ul>
+<li><strong>价格没变：</strong>Opus 4.8 官方 $5 / $25（每 1M token 输入/输出），和 4.7 持平。最便宜的转售渠道是 Poe（约 $4.29 / $21.46）。</li>
+<li><strong>1M 上下文，铺得很广：</strong>Anthropic 官方 API、AWS Bedrock、Google Vertex、Cloudflare、Vercel、OpenRouter 都能调。</li>
+<li><strong>新流程直接上 4.8：</strong>同样的价钱、更新的旗舰，没有理由从头选 4.7。</li>
+<li><strong>已经在 4.7 上跑稳的：别急着切。</strong>完整跑分和稳定性数据还没出，agent 流程调好了就先放着，等数据再决定。</li>
+<li><strong>预算敏感 / 量大：</strong>先看 Sonnet 4.6（$2.6-3 / $15），Opus 留给真正需要它的难任务。</li>
+</ul>
+<p><a class="section-link" href="/models/claude-opus-4-8/">查看 Claude Opus 4.8 的完整价格表和能力 →</a></p>
+</section>
+
+<section class="seo-card">
+<h2 id="facts">已确认的事实</h2>
+<p>截至 2026-05，关于 Opus 4.8 可以确定的是：</p>
+<ul>
+<li><strong>发布日：</strong>2026-05-28。</li>
+<li><strong>价格：</strong>Anthropic 官方 $5 / 1M 输入、$25 / 1M 输出，和 Opus 4.7、4.6 一条线没变。prompt cache 和 batch 折扣按官网。</li>
+<li><strong>上下文：</strong>1M token。</li>
+<li><strong>可用渠道：</strong>Anthropic API、AWS Bedrock、Google Vertex、Cloudflare AI Gateway、Vercel、OpenRouter、DigitalOcean 等，主流云和网关基本当天就接上了。</li>
+<li><strong>最低价：</strong>转售渠道里 Poe 约 $4.29 / $21.46，比官方略低；多数平台跟官方一致 $5 / $25。</li>
+</ul>
+<p>注意 GitHub Copilot 那条目前价格显示为"未公开"（它对订阅用户不单独计 token 价），不代表免费。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="vs47">和 Opus 4.7 比</h2>
+<p>能直接对比的两项——价格和上下文——<strong>完全一样</strong>：</p>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">项</th>
+<th style="text-align:left;padding:8px">Opus 4.7</th>
+<th style="text-align:left;padding:8px">Opus 4.8</th>
+</tr></thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">官方输入价 /1M</td><td style="padding:8px">$5</td><td style="padding:8px">$5</td></tr>
+<tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">官方输出价 /1M</td><td style="padding:8px">$25</td><td style="padding:8px">$25</td></tr>
+<tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">上下文</td><td style="padding:8px">1M</td><td style="padding:8px">1M</td></tr>
+<tr><td style="padding:8px">完整 benchmark</td><td style="padding:8px">SWE-bench Verified 87.6% / Pro 64.3% 等（<a href="/zh/articles/claude-opus-4-7-review-2026/">详见 4.7 评测</a>）</td><td style="padding:8px">官方尚未公布</td></tr>
+</tbody>
+</table>
+<p style="font-size:13px;color:var(--muted);margin-top:10px">Anthropic 这几代 Opus 一直把价格按住不动（4.6→4.7→4.8 都是 $5/$25），靠效率和能力提升来"隐性降价"。4.8 大概率延续这个路子，但<strong>具体强多少，要等官方放出 SWE-bench / Terminal-Bench 这些数据才能下结论，这里不替它编。</strong></p>
+</section>
+
+<section class="seo-card">
+<h2 id="upgrade">要不要从 4.7 升级</h2>
+<p>因为价格和上下文都没变，升级决策比平时简单，按你的处境分三种：</p>
+<ul>
+<li><strong>新项目 / 还没绑定版本：</strong>直接用 4.8。同价、更新，没理由从头去选上一代。</li>
+<li><strong>已经在 4.7 上跑稳的 agent / 生产流程：</strong>别急。一个 .x 升级最大的风险不是价格，是<strong>行为变化</strong>——工具调用的细节、输出风格、边界情况可能微调，会影响你调好的 prompt 和 agent 链路。完整跑分和稳定性反馈还没出来，先观望，等数据 + 社区实测，再小流量灰度切。</li>
+<li><strong>只是日常问答 / 写作：</strong>切不切都行，体感差别通常不大；想用最新的就切。</li>
+</ul>
+<p>一句话：<strong>新开的用 4.8，跑着的别动手太快。</strong>同价更新的好处是没有成本顾虑，坏处是没有"非升不可"的理由，所以稳定性优先。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="vs-sonnet">Opus 4.8 还是 Sonnet 4.6</h2>
+<p>比"4.7 还是 4.8"更常见的问题，其实是"要不要用 Opus"。Opus 4.8 是 $5/$25，Claude Sonnet 4.6 最低约 $2.6-3 / $15——<strong>Opus 的输出价是 Sonnet 的差不多两倍</strong>。</p>
+<ul>
+<li><strong>日常、量大、对成本敏感：</strong>先用 Sonnet 4.6，够用且便宜不少。</li>
+<li><strong>难任务、长链路 agent、复杂推理：</strong>这才是 Opus 值回价钱的地方。</li>
+<li><strong>务实做法：</strong>主力 Sonnet，难的环节路由到 Opus 4.8——别全程烧 Opus。具体怎么按任务分配，见<a class="section-link" href="/zh/articles/ai-agent-model-selection-2026/">做 AI Agent 用哪个模型</a>。</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="bench">关于跑分</h2>
+<p>到本文发布时，Anthropic 还没放出 Opus 4.8 的完整 benchmark（SWE-bench Verified / Pro、Terminal-Bench、GPQA 等），第三方实测也还在early。所以这篇<strong>不给 4.8 编任何分数</strong>——这是我们的底线：宁可少说，不替模型编数据。</p>
+<p>可以参考的基线是 Opus 4.7：SWE-bench Verified 87.6%、SWE-bench Pro 64.3%、Terminal-Bench 69.4%（<a class="section-link" href="/zh/articles/claude-opus-4-7-review-2026/">完整拆解见这篇</a>）。等 4.8 的官方数据出来，我会更新本页并补上和 4.7、GPT-5.5、Gemini 的横向对比。想随时看各模型的实时价格和能力维度，用<a href="/">对比工具</a>。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="related">相关阅读</h2>
+<ul>
+<li><a class="section-link" href="/zh/articles/claude-opus-4-7-review-2026/">Claude Opus 4.7 深度评测：SWE-bench 87.6%、谁该升级</a></li>
+<li><a class="section-link" href="/zh/articles/ai-agent-model-selection-2026/">2026 做 AI Agent 用哪个模型：工具调用、长任务、成本实测</a></li>
+<li><a class="section-link" href="/zh/articles/gpt-5-vs-claude-coding-2026/">GPT-5 vs Claude Sonnet 4.6：写代码到底选哪个</a></li>
+<li><a class="section-link" href="/models/claude-opus-4-8/">Claude Opus 4.8 实时价格表与能力</a></li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="faq">FAQ</h2>
+<p><strong>Claude Opus 4.8 多少钱？</strong>官方 $5 / 1M 输入 token、$25 / 1M 输出 token，和 Opus 4.7 持平。转售渠道里 Poe 约 $4.29 / $21.46 略低，多数平台跟官方一致。</p>
+<p><strong>Opus 4.8 什么时候发布的？</strong>2026-05-28。当天就在 Anthropic API、AWS Bedrock、Google Vertex、Cloudflare、Vercel、OpenRouter 等渠道上线，上下文 1M。</p>
+<p><strong>Opus 4.8 比 4.7 强多少？</strong>价格和上下文完全一样（都是 $5/$25、1M）。性能上 Anthropic 还没放出完整 benchmark，所以暂时没有可靠数字；可参考 4.7 的基线（SWE-bench Verified 87.6%）。数据出来本页会更新。</p>
+<p><strong>该从 Opus 4.7 升级到 4.8 吗？</strong>新项目直接用 4.8（同价更新）。已经在 4.7 上跑稳的生产/agent 流程，建议先观望——一个 .x 升级可能带来行为微调，等完整跑分和实测再小流量灰度切。日常问答写作切不切都行。</p>
+<p><strong>Opus 4.8 和 Sonnet 4.6 怎么选？</strong>Opus 4.8 是 $5/$25，Sonnet 4.6 约 $2.6-3/$15。日常和量大场景先用 Sonnet；难任务、长链路 agent、复杂推理再上 Opus。务实做法是按任务路由，不全程用 Opus。</p>
+</section>

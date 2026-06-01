@@ -710,5 +710,84 @@
         }
       ]
     }
+  },
+  {
+    "slug": "claude-opus-4-8-2026",
+    "topic": "选型指南",
+    "author": "zayuerweb-dev",
+    "authorUrl": "https://github.com/zayuerweb-dev",
+    "written": "2026-06-01",
+    "published": "2026-06-01",
+    "modified": "2026-06-01",
+    "zh": {
+      "title": "Claude Opus 4.8 发布：价格仍是 $5/$25、1M 上下文、要不要从 4.7 升级",
+      "metaTitle": "Claude Opus 4.8 发布 2026：价格 $5/$25、1M 上下文、要不要从 4.7 升级",
+      "description": "Claude Opus 4.8 发布（2026-05-28）：官方价 $5/$25 和 4.7 持平、1M 上下文、各大平台已上线。要不要从 4.7 升级、和 Sonnet 4.6 怎么选——附决策。完整跑分官方暂未公布。",
+      "ogTitle": "Claude Opus 4.8 发布：价格 $5/$25 不变、要不要从 4.7 升级",
+      "ogDescription": "价格和 4.7 持平、1M 上下文。新项目用 4.8，跑稳的别急着切——升级与 Opus vs Sonnet 决策。",
+      "headline": "Claude Opus 4.8 发布：价格仍是 $5/$25、1M 上下文、要不要从 4.7 升级",
+      "status": "published",
+      "related": {
+        "href": "/zh/articles/claude-opus-4-7-review-2026/",
+        "label": "Claude Opus 4.7 深度评测"
+      },
+      "faq": [
+        {
+          "q": "Claude Opus 4.8 多少钱？",
+          "a": "官方 $5 / 1M 输入 token、$25 / 1M 输出 token，和 Opus 4.7 持平。转售渠道里 Poe 约 $4.29 / $21.46 略低，多数平台跟官方一致。"
+        },
+        {
+          "q": "Opus 4.8 什么时候发布的？",
+          "a": "2026-05-28。当天就在 Anthropic API、AWS Bedrock、Google Vertex、Cloudflare、Vercel、OpenRouter 等渠道上线，上下文 1M。"
+        },
+        {
+          "q": "Opus 4.8 比 4.7 强多少？",
+          "a": "价格和上下文完全一样（都是 $5/$25、1M）。性能上 Anthropic 还没放出完整 benchmark，所以暂时没有可靠数字；可参考 4.7 的基线（SWE-bench Verified 87.6%）。数据出来本页会更新。"
+        },
+        {
+          "q": "该从 Opus 4.7 升级到 4.8 吗？",
+          "a": "新项目直接用 4.8（同价更新）。已经在 4.7 上跑稳的生产/agent 流程，建议先观望——一个 .x 升级可能带来行为微调，等完整跑分和实测再小流量灰度切。日常问答写作切不切都行。"
+        },
+        {
+          "q": "Opus 4.8 和 Sonnet 4.6 怎么选？",
+          "a": "Opus 4.8 是 $5/$25，Sonnet 4.6 约 $2.6-3/$15。日常和量大场景先用 Sonnet；难任务、长链路 agent、复杂推理再上 Opus。务实做法是按任务路由，不全程用 Opus。"
+        }
+      ]
+    },
+    "en": {
+      "title": "Claude Opus 4.8 Is Out: Still $5/$25, 1M Context, Should You Upgrade from 4.7",
+      "metaTitle": "Claude Opus 4.8 (2026): Still $5/$25, 1M Context, Upgrade from 4.7?",
+      "description": "Claude Opus 4.8 (released 2026-05-28): official price $5/$25 unchanged from 4.7, 1M context, live on major platforms. Whether to upgrade from 4.7 and Opus vs Sonnet 4.6 — with guidance. Full benchmarks not yet published.",
+      "ogTitle": "Claude Opus 4.8 Is Out: Still $5/$25, Should You Upgrade from 4.7",
+      "ogDescription": "Price unchanged from 4.7, 1M context. New builds on 4.8, stable systems shouldn’t rush — upgrade and Opus-vs-Sonnet guidance.",
+      "headline": "Claude Opus 4.8 Is Out: Still $5/$25, 1M Context, Should You Upgrade from 4.7",
+      "status": "published",
+      "related": {
+        "href": "/en/articles/claude-opus-4-7-review-2026/",
+        "label": "Claude Opus 4.7 Review"
+      },
+      "faq": [
+        {
+          "q": "How much does Claude Opus 4.8 cost?",
+          "a": "Officially $5 / 1M input tokens and $25 / 1M output tokens, the same as Opus 4.7. Among resellers, Poe is slightly lower at ~$4.29 / $21.46; most platforms match the official price."
+        },
+        {
+          "q": "When was Opus 4.8 released?",
+          "a": "2026-05-28. It went live the same day on Anthropic API, AWS Bedrock, Google Vertex, Cloudflare, Vercel, and OpenRouter, with a 1M context window."
+        },
+        {
+          "q": "How much better is 4.8 than 4.7?",
+          "a": "Price and context are identical ($5/$25, 1M). Anthropic has not published full benchmarks yet, so there is no reliable number; use the 4.7 baseline (SWE-bench Verified 87.6%) as the anchor. This page will update when the data lands."
+        },
+        {
+          "q": "Should I upgrade from Opus 4.7 to 4.8?",
+          "a": "Use 4.8 for new projects (same price, newer). For production/agent flows already stable on 4.7, wait — a .x bump can shift behavior; roll out to a small traffic slice once full benchmarks and real-world testing are in. For everyday writing it barely matters."
+        },
+        {
+          "q": "Opus 4.8 or Sonnet 4.6?",
+          "a": "Opus 4.8 is $5/$25; Sonnet 4.6 is ~$2.6-3/$15. Use Sonnet for everyday and high-volume work; reach for Opus on hard tasks, long agent chains, and complex reasoning. The pragmatic move is to route by task rather than use Opus throughout."
+        }
+      ]
+    }
   }
 ]
