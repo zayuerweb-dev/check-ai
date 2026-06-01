@@ -741,6 +741,16 @@ const btt = $('backToTopBtn');
 window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 600), { passive: true });
 btt.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 const urlQ = new URLSearchParams(location.search).get('q');
-if (urlQ) $('platformSearch').value = urlQ;
-setView('home');
+if (urlQ) {
+  $('platformSearch').value = urlQ;
+  // Deep link like /?q=OpenAI: if the query exactly names a platform, jump
+  // straight to its detail view; otherwise stay on home with the search box
+  // pre-filled so the left rail filters to matches.
+  const normQ = (s) => s.toLowerCase().replace(/[\s\-_]+/g, '');
+  const hit = platforms.find((p) => normQ(p.name) === normQ(urlQ));
+  if (hit) { activePlatform = hit.id; setView('detail'); }
+  else setView('home');
+} else {
+  setView('home');
+}
 render(); loadLive(); loadModelSlugs();
