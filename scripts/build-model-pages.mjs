@@ -211,7 +211,10 @@ function pageHtml(group, allSlugs, indexable, allGroups) {
 
   const title = `${displayName}：价格、上下文、能力对比（2026）`;
   const makerName = makerZh(displayName);
-  const desc = `${displayName} 中文资料：${meta.ctx} 上下文，最低 ${fmtMoney(best.price?.input)}/1M 输入 token${makerName ? `，由 ${makerName} 出品` : ''}。能力：${zhCaps([...meta.caps])}。`;
+  const priceBit = best.price?.input > 0
+    ? `输入 ${fmtMoney(best.price.input)} / 输出 ${fmtMoney(best.price?.output)}（每 1M token，最便宜 ${zhBrand(best.platform)}）`
+    : '多平台价格见下方对比表';
+  const desc = `${displayName}${makerName ? `（${makerName}）` : ''} 中文资料与实时对比：${meta.ctx} 上下文，${priceBit}，能力 ${zhCaps([...meta.caps])}。在 Check.AI 查完整价格表、同类模型横向对比与六维能力评分。`;
 
   const compareKey = `${best.platform}:${best.id}`;
   const compareTool = `/?compare=${encodeURIComponent(compareKey)}`;
