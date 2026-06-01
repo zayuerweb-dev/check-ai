@@ -276,7 +276,11 @@ let models = [
 const tx = (key) => (i18n[lang] || en)[key] || key;
 const pName = (id) => platforms.find((p) => p.id === id)?.name || id;
 const keyOf = (m) => `${m.platform}:${m.id}`;
-const money = (n) => n === 0 ? '$0' : n ? `$${Number(n).toLocaleString('en-US')}` : '-';
+// 0 here means "not priced yet" (a freshly-listed model models.dev hasn't
+// priced), not "free" — show 未公开 like the model pages, never a misleading $0.
+const money = (n) => n ? `$${Number(n).toLocaleString('en-US')}` : (n === 0 ? tx('unknown') : '-');
+// Lowest *positive* price for a key across a model list (ignores 0 placeholders).
+const minOf = (ms, k) => { const a = ms.map((m) => m[k]).filter((n) => n > 0); return a.length ? Math.min(...a) : 0; };
 const compact = (n) => n >= 1e6 ? `${Number((n / 1e6).toFixed(1))}M` : n >= 1e3 ? `${Math.round(n / 1e3)}K` : n || '-';
 const isZh = () => lang === 'zh';
 const platformDesc = (p) => lang === 'zh' ? p.description : lang === 'en' ? p.descriptionEn : platformLocales[p.id]?.[lang]?.desc || `${p.name} ${tx('publicModelData')}`;
@@ -565,7 +569,7 @@ function renderList() {
     const mr = $('modelResults'); if (mr) mr.innerHTML = '';
     return;
   }
-  $('platformList').innerHTML = list.map((p) => { const ms = platformModels(p.id), best = ms[0]; return `<button class='platform-card ${p.id === activePlatform ? 'active' : ''}' data-id='${p.id}'><div class='platform-card-top'><img src='${p.logo}' alt=''><div><strong>${p.name}</strong><span>${platformDesc(p)}</span></div></div><div class='feature-icons'><span class='feature-icon ${p.category.includes('consumer') ? 'on' : ''}'>$</span><span class='feature-icon ${p.types.includes('open') ? 'on' : ''}'>OS</span></div><div class='mini-stats'><span>${tx('lowestApi')} <b>${money(Math.min(...ms.map((m) => m.input), 0))}</b></span><span>${tx('bestModel')} <b>${best?.name || '-'}</b></span></div></button>`; }).join('');
+  $('platformList').innerHTML = list.map((p) => { const ms = platformModels(p.id), best = ms[0]; return `<button class='platform-card ${p.id === activePlatform ? 'active' : ''}' data-id='${p.id}'><div class='platform-card-top'><img src='${p.logo}' alt=''><div><strong>${p.name}</strong><span>${platformDesc(p)}</span></div></div><div class='feature-icons'><span class='feature-icon ${p.category.includes('consumer') ? 'on' : ''}'>$</span><span class='feature-icon ${p.types.includes('open') ? 'on' : ''}'>OS</span></div><div class='mini-stats'><span>${tx('lowestApi')} <b>${money(minOf(ms, 'input'))}</b></span><span>${tx('bestModel')} <b>${best?.name || '-'}</b></span></div></button>`; }).join('');
   const mResults = filteredModels();
   const mr = $('modelResults');
   if (mr) {
@@ -588,13 +592,13 @@ function renderList() {
   });
 }
 function renderDetail() {
-  const p = platforms.find((x) => x.id === activePlatform) || platforms[0], ms = platformModels(p.id), min = Math.min(...ms.map((m) => m.input), 0), maxIn = Math.max(...ms.map((m) => m.input), 0), maxOut = Math.max(...ms.map((m) => m.output), 0);
+  const p = platforms.find((x) => x.id === activePlatform) || platforms[0], ms = platformModels(p.id), min = minOf(ms, 'input'), maxIn = Math.max(...ms.map((m) => m.input), 0), maxOut = Math.max(...ms.map((m) => m.output), 0);
   const d = detailCopy[p.id] || {};
   $('platformTitle').textContent = p.name; $('platformName').textContent = p.name; $('platformDescription').textContent = platformDesc(p); $('providerLogo').src = p.logo; $('websiteLink').href = p.website || '#';
   $('strengthTags').innerHTML = platformStrengths(p).map((x) => `<span>${x}</span>`).join('');
   $('platformTypeBlock').innerHTML = `<span>${tx('advantage')}</span><strong>${p.types.map((x) => tx(x === 'open' ? 'openSource' : x)).join(' + ')}</strong><p>${ms.length} ${tx('models')} · ${p.types.includes('open') ? tx('openStatus') : tx('closedStatus')}</p>`;
   $('lowestPlan').textContent = p.category.includes('consumer') ? tx('freeMultiple') : tx('seeOfficialSite');
-  $('apiPricing').textContent = `${money(min)}-${money(maxIn)} ${tx('inputShort')} / $0-${money(maxOut)} ${tx('outputShort')}`;
+  $('apiPricing').textContent = `${money(min)}-${money(maxIn)} ${tx('inputShort')} / ${money(minOf(ms, 'output'))}-${money(maxOut)} ${tx('outputShort')}`;
   $('bestForLabel').textContent = localJoin(platformStrengths(p));
   $('plainSummary').textContent = localizedSummary(p, d);
   $('sourceBadges').innerHTML = [tx('officialPricing'),'models.dev',tx('benchmarks')].map((x) => `<span class='source-badge'>${x}</span>`).join('');
