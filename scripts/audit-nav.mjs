@@ -125,6 +125,10 @@ const pagesByLang = { zh: [], en: [] };
 const navByLang = { zh: new Map(), en: new Map() };
 
 for (const f of files) {
+  // The custom 404 page is a utility page, not indexable content: it carries
+  // noindex and a deliberately minimal nav, so the canonical/hreflang/nav-drift
+  // rules for content pages don't apply.
+  if (f === '404.html') continue;
   const abs = join(ROOT, f);
   const html = readFileSync(abs, 'utf8');
   const lang = detectLang(html);
