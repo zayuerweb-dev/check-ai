@@ -118,7 +118,7 @@
         "DASHSCOPE_API_KEY"
       ],
       "api": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-      "models_count": 82
+      "models_count": 83
     },
     {
       "key": "digitalocean",
@@ -320,7 +320,7 @@
         "DASHSCOPE_API_KEY"
       ],
       "api": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
-      "models_count": 50
+      "models_count": 51
     },
     {
       "key": "xiaomi",
@@ -340,7 +340,7 @@
         "MISTRAL_API_KEY"
       ],
       "api": null,
-      "models_count": 28
+      "models_count": 30
     },
     {
       "key": "vivgrid",
@@ -482,7 +482,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 342
+      "models_count": 344
     },
     {
       "key": "privatemode-ai",
@@ -806,7 +806,7 @@
         "AICORE_SERVICE_KEY"
       ],
       "api": null,
-      "models_count": 25
+      "models_count": 26
     },
     {
       "key": "lilac",
@@ -846,7 +846,7 @@
         "OPENCODE_API_KEY"
       ],
       "api": "https://opencode.ai/zen/go/v1",
-      "models_count": 16
+      "models_count": 17
     },
     {
       "key": "gitlab",
@@ -19686,6 +19686,29 @@
       "release_date": "2026-04-24",
       "knowledge": "2025-05",
       "last_updated": "2026-04-24"
+    },
+    {
+      "platform": "alibaba-cn",
+      "id": "qwen3.7-plus",
+      "name": "Qwen3.7 Plus",
+      "price": {
+        "input": 0.5,
+        "output": 3,
+        "cache_read": 0.05,
+        "cache_write": 0.625
+      },
+      "limit": {
+        "context": 131072,
+        "output": 16384
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-02",
+      "knowledge": "2025-04",
+      "last_updated": "2026-06-02"
     },
     {
       "platform": "alibaba-cn",
@@ -39922,6 +39945,29 @@
     },
     {
       "platform": "alibaba",
+      "id": "qwen3.7-plus",
+      "name": "Qwen3.7 Plus",
+      "price": {
+        "input": 0.5,
+        "output": 3,
+        "cache_read": 0.05,
+        "cache_write": 0.625
+      },
+      "limit": {
+        "context": 131072,
+        "output": 16384
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-02",
+      "knowledge": "2025-04",
+      "last_updated": "2026-06-02"
+    },
+    {
+      "platform": "alibaba",
       "id": "qwen3.5-27b",
       "name": "Qwen3.5 27B",
       "price": {
@@ -40540,6 +40586,29 @@
     },
     {
       "platform": "mistral",
+      "id": "devstral-latest",
+      "name": "Devstral 2",
+      "price": {
+        "input": 0.4,
+        "output": 2,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "open"
+      ],
+      "release_date": "2025-12-09",
+      "knowledge": "2025-12",
+      "last_updated": "2025-12-09"
+    },
+    {
+      "platform": "mistral",
       "id": "open-mixtral-8x22b",
       "name": "Mixtral 8x22B",
       "price": {
@@ -40701,6 +40770,29 @@
       "release_date": "2024-11-01",
       "knowledge": "2024-11",
       "last_updated": "2024-11-04"
+    },
+    {
+      "platform": "mistral",
+      "id": "open-mistral-nemo",
+      "name": "Open Mistral Nemo",
+      "price": {
+        "input": 0.15,
+        "output": 0.15,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 128000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "open"
+      ],
+      "release_date": "2024-07-01",
+      "knowledge": "2024-07",
+      "last_updated": "2024-07-01"
     },
     {
       "platform": "mistral",
@@ -44008,7 +44100,8 @@
       },
       "capabilities": [
         "text",
-        "vision"
+        "vision",
+        "video"
       ],
       "release_date": "2026-01-28",
       "knowledge": null,
@@ -50707,6 +50800,30 @@
     },
     {
       "platform": "openrouter",
+      "id": "qwen/qwen3.7-plus",
+      "name": "Qwen3.7 Plus",
+      "price": {
+        "input": 0.4,
+        "output": 1.6,
+        "cache_read": 0.08,
+        "cache_write": 0.5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-03",
+      "knowledge": null,
+      "last_updated": "2026-06-03"
+    },
+    {
+      "platform": "openrouter",
       "id": "qwen/qwen-2.5-7b-instruct",
       "name": "Qwen2.5 7B Instruct",
       "price": {
@@ -51148,6 +51265,27 @@
       "release_date": "2025-12-05",
       "knowledge": null,
       "last_updated": "2025-12-05"
+    },
+    {
+      "platform": "openrouter",
+      "id": "openrouter/fusion",
+      "name": "Fusion",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 128000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text"
+      ],
+      "release_date": "2026-05-12",
+      "knowledge": null,
+      "last_updated": "2026-05-12"
     },
     {
       "platform": "openrouter",
@@ -54181,7 +54319,7 @@
       "name": "GLM-5",
       "price": {
         "input": 0.6,
-        "output": 2.08,
+        "output": 1.92,
         "cache_read": 0.12,
         "cache_write": null
       },
@@ -75947,7 +76085,7 @@
     },
     {
       "platform": "deepinfra",
-      "id": "xiaomi/mimo-v2.5",
+      "id": "XiaomiMiMo/MiMo-V2.5",
       "name": "MiMo-V2.5",
       "price": {
         "input": 0.4,
@@ -75974,7 +76112,7 @@
     },
     {
       "platform": "deepinfra",
-      "id": "xiaomi/mimo-v2.5-pro",
+      "id": "XiaomiMiMo/MiMo-V2.5-Pro",
       "name": "MiMo-V2.5-Pro",
       "price": {
         "input": 1,
@@ -76001,14 +76139,14 @@
       "id": "deepseek-ai/DeepSeek-V4-Flash",
       "name": "DeepSeek V4 Flash",
       "price": {
-        "input": 0.14,
-        "output": 0.28,
-        "cache_read": 0.0028,
+        "input": 0.1,
+        "output": 0.2,
+        "cache_read": 0.02,
         "cache_write": null
       },
       "limit": {
-        "context": 1000000,
-        "output": 384000
+        "context": 1048576,
+        "output": 16384
       },
       "capabilities": [
         "text",
@@ -76025,14 +76163,14 @@
       "id": "deepseek-ai/DeepSeek-V4-Pro",
       "name": "DeepSeek V4 Pro",
       "price": {
-        "input": 0.435,
-        "output": 0.87,
-        "cache_read": 0.003625,
+        "input": 1.3,
+        "output": 2.6,
+        "cache_read": 0.1,
         "cache_write": null
       },
       "limit": {
-        "context": 65536,
-        "output": 65536
+        "context": 1048576,
+        "output": 16384
       },
       "capabilities": [
         "text",
@@ -77624,9 +77762,9 @@
         "tools",
         "reasoning"
       ],
-      "release_date": "2026-04-27",
+      "release_date": "2026-03-05",
       "knowledge": "2025-08-31",
-      "last_updated": "2026-04-27"
+      "last_updated": "2026-03-05"
     },
     {
       "platform": "sap-ai-core",
@@ -77651,6 +77789,30 @@
       "release_date": "2026-04-16",
       "knowledge": "2026-01-31",
       "last_updated": "2026-04-16"
+    },
+    {
+      "platform": "sap-ai-core",
+      "id": "gpt-5.5",
+      "name": "gpt-5.5",
+      "price": {
+        "input": 5,
+        "output": 30,
+        "cache_read": 0.5,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1050000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-23",
+      "knowledge": "2025-12-01",
+      "last_updated": "2026-04-23"
     },
     {
       "platform": "sap-ai-core",
@@ -78590,6 +78752,31 @@
       "release_date": "2026-03-18",
       "knowledge": "2024-12",
       "last_updated": "2026-03-18"
+    },
+    {
+      "platform": "opencode-go",
+      "id": "qwen3.7-plus",
+      "name": "Qwen3.7 Plus",
+      "price": {
+        "input": 0.4,
+        "output": 1.6,
+        "cache_read": 0.04,
+        "cache_write": 0.5
+      },
+      "limit": {
+        "context": 262144,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-02",
+      "knowledge": null,
+      "last_updated": "2026-06-02"
     },
     {
       "platform": "opencode-go",
