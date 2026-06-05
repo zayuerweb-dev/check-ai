@@ -48,7 +48,7 @@
         "FIREWORKS_API_KEY"
       ],
       "api": "https://api.fireworks.ai/inference/v1/",
-      "models_count": 12
+      "models_count": 13
     },
     {
       "key": "ambient",
@@ -108,7 +108,7 @@
         "NANO_GPT_API_KEY"
       ],
       "api": "https://nano-gpt.com/api/v1",
-      "models_count": 618
+      "models_count": 617
     },
     {
       "key": "alibaba-cn",
@@ -482,7 +482,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 343
+      "models_count": 344
     },
     {
       "key": "privatemode-ai",
@@ -544,7 +544,7 @@
         "TOGETHER_API_KEY"
       ],
       "api": null,
-      "models_count": 19
+      "models_count": 20
     },
     {
       "key": "moark",
@@ -820,7 +820,7 @@
     },
     {
       "key": "stepfun-ai",
-      "name": "StepFun",
+      "name": "StepFun AI",
       "doc": "https://platform.stepfun.ai/docs/en/step-plan/integrations/open-code",
       "env": [
         "STEPFUN_API_KEY"
@@ -928,7 +928,7 @@
         "VENICE_API_KEY"
       ],
       "api": null,
-      "models_count": 70
+      "models_count": 71
     },
     {
       "key": "azure",
@@ -963,7 +963,7 @@
     },
     {
       "key": "stepfun",
-      "name": "StepFun (China)",
+      "name": "StepFun",
       "doc": "https://platform.stepfun.com/docs/zh/overview/concept",
       "env": [
         "STEPFUN_API_KEY"
@@ -1012,7 +1012,7 @@
         "AWS_BEARER_TOKEN_BEDROCK"
       ],
       "api": null,
-      "models_count": 91
+      "models_count": 95
     },
     {
       "key": "synthetic",
@@ -1092,7 +1092,7 @@
         "XPERSONA_API_KEY"
       ],
       "api": "https://www.xpersona.co/v1",
-      "models_count": 1
+      "models_count": 2
     },
     {
       "key": "perplexity-agent",
@@ -1192,7 +1192,7 @@
         "AI_GATEWAY_API_KEY"
       ],
       "api": null,
-      "models_count": 245
+      "models_count": 244
     },
     {
       "key": "abacus",
@@ -1224,7 +1224,7 @@
         "GEMINI_API_KEY"
       ],
       "api": null,
-      "models_count": 21
+      "models_count": 23
     },
     {
       "key": "wandb",
@@ -3175,6 +3175,31 @@
       "release_date": "2026-04-24",
       "knowledge": "2025-05",
       "last_updated": "2026-04-24"
+    },
+    {
+      "platform": "fireworks-ai",
+      "id": "accounts/fireworks/routers/kimi-k2p6-fast",
+      "name": "Kimi K2.6 Fast",
+      "price": {
+        "input": 2,
+        "output": 8,
+        "cache_read": 0.3,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262000,
+        "output": 262000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-17",
+      "knowledge": null,
+      "last_updated": "2026-06-05"
     },
     {
       "platform": "fireworks-ai",
@@ -8987,27 +9012,6 @@
         "text"
       ],
       "release_date": "2023-11-06",
-      "knowledge": null,
-      "last_updated": "2024-01-01"
-    },
-    {
-      "platform": "nano-gpt",
-      "id": "mercury-coder-small",
-      "name": "Mercury Coder Small",
-      "price": {
-        "input": 0.25,
-        "output": 1,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 32768,
-        "output": 16384
-      },
-      "capabilities": [
-        "text"
-      ],
-      "release_date": "2024-01-01",
       "knowledge": null,
       "last_updated": "2024-01-01"
     },
@@ -42301,17 +42305,19 @@
         "cache_write": 0.625
       },
       "limit": {
-        "context": 131072,
+        "context": 1000000,
         "output": 16384
       },
       "capabilities": [
         "text",
+        "vision",
+        "video",
         "tools",
         "reasoning"
       ],
       "release_date": "2026-06-02",
       "knowledge": "2025-04",
-      "last_updated": "2026-06-02"
+      "last_updated": "2026-06-04"
     },
     {
       "platform": "alibaba",
@@ -42654,8 +42660,8 @@
       "id": "mistral-medium-latest",
       "name": "Mistral Medium (latest)",
       "price": {
-        "input": 1.5,
-        "output": 7.5,
+        "input": 0.4,
+        "output": 2,
         "cache_read": null,
         "cache_write": null
       },
@@ -42666,13 +42672,11 @@
       "capabilities": [
         "text",
         "vision",
-        "tools",
-        "reasoning",
-        "open"
+        "tools"
       ],
-      "release_date": "2026-04-29",
-      "knowledge": null,
-      "last_updated": "2026-04-29"
+      "release_date": "2025-08-12",
+      "knowledge": "2025-05",
+      "last_updated": "2025-08-12"
     },
     {
       "platform": "mistral",
@@ -51333,28 +51337,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "nousresearch/hermes-2-pro-llama-3-8b",
-      "name": "Hermes 2 Pro - Llama-3 8B",
-      "price": {
-        "input": 0.14,
-        "output": 0.14,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 8192,
-        "output": 8192
-      },
-      "capabilities": [
-        "text",
-        "open"
-      ],
-      "release_date": "2024-05-27",
-      "knowledge": "2023-12-31",
-      "last_updated": "2024-05-27"
-    },
-    {
-      "platform": "openrouter",
       "id": "nousresearch/hermes-4-405b",
       "name": "Hermes 4 405B",
       "price": {
@@ -51883,29 +51865,6 @@
       "release_date": "2024-12-18",
       "knowledge": "2023-12-31",
       "last_updated": "2024-12-18"
-    },
-    {
-      "platform": "openrouter",
-      "id": "sao10k/l3-euryale-70b",
-      "name": "Llama 3 Euryale 70B v2.1",
-      "price": {
-        "input": 1.48,
-        "output": 1.48,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 8192,
-        "output": 8192
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "open"
-      ],
-      "release_date": "2024-06-18",
-      "knowledge": "2023-12-31",
-      "last_updated": "2024-06-18"
     },
     {
       "platform": "openrouter",
@@ -52965,8 +52924,8 @@
       "id": "qwen/qwen3-30b-a3b-instruct-2507",
       "name": "Qwen3 30B A3B Instruct 2507",
       "price": {
-        "input": 0.0428,
-        "output": 0.1716,
+        "input": 0.04815,
+        "output": 0.19305,
         "cache_read": null,
         "cache_write": null
       },
@@ -53515,7 +53474,7 @@
       },
       "limit": {
         "context": 40960,
-        "output": 20000
+        "output": 16384
       },
       "capabilities": [
         "text",
@@ -54875,12 +54834,12 @@
       "name": "Llama 3.1 8B Instruct",
       "price": {
         "input": 0.02,
-        "output": 0.05,
+        "output": 0.03,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 16384,
+        "context": 131072,
         "output": 16384
       },
       "capabilities": [
@@ -55310,6 +55269,30 @@
     },
     {
       "platform": "openrouter",
+      "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "name": "Nemotron 3 Ultra (free)",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-04",
+      "knowledge": null,
+      "last_updated": "2026-06-04"
+    },
+    {
+      "platform": "openrouter",
       "id": "nvidia/nemotron-nano-9b-v2",
       "name": "Nemotron Nano 9B V2",
       "price": {
@@ -55358,6 +55341,30 @@
     },
     {
       "platform": "openrouter",
+      "id": "nvidia/nemotron-3.5-content-safety:free",
+      "name": "Nemotron 3.5 Content Safety (free)",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 128000,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-04",
+      "knowledge": null,
+      "last_updated": "2026-06-04"
+    },
+    {
+      "platform": "openrouter",
       "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
       "name": "Nemotron 3 Nano Omni (free)",
       "price": {
@@ -55381,6 +55388,30 @@
       "release_date": "2026-04-28",
       "knowledge": null,
       "last_updated": "2026-04-28"
+    },
+    {
+      "platform": "openrouter",
+      "id": "nvidia/nemotron-3-ultra-550b-a55b",
+      "name": "Nemotron 3 Ultra",
+      "price": {
+        "input": 0.5,
+        "output": 2.5,
+        "cache_read": 0.15,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 16384
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-04",
+      "knowledge": null,
+      "last_updated": "2026-06-04"
     },
     {
       "platform": "openrouter",
@@ -56989,7 +57020,7 @@
     {
       "platform": "openrouter",
       "id": "google/gemini-3-pro-image-preview",
-      "name": "Nano Banana Pro (Gemini 3 Pro Image Preview)",
+      "name": "Nano Banana Pro",
       "price": {
         "input": 2,
         "output": 12,
@@ -57006,7 +57037,7 @@
         "reasoning"
       ],
       "release_date": "2025-11-20",
-      "knowledge": null,
+      "knowledge": "2025-01",
       "last_updated": "2025-11-20"
     },
     {
@@ -64182,7 +64213,7 @@
     {
       "platform": "togetherai",
       "id": "deepseek-ai/DeepSeek-R1",
-      "name": "DeepSeek R1",
+      "name": "DeepSeek-R1",
       "price": {
         "input": 3,
         "output": 7,
@@ -64198,14 +64229,14 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2024-12-26",
+      "release_date": "2025-01-20",
       "knowledge": "2024-07",
       "last_updated": "2025-03-24"
     },
     {
       "platform": "togetherai",
       "id": "deepseek-ai/DeepSeek-V3",
-      "name": "DeepSeek V3",
+      "name": "DeepSeek-V3",
       "price": {
         "input": 1.25,
         "output": 1.25,
@@ -64222,9 +64253,33 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2025-01-20",
+      "release_date": "2024-12-26",
       "knowledge": "2024-07",
       "last_updated": "2025-05-29"
+    },
+    {
+      "platform": "togetherai",
+      "id": "nvidia/nemotron-3-ultra-550b-a55b",
+      "name": "Nemotron 3 Ultra 550B A55B",
+      "price": {
+        "input": 0.6,
+        "output": 3.6,
+        "cache_read": 0.2,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 512300,
+        "output": 512300
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-04",
+      "knowledge": null,
+      "last_updated": "2026-06-04"
     },
     {
       "platform": "togetherai",
@@ -74235,7 +74290,7 @@
       },
       "limit": {
         "context": 40960,
-        "output": 40960
+        "output": 4096
       },
       "capabilities": [
         "text",
@@ -80947,7 +81002,7 @@
         "cache_write": 0.625
       },
       "limit": {
-        "context": 262144,
+        "context": 1000000,
         "output": 65536
       },
       "capabilities": [
@@ -81092,7 +81147,7 @@
         "cache_write": 0.5
       },
       "limit": {
-        "context": 262144,
+        "context": 1000000,
         "output": 65536
       },
       "capabilities": [
@@ -86597,17 +86652,18 @@
       },
       "limit": {
         "context": 500000,
-        "output": 32768
+        "output": 131072
       },
       "capabilities": [
         "text",
         "vision",
+        "video",
         "tools",
         "reasoning"
       ],
       "release_date": "2026-06-01",
       "knowledge": null,
-      "last_updated": "2026-06-01"
+      "last_updated": "2026-06-04"
     },
     {
       "platform": "venice",
@@ -87525,6 +87581,31 @@
     },
     {
       "platform": "venice",
+      "id": "qwen-3-7-plus",
+      "name": "Qwen 3.7 Plus",
+      "price": {
+        "input": 0.5,
+        "output": 2,
+        "cache_read": 0.05,
+        "cache_write": 0.625
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-02",
+      "knowledge": null,
+      "last_updated": "2026-06-04"
+    },
+    {
+      "platform": "venice",
       "id": "claude-sonnet-4-5",
       "name": "Claude Sonnet 4.5",
       "price": {
@@ -87698,7 +87779,7 @@
       "price": {
         "input": 0.155,
         "output": 0.44,
-        "cache_read": null,
+        "cache_read": 0.12,
         "cache_write": null
       },
       "limit": {
@@ -87715,7 +87796,7 @@
       ],
       "release_date": "2026-04-03",
       "knowledge": null,
-      "last_updated": "2026-05-25"
+      "last_updated": "2026-06-04"
     },
     {
       "platform": "venice",
@@ -90626,8 +90707,8 @@
       "id": "mistral/mistral-medium-latest",
       "name": "Mistral Medium (latest)",
       "price": {
-        "input": 1.5,
-        "output": 7.5,
+        "input": 0.4,
+        "output": 2,
         "cache_read": null,
         "cache_write": null
       },
@@ -90638,13 +90719,11 @@
       "capabilities": [
         "text",
         "vision",
-        "tools",
-        "reasoning",
-        "open"
+        "tools"
       ],
-      "release_date": "2026-04-29",
-      "knowledge": null,
-      "last_updated": "2026-04-29"
+      "release_date": "2025-08-12",
+      "knowledge": "2025-05",
+      "last_updated": "2025-08-12"
     },
     {
       "platform": "merge-gateway",
@@ -93875,6 +93954,28 @@
     },
     {
       "platform": "amazon-bedrock",
+      "id": "openai.gpt-oss-120b",
+      "name": "gpt-oss-120b",
+      "price": {
+        "input": 0.15,
+        "output": 0.6,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 128000,
+        "output": 16384
+      },
+      "capabilities": [
+        "text",
+        "tools"
+      ],
+      "release_date": "2025-08-05",
+      "knowledge": null,
+      "last_updated": "2025-08-05"
+    },
+    {
+      "platform": "amazon-bedrock",
       "id": "us.anthropic.claude-opus-4-7",
       "name": "Claude Opus 4.7 (US)",
       "price": {
@@ -94274,6 +94375,30 @@
       "release_date": "2024-12-01",
       "knowledge": null,
       "last_updated": "2024-12-01"
+    },
+    {
+      "platform": "amazon-bedrock",
+      "id": "openai.gpt-5.5",
+      "name": "GPT-5.5",
+      "price": {
+        "input": 5.5,
+        "output": 33,
+        "cache_read": 0.55,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 272000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-23",
+      "knowledge": "2025-12-01",
+      "last_updated": "2026-06-01"
     },
     {
       "platform": "amazon-bedrock",
@@ -95298,6 +95423,30 @@
     },
     {
       "platform": "amazon-bedrock",
+      "id": "openai.gpt-5.4",
+      "name": "GPT-5.4",
+      "price": {
+        "input": 2.75,
+        "output": 16.5,
+        "cache_read": 0.275,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 272000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-03-05",
+      "knowledge": "2025-08-31",
+      "last_updated": "2026-06-01"
+    },
+    {
+      "platform": "amazon-bedrock",
       "id": "jp.anthropic.claude-opus-4-7",
       "name": "Claude Opus 4.7 (JP)",
       "price": {
@@ -95483,6 +95632,28 @@
       "release_date": "2025-09-29",
       "knowledge": "2025-07-31",
       "last_updated": "2025-09-29"
+    },
+    {
+      "platform": "amazon-bedrock",
+      "id": "openai.gpt-oss-20b",
+      "name": "gpt-oss-20b",
+      "price": {
+        "input": 0.07,
+        "output": 0.3,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 128000,
+        "output": 16384
+      },
+      "capabilities": [
+        "text",
+        "tools"
+      ],
+      "release_date": "2025-08-05",
+      "knowledge": null,
+      "last_updated": "2025-08-05"
     },
     {
       "platform": "amazon-bedrock",
@@ -99875,6 +100046,30 @@
       "release_date": "2024-12-06",
       "knowledge": "2023-12",
       "last_updated": "2024-12-06"
+    },
+    {
+      "platform": "xpersona",
+      "id": "xpersona-gpt-5.5",
+      "name": "GPT-5.5",
+      "price": {
+        "input": 3,
+        "output": 18,
+        "cache_read": 0.3,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-05-29",
+      "knowledge": "2025-12-30",
+      "last_updated": "2026-05-29"
     },
     {
       "platform": "xpersona",
@@ -106832,28 +107027,6 @@
     },
     {
       "platform": "vercel",
-      "id": "inception/mercury-coder-small",
-      "name": "Mercury Coder Small Beta",
-      "price": {
-        "input": 0.25,
-        "output": 1,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 32000,
-        "output": 16384
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-02-26",
-      "knowledge": null,
-      "last_updated": "2026-05-01"
-    },
-    {
-      "platform": "vercel",
       "id": "inception/mercury-edit-2",
       "name": "Mercury Edit 2",
       "price": {
@@ -113734,6 +113907,27 @@
     },
     {
       "platform": "google",
+      "id": "gemini-2.5-flash-tts",
+      "name": "Gemini 2.5 Flash TTS",
+      "price": {
+        "input": 0.5,
+        "output": 10,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 32768,
+        "output": 16384
+      },
+      "capabilities": [
+        "text"
+      ],
+      "release_date": "2025-09-30",
+      "knowledge": "2025-01",
+      "last_updated": "2025-12-10"
+    },
+    {
+      "platform": "google",
       "id": "gemini-2.5-flash-image",
       "name": "Nano Banana",
       "price": {
@@ -114208,6 +114402,29 @@
       "release_date": "2025-05-01",
       "knowledge": "2025-01",
       "last_updated": "2025-05-01"
+    },
+    {
+      "platform": "google",
+      "id": "gemini-3-pro-image-preview",
+      "name": "Nano Banana Pro",
+      "price": {
+        "input": 2,
+        "output": 120,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 65536,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning"
+      ],
+      "release_date": "2025-11-20",
+      "knowledge": "2025-01",
+      "last_updated": "2025-11-20"
     },
     {
       "platform": "google",
