@@ -482,7 +482,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 344
+      "models_count": 341
     },
     {
       "key": "privatemode-ai",
@@ -36183,7 +36183,7 @@
       "price": {
         "input": 0.14,
         "output": 0.28,
-        "cache_read": 0.028,
+        "cache_read": 0.0028,
         "cache_write": null
       },
       "limit": {
@@ -36207,7 +36207,7 @@
       "price": {
         "input": 0.14,
         "output": 0.28,
-        "cache_read": 0.028,
+        "cache_read": 0.0028,
         "cache_write": null
       },
       "limit": {
@@ -51939,7 +51939,7 @@
     {
       "platform": "openrouter",
       "id": "deepseek/deepseek-r1",
-      "name": "R1",
+      "name": "DeepSeek-R1",
       "price": {
         "input": 0.7,
         "output": 2.5,
@@ -51957,8 +51957,8 @@
         "open"
       ],
       "release_date": "2025-01-20",
-      "knowledge": "2024-07-31",
-      "last_updated": "2025-01-20"
+      "knowledge": "2024-07",
+      "last_updated": "2025-05-29"
     },
     {
       "platform": "openrouter",
@@ -52961,14 +52961,14 @@
         "tools",
         "open"
       ],
-      "release_date": "2025-09-11",
-      "knowledge": "2025-09-30",
-      "last_updated": "2025-09-11"
+      "release_date": "2025-09",
+      "knowledge": "2025-04",
+      "last_updated": "2025-09"
     },
     {
       "platform": "openrouter",
       "id": "qwen/qwen3.5-122b-a10b",
-      "name": "Qwen3.5-122B-A10B",
+      "name": "Qwen3.5 122B-A10B",
       "price": {
         "input": 0.26,
         "output": 2.08,
@@ -52987,14 +52987,14 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-02-25",
+      "release_date": "2026-02-23",
       "knowledge": null,
-      "last_updated": "2026-02-25"
+      "last_updated": "2026-02-23"
     },
     {
       "platform": "openrouter",
       "id": "qwen/qwen3-next-80b-a3b-instruct",
-      "name": "Qwen3 Next 80B A3B Instruct",
+      "name": "Qwen3-Next 80B-A3B Instruct",
       "price": {
         "input": 0.09,
         "output": 1.1,
@@ -53010,9 +53010,9 @@
         "tools",
         "open"
       ],
-      "release_date": "2025-09-11",
-      "knowledge": "2025-09-30",
-      "last_updated": "2025-09-11"
+      "release_date": "2025-09",
+      "knowledge": "2025-04",
+      "last_updated": "2025-09"
     },
     {
       "platform": "openrouter",
@@ -53104,14 +53104,14 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2025-04-28",
-      "knowledge": "2025-03-31",
-      "last_updated": "2025-04-28"
+      "release_date": "2025-04",
+      "knowledge": "2025-04",
+      "last_updated": "2025-04"
     },
     {
       "platform": "openrouter",
       "id": "qwen/qwen3-coder-30b-a3b-instruct",
-      "name": "Qwen3 Coder 30B A3B Instruct",
+      "name": "Qwen3-Coder 30B-A3B Instruct",
       "price": {
         "input": 0.07,
         "output": 0.27,
@@ -53127,9 +53127,9 @@
         "tools",
         "open"
       ],
-      "release_date": "2025-07-31",
-      "knowledge": "2025-06-30",
-      "last_updated": "2025-07-31"
+      "release_date": "2025-04",
+      "knowledge": "2025-04",
+      "last_updated": "2025-04"
     },
     {
       "platform": "openrouter",
@@ -53207,14 +53207,14 @@
       "id": "qwen/qwen3.6-27b",
       "name": "Qwen3.6 27B",
       "price": {
-        "input": 0.29,
-        "output": 3.2,
+        "input": 0.289,
+        "output": 2.4,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 262140,
-        "output": 262140
+        "context": 131072,
+        "output": 131072
       },
       "capabilities": [
         "text",
@@ -53224,14 +53224,14 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-04-27",
+      "release_date": "2026-04-22",
       "knowledge": null,
-      "last_updated": "2026-04-27"
+      "last_updated": "2026-04-22"
     },
     {
       "platform": "openrouter",
       "id": "qwen/qwen3-235b-a22b",
-      "name": "Qwen3 235B A22B",
+      "name": "Qwen3 235B-A22B",
       "price": {
         "input": 0.455,
         "output": 1.82,
@@ -53248,9 +53248,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2025-04-28",
-      "knowledge": "2025-03-31",
-      "last_updated": "2025-04-28"
+      "release_date": "2025-04",
+      "knowledge": "2025-04",
+      "last_updated": "2025-04"
     },
     {
       "platform": "openrouter",
@@ -53296,7 +53296,7 @@
         "tools"
       ],
       "release_date": "2025-09-23",
-      "knowledge": "2025-06-30",
+      "knowledge": "2025-04",
       "last_updated": "2025-09-23"
     },
     {
@@ -53317,9 +53317,9 @@
         "text",
         "tools"
       ],
-      "release_date": "2025-09-23",
-      "knowledge": "2025-06-30",
-      "last_updated": "2025-09-23"
+      "release_date": "2025-07-23",
+      "knowledge": "2025-04",
+      "last_updated": "2025-07-23"
     },
     {
       "platform": "openrouter",
@@ -53589,7 +53589,7 @@
     {
       "platform": "openrouter",
       "id": "qwen/qwen3-next-80b-a3b-thinking",
-      "name": "Qwen3 Next 80B A3B Thinking",
+      "name": "Qwen3-Next 80B-A3B (Thinking)",
       "price": {
         "input": 0.0975,
         "output": 0.78,
@@ -53606,9 +53606,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2025-09-11",
-      "knowledge": "2025-09-30",
-      "last_updated": "2025-09-11"
+      "release_date": "2025-09",
+      "knowledge": "2025-04",
+      "last_updated": "2025-09"
     },
     {
       "platform": "openrouter",
@@ -53628,14 +53628,14 @@
         "text",
         "tools"
       ],
-      "release_date": "2025-09-17",
-      "knowledge": "2025-06-30",
-      "last_updated": "2025-09-17"
+      "release_date": "2025-07-28",
+      "knowledge": "2025-04",
+      "last_updated": "2025-07-28"
     },
     {
       "platform": "openrouter",
       "id": "qwen/qwen3.5-35b-a3b",
-      "name": "Qwen3.5-35B-A3B",
+      "name": "Qwen3.5 35B-A3B",
       "price": {
         "input": 0.14,
         "output": 1,
@@ -53654,9 +53654,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-02-25",
+      "release_date": "2026-02-23",
       "knowledge": null,
-      "last_updated": "2026-02-25"
+      "last_updated": "2026-02-23"
     },
     {
       "platform": "openrouter",
@@ -53686,7 +53686,7 @@
     {
       "platform": "openrouter",
       "id": "qwen/qwen3.6-35b-a3b",
-      "name": "Qwen3.6 35B A3B",
+      "name": "Qwen3.6 35B-A3B",
       "price": {
         "input": 0.14,
         "output": 1,
@@ -53705,9 +53705,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-04-27",
+      "release_date": "2026-04-17",
       "knowledge": null,
-      "last_updated": "2026-04-27"
+      "last_updated": "2026-04-17"
     },
     {
       "platform": "openrouter",
@@ -53798,14 +53798,14 @@
         "tools",
         "reasoning"
       ],
-      "release_date": "2026-04-27",
-      "knowledge": null,
-      "last_updated": "2026-04-27"
+      "release_date": "2026-04-20",
+      "knowledge": "2025-04",
+      "last_updated": "2026-04-20"
     },
     {
       "platform": "openrouter",
       "id": "qwen/qwen3.5-397b-a17b",
-      "name": "Qwen3.5 397B A17B",
+      "name": "Qwen3.5 397B-A17B",
       "price": {
         "input": 0.39,
         "output": 2.34,
@@ -53824,9 +53824,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-02-16",
-      "knowledge": "2025-04",
-      "last_updated": "2026-02-16"
+      "release_date": "2026-02-15",
+      "knowledge": null,
+      "last_updated": "2026-02-15"
     },
     {
       "platform": "openrouter",
@@ -53848,9 +53848,9 @@
         "tools",
         "reasoning"
       ],
-      "release_date": "2026-06-03",
-      "knowledge": null,
-      "last_updated": "2026-06-03"
+      "release_date": "2026-06-02",
+      "knowledge": "2025-04",
+      "last_updated": "2026-06-02"
     },
     {
       "platform": "openrouter",
@@ -53900,7 +53900,7 @@
     {
       "platform": "openrouter",
       "id": "qwen/qwen3.5-27b",
-      "name": "Qwen3.5-27B",
+      "name": "Qwen3.5 27B",
       "price": {
         "input": 0.195,
         "output": 1.56,
@@ -53919,9 +53919,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-02-25",
+      "release_date": "2026-02-23",
       "knowledge": null,
-      "last_updated": "2026-02-25"
+      "last_updated": "2026-02-23"
     },
     {
       "platform": "openrouter",
@@ -54023,7 +54023,7 @@
     {
       "platform": "openrouter",
       "id": "qwen/qwen-plus",
-      "name": "Qwen-Plus",
+      "name": "Qwen Plus",
       "price": {
         "input": 0.26,
         "output": 0.78,
@@ -54038,9 +54038,9 @@
         "text",
         "tools"
       ],
-      "release_date": "2025-02-01",
-      "knowledge": "2025-03-31",
-      "last_updated": "2025-02-01"
+      "release_date": "2024-01-25",
+      "knowledge": "2024-04",
+      "last_updated": "2025-09-11"
     },
     {
       "platform": "openrouter",
@@ -54811,8 +54811,8 @@
       "id": "meta-llama/llama-3-8b-instruct",
       "name": "Llama 3 8B Instruct",
       "price": {
-        "input": 0.04,
-        "output": 0.04,
+        "input": 0.14,
+        "output": 0.14,
         "cache_read": null,
         "cache_write": null
       },
@@ -55077,31 +55077,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "baidu/ernie-4.5-vl-28b-a3b",
-      "name": "ERNIE 4.5 VL 28B A3B",
-      "price": {
-        "input": 0.14,
-        "output": 0.56,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 30000,
-        "output": 8000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-08-12",
-      "knowledge": "2025-03-31",
-      "last_updated": "2025-08-12"
-    },
-    {
-      "platform": "openrouter",
       "id": "x-ai/grok-4.20-multi-agent",
       "name": "Grok 4.20 Multi-Agent",
       "price": {
@@ -55263,9 +55238,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2025-12-14",
+      "release_date": "2025-12-15",
       "knowledge": null,
-      "last_updated": "2025-12-14"
+      "last_updated": "2025-12-15"
     },
     {
       "platform": "openrouter",
@@ -55294,7 +55269,7 @@
     {
       "platform": "openrouter",
       "id": "nvidia/nemotron-nano-9b-v2",
-      "name": "Nemotron Nano 9B V2",
+      "name": "Nemotron Nano 9B v2",
       "price": {
         "input": 0.04,
         "output": 0.16,
@@ -55311,9 +55286,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2025-09-05",
-      "knowledge": "2025-03-31",
-      "last_updated": "2025-09-05"
+      "release_date": "2025-08-18",
+      "knowledge": null,
+      "last_updated": "2025-08-18"
     },
     {
       "platform": "openrouter",
@@ -55335,9 +55310,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2025-12-14",
-      "knowledge": "2025-11",
-      "last_updated": "2025-12-14"
+      "release_date": "2025-12-15",
+      "knowledge": null,
+      "last_updated": "2025-12-15"
     },
     {
       "platform": "openrouter",
@@ -55383,7 +55358,8 @@
         "audio",
         "video",
         "tools",
-        "reasoning"
+        "reasoning",
+        "open"
       ],
       "release_date": "2026-04-28",
       "knowledge": null,
@@ -55392,7 +55368,7 @@
     {
       "platform": "openrouter",
       "id": "nvidia/nemotron-3-ultra-550b-a55b",
-      "name": "Nemotron 3 Ultra",
+      "name": "Nemotron 3 Ultra 550B A55B",
       "price": {
         "input": 0.5,
         "output": 2.5,
@@ -55434,7 +55410,7 @@
         "open"
       ],
       "release_date": "2026-03-11",
-      "knowledge": "2024-04",
+      "knowledge": null,
       "last_updated": "2026-03-11"
     },
     {
@@ -55460,7 +55436,7 @@
         "open"
       ],
       "release_date": "2025-10-28",
-      "knowledge": "2025-11",
+      "knowledge": null,
       "last_updated": "2025-10-28"
     },
     {
@@ -55483,14 +55459,14 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2025-09-05",
-      "knowledge": "2025-03-31",
-      "last_updated": "2025-09-05"
+      "release_date": "2025-08-18",
+      "knowledge": null,
+      "last_updated": "2025-08-18"
     },
     {
       "platform": "openrouter",
       "id": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
-      "name": "Llama 3.3 Nemotron Super 49B V1.5",
+      "name": "Llama 3.3 Nemotron Super 49B v1.5",
       "price": {
         "input": 0.1,
         "output": 0.4,
@@ -55507,14 +55483,14 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2025-10-10",
-      "knowledge": "2024-03-31",
-      "last_updated": "2025-10-10"
+      "release_date": "2025-07-25",
+      "knowledge": null,
+      "last_updated": "2025-07-25"
     },
     {
       "platform": "openrouter",
       "id": "nvidia/nemotron-3-super-120b-a12b",
-      "name": "Nemotron 3 Super",
+      "name": "Nemotron 3 Super 120B A12B",
       "price": {
         "input": 0.09,
         "output": 0.45,
@@ -55532,7 +55508,7 @@
         "open"
       ],
       "release_date": "2026-03-11",
-      "knowledge": "2024-04",
+      "knowledge": null,
       "last_updated": "2026-03-11"
     },
     {
@@ -55604,28 +55580,6 @@
       "release_date": "2026-04-01",
       "knowledge": null,
       "last_updated": "2026-04-01"
-    },
-    {
-      "platform": "openrouter",
-      "id": "arcee-ai/spotlight",
-      "name": "Spotlight",
-      "price": {
-        "input": 0.18,
-        "output": 0.18,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131072,
-        "output": 65537
-      },
-      "capabilities": [
-        "text",
-        "vision"
-      ],
-      "release_date": "2025-05-05",
-      "knowledge": "2025-03-31",
-      "last_updated": "2025-05-05"
     },
     {
       "platform": "openrouter",
@@ -55965,9 +55919,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-04-22",
+      "release_date": "2026-04-20",
       "knowledge": null,
-      "last_updated": "2026-04-22"
+      "last_updated": "2026-04-20"
     },
     {
       "platform": "openrouter",
@@ -56084,7 +56038,7 @@
       ],
       "release_date": "2026-01-29",
       "knowledge": "2025-01",
-      "last_updated": "2026-01-29"
+      "last_updated": "2026-02-13"
     },
     {
       "platform": "openrouter",
@@ -56548,13 +56502,13 @@
       "name": "Gemma 4 31B IT",
       "price": {
         "input": 0.12,
-        "output": 0.37,
-        "cache_read": null,
+        "output": 0.36,
+        "cache_read": 0.09,
         "cache_write": null
       },
       "limit": {
-        "context": 262144,
-        "output": 16384
+        "context": 256000,
+        "output": 8192
       },
       "capabilities": [
         "text",
@@ -57862,28 +57816,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "openai/gpt-4-1106-preview",
-      "name": "GPT-4 Turbo (older v1106)",
-      "price": {
-        "input": 10,
-        "output": 30,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 128000,
-        "output": 4096
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2023-11-06",
-      "knowledge": "2023-04-30",
-      "last_updated": "2023-11-06"
-    },
-    {
-      "platform": "openrouter",
       "id": "openai/gpt-oss-20b",
       "name": "gpt-oss-20b",
       "price": {
@@ -58779,7 +58711,7 @@
       },
       "limit": {
         "context": 196608,
-        "output": 131072
+        "output": 196608
       },
       "capabilities": [
         "text",
@@ -119925,9 +119857,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-04-20",
+      "release_date": "2026-04-21",
       "knowledge": "2025-01",
-      "last_updated": "2026-04-20"
+      "last_updated": "2026-04-21"
     },
     {
       "platform": "cloudflare-workers-ai",
@@ -119948,9 +119880,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2025-01-22",
-      "knowledge": null,
-      "last_updated": "2025-01-22"
+      "release_date": "2025-01-20",
+      "knowledge": "2024-07",
+      "last_updated": "2025-05-29"
     },
     {
       "platform": "cloudflare-workers-ai",
@@ -120018,7 +119950,7 @@
         "open"
       ],
       "release_date": "2024-12-06",
-      "knowledge": null,
+      "knowledge": "2023-12",
       "last_updated": "2024-12-06"
     },
     {
@@ -120041,9 +119973,9 @@
         "tools",
         "open"
       ],
-      "release_date": "2025-04-16",
-      "knowledge": null,
-      "last_updated": "2025-04-16"
+      "release_date": "2025-04-05",
+      "knowledge": "2024-08",
+      "last_updated": "2025-04-05"
     },
     {
       "platform": "cloudflare-workers-ai",
@@ -120200,9 +120132,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2025-12-15",
+      "release_date": "2026-04-02",
       "knowledge": null,
-      "last_updated": "2025-12-15"
+      "last_updated": "2026-04-02"
     },
     {
       "platform": "cloudflare-workers-ai",
