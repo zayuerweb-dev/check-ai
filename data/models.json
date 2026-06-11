@@ -482,7 +482,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 339
+      "models_count": 338
     },
     {
       "key": "privatemode-ai",
@@ -525,6 +525,16 @@
       ],
       "api": null,
       "models_count": 4
+    },
+    {
+      "key": "llmtr",
+      "name": "LLMTR",
+      "doc": "https://llmtr.com/docs",
+      "env": [
+        "LLMTR_API_KEY"
+      ],
+      "api": "https://llmtr.com/v1",
+      "models_count": 6
     },
     {
       "key": "llmgateway",
@@ -816,7 +826,7 @@
         "FREEMODEL_API_KEY"
       ],
       "api": "https://cc.freemodel.dev/v1",
-      "models_count": 9
+      "models_count": 10
     },
     {
       "key": "lilac",
@@ -866,7 +876,7 @@
         "GITLAB_TOKEN"
       ],
       "api": null,
-      "models_count": 17
+      "models_count": 18
     },
     {
       "key": "cortecs",
@@ -876,7 +886,7 @@
         "CORTECS_API_KEY"
       ],
       "api": "https://api.cortecs.ai/v1",
-      "models_count": 50
+      "models_count": 51
     },
     {
       "key": "auriko",
@@ -938,7 +948,7 @@
         "VENICE_API_KEY"
       ],
       "api": null,
-      "models_count": 72
+      "models_count": 74
     },
     {
       "key": "azure",
@@ -949,7 +959,7 @@
         "AZURE_API_KEY"
       ],
       "api": null,
-      "models_count": 103
+      "models_count": 104
     },
     {
       "key": "atomic-chat",
@@ -1182,7 +1192,7 @@
         "FASTROUTER_API_KEY"
       ],
       "api": "https://go.fastrouter.ai/api/v1",
-      "models_count": 15
+      "models_count": 47
     },
     {
       "key": "siliconflow",
@@ -1202,7 +1212,7 @@
         "AI_GATEWAY_API_KEY"
       ],
       "api": null,
-      "models_count": 281
+      "models_count": 282
     },
     {
       "key": "abacus",
@@ -51879,7 +51889,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 163840,
+        "context": 32768,
         "output": 16384
       },
       "capabilities": [
@@ -54378,31 +54388,6 @@
       "limit": {
         "context": 262142,
         "output": 262142
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-21",
-      "knowledge": "2025-01",
-      "last_updated": "2026-04-21"
-    },
-    {
-      "platform": "openrouter",
-      "id": "moonshotai/kimi-k2.6:free",
-      "name": "Kimi K2.6 (free)",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262144,
-        "output": 262144
       },
       "capabilities": [
         "text",
@@ -59363,6 +59348,142 @@
       "release_date": "2025-02-01",
       "knowledge": "2025-01",
       "last_updated": "2025-09-01"
+    },
+    {
+      "platform": "llmtr",
+      "id": "magibu-11b-v8",
+      "name": "Magibu 11B v8",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 8192,
+        "output": 4096
+      },
+      "capabilities": [
+        "text"
+      ],
+      "release_date": "2026-06-05",
+      "knowledge": null,
+      "last_updated": "2026-06-05"
+    },
+    {
+      "platform": "llmtr",
+      "id": "medgemma-4b",
+      "name": "MedGemma 4B",
+      "price": {
+        "input": 3,
+        "output": 5,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 8192,
+        "output": 4096
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "open"
+      ],
+      "release_date": "2026-04-26",
+      "knowledge": null,
+      "last_updated": "2026-04-26"
+    },
+    {
+      "platform": "llmtr",
+      "id": "trendyol-7b",
+      "name": "Trendyol 7B",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 32768,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "open"
+      ],
+      "release_date": "2026-06-06",
+      "knowledge": null,
+      "last_updated": "2026-06-06"
+    },
+    {
+      "platform": "llmtr",
+      "id": "gemma-4",
+      "name": "Gemma 4",
+      "price": {
+        "input": 5,
+        "output": 10,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 32768,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": null,
+      "last_updated": "2026-04-22"
+    },
+    {
+      "platform": "llmtr",
+      "id": "qwen3-6-35b",
+      "name": "Qwen3.6 35B-A3B",
+      "price": {
+        "input": 5,
+        "output": 10,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 16384,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-17",
+      "knowledge": null,
+      "last_updated": "2026-04-17"
+    },
+    {
+      "platform": "llmtr",
+      "id": "sincap",
+      "name": "Sincap",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 128000,
+        "output": 8192
+      },
+      "capabilities": [
+        "text"
+      ],
+      "release_date": "2026-05-05",
+      "knowledge": null,
+      "last_updated": "2026-05-05"
     },
     {
       "platform": "llmgateway",
@@ -67496,6 +67617,31 @@
     },
     {
       "platform": "zenmux",
+      "id": "stepfun/step-3.7-flash-free",
+      "name": "Step 3.7 Flash (Free)",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 256000,
+        "output": 256000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-05-29",
+      "knowledge": "2026-01-01",
+      "last_updated": "2026-05-29"
+    },
+    {
+      "platform": "zenmux",
       "id": "stepfun/step-3",
       "name": "Step-3",
       "price": {
@@ -67517,29 +67663,6 @@
       "release_date": "2025-07-31",
       "knowledge": "2025-01-01",
       "last_updated": "2025-07-31"
-    },
-    {
-      "platform": "zenmux",
-      "id": "stepfun/step-3.5-flash-free",
-      "name": "Step 3.5 Flash (Free)",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 256000,
-        "output": 64000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2026-02-02",
-      "knowledge": "2025-01-01",
-      "last_updated": "2026-02-02"
     },
     {
       "platform": "zenmux",
@@ -79929,6 +80052,30 @@
     },
     {
       "platform": "freemodel",
+      "id": "claude-fable-5",
+      "name": "Claude Fable 5",
+      "price": {
+        "input": 10,
+        "output": 50,
+        "cache_read": 1,
+        "cache_write": 12.5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-09",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-09"
+    },
+    {
+      "platform": "freemodel",
       "id": "gpt-5.3-codex",
       "name": "GPT-5.3 Codex",
       "price": {
@@ -81066,6 +81213,30 @@
     },
     {
       "platform": "gitlab",
+      "id": "duo-chat-fable-5",
+      "name": "Agentic Chat (Claude Fable 5)",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": 0,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-09",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-09"
+    },
+    {
+      "platform": "gitlab",
       "id": "duo-chat-gpt-5-1",
       "name": "Agentic Chat (GPT-5.1)",
       "price": {
@@ -81324,6 +81495,30 @@
       "release_date": "2024-07-23",
       "knowledge": "2023-12",
       "last_updated": "2024-07-23"
+    },
+    {
+      "platform": "cortecs",
+      "id": "claude-opus4-8",
+      "name": "Claude Opus 4.8",
+      "price": {
+        "input": 5.64,
+        "output": 28.198,
+        "cache_read": 0.563,
+        "cache_write": 7.049
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-05-28",
+      "knowledge": null,
+      "last_updated": "2026-05-28"
     },
     {
       "platform": "cortecs",
@@ -85771,7 +85966,7 @@
       ],
       "release_date": "2026-03-24",
       "knowledge": null,
-      "last_updated": "2026-04-09"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -85794,8 +85989,8 @@
         "open"
       ],
       "release_date": "2026-01-29",
-      "knowledge": null,
-      "last_updated": "2026-03-12"
+      "knowledge": "2025-04",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -85818,7 +86013,7 @@
       ],
       "release_date": "2025-12-13",
       "knowledge": "2025-08-31",
-      "last_updated": "2026-03-12"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -85841,8 +86036,8 @@
         "reasoning"
       ],
       "release_date": "2025-12-06",
-      "knowledge": null,
-      "last_updated": "2026-04-12"
+      "knowledge": "2025-03-31",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -85866,7 +86061,7 @@
       ],
       "release_date": "2026-02-17",
       "knowledge": "2025-08-31",
-      "last_updated": "2026-03-16"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -85890,7 +86085,7 @@
       ],
       "release_date": "2026-05-28",
       "knowledge": null,
-      "last_updated": "2026-05-28"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -85913,8 +86108,8 @@
         "reasoning"
       ],
       "release_date": "2026-03-05",
-      "knowledge": null,
-      "last_updated": "2026-03-09"
+      "knowledge": "2025-08-31",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -85936,8 +86131,8 @@
         "open"
       ],
       "release_date": "2025-04-29",
-      "knowledge": "2025-07",
-      "last_updated": "2026-03-12"
+      "knowledge": null,
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -85959,8 +86154,8 @@
         "tools"
       ],
       "release_date": "2026-02-28",
-      "knowledge": null,
-      "last_updated": "2026-03-06"
+      "knowledge": "2023-09",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -85984,8 +86179,8 @@
         "open"
       ],
       "release_date": "2026-03-16",
-      "knowledge": null,
-      "last_updated": "2026-04-09"
+      "knowledge": "2025-06",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86009,7 +86204,7 @@
       ],
       "release_date": "2026-04-13",
       "knowledge": null,
-      "last_updated": "2026-04-19"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86032,8 +86227,8 @@
         "open"
       ],
       "release_date": "2025-11-06",
-      "knowledge": "2025-07",
-      "last_updated": "2026-05-06"
+      "knowledge": null,
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86054,8 +86249,8 @@
         "open"
       ],
       "release_date": "2025-09-25",
-      "knowledge": "2024-04",
-      "last_updated": "2026-03-12"
+      "knowledge": null,
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86078,8 +86273,8 @@
         "reasoning"
       ],
       "release_date": "2026-05-14",
-      "knowledge": null,
-      "last_updated": "2026-05-14"
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86101,8 +86296,8 @@
         "tools"
       ],
       "release_date": "2026-02-28",
-      "knowledge": null,
-      "last_updated": "2026-03-06"
+      "knowledge": "2023-09",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86128,7 +86323,7 @@
       ],
       "release_date": "2026-04-02",
       "knowledge": null,
-      "last_updated": "2026-04-12"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86152,7 +86347,7 @@
       ],
       "release_date": "2026-04-08",
       "knowledge": "2025-05-31",
-      "last_updated": "2026-04-08"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86175,8 +86370,8 @@
         "open"
       ],
       "release_date": "2025-11-04",
-      "knowledge": "2025-07",
-      "last_updated": "2026-03-12"
+      "knowledge": null,
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86201,7 +86396,7 @@
       ],
       "release_date": "2026-06-01",
       "knowledge": null,
-      "last_updated": "2026-06-04"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86225,7 +86420,7 @@
       ],
       "release_date": "2026-02-20",
       "knowledge": null,
-      "last_updated": "2026-03-16"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86248,8 +86443,8 @@
         "open"
       ],
       "release_date": "2025-12-04",
-      "knowledge": "2025-10",
-      "last_updated": "2026-03-24"
+      "knowledge": null,
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86275,7 +86470,7 @@
       ],
       "release_date": "2025-12-19",
       "knowledge": "2025-01",
-      "last_updated": "2026-03-12"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86299,7 +86494,7 @@
       ],
       "release_date": "2026-04-07",
       "knowledge": null,
-      "last_updated": "2026-04-08"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86323,7 +86518,7 @@
       ],
       "release_date": "2026-05-21",
       "knowledge": null,
-      "last_updated": "2026-05-22"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86348,7 +86543,7 @@
       ],
       "release_date": "2026-04-24",
       "knowledge": null,
-      "last_updated": "2026-04-29"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86371,8 +86566,8 @@
         "open"
       ],
       "release_date": "2024-04-01",
-      "knowledge": null,
-      "last_updated": "2026-04-04"
+      "knowledge": "2025-04",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86397,8 +86592,8 @@
         "reasoning"
       ],
       "release_date": "2026-02-19",
-      "knowledge": null,
-      "last_updated": "2026-03-12"
+      "knowledge": "2025-01",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86422,7 +86617,7 @@
       ],
       "release_date": "2026-01-16",
       "knowledge": null,
-      "last_updated": "2026-03-12"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86445,8 +86640,8 @@
         "reasoning"
       ],
       "release_date": "2026-04-24",
-      "knowledge": null,
-      "last_updated": "2026-04-25"
+      "knowledge": "2025-12-01",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86470,7 +86665,7 @@
       ],
       "release_date": "2026-01-27",
       "knowledge": "2024-04",
-      "last_updated": "2026-04-30"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86493,8 +86688,8 @@
         "open"
       ],
       "release_date": "2025-04-29",
-      "knowledge": "2025-07",
-      "last_updated": "2026-03-12"
+      "knowledge": null,
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86518,7 +86713,7 @@
       ],
       "release_date": "2026-04-01",
       "knowledge": null,
-      "last_updated": "2026-04-19"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86536,14 +86731,13 @@
       },
       "capabilities": [
         "text",
-        "vision",
         "tools",
         "reasoning",
         "open"
       ],
       "release_date": "2026-06-04",
       "knowledge": null,
-      "last_updated": "2026-06-08"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86569,7 +86763,7 @@
       ],
       "release_date": "2026-02-16",
       "knowledge": null,
-      "last_updated": "2026-04-16"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86593,8 +86787,32 @@
         "reasoning"
       ],
       "release_date": "2026-04-06",
-      "knowledge": null,
-      "last_updated": "2026-04-12"
+      "knowledge": "2025-04",
+      "last_updated": "2026-06-11"
+    },
+    {
+      "platform": "venice",
+      "id": "claude-fable-5",
+      "name": "Claude Fable 5",
+      "price": {
+        "input": 12,
+        "output": 60,
+        "cache_read": 1.2,
+        "cache_write": 15
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-10",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86618,7 +86836,7 @@
       ],
       "release_date": "2026-02-11",
       "knowledge": null,
-      "last_updated": "2026-03-12"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86644,7 +86862,7 @@
       ],
       "release_date": "2026-02-25",
       "knowledge": null,
-      "last_updated": "2026-05-25"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86667,8 +86885,8 @@
         "reasoning"
       ],
       "release_date": "2026-03-05",
-      "knowledge": null,
-      "last_updated": "2026-03-09"
+      "knowledge": "2025-08-31",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86687,11 +86905,12 @@
       "capabilities": [
         "text",
         "tools",
-        "reasoning"
+        "reasoning",
+        "open"
       ],
       "release_date": "2026-02-12",
       "knowledge": null,
-      "last_updated": "2026-04-12"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86715,8 +86934,8 @@
         "open"
       ],
       "release_date": "2026-04-20",
-      "knowledge": null,
-      "last_updated": "2026-04-30"
+      "knowledge": "2025-01",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86739,8 +86958,8 @@
         "reasoning"
       ],
       "release_date": "2026-02-24",
-      "knowledge": null,
-      "last_updated": "2026-03-12"
+      "knowledge": "2025-08-31",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86763,7 +86982,7 @@
       ],
       "release_date": "2026-01-15",
       "knowledge": null,
-      "last_updated": "2026-03-16"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86786,7 +87005,7 @@
       ],
       "release_date": "2026-05-22",
       "knowledge": null,
-      "last_updated": "2026-05-25"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86810,7 +87029,31 @@
       ],
       "release_date": "2026-04-01",
       "knowledge": null,
-      "last_updated": "2026-04-12"
+      "last_updated": "2026-06-11"
+    },
+    {
+      "platform": "venice",
+      "id": "tencent-hy3-preview",
+      "name": "Hy3 Preview",
+      "price": {
+        "input": 0.063,
+        "output": 0.21,
+        "cache_read": 0.021,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 256000,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-08",
+      "knowledge": null,
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86833,8 +87076,8 @@
         "reasoning"
       ],
       "release_date": "2026-03-27",
-      "knowledge": null,
-      "last_updated": "2026-03-31"
+      "knowledge": "2025-08-31",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86857,7 +87100,7 @@
       ],
       "release_date": "2026-01-27",
       "knowledge": null,
-      "last_updated": "2026-03-12"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86879,8 +87122,8 @@
         "open"
       ],
       "release_date": "2025-04-06",
-      "knowledge": "2023-12",
-      "last_updated": "2026-03-12"
+      "knowledge": null,
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86902,8 +87145,8 @@
         "open"
       ],
       "release_date": "2024-10-03",
-      "knowledge": "2023-12",
-      "last_updated": "2026-03-12"
+      "knowledge": null,
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86926,7 +87169,7 @@
       ],
       "release_date": "2026-01-27",
       "knowledge": null,
-      "last_updated": "2026-02-26"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86949,8 +87192,8 @@
         "open"
       ],
       "release_date": "2026-04-24",
-      "knowledge": null,
-      "last_updated": "2026-04-29"
+      "knowledge": "2025-05",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86973,7 +87216,7 @@
       ],
       "release_date": "2026-03-12",
       "knowledge": null,
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -86997,7 +87240,7 @@
       ],
       "release_date": "2025-01-15",
       "knowledge": "2025-08",
-      "last_updated": "2026-03-12"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87006,7 +87249,7 @@
       "price": {
         "input": 0.375,
         "output": 1.5,
-        "cache_read": 0.075,
+        "cache_read": 0.06875,
         "cache_write": null
       },
       "limit": {
@@ -87016,11 +87259,12 @@
       "capabilities": [
         "text",
         "tools",
-        "reasoning"
+        "reasoning",
+        "open"
       ],
       "release_date": "2026-03-18",
       "knowledge": null,
-      "last_updated": "2026-04-12"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87044,7 +87288,7 @@
       ],
       "release_date": "2026-05-28",
       "knowledge": null,
-      "last_updated": "2026-05-28"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87068,7 +87312,7 @@
       ],
       "release_date": "2026-04-02",
       "knowledge": null,
-      "last_updated": "2026-04-04"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87090,8 +87334,8 @@
         "open"
       ],
       "release_date": "2025-04-29",
-      "knowledge": "2025-07",
-      "last_updated": "2026-03-12"
+      "knowledge": null,
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87115,7 +87359,7 @@
       ],
       "release_date": "2026-04-18",
       "knowledge": null,
-      "last_updated": "2026-05-04"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87140,7 +87384,7 @@
       ],
       "release_date": "2026-03-05",
       "knowledge": null,
-      "last_updated": "2026-04-19"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87164,8 +87408,8 @@
         "reasoning"
       ],
       "release_date": "2026-06-02",
-      "knowledge": null,
-      "last_updated": "2026-06-04"
+      "knowledge": "2025-04",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87188,8 +87432,8 @@
         "reasoning"
       ],
       "release_date": "2025-01-15",
-      "knowledge": null,
-      "last_updated": "2026-04-12"
+      "knowledge": "2025-07-31",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87214,8 +87458,8 @@
         "reasoning"
       ],
       "release_date": "2026-05-22",
-      "knowledge": null,
-      "last_updated": "2026-05-25"
+      "knowledge": "2025-01",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87239,7 +87483,7 @@
       ],
       "release_date": "2026-02-05",
       "knowledge": "2025-05-31",
-      "last_updated": "2026-03-16"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87263,7 +87507,7 @@
       ],
       "release_date": "2026-02-04",
       "knowledge": null,
-      "last_updated": "2026-03-12"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87286,8 +87530,8 @@
         "open"
       ],
       "release_date": "2026-04-24",
-      "knowledge": null,
-      "last_updated": "2026-04-29"
+      "knowledge": "2025-05",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87309,7 +87553,7 @@
       ],
       "release_date": "2026-03-24",
       "knowledge": null,
-      "last_updated": "2026-04-12"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87332,8 +87576,8 @@
         "reasoning"
       ],
       "release_date": "2026-04-16",
-      "knowledge": null,
-      "last_updated": "2026-04-16"
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87359,7 +87603,7 @@
       ],
       "release_date": "2026-04-03",
       "knowledge": null,
-      "last_updated": "2026-06-08"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87383,7 +87627,7 @@
       ],
       "release_date": "2026-03-15",
       "knowledge": null,
-      "last_updated": "2026-04-12"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87407,7 +87651,7 @@
       ],
       "release_date": "2026-03-12",
       "knowledge": null,
-      "last_updated": "2026-05-07"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87430,7 +87674,7 @@
       ],
       "release_date": "2026-02-20",
       "knowledge": null,
-      "last_updated": "2026-04-09"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87454,7 +87698,7 @@
       ],
       "release_date": "2025-12-24",
       "knowledge": "2025-04",
-      "last_updated": "2026-03-12"
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "venice",
@@ -87477,8 +87721,8 @@
         "reasoning"
       ],
       "release_date": "2026-04-23",
-      "knowledge": null,
-      "last_updated": "2026-04-25"
+      "knowledge": "2025-12-01",
+      "last_updated": "2026-06-11"
     },
     {
       "platform": "azure",
@@ -88757,6 +89001,30 @@
       "release_date": "2024-08-30",
       "knowledge": "2024-06-01",
       "last_updated": "2024-08-30"
+    },
+    {
+      "platform": "azure",
+      "id": "claude-fable-5",
+      "name": "Claude Fable 5",
+      "price": {
+        "input": 10,
+        "output": 50,
+        "cache_read": 1,
+        "cache_write": 12.5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-09",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-09"
     },
     {
       "platform": "azure",
@@ -104226,6 +104494,54 @@
     },
     {
       "platform": "fastrouter",
+      "id": "z-ai/glm-5.1",
+      "name": "GLM-5.1",
+      "price": {
+        "input": 1.05,
+        "output": 3.5,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 200000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-03-27",
+      "knowledge": null,
+      "last_updated": "2026-03-27"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "deepseek/deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "price": {
+        "input": 1.74,
+        "output": 3.48,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 384000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-24",
+      "knowledge": "2025-05",
+      "last_updated": "2026-04-24"
+    },
+    {
+      "platform": "fastrouter",
       "id": "anthropic/claude-sonnet-4",
       "name": "Claude Sonnet 4",
       "price": {
@@ -104247,6 +104563,30 @@
       "release_date": "2025-05-22",
       "knowledge": "2025-03-31",
       "last_updated": "2025-05-22"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "anthropic/claude-sonnet-4.6",
+      "name": "Claude Sonnet 4.6",
+      "price": {
+        "input": 3,
+        "output": 15,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 64000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-02-17",
+      "knowledge": "2025-08-31",
+      "last_updated": "2026-03-13"
     },
     {
       "platform": "fastrouter",
@@ -104274,6 +104614,74 @@
     },
     {
       "platform": "fastrouter",
+      "id": "anthropic/claude-opus-4.8",
+      "name": "Claude Opus 4.8",
+      "price": {
+        "input": 5,
+        "output": 25,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-05-28",
+      "knowledge": null,
+      "last_updated": "2026-05-28"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "leonardo-ai/lucid-realism",
+      "name": "Lucid Realism",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 4096,
+        "output": 0
+      },
+      "capabilities": [
+        "text",
+        "vision"
+      ],
+      "release_date": "2025-06-01",
+      "knowledge": null,
+      "last_updated": "2025-06-01"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "leonardo-ai/lucid-origin",
+      "name": "Lucid Origin",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 4096,
+        "output": 0
+      },
+      "capabilities": [
+        "text",
+        "vision"
+      ],
+      "release_date": "2025-06-01",
+      "knowledge": null,
+      "last_updated": "2025-06-01"
+    },
+    {
+      "platform": "fastrouter",
       "id": "qwen/qwen3-coder",
       "name": "Qwen3 Coder",
       "price": {
@@ -104297,6 +104705,32 @@
     },
     {
       "platform": "fastrouter",
+      "id": "moonshotai/kimi-k2.6",
+      "name": "Kimi K2.6",
+      "price": {
+        "input": 0.75,
+        "output": 3.5,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-21",
+      "knowledge": "2025-01",
+      "last_updated": "2026-04-21"
+    },
+    {
+      "platform": "fastrouter",
       "id": "moonshotai/kimi-k2",
       "name": "Kimi K2",
       "price": {
@@ -104317,6 +104751,77 @@
       "release_date": "2025-07-11",
       "knowledge": "2024-10",
       "last_updated": "2025-07-11"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "wanx/wan-v2-6",
+      "name": "Wan 2.6",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 400000,
+        "output": 0
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "open"
+      ],
+      "release_date": "2025-12-01",
+      "knowledge": null,
+      "last_updated": "2025-12-01"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "x-ai/grok-build-0.1",
+      "name": "Grok Build 0.1",
+      "price": {
+        "input": 1,
+        "output": 2,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 256000,
+        "output": 256000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-16",
+      "knowledge": null,
+      "last_updated": "2026-04-16"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "x-ai/grok-4.3",
+      "name": "Grok 4.3",
+      "price": {
+        "input": 1.25,
+        "output": 2.5,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 30000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-17",
+      "knowledge": null,
+      "last_updated": "2026-04-17"
     },
     {
       "platform": "fastrouter",
@@ -104366,6 +104871,53 @@
     },
     {
       "platform": "fastrouter",
+      "id": "google/gemma-4-31b-it",
+      "name": "Gemma 4 31B IT",
+      "price": {
+        "input": 0.13,
+        "output": 0.38,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-02",
+      "knowledge": null,
+      "last_updated": "2026-04-02"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "google/veo3.1-fast",
+      "name": "Veo 3.1 Fast",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 400000,
+        "output": 0
+      },
+      "capabilities": [
+        "text",
+        "vision"
+      ],
+      "release_date": "2026-05-01",
+      "knowledge": null,
+      "last_updated": "2026-05-01"
+    },
+    {
+      "platform": "fastrouter",
       "id": "google/gemini-2.5-pro",
       "name": "Gemini 2.5 Pro",
       "price": {
@@ -104390,6 +104942,54 @@
     },
     {
       "platform": "fastrouter",
+      "id": "google/gemini-3.1-pro-preview",
+      "name": "Gemini 3.1 Pro Preview",
+      "price": {
+        "input": 2,
+        "output": 12,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-02-19",
+      "knowledge": "2025-01",
+      "last_updated": "2026-02-19"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "google/veo3.1",
+      "name": "Veo 3.1",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 400000,
+        "output": 0
+      },
+      "capabilities": [
+        "text",
+        "vision"
+      ],
+      "release_date": "2026-05-01",
+      "knowledge": null,
+      "last_updated": "2026-05-01"
+    },
+    {
+      "platform": "fastrouter",
       "id": "google/gemini-2.5-flash",
       "name": "Gemini 2.5 Flash",
       "price": {
@@ -104411,6 +105011,142 @@
       "release_date": "2025-06-17",
       "knowledge": "2025-01",
       "last_updated": "2025-06-17"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "google/veo3.1-lite",
+      "name": "Veo 3.1 Lite",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 400000,
+        "output": 0
+      },
+      "capabilities": [
+        "text",
+        "vision"
+      ],
+      "release_date": "2026-05-01",
+      "knowledge": null,
+      "last_updated": "2026-05-01"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "google/gemini-3.5-flash",
+      "name": "Gemini 3.5 Flash",
+      "price": {
+        "input": 1.5,
+        "output": 9,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-05-19",
+      "knowledge": "2025-01",
+      "last_updated": "2026-05-19"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "google/imagen-4.0-fast",
+      "name": "Imagen 4 Fast",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 480,
+        "output": 0
+      },
+      "capabilities": [
+        "text"
+      ],
+      "release_date": "2025-05-20",
+      "knowledge": null,
+      "last_updated": "2025-05-20"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "google/imagen-4.0-ultra",
+      "name": "Imagen 4 Ultra",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 480,
+        "output": 0
+      },
+      "capabilities": [
+        "text"
+      ],
+      "release_date": "2025-05-20",
+      "knowledge": null,
+      "last_updated": "2025-05-20"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "google/gemini-3-pro-image-preview",
+      "name": "Nano Banana Pro",
+      "price": {
+        "input": 2,
+        "output": 12,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 65536,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning"
+      ],
+      "release_date": "2025-11-20",
+      "knowledge": "2025-01",
+      "last_updated": "2025-11-20"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "google/gemini-3.1-flash-image-preview",
+      "name": "Nano Banana 2",
+      "price": {
+        "input": 0.5,
+        "output": 3,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 65536,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning"
+      ],
+      "release_date": "2026-02-26",
+      "knowledge": "2025-01",
+      "last_updated": "2026-02-26"
     },
     {
       "platform": "fastrouter",
@@ -104459,6 +105195,30 @@
       "release_date": "2025-08-07",
       "knowledge": "2024-10-01",
       "last_updated": "2025-08-07"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "openai/gpt-5.5",
+      "name": "GPT-5.5",
+      "price": {
+        "input": 5,
+        "output": 30,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1050000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-23",
+      "knowledge": "2025-12-01",
+      "last_updated": "2026-04-23"
     },
     {
       "platform": "fastrouter",
@@ -104554,6 +105314,266 @@
       "release_date": "2025-04-14",
       "knowledge": "2024-04",
       "last_updated": "2025-04-14"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "openai/gpt-5.4-nano",
+      "name": "GPT-5.4 nano",
+      "price": {
+        "input": 0.2,
+        "output": 1.25,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 400000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-03-17",
+      "knowledge": "2025-08-31",
+      "last_updated": "2026-03-17"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "openai/gpt-5.3-codex",
+      "name": "GPT-5.3 Codex",
+      "price": {
+        "input": 1.75,
+        "output": 14,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 400000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-02-05",
+      "knowledge": "2025-08-31",
+      "last_updated": "2026-02-05"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "openai/gpt-5.5-pro",
+      "name": "GPT-5.5 Pro",
+      "price": {
+        "input": 30,
+        "output": 180,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1050000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-23",
+      "knowledge": "2025-12-01",
+      "last_updated": "2026-04-23"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "openai/gpt-image-2",
+      "name": "GPT Image 2",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 128000,
+        "output": 0
+      },
+      "capabilities": [
+        "text",
+        "vision"
+      ],
+      "release_date": "2026-04-21",
+      "knowledge": null,
+      "last_updated": "2026-04-21"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "openai/gpt-realtime-1.5",
+      "name": "GPT Realtime 1.5",
+      "price": {
+        "input": 4,
+        "output": 16,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 32000,
+        "output": 4096
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "tools"
+      ],
+      "release_date": "2025-06-01",
+      "knowledge": null,
+      "last_updated": "2025-06-01"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "openai/gpt-5.4-mini",
+      "name": "GPT-5.4 mini",
+      "price": {
+        "input": 0.75,
+        "output": 4.5,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 400000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-03-17",
+      "knowledge": "2025-08-31",
+      "last_updated": "2026-03-17"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "sarvam/sarvam-105b",
+      "name": "Sarvam 105B",
+      "price": {
+        "input": 0.04,
+        "output": 0.16,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 131072,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2025-09-01",
+      "knowledge": null,
+      "last_updated": "2025-09-01"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "sarvam/sarvam-30b",
+      "name": "Sarvam 30B",
+      "price": {
+        "input": 0.02,
+        "output": 0.1,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 128000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-02-18",
+      "knowledge": null,
+      "last_updated": "2026-02-18"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "bytedance/seedance-2",
+      "name": "Seedance 2",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 4096,
+        "output": 0
+      },
+      "capabilities": [
+        "text",
+        "vision"
+      ],
+      "release_date": "2026-04-01",
+      "knowledge": null,
+      "last_updated": "2026-04-01"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "minimax/minimax-m2.7-highspeed",
+      "name": "MiniMax-M2.7-highspeed",
+      "price": {
+        "input": 0.6,
+        "output": 2.4,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 204800,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-03-18",
+      "knowledge": null,
+      "last_updated": "2026-03-18"
+    },
+    {
+      "platform": "fastrouter",
+      "id": "minimax/minimax-m2.7",
+      "name": "MiniMax-M2.7",
+      "price": {
+        "input": 0.3,
+        "output": 1.2,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 204800,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-03-18",
+      "knowledge": null,
+      "last_updated": "2026-03-18"
     },
     {
       "platform": "siliconflow",
@@ -109022,6 +110042,28 @@
       ],
       "release_date": "2025-09-05",
       "knowledge": "2024-08",
+      "last_updated": "2025-09-05"
+    },
+    {
+      "platform": "vercel",
+      "id": "moonshotai/kimi-k2",
+      "name": "Kimi K2 Instruct",
+      "price": {
+        "input": 0.57,
+        "output": 2.3,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 131072,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools"
+      ],
+      "release_date": "2025-09-05",
+      "knowledge": null,
       "last_updated": "2025-09-05"
     },
     {
