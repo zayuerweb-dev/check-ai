@@ -1,0 +1,124 @@
+<p class="seo-lead">Anthropic 在 2026-06-09 发布了 <strong>Claude Fable 5</strong> 和 <strong>Claude Mythos 5</strong>——一个排在 Opus 之上的新档位，官方叫 "Mythos-class"。先把最该知道的两件事讲清楚：<strong>价格是 $10 输入 / $50 输出（每百万 token），正好是 Opus 4.8（$5/$25）的两倍</strong>；而 Fable 5 和 Mythos 5 <strong>能力、规格、价格完全一样，唯一区别是安全护栏</strong>——普通人和开发者能用的是 Fable 5，Mythos 5 是受限版。这篇讲清楚区别、价格值不值、要不要从 Opus 4.8 升级。完整跑分官方暂未公布，文末会说明这一点。价格为 2026 年 6 月快照，接入前请以官网为准。</p>
+
+<nav class="article-toc" aria-label="目录">
+<p class="article-toc-label">目录</p>
+<ol>
+<li><a href="#conclusion">30 秒结论</a></li>
+<li><a href="#facts">已确认的事实</a></li>
+<li><a href="#diff">Fable 5 和 Mythos 5 差在哪</a></li>
+<li><a href="#price">$10/$50 意味着什么</a></li>
+<li><a href="#dev">开发者要注意的三件事</a></li>
+<li><a href="#upgrade">要不要从 Opus 4.8 升级</a></li>
+<li><a href="#bench">关于跑分</a></li>
+<li><a href="#faq">常见问题</a></li>
+</ol>
+</nav>
+
+<section class="seo-card">
+<h2 id="conclusion">30 秒结论</h2>
+<ul>
+<li><strong>新档位：</strong>Fable 5 是 Anthropic 目前最强的"广泛发布"模型，开了一个排在 Opus 之上的 Mythos-class 档位。</li>
+<li><strong>价格翻倍：</strong>$10 / $50（每 1M token，输入/输出），是 Opus 4.8（$5/$25）的两倍。1M 上下文、单次最高 128k 输出。Batch 价 $5/$25，缓存输入打 1 折。</li>
+<li><strong>Fable 5 vs Mythos 5 = 只差安全护栏：</strong>同一个模型、同样能力和价格。Fable 5（公开版）带安全分类器，遇到网络安全、生物化学、模型蒸馏等敏感请求会拒绝或转给 Opus 4.8 回答；Mythos 5（受限版）去掉了这些分类器，只通过 Project Glasswing 向授权机构开放。<strong>你和绝大多数开发者用到的是 Fable 5。</strong></li>
+<li><strong>谁该上：</strong>需要最强推理、长程 agent 的新项目可以上 Fable 5；日常、量大、成本敏感的场景，Opus 4.8（$5/$25）甚至 Sonnet 4.6（约 $2.6/$15）更划算。6/9–6/22 订阅计划免费试，值得趁这段试一把。</li>
+<li><strong>跑分：</strong>官方只说"几乎所有基准 SOTA"，<strong>没有公布具体数字</strong>——本文不替它编。</li>
+</ul>
+<p><a class="section-link" href="/models/claude-fable-5/">查看 Claude Fable 5 完整价格表与能力 →</a></p>
+</section>
+
+<section class="seo-card">
+<h2 id="facts">已确认的事实</h2>
+<p>截至 2026 年 6 月，关于 Fable 5 / Mythos 5 可以确定的：</p>
+<ul>
+<li><strong>发布：</strong>2026-06-09。</li>
+<li><strong>价格：</strong>$10 / 1M 输入、$50 / 1M 输出，两个模型一致。官方说法是"不到 Mythos Preview 价格的一半"。Batch（异步）$5/$25，prompt cache 命中部分约 1 折。</li>
+<li><strong>规格：</strong>1M token 上下文，单次最高 128k 输出 token。</li>
+<li><strong>API 名称：</strong><code>claude-fable-5</code> 和 <code>claude-mythos-5</code>。</li>
+<li><strong>可用平台：</strong>Fable 5 在 Claude API、AWS（含 Amazon Bedrock）、Google Vertex AI、Microsoft Foundry 全面可用；Mythos 5 不公开发售，只在 Project Glasswing 里向通过审核的客户开放。</li>
+<li><strong>数据保留：</strong>两者都需要 30 天数据保留（属于 Covered Models），不支持零数据保留。</li>
+<li><strong>思考模式：</strong>只有"自适应思考"一种模式且常开，不能关；原始思维链不会返回，只能拿到摘要或留空。</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="diff">Fable 5 和 Mythos 5 差在哪</h2>
+<p>这是最容易被名字误导的地方。两个模型<strong>底层架构、能力、上下文、价格全部相同</strong>。区别只有一处：<strong>安全护栏</strong>。</p>
+<ul>
+<li><strong>Claude Fable 5（公开版）：</strong>内置安全分类器。当请求落在网络安全、生物/化学、模型蒸馏等敏感领域时，它可能拒绝，或者把这次请求<strong>转交给次强的 Claude Opus 4.8</strong> 来回答。这是面向所有人的通用版本。</li>
+<li><strong>Claude Mythos 5（受限版）：</strong>同一个模型，<strong>去掉</strong>了这些分类器。它通过 <strong>Project Glasswing</strong>（Anthropic 与美国政府合作的项目）限量开放，最初只给现有 Mythos Preview 用户——网络防御者、基础设施提供方等；后续计划在保留网络安全护栏的前提下，向生物研究者开放。要拿到访问权，得联系 Anthropic、AWS 或 Google Cloud 的客户团队。</li>
+</ul>
+<p>一句话：<strong>Mythos 5 不是"更强的 Fable 5"，而是"放开了部分安全限制、给特定机构用的 Fable 5"。</strong>对普通开发者，二者能力没有差别，你接的就是 Fable 5。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="price">$10/$50 意味着什么</h2>
+<p>把它放进 Anthropic 自家的价目表里看更清楚（每 1M token）：</p>
+<table style="width:100%;border-collapse:collapse;margin-top:8px">
+<thead><tr style="border-bottom:1px solid var(--line)">
+<th style="text-align:left;padding:8px">模型</th>
+<th style="text-align:left;padding:8px">输入</th>
+<th style="text-align:left;padding:8px">输出</th>
+<th style="text-align:left;padding:8px">上下文</th>
+</tr></thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--line)"><td style="padding:8px"><strong>Fable 5 / Mythos 5</strong></td><td style="padding:8px">$10</td><td style="padding:8px">$50</td><td style="padding:8px">1M</td></tr>
+<tr style="border-bottom:1px solid var(--line)"><td style="padding:8px">Opus 4.8</td><td style="padding:8px">$5</td><td style="padding:8px">$25</td><td style="padding:8px">1M</td></tr>
+<tr><td style="padding:8px">Sonnet 4.6</td><td style="padding:8px">约 $2.6</td><td style="padding:8px">约 $15</td><td style="padding:8px">~1M</td></tr>
+</tbody>
+</table>
+<p style="margin-top:10px">Fable 5 的输出价是 Opus 4.8 的 2 倍、Sonnet 4.6 的 3 倍多。这意味着：</p>
+<ul>
+<li><strong>值这个价的场景：</strong>最难的推理、长链路 agent、一次跑很久的自动化任务——这些地方"一次做对"省下的返工，远比 token 差价值钱。</li>
+<li><strong>不必上的场景：</strong>日常问答、写作、量大的批处理。Opus 4.8 同样 1M 上下文、价格一半；再往下 Sonnet 4.6 更便宜。盲目全程用 Fable 5，账单会很快失控。</li>
+<li><strong>务实做法：</strong>用 Sonnet/Opus 当主力，只把真正啃不动的步骤路由给 Fable 5。怎么按任务分层，见 <a class="section-link" href="/zh/articles/ai-agent-model-selection-2026/">做 AI Agent 用哪个模型</a>。</li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="dev">开发者要注意的三件事</h2>
+<p>如果你在代码里接 Fable 5（不是 Mythos 5），有三处和以往 Claude 不一样，接入前要规划好：</p>
+<ul>
+<li><strong>1. 拒绝（refusal）：</strong>Fable 5 的安全分类器拒绝请求时，Messages API 返回的是 <code>stop_reason: "refusal"</code> 的<strong>正常 200 响应，不是报错</strong>，还会告诉你是哪个分类器拦的。你的代码要把这种情况当一种正常分支来处理，而不是当异常。</li>
+<li><strong>2. 兜底（fallback）：</strong>被 Fable 5 拒绝的请求，通常可以换一个 Claude 模型重试。官方提供三种方式：服务端（传 <code>fallbacks</code> 参数让 API 自动重试，目前 beta）、客户端（用各语言 SDK 中间件）、或你自己手写重试。</li>
+<li><strong>3. 计费：</strong>在生成任何输出前就被拒绝的请求<strong>不计费</strong>；当你换模型重试时，"fallback credit" 会退还切换带来的 prompt cache 成本，避免同一段缓存付两次钱。</li>
+</ul>
+<p>另外，发布即支持 effort（控制思考深度）、task budgets（beta）、memory 工具、代码执行、程序化工具调用、上下文编辑、compaction 和视觉理解。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="upgrade">要不要从 Opus 4.8 升级</h2>
+<p>和上次 Opus 4.7→4.8 那种"同价升级"不同，这次<strong>价格翻倍</strong>，所以要不要换，得先问"我的任务配得上这个价吗"。按场景：</p>
+<ul>
+<li><strong>新项目、且任务确实很难（复杂推理、长程 agent）：</strong>可以直接上 Fable 5，趁 6/9–6/22 订阅免费期先压测一轮，看它在你的真实任务上比 Opus 4.8 强多少，再决定长期用不用。</li>
+<li><strong>已经在 Opus 4.8 上跑稳的生产/agent 流程：</strong>不要急着切。一是价格翻倍，二是 Fable 5 多了 refusal/fallback 这套新行为，贸然换会动到你调好的链路。等你能量化"贵一倍换来多少收益"再说。</li>
+<li><strong>日常问答、写作、量大场景：</strong>基本没必要。Opus 4.8 甚至 Sonnet 4.6 就够，省下的钱很可观。</li>
+</ul>
+<p>一句话：<strong>Fable 5 是"按需调用的重器"，不是"默认主力"。</strong>它值不值，取决于你有没有真正配得上 $10/$50 的硬任务。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="bench">关于跑分</h2>
+<p>写这篇时，Anthropic <strong>没有公布 Fable 5 的标准 benchmark 具体数字</strong>（SWE-bench Verified、Terminal-Bench、GPQA 等都没有给分数）。官方的说法是"在几乎所有测试基准上达到 SOTA"，并点名两项第三方评测：Cognition 的 FrontierCode（称前沿模型中得分最高）、Hebbia 金融基准（称任何模型中最高分）——但都<strong>没有给出可对比的数值</strong>。</p>
+<p>所以这篇<strong>不替它编分数</strong>。可以拿来当锚点的，是上一代旗舰 Opus 4.7 的公开成绩：SWE-bench Verified 87.6%、SWE-bench Pro 64.3%、Terminal-Bench 69.4%（<a class="section-link" href="/zh/articles/claude-opus-4-7-review-2026/">完整拆解见这里</a>）。等 Fable 5 的官方数据出来，本页会补上它和 Opus 4.8、GPT-5.5 的正面对比。想随时看实时价格和六维能力，用<a href="/">对比工具</a>。</p>
+</section>
+
+<section class="seo-card">
+<h2 id="related">相关阅读</h2>
+<ul>
+<li><a class="section-link" href="/zh/articles/claude-opus-4-8-2026/">Claude Opus 4.8 发布：价格仍是 $5/$25、要不要从 4.7 升级</a></li>
+<li><a class="section-link" href="/zh/articles/claude-opus-4-7-review-2026/">Claude Opus 4.7 深度评测：SWE-bench 87.6%、谁该升级</a></li>
+<li><a class="section-link" href="/zh/articles/ai-agent-model-selection-2026/">2026 做 AI Agent 用哪个模型：工具调用、长任务、成本实测</a></li>
+<li><a class="section-link" href="/zh/articles/gpt-5-vs-claude-coding-2026/">GPT-5 vs Claude Sonnet 4.6：写代码选哪个</a></li>
+<li><a class="section-link" href="/models/claude-fable-5/">Claude Fable 5 实时价格表与能力</a></li>
+</ul>
+</section>
+
+<section class="seo-card">
+<h2 id="faq">常见问题</h2>
+<p><strong>Claude Fable 5 多少钱？</strong>官方 $10 / 1M 输入 token、$50 / 1M 输出 token，正好是 Opus 4.8（$5/$25）的两倍。Batch 异步价 $5/$25，prompt cache 命中部分约 1 折。</p>
+<p><strong>Fable 5 和 Mythos 5 有什么区别？</strong>能力、规格、价格完全相同，区别只在安全护栏。Fable 5（公开版）带安全分类器，敏感领域请求会被拒绝或转给 Opus 4.8；Mythos 5（受限版）去掉了分类器，只通过 Project Glasswing 向授权机构开放。普通人和开发者用的是 Fable 5。</p>
+<p><strong>Fable 5 什么时候发布的、在哪能用？</strong>2026-06-09。Fable 5 在 Claude API、AWS Bedrock、Google Vertex AI、Microsoft Foundry 上可用，上下文 1M、单次最高 128k 输出。</p>
+<p><strong>Fable 5 比 Opus 4.8 强多少？</strong>官方称"几乎所有基准 SOTA"，但没有公布具体跑分数字，所以暂时没有可靠的量化对比。可参考 Opus 4.7 基线（SWE-bench Verified 87.6%）。数据出来本页会更新。</p>
+<p><strong>该从 Opus 4.8 升级到 Fable 5 吗？</strong>这次价格翻倍，要先看任务配不配得上。新项目里的硬任务可以趁免费期（6/9–6/22）试；已经在 Opus 4.8 上跑稳的生产流程别急着切；日常和量大场景用 Opus 4.8 或 Sonnet 4.6 更划算。</p>
+<p><strong>数据来源？</strong>Anthropic 官方公告与 Claude 官方文档，价格为 2026 年 6 月快照。接入前以官网为准。<a href="/zh/about/">关于数据</a>。</p>
+</section>
