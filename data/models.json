@@ -58,7 +58,7 @@
         "AI_GATEWAY_API_KEY"
       ],
       "api": null,
-      "models_count": 280
+      "models_count": 281
     },
     {
       "key": "submodel",
@@ -149,7 +149,7 @@
         "MOONSHOT_API_KEY"
       ],
       "api": "https://api.moonshot.ai/v1",
-      "models_count": 8
+      "models_count": 9
     },
     {
       "key": "fireworks-ai",
@@ -199,7 +199,7 @@
         "CORTECS_API_KEY"
       ],
       "api": "https://api.cortecs.ai/v1",
-      "models_count": 51
+      "models_count": 55
     },
     {
       "key": "nebius",
@@ -332,7 +332,7 @@
         "VENICE_API_KEY"
       ],
       "api": null,
-      "models_count": 76
+      "models_count": 77
     },
     {
       "key": "lmstudio",
@@ -413,7 +413,7 @@
         "NEURALWATT_API_KEY"
       ],
       "api": "https://api.neuralwatt.com/v1",
-      "models_count": 14
+      "models_count": 15
     },
     {
       "key": "siliconflow-cn",
@@ -595,7 +595,7 @@
         "MOONSHOT_API_KEY"
       ],
       "api": "https://api.moonshot.cn/v1",
-      "models_count": 7
+      "models_count": 9
     },
     {
       "key": "morph",
@@ -1028,7 +1028,7 @@
         "GITLAB_TOKEN"
       ],
       "api": null,
-      "models_count": 18
+      "models_count": 17
     },
     {
       "key": "kilo",
@@ -1121,7 +1121,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 337
+      "models_count": 335
     },
     {
       "key": "jiekou",
@@ -1315,7 +1315,7 @@
         "AMBIENT_API_KEY"
       ],
       "api": "https://api.ambient.xyz/v1",
-      "models_count": 2
+      "models_count": 3
     },
     {
       "key": "neon",
@@ -7363,6 +7363,30 @@
     },
     {
       "platform": "vercel",
+      "id": "moonshotai/kimi-k2.7-code-highspeed",
+      "name": "Kimi K2.7 Code High Speed",
+      "price": {
+        "input": 1.9,
+        "output": 8,
+        "cache_read": 0.38,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 0
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-15",
+      "knowledge": null,
+      "last_updated": "2026-06-15"
+    },
+    {
+      "platform": "vercel",
       "id": "klingai/kling-v3.0-motion-control",
       "name": "Kling v3.0 Motion Control",
       "price": {
@@ -8748,9 +8772,9 @@
         "tools",
         "reasoning"
       ],
-      "release_date": "2025-03-20",
+      "release_date": "2025-06-17",
       "knowledge": "2025-01",
-      "last_updated": "2025-06-05"
+      "last_updated": "2025-06-17"
     },
     {
       "platform": "vercel",
@@ -8774,9 +8798,9 @@
         "tools",
         "reasoning"
       ],
-      "release_date": "2025-03-20",
+      "release_date": "2025-06-17",
       "knowledge": "2025-01",
-      "last_updated": "2025-06-05"
+      "last_updated": "2025-06-17"
     },
     {
       "platform": "vercel",
@@ -14606,8 +14630,8 @@
       "id": "baidu/ernie-4.5-vl-28b-a3b",
       "name": "ERNIE 4.5 VL 28B A3B",
       "price": {
-        "input": 1.4,
-        "output": 5.6,
+        "input": 0.14,
+        "output": 0.56,
         "cache_read": null,
         "cache_write": null
       },
@@ -14624,7 +14648,7 @@
       ],
       "release_date": "2025-06-30",
       "knowledge": null,
-      "last_updated": "2025-06-30"
+      "last_updated": "2026-06-14"
     },
     {
       "platform": "novita-ai",
@@ -17626,6 +17650,32 @@
       "last_updated": "2026-04-21"
     },
     {
+      "platform": "moonshotai",
+      "id": "kimi-k2.7-code-highspeed",
+      "name": "Kimi K2.7 Code HighSpeed",
+      "price": {
+        "input": 1.9,
+        "output": 8,
+        "cache_read": 0.38,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-12",
+      "knowledge": "2025-01",
+      "last_updated": "2026-06-12"
+    },
+    {
       "platform": "fireworks-ai",
       "id": "accounts/fireworks/routers/kimi-k2p6-turbo",
       "name": "Kimi K2.6 Turbo",
@@ -17900,7 +17950,7 @@
       "price": {
         "input": 0.15,
         "output": 0.6,
-        "cache_read": 0.015,
+        "cache_read": 0.01,
         "cache_write": null
       },
       "limit": {
@@ -17915,7 +17965,7 @@
       ],
       "release_date": "2025-08-05",
       "knowledge": null,
-      "last_updated": "2025-08-05"
+      "last_updated": "2026-06-15"
     },
     {
       "platform": "fireworks-ai",
@@ -20970,6 +21020,30 @@
     },
     {
       "platform": "cortecs",
+      "id": "llama-4-maverick",
+      "name": "Llama 4 Maverick 17B Instruct",
+      "price": {
+        "input": 0.124,
+        "output": 0.603,
+        "cache_read": 0.03,
+        "cache_write": 0.151
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 16384
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "open"
+      ],
+      "release_date": "2025-04-05",
+      "knowledge": "2024-08",
+      "last_updated": "2025-04-05"
+    },
+    {
+      "platform": "cortecs",
       "id": "gemini-2.5-pro",
       "name": "Gemini 2.5 Pro",
       "price": {
@@ -21252,6 +21326,32 @@
       "release_date": "2025-12-08",
       "knowledge": "2025-12",
       "last_updated": "2025-12-08"
+    },
+    {
+      "platform": "cortecs",
+      "id": "minimax-m3",
+      "name": "MiniMax-M3",
+      "price": {
+        "input": 0.355,
+        "output": 1.775,
+        "cache_read": 0.089,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 512000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-01",
+      "knowledge": null,
+      "last_updated": "2026-06-01"
     },
     {
       "platform": "cortecs",
@@ -21636,6 +21736,31 @@
     },
     {
       "platform": "cortecs",
+      "id": "glm-5v-turbo",
+      "name": "GLM-5V-Turbo",
+      "price": {
+        "input": 1.235,
+        "output": 4.118,
+        "cache_read": 0.308,
+        "cache_write": 1.544
+      },
+      "limit": {
+        "context": 200000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-01",
+      "knowledge": null,
+      "last_updated": "2026-04-01"
+    },
+    {
+      "platform": "cortecs",
       "id": "glm-4.5-air",
       "name": "GLM 4.5 Air",
       "price": {
@@ -21871,6 +21996,29 @@
       "release_date": "2026-03-11",
       "knowledge": "2025-12",
       "last_updated": "2026-03-11"
+    },
+    {
+      "platform": "cortecs",
+      "id": "glm-5-turbo",
+      "name": "GLM-5-Turbo",
+      "price": {
+        "input": 1.235,
+        "output": 4.118,
+        "cache_read": 0.308,
+        "cache_write": 1.544
+      },
+      "limit": {
+        "context": 200000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-03-16",
+      "knowledge": null,
+      "last_updated": "2026-03-16"
     },
     {
       "platform": "cortecs",
@@ -22959,9 +23107,9 @@
       "id": "step-3.5-flash",
       "name": "Step 3.5 Flash",
       "price": {
-        "input": 0.096,
-        "output": 0.288,
-        "cache_read": 0.019,
+        "input": 0.1,
+        "output": 0.3,
+        "cache_read": 0.02,
         "cache_write": null
       },
       "limit": {
@@ -22976,7 +23124,7 @@
       ],
       "release_date": "2026-01-29",
       "knowledge": "2025-01",
-      "last_updated": "2026-02-13"
+      "last_updated": "2026-06-15"
     },
     {
       "platform": "stepfun-ai",
@@ -23805,9 +23953,9 @@
         "tools",
         "open"
       ],
-      "release_date": "2024-11-01",
+      "release_date": "2024-11-18",
       "knowledge": "2024-11",
-      "last_updated": "2024-11-04"
+      "last_updated": "2024-11-18"
     },
     {
       "platform": "mistral",
@@ -25370,9 +25518,9 @@
         "tools",
         "reasoning"
       ],
-      "release_date": "2025-03-20",
+      "release_date": "2025-06-17",
       "knowledge": "2025-01",
-      "last_updated": "2025-06-05"
+      "last_updated": "2025-06-17"
     },
     {
       "platform": "google",
@@ -25396,9 +25544,9 @@
         "tools",
         "reasoning"
       ],
-      "release_date": "2025-03-20",
+      "release_date": "2025-06-17",
       "knowledge": "2025-01",
-      "last_updated": "2025-06-05"
+      "last_updated": "2025-06-17"
     },
     {
       "platform": "google",
@@ -28724,6 +28872,31 @@
     },
     {
       "platform": "venice",
+      "id": "kimi-k2-7-code",
+      "name": "Kimi K2.7 Code",
+      "price": {
+        "input": 0.9,
+        "output": 4.3,
+        "cache_read": 0.2,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 256000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": "2025-01",
+      "last_updated": "2026-06-16"
+    },
+    {
+      "platform": "venice",
       "id": "deepseek-v4-pro",
       "name": "DeepSeek V4 Pro",
       "price": {
@@ -30126,8 +30299,8 @@
         "cache_write": 0
       },
       "limit": {
-        "context": 131040,
-        "output": 8192
+        "context": 262144,
+        "output": 32768
       },
       "capabilities": [
         "text",
@@ -30137,7 +30310,7 @@
       ],
       "release_date": "2026-04-28",
       "knowledge": null,
-      "last_updated": "2026-04-28"
+      "last_updated": "2026-06-13"
     },
     {
       "platform": "poolside",
@@ -30150,8 +30323,8 @@
         "cache_write": 0
       },
       "limit": {
-        "context": 131040,
-        "output": 8192
+        "context": 262144,
+        "output": 32768
       },
       "capabilities": [
         "text",
@@ -30160,7 +30333,7 @@
       ],
       "release_date": "2026-04-28",
       "knowledge": null,
-      "last_updated": "2026-04-28"
+      "last_updated": "2026-06-13"
     },
     {
       "platform": "zenmux",
@@ -36051,6 +36224,31 @@
       "release_date": "2026-01-27",
       "knowledge": null,
       "last_updated": "2026-01-27"
+    },
+    {
+      "platform": "neuralwatt",
+      "id": "moonshotai/Kimi-K2.7-Code",
+      "name": "Kimi K2.7 Code",
+      "price": {
+        "input": 0.95,
+        "output": 4,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-12",
+      "knowledge": "2025-01",
+      "last_updated": "2026-06-12"
     },
     {
       "platform": "neuralwatt",
@@ -55520,6 +55718,32 @@
     },
     {
       "platform": "moonshotai-cn",
+      "id": "kimi-k2.7-code-highspeed",
+      "name": "Kimi K2.7 Code HighSpeed",
+      "price": {
+        "input": 1.9,
+        "output": 8,
+        "cache_read": 0.38,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-12",
+      "knowledge": "2025-01",
+      "last_updated": "2026-06-12"
+    },
+    {
+      "platform": "moonshotai-cn",
       "id": "kimi-k2.6",
       "name": "Kimi K2.6",
       "price": {
@@ -55639,6 +55863,32 @@
       "release_date": "2025-11-06",
       "knowledge": "2024-08",
       "last_updated": "2025-11-06"
+    },
+    {
+      "platform": "moonshotai-cn",
+      "id": "kimi-k2.7-code",
+      "name": "Kimi K2.7 Code",
+      "price": {
+        "input": 0.95,
+        "output": 4,
+        "cache_read": 0.19,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-12",
+      "knowledge": "2025-01",
+      "last_updated": "2026-06-12"
     },
     {
       "platform": "moonshotai-cn",
@@ -66059,9 +66309,9 @@
       "id": "step-3.5-flash",
       "name": "Step 3.5 Flash",
       "price": {
-        "input": 0.096,
-        "output": 0.288,
-        "cache_read": 0.019,
+        "input": 0.1,
+        "output": 0.3,
+        "cache_read": 0.02,
         "cache_write": null
       },
       "limit": {
@@ -66076,7 +66326,7 @@
       ],
       "release_date": "2026-01-29",
       "knowledge": "2025-01",
-      "last_updated": "2026-02-13"
+      "last_updated": "2026-06-15"
     },
     {
       "platform": "stepfun",
@@ -70654,9 +70904,9 @@
       "id": "moonshotai/Kimi-K2.6",
       "name": "moonshotai/Kimi-K2.6",
       "price": {
-        "input": 0.95,
+        "input": 0.77,
         "output": 4,
-        "cache_read": 0.16,
+        "cache_read": 0.2,
         "cache_write": null
       },
       "limit": {
@@ -70672,7 +70922,7 @@
       ],
       "release_date": "2026-04-21",
       "knowledge": null,
-      "last_updated": "2026-04-21"
+      "last_updated": "2026-06-15"
     },
     {
       "platform": "siliconflow",
@@ -71746,8 +71996,8 @@
       "id": "zai-org/GLM-5",
       "name": "zai-org/GLM-5",
       "price": {
-        "input": 1,
-        "output": 3.2,
+        "input": 0.95,
+        "output": 2.55,
         "cache_read": null,
         "cache_write": null
       },
@@ -71763,7 +72013,7 @@
       ],
       "release_date": "2026-02-12",
       "knowledge": null,
-      "last_updated": "2026-02-12"
+      "last_updated": "2026-06-15"
     },
     {
       "platform": "siliconflow",
@@ -72153,7 +72403,7 @@
       ],
       "release_date": "2026-02-15",
       "knowledge": null,
-      "last_updated": "2026-02-15"
+      "last_updated": "2026-06-15"
     },
     {
       "platform": "umans-ai-coding-plan",
@@ -74539,30 +74789,6 @@
     },
     {
       "platform": "gitlab",
-      "id": "duo-chat-fable-5",
-      "name": "Agentic Chat (Claude Fable 5)",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": 0,
-        "cache_write": 0
-      },
-      "limit": {
-        "context": 1000000,
-        "output": 128000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2026-06-09",
-      "knowledge": "2026-01-31",
-      "last_updated": "2026-06-09"
-    },
-    {
-      "platform": "gitlab",
       "id": "duo-chat-gpt-5-5",
       "name": "Agentic Chat (GPT-5.5)",
       "price": {
@@ -76638,8 +76864,8 @@
         "cache_write": null
       },
       "limit": {
-        "context": 131072,
-        "output": 8192
+        "context": 262144,
+        "output": 32768
       },
       "capabilities": [
         "text",
@@ -76648,7 +76874,7 @@
       ],
       "release_date": "2026-04-28",
       "knowledge": null,
-      "last_updated": "2026-05-01"
+      "last_updated": "2026-06-13"
     },
     {
       "platform": "kilo",
@@ -76661,8 +76887,8 @@
         "cache_write": null
       },
       "limit": {
-        "context": 131072,
-        "output": 8192
+        "context": 262144,
+        "output": 32768
       },
       "capabilities": [
         "text",
@@ -76671,7 +76897,7 @@
       ],
       "release_date": "2026-04-28",
       "knowledge": null,
-      "last_updated": "2026-05-01"
+      "last_updated": "2026-06-13"
     },
     {
       "platform": "kilo",
@@ -86180,8 +86406,8 @@
       "id": "Qwen/Qwen3.7-Max",
       "name": "Qwen3.7 Max",
       "price": {
-        "input": 2.5,
-        "output": 7.5,
+        "input": 1.25,
+        "output": 3.75,
         "cache_read": null,
         "cache_write": null
       },
@@ -86195,7 +86421,7 @@
       ],
       "release_date": "2026-05-21",
       "knowledge": null,
-      "last_updated": "2026-05-21"
+      "last_updated": "2026-06-15"
     },
     {
       "platform": "togetherai",
@@ -86244,7 +86470,7 @@
       ],
       "release_date": "2026-02-16",
       "knowledge": null,
-      "last_updated": "2026-02-16"
+      "last_updated": "2026-06-15"
     },
     {
       "platform": "togetherai",
@@ -88799,8 +89025,8 @@
       "id": "x-ai/grok-4.20-multi-agent",
       "name": "Grok 4.20 Multi-Agent",
       "price": {
-        "input": 2,
-        "output": 6,
+        "input": 1.25,
+        "output": 2.5,
         "cache_read": 0.2,
         "cache_write": null
       },
@@ -92062,30 +92288,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "anthropic/claude-fable-5",
-      "name": "Claude Fable 5",
-      "price": {
-        "input": 10,
-        "output": 50,
-        "cache_read": 1,
-        "cache_write": 12.5
-      },
-      "limit": {
-        "context": 1000000,
-        "output": 128000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2026-06-09",
-      "knowledge": "2026-01-31",
-      "last_updated": "2026-06-09"
-    },
-    {
-      "platform": "openrouter",
       "id": "anthropic/claude-opus-4.1",
       "name": "Claude Opus 4.1 (latest)",
       "price": {
@@ -92279,9 +92481,9 @@
       "id": "tencent/hy3-preview",
       "name": "Hy3 preview",
       "price": {
-        "input": 0.063,
-        "output": 0.21,
-        "cache_read": 0.021,
+        "input": 0.066,
+        "output": 0.26,
+        "cache_read": 0.029,
         "cache_write": null
       },
       "limit": {
@@ -92993,7 +93195,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 128000,
+        "context": 1000000,
         "output": 128000
       },
       "capabilities": [
@@ -93961,7 +94163,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 81920
       },
       "capabilities": [
         "text",
@@ -94006,13 +94208,13 @@
       "id": "qwen/qwen3.5-397b-a17b",
       "name": "Qwen3.5 397B-A17B",
       "price": {
-        "input": 0.39,
-        "output": 2.34,
+        "input": 0.385,
+        "output": 2.45,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 262144,
+        "context": 131072,
         "output": 65536
       },
       "capabilities": [
@@ -94675,13 +94877,13 @@
       "id": "deepseek/deepseek-v4-flash",
       "name": "DeepSeek V4 Flash",
       "price": {
-        "input": 0.09,
-        "output": 0.18,
+        "input": 0.098,
+        "output": 0.196,
         "cache_read": 0.02,
         "cache_write": null
       },
       "limit": {
-        "context": 1000000,
+        "context": 1048575,
         "output": 65536
       },
       "capabilities": [
@@ -94835,29 +95037,6 @@
       "release_date": "2025-03-24",
       "knowledge": "2024-07-31",
       "last_updated": "2025-03-24"
-    },
-    {
-      "platform": "openrouter",
-      "id": "deepseek/deepseek-r1-distill-qwen-32b",
-      "name": "R1 Distill Qwen 32B",
-      "price": {
-        "input": 0.29,
-        "output": 0.29,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 32768,
-        "output": 32768
-      },
-      "capabilities": [
-        "text",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-01-29",
-      "knowledge": "2024-07-31",
-      "last_updated": "2025-01-29"
     },
     {
       "platform": "openrouter",
@@ -119796,6 +119975,32 @@
     },
     {
       "platform": "ambient",
+      "id": "moonshotai/kimi-k2.7-code",
+      "name": "Kimi K2.7 Code",
+      "price": {
+        "input": 0.75,
+        "output": 3.5,
+        "cache_read": 0.16,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-12",
+      "knowledge": "2025-01",
+      "last_updated": "2026-06-12"
+    },
+    {
+      "platform": "ambient",
       "id": "moonshotai/kimi-k2.6",
       "name": "Kimi K2.6",
       "price": {
@@ -119822,7 +120027,7 @@
     {
       "platform": "ambient",
       "id": "zai-org/GLM-5.1-FP8",
-      "name": "GLM-5.1",
+      "name": "GLM 5.1",
       "price": {
         "input": 1.4,
         "output": 4.4,
