@@ -1,0 +1,6 @@
+# /app/ was an abandoned home-redesign path. It never hosted anything, but
+# Google indexed /app/?q=... URLs that still get impressions + clicks. 301 them
+# to the real homepage (query string is preserved, so /app/?q=OpenAI lands on
+# /?q=OpenAI and the ?q deep-link opens that platform). Other unmatched paths
+# fall through to the custom 404.html (real 404 status).
+/app/* / 301
