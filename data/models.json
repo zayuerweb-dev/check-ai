@@ -58,7 +58,7 @@
         "AI_GATEWAY_API_KEY"
       ],
       "api": null,
-      "models_count": 281
+      "models_count": 282
     },
     {
       "key": "submodel",
@@ -159,7 +159,7 @@
         "FIREWORKS_API_KEY"
       ],
       "api": "https://api.fireworks.ai/inference/v1/",
-      "models_count": 14
+      "models_count": 15
     },
     {
       "key": "vultr",
@@ -260,7 +260,7 @@
         "CLOUDFLARE_API_KEY"
       ],
       "api": "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/ai/v1",
-      "models_count": 21
+      "models_count": 22
     },
     {
       "key": "bailing",
@@ -332,7 +332,7 @@
         "VENICE_API_KEY"
       ],
       "api": null,
-      "models_count": 77
+      "models_count": 78
     },
     {
       "key": "lmstudio",
@@ -413,7 +413,7 @@
         "NEURALWATT_API_KEY"
       ],
       "api": "https://api.neuralwatt.com/v1",
-      "models_count": 15
+      "models_count": 13
     },
     {
       "key": "siliconflow-cn",
@@ -1121,7 +1121,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 335
+      "models_count": 336
     },
     {
       "key": "jiekou",
@@ -1233,7 +1233,7 @@
         "BASETEN_API_KEY"
       ],
       "api": "https://inference.baseten.co/v1",
-      "models_count": 11
+      "models_count": 13
     },
     {
       "key": "atomic-chat",
@@ -8027,6 +8027,30 @@
     },
     {
       "platform": "vercel",
+      "id": "mistral/mistral-small",
+      "name": "Mistral Small (latest)",
+      "price": {
+        "input": 0.15,
+        "output": 0.6,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 256000,
+        "output": 256000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "open"
+      ],
+      "release_date": "2026-03-16",
+      "knowledge": "2025-06",
+      "last_updated": "2026-03-16"
+    },
+    {
+      "platform": "vercel",
       "id": "mistral/ministral-8b",
       "name": "Ministral 8B (latest)",
       "price": {
@@ -8047,31 +8071,6 @@
       "release_date": "2024-10-01",
       "knowledge": "2024-10",
       "last_updated": "2024-10-04"
-    },
-    {
-      "platform": "vercel",
-      "id": "mistral/mistral-small",
-      "name": "Mistral Small (latest)",
-      "price": {
-        "input": 0.15,
-        "output": 0.6,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 256000,
-        "output": 256000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-03-16",
-      "knowledge": "2025-06",
-      "last_updated": "2026-03-16"
     },
     {
       "platform": "vercel",
@@ -8390,8 +8389,7 @@
       "capabilities": [
         "text",
         "vision",
-        "tools",
-        "reasoning"
+        "tools"
       ],
       "release_date": "2026-04-02",
       "knowledge": null,
@@ -10083,6 +10081,29 @@
     },
     {
       "platform": "vercel",
+      "id": "zai/glm-5.2",
+      "name": "GLM 5.2",
+      "price": {
+        "input": 1.4,
+        "output": 4.4,
+        "cache_read": 0.26,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-16",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
+    },
+    {
+      "platform": "vercel",
       "id": "zai/glm-4.6v",
       "name": "GLM-4.6V",
       "price": {
@@ -10631,7 +10652,8 @@
         "output": 32000
       },
       "capabilities": [
-        "text"
+        "text",
+        "reasoning"
       ],
       "release_date": "2026-03-18",
       "knowledge": null,
@@ -12243,7 +12265,8 @@
       },
       "capabilities": [
         "text",
-        "tools"
+        "tools",
+        "reasoning"
       ],
       "release_date": "2025-04-01",
       "knowledge": "2025-04",
@@ -12265,7 +12288,8 @@
       },
       "capabilities": [
         "text",
-        "tools"
+        "tools",
+        "reasoning"
       ],
       "release_date": "2025-04-01",
       "knowledge": "2025-04",
@@ -13041,7 +13065,8 @@
       },
       "capabilities": [
         "text",
-        "vision"
+        "vision",
+        "reasoning"
       ],
       "release_date": "2025-12-01",
       "knowledge": "2024-07",
@@ -17705,7 +17730,7 @@
       "id": "accounts/fireworks/routers/kimi-k2p7-code-fast",
       "name": "Kimi K2.7 Code Fast",
       "price": {
-        "input": 2,
+        "input": 1.9,
         "output": 8,
         "cache_read": 0.38,
         "cache_write": null
@@ -17722,8 +17747,8 @@
         "open"
       ],
       "release_date": "2026-06-12",
-      "knowledge": "2025-01",
-      "last_updated": "2026-06-12"
+      "knowledge": null,
+      "last_updated": "2026-06-16"
     },
     {
       "platform": "fireworks-ai",
@@ -17781,7 +17806,7 @@
       "price": {
         "input": 0.14,
         "output": 0.28,
-        "cache_read": 0.03,
+        "cache_read": 0.028,
         "cache_write": null
       },
       "limit": {
@@ -17796,7 +17821,7 @@
       ],
       "release_date": "2026-04-24",
       "knowledge": "2025-05",
-      "last_updated": "2026-04-24"
+      "last_updated": "2026-06-16"
     },
     {
       "platform": "fireworks-ai",
@@ -17945,12 +17970,36 @@
     },
     {
       "platform": "fireworks-ai",
+      "id": "accounts/fireworks/models/glm-5p2",
+      "name": "GLM 5.2",
+      "price": {
+        "input": 1.4,
+        "output": 4.4,
+        "cache_read": 0.26,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-16",
+      "knowledge": null,
+      "last_updated": "2026-06-16"
+    },
+    {
+      "platform": "fireworks-ai",
       "id": "accounts/fireworks/models/gpt-oss-120b",
       "name": "GPT OSS 120B",
       "price": {
         "input": 0.15,
         "output": 0.6,
-        "cache_read": 0.01,
+        "cache_read": 0.015,
         "cache_write": null
       },
       "limit": {
@@ -17965,7 +18014,7 @@
       ],
       "release_date": "2025-08-05",
       "knowledge": null,
-      "last_updated": "2026-06-15"
+      "last_updated": "2026-06-16"
     },
     {
       "platform": "fireworks-ai",
@@ -18013,8 +18062,8 @@
         "open"
       ],
       "release_date": "2026-06-12",
-      "knowledge": "2025-01",
-      "last_updated": "2026-06-12"
+      "knowledge": null,
+      "last_updated": "2026-06-16"
     },
     {
       "platform": "vultr",
@@ -24363,6 +24412,29 @@
     },
     {
       "platform": "cloudflare-workers-ai",
+      "id": "@cf/zai-org/glm-5.2",
+      "name": "Glm 5.2",
+      "price": {
+        "input": 1.4,
+        "output": 4.4,
+        "cache_read": 0.26,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
+    },
+    {
+      "platform": "cloudflare-workers-ai",
       "id": "@cf/zai-org/glm-4.7-flash",
       "name": "GLM-4.7-Flash",
       "price": {
@@ -29498,6 +29570,30 @@
       "release_date": "2025-11-06",
       "knowledge": null,
       "last_updated": "2026-06-11"
+    },
+    {
+      "platform": "venice",
+      "id": "zai-org-glm-5-2",
+      "name": "GLM 5.2",
+      "price": {
+        "input": 1.75,
+        "output": 5.5,
+        "cache_read": 0.325,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 24000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-16",
+      "knowledge": null,
+      "last_updated": "2026-06-16"
     },
     {
       "platform": "venice",
@@ -36083,6 +36179,30 @@
     },
     {
       "platform": "neuralwatt",
+      "id": "glm-5.2",
+      "name": "GLM 5.2",
+      "price": {
+        "input": 1.45,
+        "output": 4.5,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048560,
+        "output": 1048560
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-17",
+      "knowledge": null,
+      "last_updated": "2026-06-17"
+    },
+    {
+      "platform": "neuralwatt",
       "id": "qwen3.5-397b-fast",
       "name": "Qwen3.5 397B Fast",
       "price": {
@@ -36301,54 +36421,6 @@
     },
     {
       "platform": "neuralwatt",
-      "id": "openai/gpt-oss-20b",
-      "name": "GPT OSS 20B",
-      "price": {
-        "input": 0.03,
-        "output": 0.16,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 16368,
-        "output": 16368
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-08-05",
-      "knowledge": null,
-      "last_updated": "2025-08-05"
-    },
-    {
-      "platform": "neuralwatt",
-      "id": "mistralai/Devstral-Small-2-24B-Instruct-2512",
-      "name": "Devstral Small 2 24B Instruct 2512",
-      "price": {
-        "input": 0.12,
-        "output": 0.35,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262128,
-        "output": 262128
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "open"
-      ],
-      "release_date": "2025-12-09",
-      "knowledge": null,
-      "last_updated": "2025-12-09"
-    },
-    {
-      "platform": "neuralwatt",
       "id": "zai-org/GLM-5.1-FP8",
       "name": "GLM 5.1 FP8",
       "price": {
@@ -36370,30 +36442,6 @@
       "release_date": "2026-04-07",
       "knowledge": null,
       "last_updated": "2026-04-07"
-    },
-    {
-      "platform": "neuralwatt",
-      "id": "MiniMaxAI/MiniMax-M2.5",
-      "name": "MiniMax M2.5",
-      "price": {
-        "input": 0.35,
-        "output": 1.38,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 196592,
-        "output": 196592
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-02-12",
-      "knowledge": null,
-      "last_updated": "2026-02-12"
     },
     {
       "platform": "siliconflow-cn",
@@ -88098,14 +88146,14 @@
       "id": "moonshotai/kimi-k2.7-code",
       "name": "Kimi K2.7 Code",
       "price": {
-        "input": 0.75,
+        "input": 0.74,
         "output": 3.5,
-        "cache_read": 0.16,
+        "cache_read": 0.15,
         "cache_write": null
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 16384
       },
       "capabilities": [
         "text",
@@ -89376,6 +89424,29 @@
     },
     {
       "platform": "openrouter",
+      "id": "z-ai/glm-5.2",
+      "name": "GLM-5.2",
+      "price": {
+        "input": 1.4,
+        "output": 4.4,
+        "cache_read": 0.26,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
+    },
+    {
+      "platform": "openrouter",
       "id": "z-ai/glm-4.6v",
       "name": "GLM-4.6V",
       "price": {
@@ -89405,14 +89476,14 @@
       "id": "z-ai/glm-4.5-air",
       "name": "GLM-4.5-Air",
       "price": {
-        "input": 0.125,
+        "input": 0.13,
         "output": 0.85,
-        "cache_read": 0.06,
+        "cache_read": 0.025,
         "cache_write": null
       },
       "limit": {
-        "context": 131070,
-        "output": 131070
+        "context": 131072,
+        "output": 98304
       },
       "capabilities": [
         "text",
@@ -91837,8 +91908,8 @@
       "name": "Nemotron 3 Ultra 550B A55B",
       "price": {
         "input": 0.5,
-        "output": 2.5,
-        "cache_read": 0.15,
+        "output": 2.2,
+        "cache_read": 0.1,
         "cache_write": null
       },
       "limit": {
@@ -94877,13 +94948,13 @@
       "id": "deepseek/deepseek-v4-flash",
       "name": "DeepSeek V4 Flash",
       "price": {
-        "input": 0.098,
-        "output": 0.196,
+        "input": 0.09,
+        "output": 0.18,
         "cache_read": 0.02,
         "cache_write": null
       },
       "limit": {
-        "context": 1048575,
+        "context": 1000000,
         "output": 65536
       },
       "capabilities": [
@@ -103048,6 +103119,31 @@
     },
     {
       "platform": "baseten",
+      "id": "moonshotai/Kimi-K2.7-Code",
+      "name": "Kimi K2.7 Code",
+      "price": {
+        "input": 0.95,
+        "output": 4,
+        "cache_read": 0.16,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262000,
+        "output": 262000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-12",
+      "knowledge": "2025-01",
+      "last_updated": "2026-06-12"
+    },
+    {
+      "platform": "baseten",
       "id": "openai/gpt-oss-120b",
       "name": "OpenAI GPT 120B",
       "price": {
@@ -103165,6 +103261,29 @@
       "release_date": "2025-12-22",
       "knowledge": "2025-04",
       "last_updated": "2025-12-22"
+    },
+    {
+      "platform": "baseten",
+      "id": "zai-org/GLM-5.2",
+      "name": "GLM-5.2",
+      "price": {
+        "input": 1.5,
+        "output": 4.5,
+        "cache_read": 0.3,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 131072,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
     },
     {
       "platform": "baseten",
