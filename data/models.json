@@ -189,7 +189,7 @@
         "ZHIPU_API_KEY"
       ],
       "api": "https://open.bigmodel.cn/api/paas/v4",
-      "models_count": 12
+      "models_count": 13
     },
     {
       "key": "cortecs",
@@ -423,7 +423,7 @@
         "SILICONFLOW_CN_API_KEY"
       ],
       "api": "https://api.siliconflow.cn/v1",
-      "models_count": 78
+      "models_count": 73
     },
     {
       "key": "merge-gateway",
@@ -908,7 +908,7 @@
         "SILICONFLOW_API_KEY"
       ],
       "api": "https://api.siliconflow.com/v1",
-      "models_count": 73
+      "models_count": 69
     },
     {
       "key": "umans-ai-coding-plan",
@@ -1121,7 +1121,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 336
+      "models_count": 338
     },
     {
       "key": "jiekou",
@@ -20538,6 +20538,29 @@
     },
     {
       "platform": "zhipuai",
+      "id": "glm-5.2",
+      "name": "GLM-5.2",
+      "price": {
+        "input": 1.4,
+        "output": 4.4,
+        "cache_read": 0.26,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
+    },
+    {
+      "platform": "zhipuai",
       "id": "glm-5v-turbo",
       "name": "GLM-5V-Turbo",
       "price": {
@@ -36489,96 +36512,6 @@
     },
     {
       "platform": "siliconflow-cn",
-      "id": "THUDM/GLM-Z1-9B-0414",
-      "name": "THUDM/GLM-Z1-9B-0414",
-      "price": {
-        "input": 0.086,
-        "output": 0.086,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-04-18",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "THUDM/GLM-4-9B-0414",
-      "name": "THUDM/GLM-4-9B-0414",
-      "price": {
-        "input": 0.086,
-        "output": 0.086,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 33000,
-        "output": 33000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-04-18",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "THUDM/GLM-4-32B-0414",
-      "name": "THUDM/GLM-4-32B-0414",
-      "price": {
-        "input": 0.27,
-        "output": 0.27,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 33000,
-        "output": 33000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-04-18",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "THUDM/GLM-Z1-32B-0414",
-      "name": "THUDM/GLM-Z1-32B-0414",
-      "price": {
-        "input": 0.14,
-        "output": 0.57,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-04-18",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
       "id": "moonshotai/Kimi-K2-Instruct-0905",
       "name": "moonshotai/Kimi-K2-Instruct-0905",
       "price": {
@@ -37938,31 +37871,10 @@
       },
       "capabilities": [
         "text",
-        "tools"
+        "tools",
+        "reasoning"
       ],
       "release_date": "2025-06-30",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "tencent/Hunyuan-MT-7B",
-      "name": "tencent/Hunyuan-MT-7B",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 33000,
-        "output": 33000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-09-18",
       "knowledge": null,
       "last_updated": "2025-11-25"
     },
@@ -70927,96 +70839,6 @@
     },
     {
       "platform": "siliconflow",
-      "id": "THUDM/GLM-Z1-32B-0414",
-      "name": "THUDM/GLM-Z1-32B-0414",
-      "price": {
-        "input": 0.14,
-        "output": 0.57,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-04-18",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "THUDM/GLM-4-32B-0414",
-      "name": "THUDM/GLM-4-32B-0414",
-      "price": {
-        "input": 0.27,
-        "output": 0.27,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 33000,
-        "output": 33000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-04-18",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "THUDM/GLM-4-9B-0414",
-      "name": "THUDM/GLM-4-9B-0414",
-      "price": {
-        "input": 0.086,
-        "output": 0.086,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 33000,
-        "output": 33000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-04-18",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "THUDM/GLM-Z1-9B-0414",
-      "name": "THUDM/GLM-Z1-9B-0414",
-      "price": {
-        "input": 0.086,
-        "output": 0.086,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-04-18",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
       "id": "moonshotai/Kimi-K2-Thinking",
       "name": "moonshotai/Kimi-K2-Thinking",
       "price": {
@@ -72062,25 +71884,26 @@
     },
     {
       "platform": "siliconflow",
-      "id": "tencent/Hunyuan-MT-7B",
-      "name": "tencent/Hunyuan-MT-7B",
+      "id": "tencent/Hy3-preview",
+      "name": "Hy3 preview",
       "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
+        "input": 0.066,
+        "output": 0.26,
+        "cache_read": 0.029,
         "cache_write": null
       },
       "limit": {
-        "context": 33000,
-        "output": 33000
+        "context": 262144,
+        "output": 262144
       },
       "capabilities": [
         "text",
-        "tools"
+        "tools",
+        "reasoning"
       ],
-      "release_date": "2025-09-18",
+      "release_date": "2026-04-20",
       "knowledge": null,
-      "last_updated": "2025-11-25"
+      "last_updated": "2026-04-20"
     },
     {
       "platform": "siliconflow",
@@ -72098,7 +71921,8 @@
       },
       "capabilities": [
         "text",
-        "tools"
+        "tools",
+        "reasoning"
       ],
       "release_date": "2025-06-30",
       "knowledge": null,
@@ -72616,32 +72440,6 @@
     },
     {
       "platform": "umans-ai-coding-plan",
-      "id": "umans-kimi-k2.6",
-      "name": "Kimi K2.6",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": 0,
-        "cache_write": 0
-      },
-      "limit": {
-        "context": 262144,
-        "output": 262144
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "video",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-21",
-      "knowledge": "2025-01",
-      "last_updated": "2026-04-21"
-    },
-    {
-      "platform": "umans-ai-coding-plan",
       "id": "umans-glm-5.1",
       "name": "GLM 5.1",
       "price": {
@@ -72686,9 +72484,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-04-21",
+      "release_date": "2026-06-12",
       "knowledge": "2025-01",
-      "last_updated": "2026-04-21"
+      "last_updated": "2026-06-12"
     },
     {
       "platform": "umans-ai-coding-plan",
@@ -72714,6 +72512,30 @@
       "release_date": "2026-04-17",
       "knowledge": null,
       "last_updated": "2026-04-17"
+    },
+    {
+      "platform": "umans-ai-coding-plan",
+      "id": "umans-glm-5.2",
+      "name": "GLM 5.2",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": 0,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 405504,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
     },
     {
       "platform": "umans-ai-coding-plan",
@@ -86344,32 +86166,6 @@
     },
     {
       "platform": "umans-ai",
-      "id": "umans-kimi-k2.6",
-      "name": "Kimi K2.6",
-      "price": {
-        "input": 0.95,
-        "output": 4,
-        "cache_read": 0.2,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262144,
-        "output": 32768
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "video",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-21",
-      "knowledge": "2025-01",
-      "last_updated": "2026-04-21"
-    },
-    {
-      "platform": "umans-ai",
       "id": "umans-glm-5.1",
       "name": "GLM 5.1",
       "price": {
@@ -86400,7 +86196,7 @@
       "price": {
         "input": 0.95,
         "output": 4,
-        "cache_read": 0.2,
+        "cache_read": 0.19,
         "cache_write": null
       },
       "limit": {
@@ -86414,9 +86210,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-04-21",
+      "release_date": "2026-06-12",
       "knowledge": "2025-01",
-      "last_updated": "2026-04-21"
+      "last_updated": "2026-06-12"
     },
     {
       "platform": "umans-ai",
@@ -86442,6 +86238,30 @@
       "release_date": "2026-04-17",
       "knowledge": null,
       "last_updated": "2026-04-17"
+    },
+    {
+      "platform": "umans-ai",
+      "id": "umans-glm-5.2",
+      "name": "GLM 5.2",
+      "price": {
+        "input": 1.4,
+        "output": 4.4,
+        "cache_read": 0.26,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 405504,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
     },
     {
       "platform": "togetherai",
@@ -88522,6 +88342,29 @@
     },
     {
       "platform": "openrouter",
+      "id": "google/gemini-3.1-flash-image",
+      "name": "Nano Banana 2 (Gemini 3.1 Flash Image)",
+      "price": {
+        "input": 0.5,
+        "output": 3,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 65536,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning"
+      ],
+      "release_date": "2026-06-18",
+      "knowledge": null,
+      "last_updated": "2026-06-18"
+    },
+    {
+      "platform": "openrouter",
       "id": "google/gemma-3n-e4b-it",
       "name": "Gemma 3n 4B",
       "price": {
@@ -88553,7 +88396,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 262144,
+        "context": 131072,
         "output": 32768
       },
       "capabilities": [
@@ -88781,7 +88624,7 @@
       },
       "limit": {
         "context": 32768,
-        "output": 32768
+        "output": 8192
       },
       "capabilities": [
         "text",
@@ -88955,7 +88798,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 65536
+        "output": 65535
       },
       "capabilities": [
         "text",
@@ -89074,7 +88917,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 32768
+        "output": 8192
       },
       "capabilities": [
         "text",
@@ -89109,6 +88952,30 @@
       "release_date": "2024-07-13",
       "knowledge": "2024-06-30",
       "last_updated": "2024-07-13"
+    },
+    {
+      "platform": "openrouter",
+      "id": "google/gemini-3-pro-image",
+      "name": "Nano Banana Pro (Gemini 3 Pro Image)",
+      "price": {
+        "input": 2,
+        "output": 12,
+        "cache_read": 0.2,
+        "cache_write": 0.375
+      },
+      "limit": {
+        "context": 65536,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-18",
+      "knowledge": null,
+      "last_updated": "2026-06-18"
     },
     {
       "platform": "openrouter",
@@ -89152,6 +89019,7 @@
       },
       "capabilities": [
         "text",
+        "tools",
         "reasoning",
         "open"
       ],
@@ -91134,7 +91002,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 8192
+        "output": 32768
       },
       "capabilities": [
         "text",
@@ -92280,30 +92148,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "xiaomi/mimo-v2-flash",
-      "name": "MiMo-V2-Flash",
-      "price": {
-        "input": 0.1,
-        "output": 0.3,
-        "cache_read": 0.01,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262144,
-        "output": 65536
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-12-16",
-      "knowledge": "2024-12-01",
-      "last_updated": "2026-02-04"
-    },
-    {
-      "platform": "openrouter",
       "id": "xiaomi/mimo-v2.5-pro",
       "name": "MiMo-V2.5-Pro",
       "price": {
@@ -92865,6 +92709,30 @@
       "release_date": "2024-08-30",
       "knowledge": "2024-06-01",
       "last_updated": "2024-08-30"
+    },
+    {
+      "platform": "openrouter",
+      "id": "cohere/north-mini-code:free",
+      "name": "North Mini Code (free)",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 256000,
+        "output": 64000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-17",
+      "knowledge": null,
+      "last_updated": "2026-06-17"
     },
     {
       "platform": "openrouter",
@@ -94159,6 +94027,7 @@
       },
       "capabilities": [
         "text",
+        "tools",
         "open"
       ],
       "release_date": "2024-10-16",
