@@ -139,7 +139,7 @@
         "ALIBABA_TOKEN_PLAN_API_KEY"
       ],
       "api": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
-      "models_count": 17
+      "models_count": 18
     },
     {
       "key": "moonshotai",
@@ -199,7 +199,7 @@
         "CORTECS_API_KEY"
       ],
       "api": "https://api.cortecs.ai/v1",
-      "models_count": 55
+      "models_count": 57
     },
     {
       "key": "nebius",
@@ -302,7 +302,7 @@
         "GEMINI_API_KEY"
       ],
       "api": null,
-      "models_count": 24
+      "models_count": 22
     },
     {
       "key": "opencode-go",
@@ -423,7 +423,7 @@
         "SILICONFLOW_CN_API_KEY"
       ],
       "api": "https://api.siliconflow.cn/v1",
-      "models_count": 73
+      "models_count": 74
     },
     {
       "key": "merge-gateway",
@@ -908,7 +908,7 @@
         "SILICONFLOW_API_KEY"
       ],
       "api": "https://api.siliconflow.com/v1",
-      "models_count": 69
+      "models_count": 70
     },
     {
       "key": "umans-ai-coding-plan",
@@ -1121,7 +1121,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 338
+      "models_count": 339
     },
     {
       "key": "jiekou",
@@ -1151,7 +1151,7 @@
         "ALIBABA_TOKEN_PLAN_API_KEY"
       ],
       "api": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1",
-      "models_count": 16
+      "models_count": 18
     },
     {
       "key": "alibaba",
@@ -7810,14 +7810,14 @@
       "id": "mistral/mistral-nemo",
       "name": "Mistral Nemo",
       "price": {
-        "input": 0.02,
-        "output": 0.04,
+        "input": 0.15,
+        "output": 0.15,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 131072,
-        "output": 131072
+        "context": 128000,
+        "output": 128000
       },
       "capabilities": [
         "text",
@@ -8030,14 +8030,14 @@
       "id": "mistral/mistral-small",
       "name": "Mistral Small (latest)",
       "price": {
-        "input": 0.15,
-        "output": 0.6,
+        "input": 0.1,
+        "output": 0.3,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 256000,
-        "output": 256000
+        "context": 32000,
+        "output": 4000
       },
       "capabilities": [
         "text",
@@ -8045,7 +8045,7 @@
         "tools",
         "open"
       ],
-      "release_date": "2026-03-16",
+      "release_date": "2024-09-01",
       "knowledge": "2025-06",
       "last_updated": "2026-03-16"
     },
@@ -9301,7 +9301,7 @@
       ],
       "release_date": "2025-12-16",
       "knowledge": null,
-      "last_updated": "2025-12-16"
+      "last_updated": "2025-11-25"
     },
     {
       "platform": "vercel",
@@ -9418,7 +9418,7 @@
       ],
       "release_date": "2025-03-25",
       "knowledge": null,
-      "last_updated": "2025-03-25"
+      "last_updated": "2025-04-24"
     },
     {
       "platform": "vercel",
@@ -10084,9 +10084,9 @@
       "id": "zai/glm-5.2",
       "name": "GLM 5.2",
       "price": {
-        "input": 1.4,
-        "output": 4.4,
-        "cache_read": 0.26,
+        "input": 1.5,
+        "output": 4.5,
+        "cache_read": 0.3,
         "cache_write": null
       },
       "limit": {
@@ -10096,7 +10096,8 @@
       "capabilities": [
         "text",
         "tools",
-        "reasoning"
+        "reasoning",
+        "open"
       ],
       "release_date": "2026-06-16",
       "knowledge": null,
@@ -11245,8 +11246,8 @@
       "price": {
         "input": 0.09,
         "output": 0.3,
-        "cache_read": null,
-        "cache_write": 0.02
+        "cache_read": 0.02,
+        "cache_write": null
       },
       "limit": {
         "context": 262114,
@@ -13289,7 +13290,7 @@
       "id": "kwaipilot/kat-coder-pro-v1",
       "name": "KAT-Coder-Pro V1",
       "price": {
-        "input": 0.03,
+        "input": 0.3,
         "output": 1.2,
         "cache_read": 0.06,
         "cache_write": null
@@ -17176,6 +17177,32 @@
     },
     {
       "platform": "alibaba-token-plan-cn",
+      "id": "kimi-k2.7-code",
+      "name": "Kimi K2.7 Code",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": 0,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-12",
+      "knowledge": "2025-01",
+      "last_updated": "2026-06-12"
+    },
+    {
+      "platform": "alibaba-token-plan-cn",
       "id": "glm-5.1",
       "name": "GLM-5.1",
       "price": {
@@ -17260,7 +17287,8 @@
       "capabilities": [
         "text",
         "tools",
-        "reasoning"
+        "reasoning",
+        "open"
       ],
       "release_date": "2026-06-13",
       "knowledge": null,
@@ -21328,6 +21356,32 @@
     },
     {
       "platform": "cortecs",
+      "id": "kimi-k2.7-code",
+      "name": "Kimi K2.7 Code",
+      "price": {
+        "input": 1.28,
+        "output": 4.63,
+        "cache_read": 0.32,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-12",
+      "knowledge": "2025-01",
+      "last_updated": "2026-06-12"
+    },
+    {
+      "platform": "cortecs",
       "id": "glm-5.1",
       "name": "GLM-5.1",
       "price": {
@@ -21421,6 +21475,30 @@
       "release_date": "2025-12-08",
       "knowledge": "2025-12",
       "last_updated": "2025-12-08"
+    },
+    {
+      "platform": "cortecs",
+      "id": "glm-5.2",
+      "name": "GLM-5.2",
+      "price": {
+        "input": 1.44,
+        "output": 4.53,
+        "cache_read": 0.39,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
     },
     {
       "platform": "cortecs",
@@ -24473,7 +24551,8 @@
       "capabilities": [
         "text",
         "tools",
-        "reasoning"
+        "reasoning",
+        "open"
       ],
       "release_date": "2026-06-13",
       "knowledge": null,
@@ -25744,32 +25823,6 @@
     },
     {
       "platform": "google",
-      "id": "gemma-4-E4B-it",
-      "name": "Gemma 4 E4B IT",
-      "price": {
-        "input": null,
-        "output": null,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131072,
-        "output": 8192
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "audio",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-02",
-      "knowledge": null,
-      "last_updated": "2026-04-02"
-    },
-    {
-      "platform": "google",
       "id": "gemini-embedding-001",
       "name": "Gemini Embedding 001",
       "price": {
@@ -25840,32 +25893,6 @@
       "release_date": "2025-09-25",
       "knowledge": "2025-01",
       "last_updated": "2025-09-25"
-    },
-    {
-      "platform": "google",
-      "id": "gemma-4-E2B-it",
-      "name": "Gemma 4 E2B IT",
-      "price": {
-        "input": null,
-        "output": null,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131072,
-        "output": 8192
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "audio",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-02",
-      "knowledge": null,
-      "last_updated": "2026-04-02"
     },
     {
       "platform": "google",
@@ -26350,7 +26377,8 @@
       "capabilities": [
         "text",
         "tools",
-        "reasoning"
+        "reasoning",
+        "open"
       ],
       "release_date": "2026-06-13",
       "knowledge": null,
@@ -28812,7 +28840,7 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-02-12",
+      "release_date": "2026-02-11",
       "knowledge": null,
       "last_updated": "2026-06-11"
     },
@@ -29645,14 +29673,14 @@
       "id": "zai-org-glm-5-2",
       "name": "GLM 5.2",
       "price": {
-        "input": 1.75,
-        "output": 5.5,
-        "cache_read": 0.325,
+        "input": 1.4,
+        "output": 4.4,
+        "cache_read": 0.26,
         "cache_write": null
       },
       "limit": {
         "context": 1000000,
-        "output": 24000
+        "output": 131072
       },
       "capabilities": [
         "text",
@@ -37877,6 +37905,30 @@
       "release_date": "2025-06-30",
       "knowledge": null,
       "last_updated": "2025-11-25"
+    },
+    {
+      "platform": "siliconflow-cn",
+      "id": "zai-org/GLM-5.2",
+      "name": "GLM-5.2",
+      "price": {
+        "input": 1.4,
+        "output": 4.4,
+        "cache_read": null,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 205000,
+        "output": 205000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
     },
     {
       "platform": "siliconflow-cn",
@@ -59560,7 +59612,8 @@
       "capabilities": [
         "text",
         "tools",
-        "reasoning"
+        "reasoning",
+        "open"
       ],
       "release_date": "2026-06-13",
       "knowledge": null,
@@ -72070,6 +72123,30 @@
     },
     {
       "platform": "siliconflow",
+      "id": "zai-org/GLM-5.2",
+      "name": "GLM-5.2",
+      "price": {
+        "input": 1.4,
+        "output": 4.4,
+        "cache_read": null,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 205000,
+        "output": 205000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
+    },
+    {
+      "platform": "siliconflow",
       "id": "zai-org/GLM-4.5-Air",
       "name": "zai-org/GLM-4.5-Air",
       "price": {
@@ -72531,7 +72608,8 @@
         "text",
         "vision",
         "tools",
-        "reasoning"
+        "reasoning",
+        "open"
       ],
       "release_date": "2026-06-13",
       "knowledge": null,
@@ -86257,7 +86335,8 @@
         "text",
         "vision",
         "tools",
-        "reasoning"
+        "reasoning",
+        "open"
       ],
       "release_date": "2026-06-13",
       "knowledge": null,
@@ -87754,28 +87833,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "meta-llama/llama-3-70b-instruct",
-      "name": "Llama 3 70B Instruct",
-      "price": {
-        "input": 0.51,
-        "output": 0.74,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 8192,
-        "output": 8000
-      },
-      "capabilities": [
-        "text",
-        "open"
-      ],
-      "release_date": "2024-04-18",
-      "knowledge": "2023-12-31",
-      "last_updated": "2024-04-18"
-    },
-    {
-      "platform": "openrouter",
       "id": "meta-llama/llama-3.1-70b-instruct",
       "name": "Llama 3.1 70B Instruct",
       "price": {
@@ -88149,14 +88206,14 @@
       "id": "moonshotai/kimi-k2.7-code",
       "name": "Kimi K2.7 Code",
       "price": {
-        "input": 0.74,
-        "output": 3.5,
-        "cache_read": 0.15,
+        "input": 0.68,
+        "output": 3.41,
+        "cache_read": 0.144,
         "cache_write": null
       },
       "limit": {
         "context": 262144,
-        "output": 16384
+        "output": 262144
       },
       "capabilities": [
         "text",
@@ -88223,14 +88280,14 @@
       "id": "moonshotai/kimi-k2.6",
       "name": "Kimi K2.6",
       "price": {
-        "input": 0.68,
-        "output": 3.41,
-        "cache_read": 0.34,
+        "input": 0.67,
+        "output": 3.5,
+        "cache_read": 0.2,
         "cache_write": null
       },
       "limit": {
-        "context": 262142,
-        "output": 262142
+        "context": 262144,
+        "output": 262144
       },
       "capabilities": [
         "text",
@@ -89286,12 +89343,60 @@
     },
     {
       "platform": "openrouter",
+      "id": "poolside/laguna-xs.2",
+      "name": "Laguna XS.2",
+      "price": {
+        "input": 0.1,
+        "output": 0.2,
+        "cache_read": 0.05,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-28",
+      "knowledge": null,
+      "last_updated": "2026-04-28"
+    },
+    {
+      "platform": "openrouter",
       "id": "poolside/laguna-xs.2:free",
       "name": "Laguna XS.2 (free)",
       "price": {
         "input": 0,
         "output": 0,
         "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-28",
+      "knowledge": null,
+      "last_updated": "2026-04-28"
+    },
+    {
+      "platform": "openrouter",
+      "id": "poolside/laguna-m.1",
+      "name": "Laguna M.1",
+      "price": {
+        "input": 0.2,
+        "output": 0.4,
+        "cache_read": 0.1,
         "cache_write": null
       },
       "limit": {
@@ -89325,7 +89430,8 @@
       "capabilities": [
         "text",
         "tools",
-        "reasoning"
+        "reasoning",
+        "open"
       ],
       "release_date": "2026-04-28",
       "knowledge": null,
@@ -89478,19 +89584,20 @@
       "id": "z-ai/glm-5.2",
       "name": "GLM-5.2",
       "price": {
-        "input": 1.4,
-        "output": 4.4,
-        "cache_read": 0.26,
+        "input": 1.2,
+        "output": 4.1,
+        "cache_read": 0.2,
         "cache_write": null
       },
       "limit": {
-        "context": 262144,
-        "output": 262144
+        "context": 1048576,
+        "output": 131072
       },
       "capabilities": [
         "text",
         "tools",
-        "reasoning"
+        "reasoning",
+        "open"
       ],
       "release_date": "2026-06-13",
       "knowledge": null,
@@ -89647,7 +89754,7 @@
       "price": {
         "input": 0.075,
         "output": 0.3,
-        "cache_read": 0.037,
+        "cache_read": 0.0375,
         "cache_write": null
       },
       "limit": {
@@ -92930,14 +93037,14 @@
       "id": "~moonshotai/kimi-latest",
       "name": "MoonshotAI Kimi Latest",
       "price": {
-        "input": 0.68,
-        "output": 3.41,
-        "cache_read": 0.34,
+        "input": 0.67,
+        "output": 3.5,
+        "cache_read": 0.2,
         "cache_write": null
       },
       "limit": {
-        "context": 262142,
-        "output": 262142
+        "context": 262144,
+        "output": 262144
       },
       "capabilities": [
         "text",
@@ -93661,9 +93768,9 @@
       "id": "qwen/qwen3.6-35b-a3b",
       "name": "Qwen3.6 35B-A3B",
       "price": {
-        "input": 0.15,
+        "input": 0.14,
         "output": 1,
-        "cache_read": 0.05,
+        "cache_read": null,
         "cache_write": null
       },
       "limit": {
@@ -94281,12 +94388,12 @@
       "price": {
         "input": 0.14,
         "output": 1,
-        "cache_read": 0.05,
+        "cache_read": null,
         "cache_write": null
       },
       "limit": {
         "context": 262144,
-        "output": 81920
+        "output": 262144
       },
       "capabilities": [
         "text",
@@ -97127,6 +97234,32 @@
     },
     {
       "platform": "alibaba-token-plan",
+      "id": "kimi-k2.7-code",
+      "name": "Kimi K2.7 Code",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": 0,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-12",
+      "knowledge": "2025-01",
+      "last_updated": "2026-06-12"
+    },
+    {
+      "platform": "alibaba-token-plan",
       "id": "glm-5.1",
       "name": "GLM-5.1",
       "price": {
@@ -97193,6 +97326,30 @@
       "release_date": "2026-05-29",
       "knowledge": null,
       "last_updated": "2026-05-29"
+    },
+    {
+      "platform": "alibaba-token-plan",
+      "id": "glm-5.2",
+      "name": "GLM-5.2",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": 0,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
     },
     {
       "platform": "alibaba-token-plan",
@@ -99514,7 +99671,8 @@
       "capabilities": [
         "text",
         "tools",
-        "reasoning"
+        "reasoning",
+        "open"
       ],
       "release_date": "2026-06-13",
       "knowledge": null,
@@ -103380,7 +103538,8 @@
       "capabilities": [
         "text",
         "tools",
-        "reasoning"
+        "reasoning",
+        "open"
       ],
       "release_date": "2026-06-13",
       "knowledge": null,
@@ -121086,7 +121245,8 @@
       "capabilities": [
         "text",
         "tools",
-        "reasoning"
+        "reasoning",
+        "open"
       ],
       "release_date": "2026-06-13",
       "knowledge": null,
