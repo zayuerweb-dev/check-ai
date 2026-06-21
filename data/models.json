@@ -199,7 +199,7 @@
         "CORTECS_API_KEY"
       ],
       "api": "https://api.cortecs.ai/v1",
-      "models_count": 57
+      "models_count": 56
     },
     {
       "key": "nebius",
@@ -271,16 +271,6 @@
       ],
       "api": "https://api.tbox.cn/api/llm/v1/chat/completions",
       "models_count": 2
-    },
-    {
-      "key": "firepass",
-      "name": "Fireworks (Firepass)",
-      "doc": "https://docs.fireworks.ai/firepass",
-      "env": [
-        "FIREPASS_API_KEY"
-      ],
-      "api": "https://api.fireworks.ai/inference/v1/",
-      "models_count": 1
     },
     {
       "key": "anyapi",
@@ -533,7 +523,7 @@
         "LLMGATEWAY_API_KEY"
       ],
       "api": "https://api.llmgateway.io/v1",
-      "models_count": 194
+      "models_count": 199
     },
     {
       "key": "alibaba-coding-plan-cn",
@@ -1466,7 +1456,7 @@
         "CLAUDINIO_API_KEY"
       ],
       "api": "https://api.claudin.io/v1",
-      "models_count": 1
+      "models_count": 2
     }
   ],
   "models": [
@@ -7373,7 +7363,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 0
+        "output": 32768
       },
       "capabilities": [
         "text",
@@ -7382,8 +7372,8 @@
         "reasoning"
       ],
       "release_date": "2026-06-15",
-      "knowledge": null,
-      "last_updated": "2026-06-15"
+      "knowledge": "2025-01",
+      "last_updated": "2026-06-12"
     },
     {
       "platform": "vercel",
@@ -21332,30 +21322,6 @@
     },
     {
       "platform": "cortecs",
-      "id": "devstral-small-2512",
-      "name": "Devstral Small 2 2512",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262000,
-        "output": 262000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "open"
-      ],
-      "release_date": "2025-12-09",
-      "knowledge": "2025-12",
-      "last_updated": "2025-12-09"
-    },
-    {
-      "platform": "cortecs",
       "id": "kimi-k2.7-code",
       "name": "Kimi K2.7 Code",
       "price": {
@@ -24899,31 +24865,6 @@
       "release_date": "2025-10",
       "knowledge": "2024-06",
       "last_updated": "2025-10"
-    },
-    {
-      "platform": "firepass",
-      "id": "accounts/fireworks/routers/kimi-k2p6-turbo",
-      "name": "Kimi K2.6 Turbo",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": 0,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262000,
-        "output": 262000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-17",
-      "knowledge": null,
-      "last_updated": "2026-04-17"
     },
     {
       "platform": "anyapi",
@@ -47842,6 +47783,31 @@
     },
     {
       "platform": "llmgateway",
+      "id": "gemma-4-31b-it",
+      "name": "Gemma 4 31B IT",
+      "price": {
+        "input": 0.13,
+        "output": 0.38,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-02",
+      "knowledge": null,
+      "last_updated": "2026-04-02"
+    },
+    {
+      "platform": "llmgateway",
       "id": "grok-4-3",
       "name": "Grok 4.3",
       "price": {
@@ -48389,6 +48355,30 @@
       "release_date": "2026-03-09",
       "knowledge": null,
       "last_updated": "2026-03-09"
+    },
+    {
+      "platform": "llmgateway",
+      "id": "glm-5.2",
+      "name": "GLM-5.2",
+      "price": {
+        "input": 1.4,
+        "output": 4.4,
+        "cache_read": 0.26,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
     },
     {
       "platform": "llmgateway",
@@ -49984,6 +49974,55 @@
     },
     {
       "platform": "llmgateway",
+      "id": "gemma-4-26b-a4b-it",
+      "name": "Gemma 4 26B A4B IT",
+      "price": {
+        "input": 0.07,
+        "output": 0.34,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-02",
+      "knowledge": null,
+      "last_updated": "2026-04-02"
+    },
+    {
+      "platform": "llmgateway",
+      "id": "qwen3.5-9b",
+      "name": "Qwen3.5 9B",
+      "price": {
+        "input": 0.1,
+        "output": 0.15,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-02-23",
+      "knowledge": null,
+      "last_updated": "2026-02-23"
+    },
+    {
+      "platform": "llmgateway",
       "id": "qwq-plus",
       "name": "QwQ Plus",
       "price": {
@@ -50378,6 +50417,32 @@
       "release_date": "2025-07-28",
       "knowledge": "2025-04",
       "last_updated": "2025-07-28"
+    },
+    {
+      "platform": "llmgateway",
+      "id": "kimi-k2.7-code-highspeed",
+      "name": "Kimi K2.7 Code Highspeed",
+      "price": {
+        "input": 1.9,
+        "output": 8,
+        "cache_read": 0.38,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-12",
+      "knowledge": "2025-01",
+      "last_updated": "2026-06-12"
     },
     {
       "platform": "llmgateway",
@@ -88206,9 +88271,9 @@
       "id": "moonshotai/kimi-k2.7-code",
       "name": "Kimi K2.7 Code",
       "price": {
-        "input": 0.68,
-        "output": 3.41,
-        "cache_read": 0.144,
+        "input": 0.612,
+        "output": 3.069,
+        "cache_read": 0.1296,
         "cache_write": null
       },
       "limit": {
@@ -88280,14 +88345,14 @@
       "id": "moonshotai/kimi-k2.6",
       "name": "Kimi K2.6",
       "price": {
-        "input": 0.67,
+        "input": 0.66,
         "output": 3.5,
-        "cache_read": 0.2,
+        "cache_read": 0.33,
         "cache_write": null
       },
       "limit": {
-        "context": 262144,
-        "output": 262144
+        "context": 262142,
+        "output": 262142
       },
       "capabilities": [
         "text",
@@ -88728,8 +88793,8 @@
         "cache_write": null
       },
       "limit": {
-        "context": 65536,
-        "output": 65536
+        "context": 131072,
+        "output": 32768
       },
       "capabilities": [
         "text",
@@ -89538,12 +89603,12 @@
       "price": {
         "input": 0.98,
         "output": 3.08,
-        "cache_read": 0.182,
+        "cache_read": 0.49,
         "cache_write": null
       },
       "limit": {
         "context": 202752,
-        "output": 131072
+        "output": 65535
       },
       "capabilities": [
         "text",
@@ -92686,9 +92751,9 @@
       "id": "tencent/hy3-preview",
       "name": "Hy3 preview",
       "price": {
-        "input": 0.066,
-        "output": 0.26,
-        "cache_read": 0.029,
+        "input": 0.063,
+        "output": 0.21,
+        "cache_read": 0.021,
         "cache_write": null
       },
       "limit": {
@@ -93037,14 +93102,14 @@
       "id": "~moonshotai/kimi-latest",
       "name": "MoonshotAI Kimi Latest",
       "price": {
-        "input": 0.67,
+        "input": 0.66,
         "output": 3.5,
-        "cache_read": 0.2,
+        "cache_read": 0.33,
         "cache_write": null
       },
       "limit": {
-        "context": 262144,
-        "output": 262144
+        "context": 262142,
+        "output": 262142
       },
       "capabilities": [
         "text",
@@ -93170,14 +93235,14 @@
       "id": "arcee-ai/trinity-large-thinking",
       "name": "Trinity Large Thinking",
       "price": {
-        "input": 0.22,
-        "output": 0.85,
+        "input": 0.25,
+        "output": 0.8,
         "cache_read": 0.06,
         "cache_write": null
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 80000
       },
       "capabilities": [
         "text",
@@ -94410,7 +94475,7 @@
     {
       "platform": "openrouter",
       "id": "qwen/qwen3.5-9b",
-      "name": "Qwen3.5-9B",
+      "name": "Qwen3.5 9B",
       "price": {
         "input": 0.1,
         "output": 0.15,
@@ -94429,9 +94494,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-03-10",
+      "release_date": "2026-02-23",
       "knowledge": null,
-      "last_updated": "2026-03-10"
+      "last_updated": "2026-02-23"
     },
     {
       "platform": "openrouter",
@@ -99513,7 +99578,7 @@
     {
       "platform": "crof",
       "id": "deepseek-v4-pro-lightning",
-      "name": "DeepSeek V4 Pro",
+      "name": "DeepSeek V4 Pro Lightning",
       "price": {
         "input": 0.8,
         "output": 1.6,
@@ -125184,6 +125249,32 @@
       "release_date": "2026-05-12",
       "knowledge": "2026-05",
       "last_updated": "2026-06-02"
+    },
+    {
+      "platform": "claudinio",
+      "id": "claudius",
+      "name": "Claudius",
+      "price": {
+        "input": 3,
+        "output": 8,
+        "cache_read": 0.9,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 256000,
+        "output": 64000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-05-12",
+      "knowledge": "2026-05",
+      "last_updated": "2026-05-12"
     }
   ]
 }
