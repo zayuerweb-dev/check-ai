@@ -58,7 +58,7 @@
         "AI_GATEWAY_API_KEY"
       ],
       "api": null,
-      "models_count": 282
+      "models_count": 280
     },
     {
       "key": "submodel",
@@ -352,7 +352,7 @@
         "ZENMUX_API_KEY"
       ],
       "api": "https://zenmux.ai/api/v1",
-      "models_count": 110
+      "models_count": 112
     },
     {
       "key": "openai",
@@ -503,7 +503,7 @@
         "ZHIPU_API_KEY"
       ],
       "api": "https://api.z.ai/api/paas/v4",
-      "models_count": 13
+      "models_count": 14
     },
     {
       "key": "nearai",
@@ -10391,27 +10391,6 @@
     },
     {
       "platform": "vercel",
-      "id": "bytedance/seedance-v1.0-lite-t2v",
-      "name": "Seedance v1.0 Lite Text-to-Video",
-      "price": {
-        "input": null,
-        "output": null,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 0,
-        "output": 0
-      },
-      "capabilities": [
-        "text"
-      ],
-      "release_date": "2025-06-01",
-      "knowledge": null,
-      "last_updated": "2025-06-01"
-    },
-    {
-      "platform": "vercel",
       "id": "bytedance/seedance-v1.0-pro-fast",
       "name": "Seedance v1.0 Pro Fast",
       "price": {
@@ -10496,27 +10475,6 @@
       "release_date": "2025-09-01",
       "knowledge": "2024-10",
       "last_updated": "2025-10"
-    },
-    {
-      "platform": "vercel",
-      "id": "bytedance/seedance-v1.0-lite-i2v",
-      "name": "Seedance v1.0 Lite Image-to-Video",
-      "price": {
-        "input": null,
-        "output": null,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 0,
-        "output": 0
-      },
-      "capabilities": [
-        "text"
-      ],
-      "release_date": "2025-06-01",
-      "knowledge": null,
-      "last_updated": "2025-06-01"
     },
     {
       "platform": "vercel",
@@ -31245,6 +31203,30 @@
     },
     {
       "platform": "zenmux",
+      "id": "z-ai/glm-5.2",
+      "name": "GLM 5.2",
+      "price": {
+        "input": 1.4,
+        "output": 4.5,
+        "cache_read": 0.26,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
+    },
+    {
+      "platform": "zenmux",
       "id": "z-ai/glm-4.6v-flash-free",
       "name": "GLM 4.6V Flash (Free)",
       "price": {
@@ -31290,6 +31272,30 @@
       "release_date": "2026-01-19",
       "knowledge": "2025-01-01",
       "last_updated": "2026-01-19"
+    },
+    {
+      "platform": "zenmux",
+      "id": "z-ai/glm-5.2-free",
+      "name": "GLM 5.2 (Free)",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": 0,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
     },
     {
       "platform": "zenmux",
@@ -45374,6 +45380,30 @@
       "release_date": "2025-09-30",
       "knowledge": "2025-04",
       "last_updated": "2025-09-30"
+    },
+    {
+      "platform": "zai",
+      "id": "glm-5.2",
+      "name": "GLM-5.2",
+      "price": {
+        "input": 1.4,
+        "output": 4.4,
+        "cache_read": 0.26,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
     },
     {
       "platform": "zai",
@@ -88351,8 +88381,8 @@
         "cache_write": null
       },
       "limit": {
-        "context": 262142,
-        "output": 262142
+        "context": 262144,
+        "output": 65535
       },
       "capabilities": [
         "text",
@@ -89649,14 +89679,14 @@
       "id": "z-ai/glm-5.2",
       "name": "GLM-5.2",
       "price": {
-        "input": 1.2,
-        "output": 4.1,
-        "cache_read": 0.2,
+        "input": 1,
+        "output": 4,
+        "cache_read": 0.18,
         "cache_write": null
       },
       "limit": {
         "context": 1048576,
-        "output": 131072
+        "output": 32768
       },
       "capabilities": [
         "text",
@@ -92367,29 +92397,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "anthropic/claude-3.5-haiku",
-      "name": "Claude 3.5 Haiku",
-      "price": {
-        "input": 0.8,
-        "output": 4,
-        "cache_read": 0.08,
-        "cache_write": 1
-      },
-      "limit": {
-        "context": 200000,
-        "output": 8192
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools"
-      ],
-      "release_date": "2024-11-04",
-      "knowledge": "2024-07-31",
-      "last_updated": "2024-11-04"
-    },
-    {
-      "platform": "openrouter",
       "id": "anthropic/claude-sonnet-4.5",
       "name": "Claude Sonnet 4.5 (latest)",
       "price": {
@@ -93004,6 +93011,30 @@
     },
     {
       "platform": "openrouter",
+      "id": "nex-agi/nex-n2-pro",
+      "name": "Nex-N2-Pro",
+      "price": {
+        "input": 0.5,
+        "output": 2.5,
+        "cache_read": 0.25,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-08",
+      "knowledge": null,
+      "last_updated": "2026-06-08"
+    },
+    {
+      "platform": "openrouter",
       "id": "nex-agi/nex-n2-pro:free",
       "name": "Nex-N2-Pro (free)",
       "price": {
@@ -93014,7 +93045,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 256000
       },
       "capabilities": [
         "text",
@@ -93108,8 +93139,8 @@
         "cache_write": null
       },
       "limit": {
-        "context": 262142,
-        "output": 262142
+        "context": 262144,
+        "output": 65535
       },
       "capabilities": [
         "text",
