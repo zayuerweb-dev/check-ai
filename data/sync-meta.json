@@ -1,8 +1,8 @@
 {
   "source": "https://models.dev/api.json",
-  "fetched_at": "2026-06-27T08:30:59.698Z",
+  "fetched_at": "2026-06-28T08:45:50.108Z",
   "providers_count": 145,
-  "models_count": 5294,
+  "models_count": 5247,
   "raw_changed": true,
   "out_changed": true
 }
