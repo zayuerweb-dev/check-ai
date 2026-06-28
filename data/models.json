@@ -78,7 +78,7 @@
         "HF_TOKEN"
       ],
       "api": "https://router.huggingface.co/v1",
-      "models_count": 49
+      "models_count": 50
     },
     {
       "key": "minimax-coding-plan",
@@ -423,7 +423,7 @@
         "SILICONFLOW_CN_API_KEY"
       ],
       "api": "https://api.siliconflow.cn/v1",
-      "models_count": 75
+      "models_count": 47
     },
     {
       "key": "merge-gateway",
@@ -678,7 +678,7 @@
         "NVIDIA_API_KEY"
       ],
       "api": "https://integrate.api.nvidia.com/v1",
-      "models_count": 83
+      "models_count": 84
     },
     {
       "key": "evroc",
@@ -908,7 +908,7 @@
         "SILICONFLOW_API_KEY"
       ],
       "api": "https://api.siliconflow.com/v1",
-      "models_count": 70
+      "models_count": 49
     },
     {
       "key": "umans-ai-coding-plan",
@@ -3960,8 +3960,7 @@
         "vision",
         "audio",
         "video",
-        "tools",
-        "reasoning"
+        "tools"
       ],
       "release_date": "2025-12-19",
       "knowledge": null,
@@ -4038,8 +4037,7 @@
         "vision",
         "audio",
         "video",
-        "tools",
-        "reasoning"
+        "tools"
       ],
       "release_date": "2025-12-18",
       "knowledge": null,
@@ -8969,8 +8967,7 @@
       "capabilities": [
         "text",
         "vision",
-        "tools",
-        "reasoning"
+        "tools"
       ],
       "release_date": "2025-12-11",
       "knowledge": "2024-10",
@@ -9197,8 +9194,7 @@
       "capabilities": [
         "text",
         "vision",
-        "tools",
-        "reasoning"
+        "tools"
       ],
       "release_date": "2026-03-03",
       "knowledge": null,
@@ -9812,8 +9808,7 @@
       "capabilities": [
         "text",
         "vision",
-        "tools",
-        "reasoning"
+        "tools"
       ],
       "release_date": "2025-11-12",
       "knowledge": "2024-10",
@@ -11125,7 +11120,7 @@
         "vision",
         "tools"
       ],
-      "release_date": "2024-10-22",
+      "release_date": "2024-11-04",
       "knowledge": "2024-07-31",
       "last_updated": "2024-10-22"
     },
@@ -13347,8 +13342,7 @@
         "output": 8000
       },
       "capabilities": [
-        "text",
-        "reasoning"
+        "text"
       ],
       "release_date": "2025-12-01",
       "knowledge": "2024-07",
@@ -14493,6 +14487,30 @@
       "release_date": "2026-02-23",
       "knowledge": null,
       "last_updated": "2026-02-23"
+    },
+    {
+      "platform": "huggingface",
+      "id": "openai/gpt-oss-120b",
+      "name": "GPT OSS 120B",
+      "price": {
+        "input": 0.25,
+        "output": 0.69,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 131072,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2025-08-05",
+      "knowledge": null,
+      "last_updated": "2025-08-05"
     },
     {
       "platform": "huggingface",
@@ -22532,6 +22550,7 @@
       "capabilities": [
         "text",
         "tools",
+        "reasoning",
         "open"
       ],
       "release_date": "2025-08-05",
@@ -37694,51 +37713,6 @@
     },
     {
       "platform": "siliconflow-cn",
-      "id": "moonshotai/Kimi-K2-Instruct-0905",
-      "name": "moonshotai/Kimi-K2-Instruct-0905",
-      "price": {
-        "input": 0.4,
-        "output": 2,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262000,
-        "output": 262000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-09-08",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "moonshotai/Kimi-K2-Thinking",
-      "name": "moonshotai/Kimi-K2-Thinking",
-      "price": {
-        "input": 0.55,
-        "output": 2.5,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262000,
-        "output": 262000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-11-07",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
       "id": "baidu/ERNIE-4.5-300B-A47B",
       "name": "baidu/ERNIE-4.5-300B-A47B",
       "price": {
@@ -37828,51 +37802,6 @@
     },
     {
       "platform": "siliconflow-cn",
-      "id": "Pro/moonshotai/Kimi-K2-Thinking",
-      "name": "Pro/moonshotai/Kimi-K2-Thinking",
-      "price": {
-        "input": 0.55,
-        "output": 2.5,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262000,
-        "output": 262000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-11-07",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "Pro/moonshotai/Kimi-K2-Instruct-0905",
-      "name": "Pro/moonshotai/Kimi-K2-Instruct-0905",
-      "price": {
-        "input": 0.4,
-        "output": 2,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262000,
-        "output": 262000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-09-08",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
       "id": "Pro/moonshotai/Kimi-K2.6",
       "name": "Pro/moonshotai/Kimi-K2.6",
       "price": {
@@ -37944,29 +37873,6 @@
       "release_date": "2026-02-12",
       "knowledge": null,
       "last_updated": "2026-02-12"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "Pro/zai-org/GLM-4.7",
-      "name": "Pro/zai-org/GLM-4.7",
-      "price": {
-        "input": 0.6,
-        "output": 2.2,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 205000,
-        "output": 205000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-12-22",
-      "knowledge": null,
-      "last_updated": "2025-12-22"
     },
     {
       "platform": "siliconflow-cn",
@@ -38085,28 +37991,6 @@
     },
     {
       "platform": "siliconflow-cn",
-      "id": "Pro/MiniMaxAI/MiniMax-M2.1",
-      "name": "Pro/MiniMaxAI/MiniMax-M2.1",
-      "price": {
-        "input": 0.3,
-        "output": 1.2,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 197000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-12-23",
-      "knowledge": null,
-      "last_updated": "2025-12-23"
-    },
-    {
-      "platform": "siliconflow-cn",
       "id": "Pro/MiniMaxAI/MiniMax-M2.5",
       "name": "Pro/MiniMaxAI/MiniMax-M2.5",
       "price": {
@@ -38146,7 +38030,6 @@
         "vision",
         "video",
         "tools",
-        "reasoning",
         "open"
       ],
       "release_date": "2026-04-17",
@@ -38178,6 +38061,29 @@
       "release_date": "2026-02-16",
       "knowledge": "2025-04",
       "last_updated": "2026-02-16"
+    },
+    {
+      "platform": "siliconflow-cn",
+      "id": "Qwen/Qwen3-235B-A22B-Thinking-2507",
+      "name": "Qwen/Qwen3-235B-A22B-Thinking-2507",
+      "price": {
+        "input": 0.13,
+        "output": 0.6,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262000,
+        "output": 262000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-07-28",
+      "knowledge": null,
+      "last_updated": "2025-11-25"
     },
     {
       "platform": "siliconflow-cn",
@@ -38233,6 +38139,29 @@
     },
     {
       "platform": "siliconflow-cn",
+      "id": "Qwen/Qwen3-8B",
+      "name": "Qwen/Qwen3-8B",
+      "price": {
+        "input": 0.06,
+        "output": 0.06,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 131000,
+        "output": 131000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-04-30",
+      "knowledge": null,
+      "last_updated": "2025-11-25"
+    },
+    {
+      "platform": "siliconflow-cn",
       "id": "Qwen/Qwen3.5-4B",
       "name": "Qwen/Qwen3.5-4B",
       "price": {
@@ -38282,6 +38211,52 @@
       "release_date": "2026-03-03",
       "knowledge": "2025-04",
       "last_updated": "2026-03-03"
+    },
+    {
+      "platform": "siliconflow-cn",
+      "id": "Qwen/Qwen3-32B",
+      "name": "Qwen/Qwen3-32B",
+      "price": {
+        "input": 0.14,
+        "output": 0.57,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 131000,
+        "output": 131000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-04-30",
+      "knowledge": null,
+      "last_updated": "2025-11-25"
+    },
+    {
+      "platform": "siliconflow-cn",
+      "id": "Qwen/Qwen3-14B",
+      "name": "Qwen/Qwen3-14B",
+      "price": {
+        "input": 0.07,
+        "output": 0.28,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 131000,
+        "output": 131000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-04-30",
+      "knowledge": null,
+      "last_updated": "2025-11-25"
     },
     {
       "platform": "siliconflow-cn",
@@ -38358,79 +38333,11 @@
     },
     {
       "platform": "siliconflow-cn",
-      "id": "Qwen/Qwen3-Omni-30B-A3B-Instruct",
-      "name": "Qwen/Qwen3-Omni-30B-A3B-Instruct",
-      "price": {
-        "input": 0.1,
-        "output": 0.4,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 66000,
-        "output": 66000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "audio",
-        "tools"
-      ],
-      "release_date": "2025-10-04",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
       "id": "Qwen/Qwen2.5-72B-Instruct",
       "name": "Qwen/Qwen2.5-72B-Instruct",
       "price": {
         "input": 0.59,
         "output": 0.59,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 33000,
-        "output": 4000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2024-09-18",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "Qwen/Qwen3-14B",
-      "name": "Qwen/Qwen3-14B",
-      "price": {
-        "input": 0.07,
-        "output": 0.28,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-04-30",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "Qwen/Qwen2.5-14B-Instruct",
-      "name": "Qwen/Qwen2.5-14B-Instruct",
-      "price": {
-        "input": 0.1,
-        "output": 0.1,
         "cache_read": null,
         "cache_write": null
       },
@@ -38471,117 +38378,6 @@
     },
     {
       "platform": "siliconflow-cn",
-      "id": "Qwen/Qwen3-32B",
-      "name": "Qwen/Qwen3-32B",
-      "price": {
-        "input": 0.14,
-        "output": 0.57,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-04-30",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "Qwen/Qwen3-235B-A22B-Instruct-2507",
-      "name": "Qwen/Qwen3-235B-A22B-Instruct-2507",
-      "price": {
-        "input": 0.09,
-        "output": 0.6,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262000,
-        "output": 262000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-07-23",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "Qwen/Qwen3-8B",
-      "name": "Qwen/Qwen3-8B",
-      "price": {
-        "input": 0.06,
-        "output": 0.06,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-04-30",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "Qwen/Qwen2.5-Coder-32B-Instruct",
-      "name": "Qwen/Qwen2.5-Coder-32B-Instruct",
-      "price": {
-        "input": 0.18,
-        "output": 0.18,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 33000,
-        "output": 4000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2024-11-11",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "Qwen/Qwen3-Next-80B-A3B-Thinking",
-      "name": "Qwen/Qwen3-Next-80B-A3B-Thinking",
-      "price": {
-        "input": 0.14,
-        "output": 0.57,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262000,
-        "output": 262000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-09-25",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
       "id": "Qwen/Qwen3-VL-235B-A22B-Thinking",
       "name": "Qwen/Qwen3-VL-235B-A22B-Thinking",
       "price": {
@@ -38606,51 +38402,6 @@
     },
     {
       "platform": "siliconflow-cn",
-      "id": "Qwen/Qwen3-Omni-30B-A3B-Captioner",
-      "name": "Qwen/Qwen3-Omni-30B-A3B-Captioner",
-      "price": {
-        "input": 0.1,
-        "output": 0.4,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 66000,
-        "output": 66000
-      },
-      "capabilities": [
-        "audio",
-        "tools"
-      ],
-      "release_date": "2025-10-04",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "Qwen/QwQ-32B",
-      "name": "Qwen/QwQ-32B",
-      "price": {
-        "input": 0.15,
-        "output": 0.58,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-03-06",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
       "id": "Qwen/Qwen3-VL-8B-Instruct",
       "name": "Qwen/Qwen3-VL-8B-Instruct",
       "price": {
@@ -38667,30 +38418,6 @@
         "text",
         "vision",
         "tools"
-      ],
-      "release_date": "2025-10-15",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "Qwen/Qwen3-VL-8B-Thinking",
-      "name": "Qwen/Qwen3-VL-8B-Thinking",
-      "price": {
-        "input": 0.18,
-        "output": 2,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262000,
-        "output": 262000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "reasoning"
       ],
       "release_date": "2025-10-15",
       "knowledge": null,
@@ -38788,95 +38515,6 @@
     },
     {
       "platform": "siliconflow-cn",
-      "id": "Qwen/Qwen2.5-72B-Instruct-128K",
-      "name": "Qwen/Qwen2.5-72B-Instruct-128K",
-      "price": {
-        "input": 0.59,
-        "output": 0.59,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 4000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2024-09-18",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "Qwen/Qwen3-235B-A22B-Thinking-2507",
-      "name": "Qwen/Qwen3-235B-A22B-Thinking-2507",
-      "price": {
-        "input": 0.13,
-        "output": 0.6,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262000,
-        "output": 262000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-07-28",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "Qwen/Qwen3-Next-80B-A3B-Instruct",
-      "name": "Qwen/Qwen3-Next-80B-A3B-Instruct",
-      "price": {
-        "input": 0.14,
-        "output": 1.4,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262000,
-        "output": 262000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-09-18",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "Qwen/Qwen2.5-32B-Instruct",
-      "name": "Qwen/Qwen2.5-32B-Instruct",
-      "price": {
-        "input": 0.18,
-        "output": 0.18,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 33000,
-        "output": 4000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2024-09-19",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
       "id": "Qwen/Qwen3-VL-235B-A22B-Instruct",
       "name": "Qwen/Qwen3-VL-235B-A22B-Instruct",
       "price": {
@@ -38917,100 +38555,6 @@
         "tools"
       ],
       "release_date": "2024-09-18",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "Qwen/Qwen3-30B-A3B-Thinking-2507",
-      "name": "Qwen/Qwen3-30B-A3B-Thinking-2507",
-      "price": {
-        "input": 0.09,
-        "output": 0.3,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-07-31",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "Qwen/Qwen2.5-VL-32B-Instruct",
-      "name": "Qwen/Qwen2.5-VL-32B-Instruct",
-      "price": {
-        "input": 0.27,
-        "output": 0.27,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools"
-      ],
-      "release_date": "2025-03-24",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "Qwen/Qwen2.5-VL-72B-Instruct",
-      "name": "Qwen/Qwen2.5-VL-72B-Instruct",
-      "price": {
-        "input": 0.59,
-        "output": 0.59,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 4000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools"
-      ],
-      "release_date": "2025-01-28",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "Qwen/Qwen3-Omni-30B-A3B-Thinking",
-      "name": "Qwen/Qwen3-Omni-30B-A3B-Thinking",
-      "price": {
-        "input": 0.1,
-        "output": 0.4,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 66000,
-        "output": 66000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "audio",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-10-04",
       "knowledge": null,
       "last_updated": "2025-11-25"
     },
@@ -39071,8 +38615,8 @@
         "cache_write": 0
       },
       "limit": {
-        "context": 205000,
-        "output": 205000
+        "context": 1049000,
+        "output": 262000
       },
       "capabilities": [
         "text",
@@ -39108,70 +38652,47 @@
     },
     {
       "platform": "siliconflow-cn",
-      "id": "zai-org/GLM-4.5V",
-      "name": "zai-org/GLM-4.5V",
+      "id": "deepseek-ai/DeepSeek-R1",
+      "name": "deepseek-ai/DeepSeek-R1",
       "price": {
-        "input": 0.14,
-        "output": 0.86,
+        "input": 0.5,
+        "output": 2.18,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 66000,
-        "output": 66000
+        "context": 164000,
+        "output": 164000
       },
       "capabilities": [
         "text",
-        "vision",
-        "tools"
+        "tools",
+        "reasoning"
       ],
-      "release_date": "2025-08-13",
+      "release_date": "2025-05-28",
       "knowledge": null,
       "last_updated": "2025-11-25"
     },
     {
       "platform": "siliconflow-cn",
-      "id": "zai-org/GLM-4.6V",
-      "name": "zai-org/GLM-4.6V",
+      "id": "deepseek-ai/DeepSeek-V3.1-Terminus",
+      "name": "deepseek-ai/DeepSeek-V3.1-Terminus",
       "price": {
-        "input": 0.3,
-        "output": 0.9,
+        "input": 0.27,
+        "output": 1,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 131000,
-        "output": 131000
+        "context": 164000,
+        "output": 164000
       },
       "capabilities": [
         "text",
-        "vision",
         "tools",
         "reasoning"
       ],
-      "release_date": "2025-12-07",
-      "knowledge": null,
-      "last_updated": "2025-12-07"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "zai-org/GLM-4.6",
-      "name": "zai-org/GLM-4.6",
-      "price": {
-        "input": 0.5,
-        "output": 1.9,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 205000,
-        "output": 205000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-10-04",
+      "release_date": "2025-09-29",
       "knowledge": null,
       "last_updated": "2025-11-25"
     },
@@ -39225,74 +38746,6 @@
     },
     {
       "platform": "siliconflow-cn",
-      "id": "deepseek-ai/DeepSeek-OCR",
-      "name": "deepseek-ai/DeepSeek-OCR",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 8192,
-        "output": 8192
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "open"
-      ],
-      "release_date": "2025-10-20",
-      "knowledge": null,
-      "last_updated": "2025-10-20"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
-      "name": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
-      "price": {
-        "input": 0.1,
-        "output": 0.1,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-01-20",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "deepseek-ai/DeepSeek-V3",
-      "name": "deepseek-ai/DeepSeek-V3",
-      "price": {
-        "input": 0.25,
-        "output": 1,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 164000,
-        "output": 164000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2024-12-26",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
       "id": "deepseek-ai/DeepSeek-V3.2",
       "name": "deepseek-ai/DeepSeek-V3.2",
       "price": {
@@ -39316,33 +38769,33 @@
     },
     {
       "platform": "siliconflow-cn",
-      "id": "deepseek-ai/deepseek-vl2",
-      "name": "deepseek-ai/deepseek-vl2",
+      "id": "deepseek-ai/DeepSeek-OCR",
+      "name": "deepseek-ai/DeepSeek-OCR",
       "price": {
-        "input": 0.15,
-        "output": 0.15,
+        "input": 0,
+        "output": 0,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 4000,
-        "output": 4000
+        "context": 8192,
+        "output": 8192
       },
       "capabilities": [
         "text",
         "vision",
-        "tools"
+        "open"
       ],
-      "release_date": "2024-12-13",
+      "release_date": "2025-10-20",
       "knowledge": null,
-      "last_updated": "2025-11-25"
+      "last_updated": "2025-10-20"
     },
     {
       "platform": "siliconflow-cn",
-      "id": "deepseek-ai/DeepSeek-V3.1-Terminus",
-      "name": "deepseek-ai/DeepSeek-V3.1-Terminus",
+      "id": "deepseek-ai/DeepSeek-V3",
+      "name": "deepseek-ai/DeepSeek-V3",
       "price": {
-        "input": 0.27,
+        "input": 0.25,
         "output": 1,
         "cache_read": null,
         "cache_write": null
@@ -39353,80 +38806,11 @@
       },
       "capabilities": [
         "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-09-29",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
-      "name": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
-      "price": {
-        "input": 0.18,
-        "output": 0.18,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-01-20",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "deepseek-ai/DeepSeek-R1",
-      "name": "deepseek-ai/DeepSeek-R1",
-      "price": {
-        "input": 0.5,
-        "output": 2.18,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 164000,
-        "output": 164000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-05-28",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow-cn",
-      "id": "Kwaipilot/KAT-Dev",
-      "name": "Kwaipilot/KAT-Dev",
-      "price": {
-        "input": 0.2,
-        "output": 0.6,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 128000,
-        "output": 128000
-      },
-      "capabilities": [
-        "text",
         "tools"
       ],
-      "release_date": "2025-09-27",
+      "release_date": "2024-12-26",
       "knowledge": null,
-      "last_updated": "2026-01-16"
+      "last_updated": "2025-11-25"
     },
     {
       "platform": "merge-gateway",
@@ -60989,6 +60373,32 @@
     },
     {
       "platform": "nvidia",
+      "id": "minimaxai/minimax-m3",
+      "name": "MiniMax-M3",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 16384
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-01",
+      "knowledge": null,
+      "last_updated": "2026-06-01"
+    },
+    {
+      "platform": "nvidia",
       "id": "minimaxai/minimax-m2.7",
       "name": "MiniMax-M2.7",
       "price": {
@@ -72176,73 +71586,6 @@
     },
     {
       "platform": "siliconflow",
-      "id": "moonshotai/Kimi-K2-Thinking",
-      "name": "moonshotai/Kimi-K2-Thinking",
-      "price": {
-        "input": 0.55,
-        "output": 2.5,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262000,
-        "output": 262000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-11-07",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "moonshotai/Kimi-K2-Instruct-0905",
-      "name": "moonshotai/Kimi-K2-Instruct-0905",
-      "price": {
-        "input": 0.4,
-        "output": 2,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262000,
-        "output": 262000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-09-08",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "moonshotai/Kimi-K2-Instruct",
-      "name": "moonshotai/Kimi-K2-Instruct",
-      "price": {
-        "input": 0.58,
-        "output": 2.29,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-07-13",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
       "id": "moonshotai/Kimi-K2.6",
       "name": "moonshotai/Kimi-K2.6",
       "price": {
@@ -72426,97 +71769,25 @@
     },
     {
       "platform": "siliconflow",
-      "id": "Qwen/Qwen3-Omni-30B-A3B-Thinking",
-      "name": "Qwen/Qwen3-Omni-30B-A3B-Thinking",
+      "id": "Qwen/Qwen3.6-35B-A3B",
+      "name": "Qwen3.6 35B-A3B",
       "price": {
-        "input": 0.1,
-        "output": 0.4,
+        "input": 0.2,
+        "output": 1.6,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 66000,
-        "output": 66000
+        "context": 262144,
+        "output": 262144
       },
       "capabilities": [
         "text",
-        "vision",
-        "audio",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-10-04",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "Qwen/Qwen2.5-VL-72B-Instruct",
-      "name": "Qwen/Qwen2.5-VL-72B-Instruct",
-      "price": {
-        "input": 0.59,
-        "output": 0.59,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 4000
-      },
-      "capabilities": [
-        "text",
-        "vision",
         "tools"
       ],
-      "release_date": "2025-01-28",
+      "release_date": "2026-04-17",
       "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "Qwen/Qwen2.5-VL-32B-Instruct",
-      "name": "Qwen/Qwen2.5-VL-32B-Instruct",
-      "price": {
-        "input": 0.27,
-        "output": 0.27,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools"
-      ],
-      "release_date": "2025-03-24",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "Qwen/Qwen3-30B-A3B-Thinking-2507",
-      "name": "Qwen/Qwen3-30B-A3B-Thinking-2507",
-      "price": {
-        "input": 0.09,
-        "output": 0.3,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-07-31",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
+      "last_updated": "2026-04-17"
     },
     {
       "platform": "siliconflow",
@@ -72565,47 +71836,47 @@
     },
     {
       "platform": "siliconflow",
-      "id": "Qwen/Qwen2.5-32B-Instruct",
-      "name": "Qwen/Qwen2.5-32B-Instruct",
+      "id": "Qwen/Qwen3.6-27B",
+      "name": "Qwen3.6 27B",
       "price": {
-        "input": 0.18,
-        "output": 0.18,
+        "input": 0.3,
+        "output": 3.2,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 33000,
-        "output": 4000
+        "context": 262144,
+        "output": 262144
       },
       "capabilities": [
         "text",
         "tools"
       ],
-      "release_date": "2024-09-19",
+      "release_date": "2026-04-22",
       "knowledge": null,
-      "last_updated": "2025-11-25"
+      "last_updated": "2026-04-22"
     },
     {
       "platform": "siliconflow",
-      "id": "Qwen/Qwen3-Next-80B-A3B-Instruct",
-      "name": "Qwen/Qwen3-Next-80B-A3B-Instruct",
+      "id": "Qwen/Qwen3.5-397B-A17B",
+      "name": "Qwen3.5 397B-A17B",
       "price": {
-        "input": 0.14,
-        "output": 1.4,
+        "input": 0.39,
+        "output": 2.34,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 262000,
-        "output": 262000
+        "context": 262144,
+        "output": 262144
       },
       "capabilities": [
         "text",
         "tools"
       ],
-      "release_date": "2025-09-18",
+      "release_date": "2026-02-15",
       "knowledge": null,
-      "last_updated": "2025-11-25"
+      "last_updated": "2026-02-15"
     },
     {
       "platform": "siliconflow",
@@ -72627,28 +71898,6 @@
         "reasoning"
       ],
       "release_date": "2025-07-28",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "Qwen/Qwen2.5-72B-Instruct-128K",
-      "name": "Qwen/Qwen2.5-72B-Instruct-128K",
-      "price": {
-        "input": 0.59,
-        "output": 0.59,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 4000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2024-09-18",
       "knowledge": null,
       "last_updated": "2025-11-25"
     },
@@ -72676,6 +71925,28 @@
     },
     {
       "platform": "siliconflow",
+      "id": "Qwen/Qwen3.5-122B-A10B",
+      "name": "Qwen3.5 122B-A10B",
+      "price": {
+        "input": 0.26,
+        "output": 2.08,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "tools"
+      ],
+      "release_date": "2026-02-23",
+      "knowledge": null,
+      "last_updated": "2026-02-23"
+    },
+    {
+      "platform": "siliconflow",
       "id": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
       "name": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
       "price": {
@@ -72695,6 +71966,28 @@
       "release_date": "2025-08-01",
       "knowledge": null,
       "last_updated": "2025-11-25"
+    },
+    {
+      "platform": "siliconflow",
+      "id": "Qwen/Qwen3.5-27B",
+      "name": "Qwen3.5 27B",
+      "price": {
+        "input": 0.25,
+        "output": 2,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "tools"
+      ],
+      "release_date": "2026-02-23",
+      "knowledge": null,
+      "last_updated": "2026-02-23"
     },
     {
       "platform": "siliconflow",
@@ -72744,30 +72037,6 @@
     },
     {
       "platform": "siliconflow",
-      "id": "Qwen/Qwen3-VL-8B-Thinking",
-      "name": "Qwen/Qwen3-VL-8B-Thinking",
-      "price": {
-        "input": 0.18,
-        "output": 2,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262000,
-        "output": 262000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-10-15",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
       "id": "Qwen/Qwen3-VL-8B-Instruct",
       "name": "Qwen/Qwen3-VL-8B-Instruct",
       "price": {
@@ -72786,51 +72055,6 @@
         "tools"
       ],
       "release_date": "2025-10-15",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "Qwen/QwQ-32B",
-      "name": "Qwen/QwQ-32B",
-      "price": {
-        "input": 0.15,
-        "output": 0.58,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-03-06",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "Qwen/Qwen3-Omni-30B-A3B-Captioner",
-      "name": "Qwen/Qwen3-Omni-30B-A3B-Captioner",
-      "price": {
-        "input": 0.1,
-        "output": 0.4,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 66000,
-        "output": 66000
-      },
-      "capabilities": [
-        "audio",
-        "tools"
-      ],
-      "release_date": "2025-10-04",
       "knowledge": null,
       "last_updated": "2025-11-25"
     },
@@ -72860,74 +72084,6 @@
     },
     {
       "platform": "siliconflow",
-      "id": "Qwen/Qwen3-Next-80B-A3B-Thinking",
-      "name": "Qwen/Qwen3-Next-80B-A3B-Thinking",
-      "price": {
-        "input": 0.14,
-        "output": 0.57,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262000,
-        "output": 262000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-09-25",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "Qwen/Qwen2.5-Coder-32B-Instruct",
-      "name": "Qwen/Qwen2.5-Coder-32B-Instruct",
-      "price": {
-        "input": 0.18,
-        "output": 0.18,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 33000,
-        "output": 4000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2024-11-11",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "Qwen/Qwen2.5-VL-7B-Instruct",
-      "name": "Qwen/Qwen2.5-VL-7B-Instruct",
-      "price": {
-        "input": 0.05,
-        "output": 0.05,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 33000,
-        "output": 4000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools"
-      ],
-      "release_date": "2025-01-28",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
       "id": "Qwen/Qwen3-8B",
       "name": "Qwen/Qwen3-8B",
       "price": {
@@ -72942,7 +72098,8 @@
       },
       "capabilities": [
         "text",
-        "tools"
+        "tools",
+        "reasoning"
       ],
       "release_date": "2025-04-30",
       "knowledge": null,
@@ -72950,25 +72107,25 @@
     },
     {
       "platform": "siliconflow",
-      "id": "Qwen/Qwen3-235B-A22B-Instruct-2507",
-      "name": "Qwen/Qwen3-235B-A22B-Instruct-2507",
+      "id": "Qwen/Qwen3.5-9B",
+      "name": "Qwen/Qwen3.5-9B",
       "price": {
-        "input": 0.09,
-        "output": 0.6,
+        "input": 0.1,
+        "output": 0.15,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 262000,
-        "output": 262000
+        "context": 262144,
+        "output": 262144
       },
       "capabilities": [
         "text",
         "tools"
       ],
-      "release_date": "2025-07-23",
+      "release_date": "2026-03-03",
       "knowledge": null,
-      "last_updated": "2025-11-25"
+      "last_updated": "2026-04-24"
     },
     {
       "platform": "siliconflow",
@@ -72986,7 +72143,8 @@
       },
       "capabilities": [
         "text",
-        "tools"
+        "tools",
+        "reasoning"
       ],
       "release_date": "2025-04-30",
       "knowledge": null,
@@ -73017,28 +72175,6 @@
     },
     {
       "platform": "siliconflow",
-      "id": "Qwen/Qwen2.5-14B-Instruct",
-      "name": "Qwen/Qwen2.5-14B-Instruct",
-      "price": {
-        "input": 0.1,
-        "output": 0.1,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 33000,
-        "output": 4000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2024-09-18",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
       "id": "Qwen/Qwen3-14B",
       "name": "Qwen/Qwen3-14B",
       "price": {
@@ -73053,29 +72189,8 @@
       },
       "capabilities": [
         "text",
-        "tools"
-      ],
-      "release_date": "2025-04-30",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "Qwen/Qwen3-235B-A22B",
-      "name": "Qwen/Qwen3-235B-A22B",
-      "price": {
-        "input": 0.35,
-        "output": 1.42,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools"
+        "tools",
+        "reasoning"
       ],
       "release_date": "2025-04-30",
       "knowledge": null,
@@ -73100,30 +72215,6 @@
         "tools"
       ],
       "release_date": "2024-09-18",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "Qwen/Qwen3-Omni-30B-A3B-Instruct",
-      "name": "Qwen/Qwen3-Omni-30B-A3B-Instruct",
-      "price": {
-        "input": 0.1,
-        "output": 0.4,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 66000,
-        "output": 66000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "audio",
-        "tools"
-      ],
-      "release_date": "2025-10-04",
       "knowledge": null,
       "last_updated": "2025-11-25"
     },
@@ -73173,6 +72264,28 @@
       "release_date": "2025-10-21",
       "knowledge": null,
       "last_updated": "2025-11-25"
+    },
+    {
+      "platform": "siliconflow",
+      "id": "Qwen/Qwen3.5-35B-A3B",
+      "name": "Qwen3.5 35B-A3B",
+      "price": {
+        "input": 0.24,
+        "output": 1.8,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "tools"
+      ],
+      "release_date": "2026-02-23",
+      "knowledge": null,
+      "last_updated": "2026-02-23"
     },
     {
       "platform": "siliconflow",
@@ -73291,52 +72404,6 @@
     },
     {
       "platform": "siliconflow",
-      "id": "zai-org/GLM-4.6",
-      "name": "zai-org/GLM-4.6",
-      "price": {
-        "input": 0.5,
-        "output": 1.9,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 205000,
-        "output": 205000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-10-04",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "zai-org/GLM-4.6V",
-      "name": "zai-org/GLM-4.6V",
-      "price": {
-        "input": 0.3,
-        "output": 0.9,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-12-07",
-      "knowledge": null,
-      "last_updated": "2025-12-07"
-    },
-    {
-      "platform": "siliconflow",
       "id": "zai-org/GLM-5",
       "name": "zai-org/GLM-5",
       "price": {
@@ -73361,52 +72428,6 @@
     },
     {
       "platform": "siliconflow",
-      "id": "zai-org/GLM-4.7",
-      "name": "zai-org/GLM-4.7",
-      "price": {
-        "input": 0.6,
-        "output": 2.2,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 205000,
-        "output": 205000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-12-22",
-      "knowledge": null,
-      "last_updated": "2025-12-22"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "zai-org/GLM-4.5V",
-      "name": "zai-org/GLM-4.5V",
-      "price": {
-        "input": 0.14,
-        "output": 0.86,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 66000,
-        "output": 66000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools"
-      ],
-      "release_date": "2025-08-13",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
       "id": "zai-org/GLM-5.2",
       "name": "GLM-5.2",
       "price": {
@@ -73416,8 +72437,8 @@
         "cache_write": 0
       },
       "limit": {
-        "context": 205000,
-        "output": 205000
+        "context": 1049000,
+        "output": 262000
       },
       "capabilities": [
         "text",
@@ -73477,52 +72498,6 @@
     },
     {
       "platform": "siliconflow",
-      "id": "zai-org/GLM-4.5",
-      "name": "zai-org/GLM-4.5",
-      "price": {
-        "input": 0.4,
-        "output": 2,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-07-28",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "deepseek-ai/deepseek-v4-flash",
-      "name": "DeepSeek V4 Flash",
-      "price": {
-        "input": 0.14,
-        "output": 0.28,
-        "cache_read": 0.028,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 1000000,
-        "output": 384000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-24",
-      "knowledge": "2025-05",
-      "last_updated": "2026-04-24"
-    },
-    {
-      "platform": "siliconflow",
       "id": "deepseek-ai/DeepSeek-R1",
       "name": "deepseek-ai/DeepSeek-R1",
       "price": {
@@ -73541,29 +72516,6 @@
         "reasoning"
       ],
       "release_date": "2025-05-28",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
-      "name": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
-      "price": {
-        "input": 0.18,
-        "output": 0.18,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-01-20",
       "knowledge": null,
       "last_updated": "2025-11-25"
     },
@@ -73589,30 +72541,6 @@
       "release_date": "2025-09-29",
       "knowledge": null,
       "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "deepseek-ai/deepseek-v4-pro",
-      "name": "DeepSeek V4 Pro",
-      "price": {
-        "input": 1.74,
-        "output": 3.48,
-        "cache_read": 0.145,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 1000000,
-        "output": 384000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-24",
-      "knowledge": "2025-05",
-      "last_updated": "2026-04-24"
     },
     {
       "platform": "siliconflow",
@@ -73662,26 +72590,51 @@
     },
     {
       "platform": "siliconflow",
-      "id": "deepseek-ai/deepseek-vl2",
-      "name": "deepseek-ai/deepseek-vl2",
+      "id": "deepseek-ai/DeepSeek-V4-Flash",
+      "name": "DeepSeek V4 Flash",
       "price": {
-        "input": 0.15,
-        "output": 0.15,
-        "cache_read": null,
+        "input": 0.14,
+        "output": 0.28,
+        "cache_read": 0.028,
         "cache_write": null
       },
       "limit": {
-        "context": 4000,
-        "output": 4000
+        "context": 1000000,
+        "output": 384000
       },
       "capabilities": [
         "text",
-        "vision",
-        "tools"
+        "tools",
+        "reasoning",
+        "open"
       ],
-      "release_date": "2024-12-13",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
+      "release_date": "2026-04-24",
+      "knowledge": "2025-05",
+      "last_updated": "2026-04-24"
+    },
+    {
+      "platform": "siliconflow",
+      "id": "deepseek-ai/DeepSeek-V4-Pro",
+      "name": "DeepSeek V4 Pro",
+      "price": {
+        "input": 1.74,
+        "output": 3.48,
+        "cache_read": 0.145,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 384000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-24",
+      "knowledge": "2025-05",
+      "last_updated": "2026-04-24"
     },
     {
       "platform": "siliconflow",
@@ -73725,29 +72678,6 @@
         "tools"
       ],
       "release_date": "2024-12-26",
-      "knowledge": null,
-      "last_updated": "2025-11-25"
-    },
-    {
-      "platform": "siliconflow",
-      "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
-      "name": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
-      "price": {
-        "input": 0.1,
-        "output": 0.1,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-01-20",
       "knowledge": null,
       "last_updated": "2025-11-25"
     },
@@ -74944,6 +73874,7 @@
       "capabilities": [
         "text",
         "tools",
+        "reasoning",
         "open"
       ],
       "release_date": "2024-01-01",
@@ -75706,7 +74637,6 @@
         "text",
         "vision",
         "tools",
-        "reasoning",
         "open"
       ],
       "release_date": "2025-01-31",
@@ -75730,7 +74660,6 @@
       "capabilities": [
         "text",
         "tools",
-        "reasoning",
         "open"
       ],
       "release_date": "2024-12-06",
@@ -75777,7 +74706,6 @@
       "capabilities": [
         "text",
         "tools",
-        "reasoning",
         "open"
       ],
       "release_date": "2024-07-23",
@@ -75826,7 +74754,6 @@
       "capabilities": [
         "text",
         "tools",
-        "reasoning",
         "open"
       ],
       "release_date": "2024-12-11",
@@ -75942,7 +74869,8 @@
       },
       "capabilities": [
         "text",
-        "tools"
+        "tools",
+        "reasoning"
       ],
       "release_date": "2025-08-05",
       "knowledge": null,
@@ -75964,7 +74892,8 @@
       },
       "capabilities": [
         "text",
-        "tools"
+        "tools",
+        "reasoning"
       ],
       "release_date": "2025-08-05",
       "knowledge": null,
@@ -75987,6 +74916,7 @@
       "capabilities": [
         "text",
         "tools",
+        "reasoning",
         "open"
       ],
       "release_date": "2026-03-11",
@@ -76103,6 +75033,7 @@
       "capabilities": [
         "text",
         "tools",
+        "reasoning",
         "open"
       ],
       "release_date": "2026-02-12",
@@ -77368,8 +76299,7 @@
       },
       "capabilities": [
         "text",
-        "vision",
-        "reasoning"
+        "vision"
       ],
       "release_date": "2026-04-20",
       "knowledge": null,
@@ -84150,7 +83080,6 @@
       "capabilities": [
         "text",
         "tools",
-        "reasoning",
         "open"
       ],
       "release_date": "2025-03-24",
@@ -91752,7 +90681,7 @@
         "open"
       ],
       "release_date": "2025-08-05",
-      "knowledge": "2024-06-30",
+      "knowledge": null,
       "last_updated": "2025-08-05"
     },
     {
@@ -91946,7 +90875,7 @@
     {
       "platform": "openrouter",
       "id": "openai/gpt-oss-120b",
-      "name": "gpt-oss-120b",
+      "name": "GPT OSS 120B",
       "price": {
         "input": 0.03,
         "output": 0.15,
@@ -91964,7 +90893,7 @@
         "open"
       ],
       "release_date": "2025-08-05",
-      "knowledge": "2024-06-30",
+      "knowledge": null,
       "last_updated": "2025-08-05"
     },
     {
@@ -95742,8 +94671,8 @@
       "id": "qwen/qwen3.6-27b",
       "name": "Qwen3.6 27B",
       "price": {
-        "input": 0.2885,
-        "output": 2.65,
+        "input": 0.2596,
+        "output": 2.385,
         "cache_read": null,
         "cache_write": null
       },
@@ -100824,6 +99753,7 @@
       "capabilities": [
         "text",
         "tools",
+        "reasoning",
         "open"
       ],
       "release_date": "2026-02-12",
