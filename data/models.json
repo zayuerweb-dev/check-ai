@@ -325,6 +325,16 @@
       "models_count": 80
     },
     {
+      "key": "subconscious",
+      "name": "Subconscious",
+      "doc": "https://docs.subconscious.dev",
+      "env": [
+        "SUBCONSCIOUS_API_KEY"
+      ],
+      "api": "https://api.subconscious.dev/v1",
+      "models_count": 1
+    },
+    {
       "key": "venice",
       "name": "Venice AI",
       "doc": "https://docs.venice.ai",
@@ -533,7 +543,7 @@
         "LLMGATEWAY_API_KEY"
       ],
       "api": "https://api.llmgateway.io/v1",
-      "models_count": 182
+      "models_count": 180
     },
     {
       "key": "alibaba-coding-plan-cn",
@@ -1121,7 +1131,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 338
+      "models_count": 337
     },
     {
       "key": "jiekou",
@@ -1436,7 +1446,7 @@
         "SYNTHETIC_API_KEY"
       ],
       "api": "https://api.synthetic.new/openai/v1",
-      "models_count": 8
+      "models_count": 10
     },
     {
       "key": "iflowcn",
@@ -15193,9 +15203,9 @@
       "id": "inclusionai/ling-2.6-1t",
       "name": "Ling-2.6-1T",
       "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
+        "input": 0.3,
+        "output": 2.5,
+        "cache_read": 0.06,
         "cache_write": null
       },
       "limit": {
@@ -15209,7 +15219,7 @@
       ],
       "release_date": "2026-04-23",
       "knowledge": null,
-      "last_updated": "2026-04-23"
+      "last_updated": "2026-06-29"
     },
     {
       "platform": "novita-ai",
@@ -15444,7 +15454,7 @@
       "price": {
         "input": 0.6,
         "output": 2.5,
-        "cache_read": null,
+        "cache_read": 0.15,
         "cache_write": null
       },
       "limit": {
@@ -15459,7 +15469,7 @@
       ],
       "release_date": "2025-11-07",
       "knowledge": null,
-      "last_updated": "2025-11-07"
+      "last_updated": "2026-06-29"
     },
     {
       "platform": "novita-ai",
@@ -29632,6 +29642,29 @@
       "last_updated": "2026-04-16"
     },
     {
+      "platform": "subconscious",
+      "id": "subconscious/tim-qwen3.6-27b",
+      "name": "TIM-Qwen3.6 27B",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 8192,
+        "output": 5000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-05-11",
+      "knowledge": null,
+      "last_updated": "2026-05-11"
+    },
+    {
       "platform": "venice",
       "id": "z-ai-glm-5-turbo",
       "name": "GLM 5 Turbo",
@@ -41868,7 +41901,7 @@
       "price": {
         "input": 0.075,
         "output": 0.3,
-        "cache_read": 0.037,
+        "cache_read": null,
         "cache_write": null
       },
       "limit": {
@@ -41883,7 +41916,7 @@
       ],
       "release_date": "2025-10-29",
       "knowledge": null,
-      "last_updated": "2025-10-29"
+      "last_updated": "2026-06-29"
     },
     {
       "platform": "groq",
@@ -49521,29 +49554,6 @@
     },
     {
       "platform": "llmgateway",
-      "id": "glm-4.7-flash-free",
-      "name": "GLM-4.7 Flash (Free)",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 200000,
-        "output": 200000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-12-22",
-      "knowledge": null,
-      "last_updated": "2025-12-22"
-    },
-    {
-      "platform": "llmgateway",
       "id": "gpt-5.3-chat-latest",
       "name": "GPT-5.3 Chat (latest)",
       "price": {
@@ -50248,6 +50258,29 @@
         "vision",
         "tools",
         "reasoning"
+      ],
+      "release_date": "2025-10-15",
+      "knowledge": "2025-02-28",
+      "last_updated": "2025-10-15"
+    },
+    {
+      "platform": "llmgateway",
+      "id": "claude-haiku-4-5-free",
+      "name": "Claude Haiku 4.5 (latest)",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 200000,
+        "output": 200000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools"
       ],
       "release_date": "2025-10-15",
       "knowledge": "2025-02-28",
@@ -50967,31 +51000,6 @@
     },
     {
       "platform": "llmgateway",
-      "id": "glm-4.6v-flash",
-      "name": "GLM-4.6V Flash",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 128000,
-        "output": 16000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-12-08",
-      "knowledge": null,
-      "last_updated": "2025-12-08"
-    },
-    {
-      "platform": "llmgateway",
       "id": "glm-4.5-air",
       "name": "GLM-4.5-Air",
       "price": {
@@ -51298,29 +51306,6 @@
       "release_date": "2025-08-05",
       "knowledge": null,
       "last_updated": "2025-08-05"
-    },
-    {
-      "platform": "llmgateway",
-      "id": "glm-4.5-flash",
-      "name": "GLM-4.5-Flash",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": 0,
-        "cache_write": 0
-      },
-      "limit": {
-        "context": 128000,
-        "output": 98304
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-07-28",
-      "knowledge": "2025-04",
-      "last_updated": "2025-07-28"
     },
     {
       "platform": "llmgateway",
@@ -62698,9 +62683,9 @@
       "id": "mimo-v2.5",
       "name": "MiMo-V2.5",
       "price": {
-        "input": 0.4,
-        "output": 2,
-        "cache_read": 0.08,
+        "input": 0.14,
+        "output": 0.28,
+        "cache_read": 0.0028,
         "cache_write": null
       },
       "limit": {
@@ -62718,16 +62703,16 @@
       ],
       "release_date": "2026-04-22",
       "knowledge": "2024-12",
-      "last_updated": "2026-04-22"
+      "last_updated": "2026-06-24"
     },
     {
       "platform": "xiaomi",
       "id": "mimo-v2-omni",
       "name": "MiMo-V2-Omni",
       "price": {
-        "input": 0.4,
-        "output": 2,
-        "cache_read": 0.08,
+        "input": 0.14,
+        "output": 0.28,
+        "cache_read": 0.0028,
         "cache_write": null
       },
       "limit": {
@@ -62744,16 +62729,16 @@
       ],
       "release_date": "2026-03-18",
       "knowledge": "2024-12",
-      "last_updated": "2026-03-18"
+      "last_updated": "2026-06-24"
     },
     {
       "platform": "xiaomi",
       "id": "mimo-v2-flash",
       "name": "MiMo-V2-Flash",
       "price": {
-        "input": 0.1,
-        "output": 0.3,
-        "cache_read": 0.01,
+        "input": 0.14,
+        "output": 0.28,
+        "cache_read": 0.0028,
         "cache_write": null
       },
       "limit": {
@@ -62768,16 +62753,16 @@
       ],
       "release_date": "2025-12-16",
       "knowledge": "2024-12-01",
-      "last_updated": "2026-02-04"
+      "last_updated": "2026-06-24"
     },
     {
       "platform": "xiaomi",
       "id": "mimo-v2-pro",
       "name": "MiMo-V2-Pro",
       "price": {
-        "input": 1,
-        "output": 3,
-        "cache_read": 0.2,
+        "input": 0.435,
+        "output": 0.87,
+        "cache_read": 0.0036,
         "cache_write": null
       },
       "limit": {
@@ -62791,16 +62776,16 @@
       ],
       "release_date": "2026-03-18",
       "knowledge": "2024-12",
-      "last_updated": "2026-03-18"
+      "last_updated": "2026-06-24"
     },
     {
       "platform": "xiaomi",
       "id": "mimo-v2.5-pro",
       "name": "MiMo-V2.5-Pro",
       "price": {
-        "input": 1,
-        "output": 3,
-        "cache_read": 0.2,
+        "input": 0.435,
+        "output": 0.87,
+        "cache_read": 0.0036,
         "cache_write": null
       },
       "limit": {
@@ -62815,7 +62800,7 @@
       ],
       "release_date": "2026-04-22",
       "knowledge": "2024-12",
-      "last_updated": "2026-04-22"
+      "last_updated": "2026-06-24"
     },
     {
       "platform": "inception",
@@ -67226,8 +67211,8 @@
       "id": "step-3.7-flash",
       "name": "Step 3.7 Flash",
       "price": {
-        "input": 0.19,
-        "output": 1.13,
+        "input": 0.2,
+        "output": 1.15,
         "cache_read": 0.04,
         "cache_write": null
       },
@@ -67244,7 +67229,7 @@
       ],
       "release_date": "2026-05-29",
       "knowledge": "2026-01-01",
-      "last_updated": "2026-05-29"
+      "last_updated": "2026-06-29"
     },
     {
       "platform": "stepfun",
@@ -88674,7 +88659,7 @@
       },
       "limit": {
         "context": 131072,
-        "output": 32768
+        "output": 100352
       },
       "capabilities": [
         "text",
@@ -88796,7 +88781,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 100352
       },
       "capabilities": [
         "text",
@@ -90020,13 +90005,13 @@
       "id": "z-ai/glm-5.1",
       "name": "GLM-5.1",
       "price": {
-        "input": 0.98,
-        "output": 3.08,
-        "cache_read": 0.182,
+        "input": 0.975,
+        "output": 4.3,
+        "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 202752,
+        "context": 65536,
         "output": 128000
       },
       "capabilities": [
@@ -90068,7 +90053,7 @@
       "id": "z-ai/glm-5.2",
       "name": "GLM-5.2",
       "price": {
-        "input": 0.95,
+        "input": 0.94,
         "output": 3,
         "cache_read": 0.18,
         "cache_write": null
@@ -92882,30 +92867,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "anthropic/claude-opus-4.6-fast",
-      "name": "Claude Opus 4.6 (Fast)",
-      "price": {
-        "input": 30,
-        "output": 150,
-        "cache_read": 3,
-        "cache_write": 37.5
-      },
-      "limit": {
-        "context": 1000000,
-        "output": 128000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2026-04-07",
-      "knowledge": null,
-      "last_updated": "2026-04-07"
-    },
-    {
-      "platform": "openrouter",
       "id": "anthropic/claude-haiku-4.5",
       "name": "Claude Haiku 4.5 (latest)",
       "price": {
@@ -93403,14 +93364,14 @@
       "id": "stepfun/step-3.5-flash",
       "name": "Step 3.5 Flash",
       "price": {
-        "input": 0.09,
+        "input": 0.1,
         "output": 0.3,
-        "cache_read": 0.02,
+        "cache_read": null,
         "cache_write": null
       },
       "limit": {
         "context": 262144,
-        "output": 16384
+        "output": 65536
       },
       "capabilities": [
         "text",
@@ -123851,9 +123812,9 @@
       "id": "hf:zai-org/GLM-4.7-Flash",
       "name": "GLM-4.7-Flash",
       "price": {
-        "input": 0.06,
-        "output": 0.4,
-        "cache_read": 0.06,
+        "input": 0.1,
+        "output": 0.5,
+        "cache_read": 0.1,
         "cache_write": null
       },
       "limit": {
@@ -123866,23 +123827,23 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-01-18",
-      "knowledge": null,
-      "last_updated": "2026-01-18"
+      "release_date": "2026-01-19",
+      "knowledge": "2025-04",
+      "last_updated": "2026-01-19"
     },
     {
       "platform": "synthetic",
       "id": "hf:zai-org/GLM-4.7",
-      "name": "GLM 4.7",
+      "name": "GLM-4.7",
       "price": {
-        "input": 0.55,
+        "input": 0.45,
         "output": 2.19,
-        "cache_read": null,
+        "cache_read": 0.45,
         "cache_write": null
       },
       "limit": {
-        "context": 200000,
-        "output": 64000
+        "context": 202752,
+        "output": 65536
       },
       "capabilities": [
         "text",
@@ -123896,8 +123857,32 @@
     },
     {
       "platform": "synthetic",
+      "id": "hf:zai-org/GLM-5.2",
+      "name": "GLM-5.2",
+      "price": {
+        "input": 1.4,
+        "output": 4.4,
+        "cache_read": 1.4,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 524288,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
+    },
+    {
+      "platform": "synthetic",
       "id": "hf:zai-org/GLM-5.1",
-      "name": "GLM 5.1",
+      "name": "GLM-5.1",
       "price": {
         "input": 1,
         "output": 3,
@@ -123914,9 +123899,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-03-27",
+      "release_date": "2026-04-07",
       "knowledge": null,
-      "last_updated": "2026-04-12"
+      "last_updated": "2026-04-07"
     },
     {
       "platform": "synthetic",
@@ -123950,11 +123935,11 @@
       "price": {
         "input": 0.1,
         "output": 0.1,
-        "cache_read": null,
+        "cache_read": 0.1,
         "cache_write": null
       },
       "limit": {
-        "context": 128000,
+        "context": 131072,
         "output": 32768
       },
       "capabilities": [
@@ -123969,11 +123954,36 @@
     },
     {
       "platform": "synthetic",
+      "id": "hf:Qwen/Qwen3.6-27B",
+      "name": "Qwen3.6 27B",
+      "price": {
+        "input": 0.45,
+        "output": 3.6,
+        "cache_read": 0.45,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": null,
+      "last_updated": "2026-04-22"
+    },
+    {
+      "platform": "synthetic",
       "id": "hf:Qwen/Qwen3.5-397B-A17B",
-      "name": "Qwen3.5-97B-A17B",
+      "name": "Qwen3.5 397B-A17B",
       "price": {
         "input": 0.6,
-        "output": 3,
+        "output": 3.6,
         "cache_read": 0.6,
         "cache_write": null
       },
@@ -123988,9 +123998,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-02-11",
+      "release_date": "2026-02-15",
       "knowledge": null,
-      "last_updated": "2026-02-11"
+      "last_updated": "2026-02-15"
     },
     {
       "platform": "synthetic",
