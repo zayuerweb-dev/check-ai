@@ -58,7 +58,7 @@
         "AI_GATEWAY_API_KEY"
       ],
       "api": null,
-      "models_count": 295
+      "models_count": 297
     },
     {
       "key": "submodel",
@@ -543,7 +543,7 @@
         "LLMGATEWAY_API_KEY"
       ],
       "api": "https://api.llmgateway.io/v1",
-      "models_count": 180
+      "models_count": 181
     },
     {
       "key": "alibaba-coding-plan-cn",
@@ -595,7 +595,7 @@
         "CLOUDFLARE_GATEWAY_ID"
       ],
       "api": null,
-      "models_count": 77
+      "models_count": 78
     },
     {
       "key": "moonshotai-cn",
@@ -618,6 +618,16 @@
       "models_count": 3
     },
     {
+      "key": "sakana",
+      "name": "Sakana AI",
+      "doc": "https://console.sakana.ai/models",
+      "env": [
+        "SAKANA_API_KEY"
+      ],
+      "api": "https://api.sakana.ai/v1",
+      "models_count": 3
+    },
+    {
       "key": "deepinfra",
       "name": "Deep Infra",
       "doc": "https://deepinfra.com/models",
@@ -625,7 +635,7 @@
         "DEEPINFRA_API_KEY"
       ],
       "api": null,
-      "models_count": 26
+      "models_count": 27
     },
     {
       "key": "google-vertex-anthropic",
@@ -637,7 +647,7 @@
         "GOOGLE_APPLICATION_CREDENTIALS"
       ],
       "api": null,
-      "models_count": 11
+      "models_count": 12
     },
     {
       "key": "v0",
@@ -658,7 +668,7 @@
         "AZURE_API_KEY"
       ],
       "api": null,
-      "models_count": 108
+      "models_count": 109
     },
     {
       "key": "cerebras",
@@ -728,7 +738,7 @@
         "ANTHROPIC_API_KEY"
       ],
       "api": null,
-      "models_count": 23
+      "models_count": 24
     },
     {
       "key": "tencent-coding-plan",
@@ -768,7 +778,7 @@
         "OPENCODE_API_KEY"
       ],
       "api": "https://opencode.ai/zen/v1",
-      "models_count": 71
+      "models_count": 74
     },
     {
       "key": "inference",
@@ -1091,7 +1101,7 @@
         "AWS_BEARER_TOKEN_BEDROCK"
       ],
       "api": null,
-      "models_count": 99
+      "models_count": 105
     },
     {
       "key": "umans-ai",
@@ -1285,7 +1295,7 @@
         "GOOGLE_APPLICATION_CREDENTIALS"
       ],
       "api": null,
-      "models_count": 35
+      "models_count": 36
     },
     {
       "key": "nano-gpt",
@@ -8576,6 +8586,29 @@
     },
     {
       "platform": "vercel",
+      "id": "google/gemini-3.1-flash-lite-image",
+      "name": "Gemini 3.1 Flash Lite Image (Nano Banana 2 Lite)",
+      "price": {
+        "input": 0.25,
+        "output": 1.5,
+        "cache_read": 0.03,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 65536,
+        "output": 4096
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning"
+      ],
+      "release_date": "2026-06-30",
+      "knowledge": null,
+      "last_updated": "2026-06-30"
+    },
+    {
+      "platform": "vercel",
       "id": "google/gemini-2.5-flash-image",
       "name": "Nano Banana (Gemini 2.5 Flash Image)",
       "price": {
@@ -11157,6 +11190,30 @@
       "release_date": "2025-10-15",
       "knowledge": "2025-02-28",
       "last_updated": "2025-10-15"
+    },
+    {
+      "platform": "vercel",
+      "id": "anthropic/claude-sonnet-5",
+      "name": "Claude Sonnet 5",
+      "price": {
+        "input": 2,
+        "output": 10,
+        "cache_read": 0.2,
+        "cache_write": 2.5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-29",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-30"
     },
     {
       "platform": "vercel",
@@ -27328,7 +27385,7 @@
     {
       "platform": "opencode-go",
       "id": "minimax-m2.5",
-      "name": "MiniMax M2.5",
+      "name": "MiniMax-M2.5",
       "price": {
         "input": 0.3,
         "output": 1.2,
@@ -27498,11 +27555,11 @@
     {
       "platform": "opencode-go",
       "id": "minimax-m3",
-      "name": "MiniMax M3 (3x usage)",
+      "name": "MiniMax-M3 (3x usage)",
       "price": {
-        "input": 0.1,
-        "output": 0.4,
-        "cache_read": 0.02,
+        "input": 0.3,
+        "output": 1.2,
+        "cache_read": 0.06,
         "cache_write": null
       },
       "limit": {
@@ -27549,7 +27606,7 @@
     {
       "platform": "opencode-go",
       "id": "minimax-m2.7",
-      "name": "MiniMax M2.7",
+      "name": "MiniMax-M2.7",
       "price": {
         "input": 0.3,
         "output": 1.2,
@@ -47825,7 +47882,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 262000,
+        "context": 262144,
         "output": 8192
       },
       "capabilities": [
@@ -48101,7 +48158,7 @@
       "name": "Qwen3-Next 80B-A3B Instruct",
       "price": {
         "input": 0.15,
-        "output": 1.5,
+        "output": 1.2,
         "cache_read": null,
         "cache_write": null
       },
@@ -48814,8 +48871,8 @@
       "id": "grok-4-20-non-reasoning",
       "name": "Grok 4.20 (Non-Reasoning)",
       "price": {
-        "input": 2,
-        "output": 6,
+        "input": 1.25,
+        "output": 2.5,
         "cache_read": 0.2,
         "cache_write": null
       },
@@ -49170,6 +49227,29 @@
       "release_date": "2026-04-16",
       "knowledge": "2026-01-31",
       "last_updated": "2026-04-16"
+    },
+    {
+      "platform": "llmgateway",
+      "id": "claude-sonnet-5",
+      "name": "Claude Sonnet 5",
+      "price": {
+        "input": 3,
+        "output": 15,
+        "cache_read": 0.3,
+        "cache_write": 3.75
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 1000000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning"
+      ],
+      "release_date": "2026-06-30",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-30"
     },
     {
       "platform": "llmgateway",
@@ -51429,8 +51509,8 @@
       "id": "grok-4-20-reasoning",
       "name": "Grok 4.20 (Reasoning)",
       "price": {
-        "input": 2,
-        "output": 6,
+        "input": 1.25,
+        "output": 2.5,
         "cache_read": 0.2,
         "cache_write": null
       },
@@ -56158,6 +56238,30 @@
     },
     {
       "platform": "cloudflare-ai-gateway",
+      "id": "anthropic/claude-sonnet-5",
+      "name": "Claude Sonnet 5",
+      "price": {
+        "input": 2,
+        "output": 10,
+        "cache_read": 0.2,
+        "cache_write": 2.5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-30",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-30"
+    },
+    {
+      "platform": "cloudflare-ai-gateway",
       "id": "anthropic/claude-3-sonnet",
       "name": "Claude Sonnet 3",
       "price": {
@@ -56701,6 +56805,78 @@
       "last_updated": "2024-06-01"
     },
     {
+      "platform": "sakana",
+      "id": "fugu-ultra-20260615",
+      "name": "Fugu Ultra",
+      "price": {
+        "input": 5,
+        "output": 30,
+        "cache_read": 0.5,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 1000000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-15",
+      "knowledge": null,
+      "last_updated": "2026-06-15"
+    },
+    {
+      "platform": "sakana",
+      "id": "fugu",
+      "name": "Fugu",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 1000000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-15",
+      "knowledge": null,
+      "last_updated": "2026-06-15"
+    },
+    {
+      "platform": "sakana",
+      "id": "fugu-ultra",
+      "name": "Fugu Ultra",
+      "price": {
+        "input": 5,
+        "output": 30,
+        "cache_read": 0.5,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 1000000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-15",
+      "knowledge": null,
+      "last_updated": "2026-06-15"
+    },
+    {
       "platform": "deepinfra",
       "id": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
       "name": "Llama 4 Maverick 17B FP8",
@@ -56821,6 +56997,32 @@
       "release_date": "2026-01-27",
       "knowledge": "2025-01",
       "last_updated": "2026-01-27"
+    },
+    {
+      "platform": "deepinfra",
+      "id": "moonshotai/Kimi-K2.7-Code",
+      "name": "Kimi K2.7 Code",
+      "price": {
+        "input": 0.74,
+        "output": 3.5,
+        "cache_read": 0.15,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-12",
+      "knowledge": "2025-01",
+      "last_updated": "2026-06-12"
     },
     {
       "platform": "deepinfra",
@@ -57524,6 +57726,30 @@
       "release_date": "2025-09-29",
       "knowledge": "2025-07-31",
       "last_updated": "2025-09-29"
+    },
+    {
+      "platform": "google-vertex-anthropic",
+      "id": "claude-sonnet-5@default",
+      "name": "Claude Sonnet 5",
+      "price": {
+        "input": 2,
+        "output": 10,
+        "cache_read": 0.2,
+        "cache_write": 2.5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-30",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-30"
     },
     {
       "platform": "google-vertex-anthropic",
@@ -58565,6 +58791,30 @@
       "release_date": "2025-11-18",
       "knowledge": "2025-07-31",
       "last_updated": "2025-11-18"
+    },
+    {
+      "platform": "azure",
+      "id": "claude-sonnet-5",
+      "name": "Claude Sonnet 5",
+      "price": {
+        "input": 2,
+        "output": 10,
+        "cache_read": 0.2,
+        "cache_write": 2.5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-30",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-30"
     },
     {
       "platform": "azure",
@@ -63016,6 +63266,30 @@
     },
     {
       "platform": "anthropic",
+      "id": "claude-sonnet-5",
+      "name": "Claude Sonnet 5",
+      "price": {
+        "input": 2,
+        "output": 10,
+        "cache_read": 0.2,
+        "cache_write": 2.5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-30",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-30"
+    },
+    {
+      "platform": "anthropic",
       "id": "claude-opus-4-5-20251101",
       "name": "Claude Opus 4.5",
       "price": {
@@ -64511,7 +64785,7 @@
     {
       "platform": "opencode",
       "id": "minimax-m2.5",
-      "name": "MiniMax M2.5",
+      "name": "MiniMax-M2.5",
       "price": {
         "input": 0.3,
         "output": 1.2,
@@ -64609,7 +64883,7 @@
     {
       "platform": "opencode",
       "id": "minimax-m2.1",
-      "name": "MiniMax M2.1",
+      "name": "MiniMax-M2.1",
       "price": {
         "input": 0.3,
         "output": 1.2,
@@ -64829,7 +65103,7 @@
     {
       "platform": "opencode",
       "id": "minimax-m3-free",
-      "name": "MiniMax M3 Free",
+      "name": "MiniMax-M3 Free",
       "price": {
         "input": 0,
         "output": 0,
@@ -64903,6 +65177,32 @@
       "release_date": "2026-01-27",
       "knowledge": "2024-10",
       "last_updated": "2026-01-27"
+    },
+    {
+      "platform": "opencode",
+      "id": "kimi-k2.7-code",
+      "name": "Kimi K2.7 Code",
+      "price": {
+        "input": 0.95,
+        "output": 4,
+        "cache_read": 0.19,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-12",
+      "knowledge": "2025-01",
+      "last_updated": "2026-06-12"
     },
     {
       "platform": "opencode",
@@ -65050,6 +65350,30 @@
     },
     {
       "platform": "opencode",
+      "id": "claude-sonnet-5",
+      "name": "Claude Sonnet 5",
+      "price": {
+        "input": 2,
+        "output": 10,
+        "cache_read": 0.2,
+        "cache_write": 2.5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-30",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-30"
+    },
+    {
+      "platform": "opencode",
       "id": "gpt-5.4-nano",
       "name": "GPT-5.4 Nano",
       "price": {
@@ -65142,6 +65466,32 @@
       "release_date": "2026-04-20",
       "knowledge": "2025-06",
       "last_updated": "2026-04-20"
+    },
+    {
+      "platform": "opencode",
+      "id": "minimax-m3",
+      "name": "MiniMax-M3",
+      "price": {
+        "input": 0.3,
+        "output": 1.2,
+        "cache_read": 0.06,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 512000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-01",
+      "knowledge": null,
+      "last_updated": "2026-06-01"
     },
     {
       "platform": "opencode",
@@ -65360,7 +65710,7 @@
     {
       "platform": "opencode",
       "id": "minimax-m2.7",
-      "name": "MiniMax M2.7",
+      "name": "MiniMax-M2.7",
       "price": {
         "input": 0.3,
         "output": 1.2,
@@ -65601,7 +65951,7 @@
     {
       "platform": "opencode",
       "id": "minimax-m2.5-free",
-      "name": "MiniMax M2.5 Free",
+      "name": "MiniMax-M2.5 Free",
       "price": {
         "input": 0,
         "output": 0,
@@ -65675,7 +66025,7 @@
     {
       "platform": "opencode",
       "id": "minimax-m2.1-free",
-      "name": "MiniMax M2.1 Free",
+      "name": "MiniMax-M2.1 Free",
       "price": {
         "input": 0,
         "output": 0,
@@ -73814,13 +74164,11 @@
         "cache_write": null
       },
       "limit": {
-        "context": 262144,
-        "output": 262144
+        "context": 1000000,
+        "output": 131072
       },
       "capabilities": [
         "text",
-        "vision",
-        "video",
         "tools",
         "reasoning"
       ],
@@ -85030,6 +85378,30 @@
     },
     {
       "platform": "amazon-bedrock",
+      "id": "jp.anthropic.claude-sonnet-5",
+      "name": "Claude Sonnet 5 (JP)",
+      "price": {
+        "input": 2,
+        "output": 10,
+        "cache_read": 0.2,
+        "cache_write": 2.5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-30",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-30"
+    },
+    {
+      "platform": "amazon-bedrock",
       "id": "openai.gpt-oss-120b",
       "name": "gpt-oss-120b",
       "price": {
@@ -85050,6 +85422,30 @@
       "release_date": "2025-08-05",
       "knowledge": null,
       "last_updated": "2025-08-05"
+    },
+    {
+      "platform": "amazon-bedrock",
+      "id": "global.anthropic.claude-sonnet-5",
+      "name": "Claude Sonnet 5 (Global)",
+      "price": {
+        "input": 2,
+        "output": 10,
+        "cache_read": 0.2,
+        "cache_write": 2.5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-30",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-30"
     },
     {
       "platform": "amazon-bedrock",
@@ -85122,6 +85518,30 @@
       "release_date": "2026-03-05",
       "knowledge": "2025-08-31",
       "last_updated": "2026-06-01"
+    },
+    {
+      "platform": "amazon-bedrock",
+      "id": "anthropic.claude-sonnet-5",
+      "name": "Claude Sonnet 5",
+      "price": {
+        "input": 2,
+        "output": 10,
+        "cache_read": 0.2,
+        "cache_write": 2.5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-30",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-30"
     },
     {
       "platform": "amazon-bedrock",
@@ -86026,6 +86446,30 @@
     },
     {
       "platform": "amazon-bedrock",
+      "id": "au.anthropic.claude-sonnet-5",
+      "name": "Claude Sonnet 5 (AU)",
+      "price": {
+        "input": 2,
+        "output": 10,
+        "cache_read": 0.2,
+        "cache_write": 2.5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-30",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-30"
+    },
+    {
+      "platform": "amazon-bedrock",
       "id": "qwen.qwen3-235b-a22b-2507-v1:0",
       "name": "Qwen3 235B A22B 2507",
       "price": {
@@ -86233,6 +86677,30 @@
       "release_date": "2026-02-17",
       "knowledge": "2025-08",
       "last_updated": "2026-02-17"
+    },
+    {
+      "platform": "amazon-bedrock",
+      "id": "us.anthropic.claude-sonnet-5",
+      "name": "Claude Sonnet 5 (US)",
+      "price": {
+        "input": 2,
+        "output": 10,
+        "cache_read": 0.2,
+        "cache_write": 2.5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-30",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-30"
     },
     {
       "platform": "amazon-bedrock",
@@ -86448,6 +86916,30 @@
       "release_date": "2026-03-11",
       "knowledge": null,
       "last_updated": "2026-03-11"
+    },
+    {
+      "platform": "amazon-bedrock",
+      "id": "eu.anthropic.claude-sonnet-5",
+      "name": "Claude Sonnet 5 (EU)",
+      "price": {
+        "input": 2.2,
+        "output": 11,
+        "cache_read": 0.22,
+        "cache_write": 2.75
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-30",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-30"
     },
     {
       "platform": "amazon-bedrock",
@@ -88604,10 +89096,10 @@
       "id": "~anthropic/claude-sonnet-latest",
       "name": "Anthropic Claude Sonnet Latest",
       "price": {
-        "input": 3,
-        "output": 15,
-        "cache_read": 0.3,
-        "cache_write": 3.75
+        "input": 2,
+        "output": 10,
+        "cache_read": 0.2,
+        "cache_write": 2.5
       },
       "limit": {
         "context": 1000000,
@@ -89114,6 +89606,29 @@
       "release_date": "2026-02-19",
       "knowledge": "2025-01",
       "last_updated": "2026-02-19"
+    },
+    {
+      "platform": "openrouter",
+      "id": "google/gemini-3.1-flash-lite-image",
+      "name": "Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image)",
+      "price": {
+        "input": 0.25,
+        "output": 1.5,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 65536,
+        "output": 66000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning"
+      ],
+      "release_date": "2026-06-30",
+      "knowledge": "2025-01-01",
+      "last_updated": "2026-06-30"
     },
     {
       "platform": "openrouter",
@@ -89746,28 +90261,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "microsoft/phi-4-mini-instruct",
-      "name": "Phi 4 Mini Instruct",
-      "price": {
-        "input": 0.08,
-        "output": 0.35,
-        "cache_read": 0.08,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 128000,
-        "output": 128000
-      },
-      "capabilities": [
-        "text",
-        "open"
-      ],
-      "release_date": "2025-10-17",
-      "knowledge": null,
-      "last_updated": "2025-10-17"
-    },
-    {
-      "platform": "openrouter",
       "id": "microsoft/phi-4",
       "name": "Phi 4",
       "price": {
@@ -90053,7 +90546,7 @@
       "id": "z-ai/glm-5.2",
       "name": "GLM-5.2",
       "price": {
-        "input": 0.94,
+        "input": 0.93,
         "output": 3,
         "cache_read": 0.18,
         "cache_write": null
@@ -92915,6 +93408,30 @@
     },
     {
       "platform": "openrouter",
+      "id": "anthropic/claude-sonnet-5",
+      "name": "Claude Sonnet 5",
+      "price": {
+        "input": 2,
+        "output": 10,
+        "cache_read": 0.2,
+        "cache_write": 2.5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-30",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-30"
+    },
+    {
+      "platform": "openrouter",
       "id": "anthropic/claude-opus-4.7",
       "name": "Claude Opus 4.7",
       "price": {
@@ -93881,28 +94398,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "openrouter/owl-alpha",
-      "name": "Owl Alpha",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 1048756,
-        "output": 262144
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2026-04-28",
-      "knowledge": null,
-      "last_updated": "2026-04-28"
-    },
-    {
-      "platform": "openrouter",
       "id": "openrouter/pareto-code",
       "name": "Pareto Code Router",
       "price": {
@@ -94447,13 +94942,13 @@
       "id": "qwen/qwen3-235b-a22b-thinking-2507",
       "name": "Qwen3 235B A22B Thinking 2507",
       "price": {
-        "input": 0.1,
-        "output": 0.1,
-        "cache_read": 0.1,
+        "input": 0.1495,
+        "output": 1.495,
+        "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 262144,
+        "context": 131072,
         "output": 262144
       },
       "capabilities": [
@@ -94805,8 +95300,8 @@
       "id": "qwen/qwen3.6-27b",
       "name": "Qwen3.6 27B",
       "price": {
-        "input": 0.2596,
-        "output": 2.385,
+        "input": 0.285,
+        "output": 2.4,
         "cache_read": null,
         "cache_write": null
       },
@@ -95529,13 +96024,13 @@
       "id": "deepseek/deepseek-v4-flash",
       "name": "DeepSeek V4 Flash",
       "price": {
-        "input": 0.09,
-        "output": 0.18,
+        "input": 0.098,
+        "output": 0.196,
         "cache_read": 0.02,
         "cache_write": null
       },
       "limit": {
-        "context": 1000000,
+        "context": 1048575,
         "output": 65536
       },
       "capabilities": [
@@ -106605,6 +107100,30 @@
       "release_date": "2025-09-29",
       "knowledge": "2025-07-31",
       "last_updated": "2025-09-29"
+    },
+    {
+      "platform": "google-vertex",
+      "id": "claude-sonnet-5@default",
+      "name": "Claude Sonnet 5",
+      "price": {
+        "input": 2,
+        "output": 10,
+        "cache_read": 0.2,
+        "cache_write": 2.5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-30",
+      "knowledge": "2026-01-31",
+      "last_updated": "2026-06-30"
     },
     {
       "platform": "google-vertex",
