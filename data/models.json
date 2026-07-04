@@ -1038,7 +1038,7 @@
         "FRIENDLI_TOKEN"
       ],
       "api": "https://api.friendli.ai/serverless/v1",
-      "models_count": 7
+      "models_count": 6
     },
     {
       "key": "tencent-tokenhub",
@@ -30615,9 +30615,9 @@
       "id": "kimi-k2-7-code",
       "name": "Kimi K2.7 Code",
       "price": {
-        "input": 0.9,
-        "output": 4.3,
-        "cache_read": 0.2,
+        "input": 0.75,
+        "output": 3.5,
+        "cache_read": 0.16,
         "cache_write": null
       },
       "limit": {
@@ -30999,9 +30999,9 @@
       "id": "google-gemma-4-26b-a4b-it",
       "name": "Google Gemma 4 26B A4B Instruct",
       "price": {
-        "input": 0.1625,
-        "output": 0.5,
-        "cache_read": null,
+        "input": 0.13,
+        "output": 0.4,
+        "cache_read": 0.05,
         "cache_write": null
       },
       "limit": {
@@ -31093,9 +31093,9 @@
       "id": "qwen3-vl-235b-a22b",
       "name": "Qwen3 VL 235B",
       "price": {
-        "input": 0.25,
-        "output": 1.5,
-        "cache_read": null,
+        "input": 0.21,
+        "output": 1.9,
+        "cache_read": 0.1,
         "cache_write": null
       },
       "limit": {
@@ -31117,9 +31117,9 @@
       "id": "xiaomi-mimo-v2-5",
       "name": "MiMo-V2.5",
       "price": {
-        "input": 0.175,
-        "output": 0.35,
-        "cache_read": 0.0625,
+        "input": 0.14,
+        "output": 0.28,
+        "cache_read": 0.05,
         "cache_write": null
       },
       "limit": {
@@ -31371,6 +31371,8 @@
       },
       "capabilities": [
         "text",
+        "vision",
+        "video",
         "tools",
         "reasoning",
         "open"
@@ -31507,9 +31509,9 @@
       "id": "olafangensan-glm-4.7-flash-heretic",
       "name": "GLM 4.7 Flash Heretic",
       "price": {
-        "input": 0.14,
-        "output": 0.8,
-        "cache_read": null,
+        "input": 0.07,
+        "output": 0.4,
+        "cache_read": 0.035,
         "cache_write": null
       },
       "limit": {
@@ -31725,9 +31727,9 @@
       "id": "zai-org-glm-5-1",
       "name": "GLM 5.1",
       "price": {
-        "input": 1.75,
-        "output": 5.5,
-        "cache_read": 0.325,
+        "input": 1.54,
+        "output": 4.84,
+        "cache_read": 0.286,
         "cache_write": null
       },
       "limit": {
@@ -31868,9 +31870,9 @@
       "id": "minimax-m25",
       "name": "MiniMax M2.5",
       "price": {
-        "input": 0.34,
-        "output": 1.19,
-        "cache_read": 0.04,
+        "input": 0.27,
+        "output": 0.95,
+        "cache_read": 0.03,
         "cache_write": null
       },
       "limit": {
@@ -62005,8 +62007,8 @@
     },
     {
       "platform": "nvidia",
-      "id": "z-ai/glm-5.1",
-      "name": "GLM-5.1",
+      "id": "z-ai/glm-5.2",
+      "name": "GLM-5.2",
       "price": {
         "input": 0,
         "output": 0,
@@ -62014,7 +62016,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 131072,
+        "context": 1000000,
         "output": 131072
       },
       "capabilities": [
@@ -62023,9 +62025,9 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-03-27",
+      "release_date": "2026-06-13",
       "knowledge": null,
-      "last_updated": "2026-03-27"
+      "last_updated": "2026-06-13"
     },
     {
       "platform": "nvidia",
@@ -76128,30 +76130,6 @@
       "release_date": "2025-07-29",
       "knowledge": "2025-04",
       "last_updated": "2026-01-29"
-    },
-    {
-      "platform": "friendli",
-      "id": "zai-org/GLM-5",
-      "name": "GLM-5",
-      "price": {
-        "input": 1,
-        "output": 3.2,
-        "cache_read": 0.5,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 202752,
-        "output": 202752
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-02-12",
-      "knowledge": null,
-      "last_updated": "2026-02-12"
     },
     {
       "platform": "friendli",
@@ -91862,14 +91840,14 @@
       "id": "z-ai/glm-5.2",
       "name": "GLM-5.2",
       "price": {
-        "input": 0.93,
-        "output": 3,
-        "cache_read": 0.18,
+        "input": 0.91,
+        "output": 2.86,
+        "cache_read": 0.169,
         "cache_write": null
       },
       "limit": {
-        "context": 1048576,
-        "output": 32768
+        "context": 1024000,
+        "output": 128000
       },
       "capabilities": [
         "text",
@@ -94511,8 +94489,8 @@
       "id": "nvidia/nemotron-3-super-120b-a12b",
       "name": "Nemotron 3 Super 120B A12B",
       "price": {
-        "input": 0.085,
-        "output": 0.4,
+        "input": 0.08,
+        "output": 0.45,
         "cache_read": null,
         "cache_write": null
       },
@@ -96642,7 +96620,7 @@
       "price": {
         "input": 0.285,
         "output": 2.4,
-        "cache_read": null,
+        "cache_read": 0.15,
         "cache_write": null
       },
       "limit": {
