@@ -58,7 +58,7 @@
         "AI_GATEWAY_API_KEY"
       ],
       "api": null,
-      "models_count": 298
+      "models_count": 300
     },
     {
       "key": "submodel",
@@ -78,7 +78,7 @@
         "HF_TOKEN"
       ],
       "api": "https://router.huggingface.co/v1",
-      "models_count": 50
+      "models_count": 51
     },
     {
       "key": "minimax-coding-plan",
@@ -342,7 +342,7 @@
         "SUBCONSCIOUS_API_KEY"
       ],
       "api": "https://api.subconscious.dev/v1",
-      "models_count": 1
+      "models_count": 2
     },
     {
       "key": "venice",
@@ -808,7 +808,7 @@
         "OPENCODE_API_KEY"
       ],
       "api": "https://opencode.ai/zen/v1",
-      "models_count": 74
+      "models_count": 75
     },
     {
       "key": "inference",
@@ -1181,7 +1181,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 340
+      "models_count": 343
     },
     {
       "key": "jiekou",
@@ -12528,6 +12528,27 @@
     },
     {
       "platform": "vercel",
+      "id": "alibaba/wan-v2.7-r2v",
+      "name": "Wan v2.7 Reference-to-Video",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 0,
+        "output": 0
+      },
+      "capabilities": [
+        "text"
+      ],
+      "release_date": "2026-04-07",
+      "knowledge": null,
+      "last_updated": "2026-04-07"
+    },
+    {
+      "platform": "vercel",
       "id": "alibaba/qwen3-vl-instruct",
       "name": "Qwen3 VL Instruct",
       "price": {
@@ -12909,6 +12930,27 @@
       "release_date": "2025-12-16",
       "knowledge": null,
       "last_updated": "2025-12-16"
+    },
+    {
+      "platform": "vercel",
+      "id": "alibaba/wan-v2.7-t2v",
+      "name": "Wan v2.7 Text-to-Video",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 0,
+        "output": 0
+      },
+      "capabilities": [
+        "text"
+      ],
+      "release_date": "2026-04-07",
+      "knowledge": null,
+      "last_updated": "2026-04-07"
     },
     {
       "platform": "vercel",
@@ -14651,6 +14693,30 @@
       "price": {
         "input": 0.25,
         "output": 0.69,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 131072,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2025-08-05",
+      "knowledge": null,
+      "last_updated": "2025-08-05"
+    },
+    {
+      "platform": "huggingface",
+      "id": "openai/gpt-oss-20b",
+      "name": "GPT OSS 20B",
+      "price": {
+        "input": 0.1,
+        "output": 0.5,
         "cache_read": null,
         "cache_write": null
       },
@@ -30141,12 +30207,36 @@
     },
     {
       "platform": "subconscious",
+      "id": "subconscious/glm-5.2",
+      "name": "GLM-5.2",
+      "price": {
+        "input": 1.4,
+        "output": 4.4,
+        "cache_read": 0.26,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
+    },
+    {
+      "platform": "subconscious",
       "id": "subconscious/tim-qwen3.6-27b",
       "name": "TIM-Qwen3.6 27B",
       "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
+        "input": 0.3,
+        "output": 3,
+        "cache_read": 0.15,
         "cache_write": null
       },
       "limit": {
@@ -67094,6 +67184,30 @@
     },
     {
       "platform": "opencode",
+      "id": "hy3-free",
+      "name": "Hy3 Free",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": 0,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 256000,
+        "output": 64000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-26",
+      "knowledge": null,
+      "last_updated": "2026-06-26"
+    },
+    {
+      "platform": "opencode",
       "id": "claude-haiku-4-5",
       "name": "Claude Haiku 4.5",
       "price": {
@@ -90472,14 +90586,14 @@
       "id": "meta-llama/llama-3.2-3b-instruct",
       "name": "Llama 3.2 3B Instruct",
       "price": {
-        "input": 0.0509,
-        "output": 0.335,
+        "input": 0.05,
+        "output": 0.33,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 80000,
-        "output": 80000
+        "context": 131072,
+        "output": 131072
       },
       "capabilities": [
         "text",
@@ -90664,7 +90778,7 @@
       "price": {
         "input": 0.375,
         "output": 2.025,
-        "cache_read": null,
+        "cache_read": 0.203,
         "cache_write": null
       },
       "limit": {
@@ -92040,9 +92154,9 @@
       "id": "z-ai/glm-5.2",
       "name": "GLM-5.2",
       "price": {
-        "input": 0.686,
-        "output": 2.156,
-        "cache_read": 0.1274,
+        "input": 0.9086,
+        "output": 2.8556,
+        "cache_read": 0.16874,
         "cache_write": null
       },
       "limit": {
@@ -94737,7 +94851,7 @@
       "price": {
         "input": 0.105,
         "output": 0.28,
-        "cache_read": null,
+        "cache_read": 0.028,
         "cache_write": null
       },
       "limit": {
@@ -95165,6 +95279,54 @@
     },
     {
       "platform": "openrouter",
+      "id": "tencent/hy3:free",
+      "name": "Hy3 (free)",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-07-06",
+      "knowledge": null,
+      "last_updated": "2026-07-06"
+    },
+    {
+      "platform": "openrouter",
+      "id": "tencent/hy3",
+      "name": "Hy3",
+      "price": {
+        "input": 0.14,
+        "output": 0.58,
+        "cache_read": 0.035,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 202752,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-07-06",
+      "knowledge": null,
+      "last_updated": "2026-07-06"
+    },
+    {
+      "platform": "openrouter",
       "id": "tencent/hunyuan-a13b-instruct",
       "name": "Hunyuan A13B Instruct",
       "price": {
@@ -95417,6 +95579,31 @@
       "release_date": "2026-01-29",
       "knowledge": "2025-01",
       "last_updated": "2026-02-13"
+    },
+    {
+      "platform": "openrouter",
+      "id": "nex-agi/nex-n2-mini",
+      "name": "Nex-N2-Mini",
+      "price": {
+        "input": 0.025,
+        "output": 0.1,
+        "cache_read": 0.0025,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-24",
+      "knowledge": null,
+      "last_updated": "2026-06-24"
     },
     {
       "platform": "openrouter",
@@ -96898,7 +97085,7 @@
       "price": {
         "input": 0.385,
         "output": 2.45,
-        "cache_read": null,
+        "cache_read": 0.111,
         "cache_write": null
       },
       "limit": {
