@@ -613,7 +613,7 @@
         "LLMGATEWAY_API_KEY"
       ],
       "api": "https://api.llmgateway.io/v1",
-      "models_count": 184
+      "models_count": 182
     },
     {
       "key": "alibaba-coding-plan-cn",
@@ -1181,6 +1181,16 @@
       "models_count": 19
     },
     {
+      "key": "inferx",
+      "name": "InferX",
+      "doc": "https://model.inferx.net/endpoints",
+      "env": [
+        "INFERX_API_KEY"
+      ],
+      "api": "https://model.inferx.net/v1",
+      "models_count": 6
+    },
+    {
       "key": "perplexity",
       "name": "Perplexity",
       "doc": "https://docs.perplexity.ai",
@@ -1241,7 +1251,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 346
+      "models_count": 345
     },
     {
       "key": "jiekou",
@@ -1445,7 +1455,7 @@
         "AMBIENT_API_KEY"
       ],
       "api": "https://api.ambient.xyz/v1",
-      "models_count": 3
+      "models_count": 4
     },
     {
       "key": "neon",
@@ -1516,7 +1526,7 @@
         "WAFER_API_KEY"
       ],
       "api": "https://pass.wafer.ai/v1",
-      "models_count": 8
+      "models_count": 6
     },
     {
       "key": "minimax",
@@ -55546,31 +55556,6 @@
     },
     {
       "platform": "llmgateway",
-      "id": "mimo-v2-omni",
-      "name": "MiMo-V2-Omni",
-      "price": {
-        "input": 0.4,
-        "output": 2,
-        "cache_read": 0.08,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 256000,
-        "output": 131072
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "audio",
-        "video",
-        "tools"
-      ],
-      "release_date": "2026-03-18",
-      "knowledge": "2024-12",
-      "last_updated": "2026-03-18"
-    },
-    {
-      "platform": "llmgateway",
       "id": "gpt-5.4-mini",
       "name": "GPT-5.4 mini",
       "price": {
@@ -56329,29 +56314,6 @@
       "release_date": "2025-09-15",
       "knowledge": null,
       "last_updated": "2025-09-15"
-    },
-    {
-      "platform": "llmgateway",
-      "id": "mimo-v2-pro",
-      "name": "MiMo-V2-Pro",
-      "price": {
-        "input": 1,
-        "output": 3,
-        "cache_read": 0.2,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 1000000,
-        "output": 131072
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2026-03-18",
-      "knowledge": "2024-12",
-      "last_updated": "2026-03-18"
     },
     {
       "platform": "llmgateway",
@@ -81444,6 +81406,7 @@
       },
       "capabilities": [
         "text",
+        "tools",
         "reasoning",
         "open"
       ],
@@ -81597,6 +81560,7 @@
       },
       "capabilities": [
         "text",
+        "tools",
         "reasoning"
       ],
       "release_date": "2025-09-23",
@@ -81694,6 +81658,7 @@
       },
       "capabilities": [
         "text",
+        "tools",
         "reasoning",
         "open"
       ],
@@ -81765,6 +81730,7 @@
       },
       "capabilities": [
         "text",
+        "tools",
         "reasoning",
         "open"
       ],
@@ -81867,6 +81833,7 @@
         "vision",
         "audio",
         "video",
+        "tools",
         "open"
       ],
       "release_date": "2026-04-22",
@@ -82137,6 +82104,7 @@
       },
       "capabilities": [
         "text",
+        "tools",
         "reasoning"
       ],
       "release_date": "2026-04-20",
@@ -82159,6 +82127,7 @@
       },
       "capabilities": [
         "text",
+        "tools",
         "reasoning",
         "open"
       ],
@@ -92590,6 +92559,158 @@
       "last_updated": "2026-02-12"
     },
     {
+      "platform": "inferx",
+      "id": "google/gemma-4-31b-it-fp8",
+      "name": "Gemma 4 31B IT FP8",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-02",
+      "knowledge": null,
+      "last_updated": "2026-04-02"
+    },
+    {
+      "platform": "inferx",
+      "id": "qwen/qwen3-coder-next-fp8-1m",
+      "name": "Qwen3 Coder Next FP8 1M",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1024000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "open"
+      ],
+      "release_date": "2026-02-03",
+      "knowledge": "2025-04",
+      "last_updated": "2026-02-03"
+    },
+    {
+      "platform": "inferx",
+      "id": "qwen/qwen3.5-122b-a10b-nvfp4",
+      "name": "Qwen3.5 122B A10B NVFP4",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 256144,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-02-23",
+      "knowledge": null,
+      "last_updated": "2026-02-23"
+    },
+    {
+      "platform": "inferx",
+      "id": "qwen/qwen3.6-35b-a3b-fp8",
+      "name": "Qwen3.6 35B A3B FP8",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-17",
+      "knowledge": null,
+      "last_updated": "2026-04-17"
+    },
+    {
+      "platform": "inferx",
+      "id": "qwen/qwen3-coder-next-fp8",
+      "name": "Qwen3 Coder Next FP8",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 256144,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "open"
+      ],
+      "release_date": "2026-02-03",
+      "knowledge": "2025-04",
+      "last_updated": "2026-02-03"
+    },
+    {
+      "platform": "inferx",
+      "id": "qwen/qwen3.6-27b-fp8",
+      "name": "Qwen3.6 27B FP8",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": null,
+      "last_updated": "2026-04-22"
+    },
+    {
       "platform": "perplexity",
       "id": "sonar-reasoning-pro",
       "name": "Sonar Reasoning Pro",
@@ -97036,28 +97157,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "meta-llama/llama-3-8b-instruct",
-      "name": "Llama 3 8B Instruct",
-      "price": {
-        "input": 0.14,
-        "output": 0.14,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 8192,
-        "output": 8192
-      },
-      "capabilities": [
-        "text",
-        "open"
-      ],
-      "release_date": "2024-04-18",
-      "knowledge": "2023-12-31",
-      "last_updated": "2024-04-18"
-    },
-    {
-      "platform": "openrouter",
       "id": "meta-llama/llama-4-scout",
       "name": "Llama 4 Scout",
       "price": {
@@ -97227,8 +97326,8 @@
       "name": "Kimi K2.7 Code",
       "price": {
         "input": 0.72,
-        "output": 3.49,
-        "cache_read": 0.159,
+        "output": 3.5,
+        "cache_read": 0.15,
         "cache_write": null
       },
       "limit": {
@@ -98581,14 +98680,14 @@
       "id": "z-ai/glm-5.2",
       "name": "GLM-5.2",
       "price": {
-        "input": 0.42,
-        "output": 1.32,
-        "cache_read": 0.078,
+        "input": 0.35,
+        "output": 1.1,
+        "cache_read": 0.065,
         "cache_write": null
       },
       "limit": {
         "context": 1048576,
-        "output": 131072
+        "output": 128000
       },
       "capabilities": [
         "text",
@@ -104303,9 +104402,9 @@
       "id": "deepseek/deepseek-v4-flash",
       "name": "DeepSeek V4 Flash",
       "price": {
-        "input": 0.084,
-        "output": 0.168,
-        "cache_read": 0.0168,
+        "input": 0.077,
+        "output": 0.154,
+        "cache_read": 0.0154,
         "cache_write": null
       },
       "limit": {
@@ -129567,8 +129666,8 @@
       "id": "moonshotai/kimi-k2.7-code",
       "name": "Kimi K2.7 Code",
       "price": {
-        "input": 0.75,
-        "output": 3.5,
+        "input": 0.84,
+        "output": 3.99,
         "cache_read": 0.16,
         "cache_write": 0
       },
@@ -129636,6 +129735,30 @@
       "release_date": "2026-04-07",
       "knowledge": null,
       "last_updated": "2026-04-07"
+    },
+    {
+      "platform": "ambient",
+      "id": "zai-org/GLM-5.2-FP8",
+      "name": "GLM-5.2",
+      "price": {
+        "input": 1.2,
+        "output": 4.2,
+        "cache_read": 0.26,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 202752,
+        "output": 202752
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
     },
     {
       "platform": "neon",
@@ -131333,103 +131456,6 @@
     },
     {
       "platform": "wafer.ai",
-      "id": "deepseek-v4-flash",
-      "name": "DeepSeek V4 Flash",
-      "price": {
-        "input": 0.14,
-        "output": 0.28,
-        "cache_read": 0.01,
-        "cache_write": 0
-      },
-      "limit": {
-        "context": 1000000,
-        "output": 384000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-24",
-      "knowledge": "2025-05",
-      "last_updated": "2026-05-30"
-    },
-    {
-      "platform": "wafer.ai",
-      "id": "Qwen3.6-35B-A3B",
-      "name": "Qwen3.6-35B-A3B",
-      "price": {
-        "input": 0.15,
-        "output": 1,
-        "cache_read": 0.02,
-        "cache_write": 0
-      },
-      "limit": {
-        "context": 256000,
-        "output": 65536
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "video",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-05-11",
-      "knowledge": "2025-04",
-      "last_updated": "2026-05-30"
-    },
-    {
-      "platform": "wafer.ai",
-      "id": "qwen3.7-max",
-      "name": "Qwen3.7-Max",
-      "price": {
-        "input": 5,
-        "output": 15,
-        "cache_read": 0.5,
-        "cache_write": 0
-      },
-      "limit": {
-        "context": 256000,
-        "output": 65536
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2026-05-21",
-      "knowledge": null,
-      "last_updated": "2026-05-30"
-    },
-    {
-      "platform": "wafer.ai",
-      "id": "deepseek-v4-pro",
-      "name": "DeepSeek V4 Pro",
-      "price": {
-        "input": 1.74,
-        "output": 3.48,
-        "cache_read": 0.02,
-        "cache_write": 0
-      },
-      "limit": {
-        "context": 1000000,
-        "output": 384000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-24",
-      "knowledge": "2025-05",
-      "last_updated": "2026-05-30"
-    },
-    {
-      "platform": "wafer.ai",
       "id": "Qwen3.5-397B-A17B",
       "name": "Qwen3.5-397B-A17B",
       "price": {
@@ -131456,12 +131482,36 @@
     },
     {
       "platform": "wafer.ai",
-      "id": "Kimi-K2.6",
-      "name": "Kimi-K2.6",
+      "id": "glm5.2-fast",
+      "name": "GLM5.2-Fast",
       "price": {
-        "input": 0.68,
-        "output": 3.15,
-        "cache_read": 0.07,
+        "input": 3,
+        "output": 10.25,
+        "cache_read": 0.5,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
+    },
+    {
+      "platform": "wafer.ai",
+      "id": "Kimi-K2.6",
+      "name": "Kimi K2.6",
+      "price": {
+        "input": 1.14,
+        "output": 4.8,
+        "cache_read": 0.19,
         "cache_write": 0
       },
       "limit": {
@@ -131476,8 +131526,33 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-05-13",
+      "release_date": "2026-04-21",
       "knowledge": "2025-01",
+      "last_updated": "2026-04-21"
+    },
+    {
+      "platform": "wafer.ai",
+      "id": "MiniMax-M3",
+      "name": "MiniMax-M3",
+      "price": {
+        "input": 0.33,
+        "output": 1.32,
+        "cache_read": 0.07,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-01",
+      "knowledge": null,
       "last_updated": "2026-06-01"
     },
     {
