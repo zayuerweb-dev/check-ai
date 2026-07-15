@@ -58,7 +58,7 @@
         "AI_GATEWAY_API_KEY"
       ],
       "api": null,
-      "models_count": 310
+      "models_count": 301
     },
     {
       "key": "submodel",
@@ -372,7 +372,7 @@
         "CROSSMODEL_API_KEY"
       ],
       "api": "https://api.crossmodel.ai/v1",
-      "models_count": 40
+      "models_count": 43
     },
     {
       "key": "stepfun-ai-step-plan",
@@ -878,7 +878,7 @@
         "AICORE_SERVICE_KEY"
       ],
       "api": null,
-      "models_count": 29
+      "models_count": 42
     },
     {
       "key": "opencode",
@@ -1237,7 +1237,7 @@
       "env": [
         "INFERX_API_KEY"
       ],
-      "api": "https://model.inferx.net/v1",
+      "api": "https://model.inferx.net/endpoints/v1",
       "models_count": 6
     },
     {
@@ -1301,7 +1301,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 345
+      "models_count": 343
     },
     {
       "key": "jiekou",
@@ -1525,7 +1525,7 @@
         "AMBIENT_API_KEY"
       ],
       "api": "https://api.ambient.xyz/v1",
-      "models_count": 6
+      "models_count": 7
     },
     {
       "key": "neon",
@@ -8213,28 +8213,6 @@
     },
     {
       "platform": "vercel",
-      "id": "mistral/devstral-small",
-      "name": "Devstral Small 1.1",
-      "price": {
-        "input": 0.1,
-        "output": 0.3,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 128000,
-        "output": 64000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-05-21",
-      "knowledge": "2024-10",
-      "last_updated": "2025-05-07"
-    },
-    {
-      "platform": "vercel",
       "id": "mistral/mistral-large-3",
       "name": "Mistral Large 3",
       "price": {
@@ -8462,30 +8440,6 @@
       "release_date": "2024-09-01",
       "knowledge": "2024-09",
       "last_updated": "2024-09-01"
-    },
-    {
-      "platform": "vercel",
-      "id": "mistral/pixtral-large",
-      "name": "Pixtral Large (latest)",
-      "price": {
-        "input": 2,
-        "output": 6,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 128000,
-        "output": 128000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "open"
-      ],
-      "release_date": "2024-11-01",
-      "knowledge": "2024-11",
-      "last_updated": "2024-11-04"
     },
     {
       "platform": "vercel",
@@ -9233,27 +9187,6 @@
       "release_date": "2025-10-29",
       "knowledge": "2024-10",
       "last_updated": "2024-12-01"
-    },
-    {
-      "platform": "vercel",
-      "id": "openai/gpt-3.5-turbo-instruct",
-      "name": "GPT-3.5 Turbo Instruct",
-      "price": {
-        "input": 1.5,
-        "output": 2,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 8192,
-        "output": 4096
-      },
-      "capabilities": [
-        "text"
-      ],
-      "release_date": "2023-09-18",
-      "knowledge": "2021-09",
-      "last_updated": "2023-03-01"
     },
     {
       "platform": "vercel",
@@ -11389,52 +11322,6 @@
     },
     {
       "platform": "vercel",
-      "id": "xiaomi/mimo-v2-flash",
-      "name": "MiMo V2 Flash",
-      "price": {
-        "input": 0.1,
-        "output": 0.3,
-        "cache_read": 0.01,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262144,
-        "output": 32000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-12-16",
-      "knowledge": "2024-10",
-      "last_updated": "2026-02-04"
-    },
-    {
-      "platform": "vercel",
-      "id": "xiaomi/mimo-v2-pro",
-      "name": "MiMo V2 Pro",
-      "price": {
-        "input": 1,
-        "output": 3,
-        "cache_read": 0.2,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 1000000,
-        "output": 128000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2026-03-18",
-      "knowledge": "2024-12",
-      "last_updated": "2026-03-18"
-    },
-    {
-      "platform": "vercel",
       "id": "xiaomi/mimo-v2.5-pro",
       "name": "MiMo V2.5 Pro",
       "price": {
@@ -11521,29 +11408,6 @@
       "release_date": "2026-02-24",
       "knowledge": null,
       "last_updated": "2026-03-06"
-    },
-    {
-      "platform": "vercel",
-      "id": "anthropic/claude-3.5-haiku",
-      "name": "Claude 3.5 Haiku",
-      "price": {
-        "input": 0.8,
-        "output": 4,
-        "cache_read": 0.08,
-        "cache_write": 1
-      },
-      "limit": {
-        "context": 200000,
-        "output": 8192
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools"
-      ],
-      "release_date": "2024-11-04",
-      "knowledge": "2024-07-31",
-      "last_updated": "2024-10-22"
     },
     {
       "platform": "vercel",
@@ -12409,28 +12273,6 @@
       "release_date": "2026-05-14",
       "knowledge": null,
       "last_updated": "2026-05-14"
-    },
-    {
-      "platform": "vercel",
-      "id": "arcee-ai/trinity-large-preview",
-      "name": "Trinity Large Preview",
-      "price": {
-        "input": 0.25,
-        "output": 1,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131000,
-        "output": 131000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2026-01-27",
-      "knowledge": "2024-10",
-      "last_updated": "2025-01"
     },
     {
       "platform": "vercel",
@@ -13453,50 +13295,6 @@
     },
     {
       "platform": "vercel",
-      "id": "meituan/longcat-flash-thinking-2601",
-      "name": "LongCat Flash Thinking 2601",
-      "price": {
-        "input": null,
-        "output": null,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 32768,
-        "output": 32768
-      },
-      "capabilities": [
-        "text",
-        "reasoning"
-      ],
-      "release_date": "2026-01-15",
-      "knowledge": null,
-      "last_updated": "2026-03-13"
-    },
-    {
-      "platform": "vercel",
-      "id": "meituan/longcat-flash-chat",
-      "name": "LongCat Flash Chat",
-      "price": {
-        "input": null,
-        "output": null,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 128000,
-        "output": 100000
-      },
-      "capabilities": [
-        "text",
-        "tools"
-      ],
-      "release_date": "2025-09-01",
-      "knowledge": "2024-10",
-      "last_updated": "2025-08-30"
-    },
-    {
-      "platform": "vercel",
       "id": "meta/muse-spark-1.1",
       "name": "Muse Spark 1.1",
       "price": {
@@ -13844,8 +13642,8 @@
       "id": "deepseek/deepseek-v3.1",
       "name": "DeepSeek-V3.1",
       "price": {
-        "input": 0.21,
-        "output": 0.79,
+        "input": 0.25,
+        "output": 0.95,
         "cache_read": 0.13,
         "cache_write": null
       },
@@ -32979,6 +32777,78 @@
       "release_date": "2024-10-03",
       "knowledge": null,
       "last_updated": "2026-06-11"
+    },
+    {
+      "platform": "crossmodel",
+      "id": "x-ai/grok-4.3",
+      "name": "Grok 4.3",
+      "price": {
+        "input": 1.25,
+        "output": 2.5,
+        "cache_read": 0.2,
+        "cache_write": 1.25
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 1000000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-17",
+      "knowledge": null,
+      "last_updated": "2026-04-17"
+    },
+    {
+      "platform": "crossmodel",
+      "id": "x-ai/grok-4.5",
+      "name": "Grok 4.5",
+      "price": {
+        "input": 2,
+        "output": 6,
+        "cache_read": 0.5,
+        "cache_write": 2
+      },
+      "limit": {
+        "context": 500000,
+        "output": 500000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-07-08",
+      "knowledge": null,
+      "last_updated": "2026-07-08"
+    },
+    {
+      "platform": "crossmodel",
+      "id": "x-ai/grok-build-0.1",
+      "name": "Grok Build 0.1",
+      "price": {
+        "input": 1,
+        "output": 2,
+        "cache_read": 0.2,
+        "cache_write": 1
+      },
+      "limit": {
+        "context": 256000,
+        "output": 256000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-16",
+      "knowledge": null,
+      "last_updated": "2026-04-16"
     },
     {
       "platform": "crossmodel",
@@ -71009,6 +70879,27 @@
     },
     {
       "platform": "sap-ai-core",
+      "id": "text-embedding-3-large",
+      "name": "text-embedding-3-large",
+      "price": {
+        "input": 0.09,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 8191,
+        "output": 3072
+      },
+      "capabilities": [
+        "text"
+      ],
+      "release_date": "2024-01-25",
+      "knowledge": null,
+      "last_updated": "2024-01-25"
+    },
+    {
+      "platform": "sap-ai-core",
       "id": "anthropic--claude-3-sonnet",
       "name": "anthropic--claude-3-sonnet",
       "price": {
@@ -71106,6 +70997,27 @@
     },
     {
       "platform": "sap-ai-core",
+      "id": "amazon--titan-embed-text",
+      "name": "amazon--titan-embed-text",
+      "price": {
+        "input": 0.14,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 8192,
+        "output": 1536
+      },
+      "capabilities": [
+        "text"
+      ],
+      "release_date": "2024-04-30",
+      "knowledge": null,
+      "last_updated": "2024-04-30"
+    },
+    {
+      "platform": "sap-ai-core",
       "id": "gemini-2.5-flash",
       "name": "gemini-2.5-flash",
       "price": {
@@ -71129,6 +71041,28 @@
       "release_date": "2025-04-17",
       "knowledge": "2025-01",
       "last_updated": "2025-06-05"
+    },
+    {
+      "platform": "sap-ai-core",
+      "id": "sap-abap-1",
+      "name": "sap-abap-1",
+      "price": {
+        "input": 0.48,
+        "output": 1.7,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 32768,
+        "output": 4096
+      },
+      "capabilities": [
+        "text",
+        "tools"
+      ],
+      "release_date": "2025-11-26",
+      "knowledge": null,
+      "last_updated": "2025-11-26"
     },
     {
       "platform": "sap-ai-core",
@@ -71205,6 +71139,30 @@
     },
     {
       "platform": "sap-ai-core",
+      "id": "amazon--nova-pro",
+      "name": "amazon--nova-pro",
+      "price": {
+        "input": 0.56,
+        "output": 2.13,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 300000,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools"
+      ],
+      "release_date": "2024-12-03",
+      "knowledge": null,
+      "last_updated": "2024-12-03"
+    },
+    {
+      "platform": "sap-ai-core",
       "id": "anthropic--claude-4-opus",
       "name": "anthropic--claude-4-opus",
       "price": {
@@ -71253,6 +71211,28 @@
     },
     {
       "platform": "sap-ai-core",
+      "id": "amazon--nova-micro",
+      "name": "amazon--nova-micro",
+      "price": {
+        "input": 0.03,
+        "output": 0.1,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 128000,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "tools"
+      ],
+      "release_date": "2024-12-03",
+      "knowledge": null,
+      "last_updated": "2024-12-03"
+    },
+    {
+      "platform": "sap-ai-core",
       "id": "anthropic--claude-3.5-sonnet",
       "name": "anthropic--claude-3.5-sonnet",
       "price": {
@@ -71297,6 +71277,51 @@
       "release_date": "2026-02-05",
       "knowledge": "2025-05",
       "last_updated": "2026-03-13"
+    },
+    {
+      "platform": "sap-ai-core",
+      "id": "gpt-5.2",
+      "name": "gpt-5.2",
+      "price": {
+        "input": 1.25,
+        "output": 9.44,
+        "cache_read": 0.12,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 400000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-12-11",
+      "knowledge": "2025-08-31",
+      "last_updated": "2025-12-11"
+    },
+    {
+      "platform": "sap-ai-core",
+      "id": "text-embedding-3-small",
+      "name": "text-embedding-3-small",
+      "price": {
+        "input": 0.02,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 8191,
+        "output": 1536
+      },
+      "capabilities": [
+        "text"
+      ],
+      "release_date": "2024-01-25",
+      "knowledge": null,
+      "last_updated": "2024-01-25"
     },
     {
       "platform": "sap-ai-core",
@@ -71350,6 +71375,52 @@
     },
     {
       "platform": "sap-ai-core",
+      "id": "mistralai--mistral-medium-instruct",
+      "name": "mistralai--mistral-medium-instruct",
+      "price": {
+        "input": 0.36,
+        "output": 1.22,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 128000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools"
+      ],
+      "release_date": "2025-05-07",
+      "knowledge": "2025-05",
+      "last_updated": "2025-05-07"
+    },
+    {
+      "platform": "sap-ai-core",
+      "id": "gpt-4.1-nano",
+      "name": "gpt-4.1-nano",
+      "price": {
+        "input": 0.08,
+        "output": 0.26,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1047576,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools"
+      ],
+      "release_date": "2025-04-14",
+      "knowledge": "2024-04",
+      "last_updated": "2025-04-14"
+    },
+    {
+      "platform": "sap-ai-core",
       "id": "sonar",
       "name": "sonar",
       "price": {
@@ -71393,6 +71464,31 @@
     },
     {
       "platform": "sap-ai-core",
+      "id": "amazon--nova-lite",
+      "name": "amazon--nova-lite",
+      "price": {
+        "input": 0.3,
+        "output": 2.37,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 64000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-12-02",
+      "knowledge": null,
+      "last_updated": "2025-12-02"
+    },
+    {
+      "platform": "sap-ai-core",
       "id": "gpt-5.4",
       "name": "gpt-5.4",
       "price": {
@@ -71422,7 +71518,7 @@
       "price": {
         "input": 2,
         "output": 8,
-        "cache_read": 0.5,
+        "cache_read": 0.32,
         "cache_write": null
       },
       "limit": {
@@ -71556,6 +71652,51 @@
     },
     {
       "platform": "sap-ai-core",
+      "id": "cohere--command-a-reasoning",
+      "name": "cohere--command-a-reasoning",
+      "price": {
+        "input": 0.63,
+        "output": 5.05,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 256000,
+        "output": 32000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2025-08-21",
+      "knowledge": "2024-06-01",
+      "last_updated": "2025-08-21"
+    },
+    {
+      "platform": "sap-ai-core",
+      "id": "nvidia--llama-3.2-nv-embedqa-1b",
+      "name": "nvidia--llama-3.2-nv-embedqa-1b",
+      "price": {
+        "input": 0.07,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 8192,
+        "output": 4096
+      },
+      "capabilities": [
+        "text"
+      ],
+      "release_date": "2024-09-25",
+      "knowledge": null,
+      "last_updated": "2024-09-25"
+    },
+    {
+      "platform": "sap-ai-core",
       "id": "anthropic--claude-4.5-opus",
       "name": "anthropic--claude-4.5-opus",
       "price": {
@@ -71601,6 +71742,31 @@
       "release_date": "2026-04-16",
       "knowledge": "2026-01-31",
       "last_updated": "2026-04-16"
+    },
+    {
+      "platform": "sap-ai-core",
+      "id": "mistralai--mistral-small",
+      "name": "mistralai--mistral-small",
+      "price": {
+        "input": 0.07,
+        "output": 0.28,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 128000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-03-16",
+      "knowledge": "2025-06",
+      "last_updated": "2026-03-16"
     },
     {
       "platform": "sap-ai-core",
@@ -99043,14 +99209,14 @@
       "id": "google/gemma-4-31b-it",
       "name": "Gemma 4 31B IT",
       "price": {
-        "input": 0.12,
+        "input": 0.06,
         "output": 0.35,
-        "cache_read": 0.09,
+        "cache_read": null,
         "cache_write": null
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 8192
       },
       "capabilities": [
         "text",
@@ -99463,7 +99629,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 8192
+        "output": 32768
       },
       "capabilities": [
         "text",
@@ -99548,52 +99714,6 @@
       "release_date": "2026-03-03",
       "knowledge": "2025-01",
       "last_updated": "2026-03-03"
-    },
-    {
-      "platform": "openrouter",
-      "id": "liquid/lfm-2.5-1.2b-thinking:free",
-      "name": "LFM2.5-1.2B-Thinking (free)",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 32768,
-        "output": 32768
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-01-20",
-      "knowledge": "2025-06",
-      "last_updated": "2026-01-20"
-    },
-    {
-      "platform": "openrouter",
-      "id": "liquid/lfm-2.5-1.2b-instruct:free",
-      "name": "LFM2.5-1.2B-Instruct (free)",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 32768,
-        "output": 32768
-      },
-      "capabilities": [
-        "text",
-        "open"
-      ],
-      "release_date": "2026-01-20",
-      "knowledge": "2025-06",
-      "last_updated": "2026-01-20"
     },
     {
       "platform": "openrouter",
@@ -100053,14 +100173,14 @@
       "id": "z-ai/glm-5.2",
       "name": "GLM-5.2",
       "price": {
-        "input": 0.93,
-        "output": 3,
-        "cache_read": 0.18,
+        "input": 0.91,
+        "output": 2.86,
+        "cache_read": 0.169,
         "cache_write": null
       },
       "limit": {
         "context": 1048576,
-        "output": 32768
+        "output": 128000
       },
       "capabilities": [
         "text",
@@ -100892,30 +101012,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "openai/gpt-oss-120b:free",
-      "name": "gpt-oss-120b (free)",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131072,
-        "output": 131072
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-08-05",
-      "knowledge": null,
-      "last_updated": "2025-08-05"
-    },
-    {
-      "platform": "openrouter",
       "id": "openai/gpt-4o-2024-08-06",
       "name": "GPT-4o (2024-08-06)",
       "price": {
@@ -101155,8 +101251,8 @@
       "id": "openai/gpt-oss-120b",
       "name": "GPT OSS 120B",
       "price": {
-        "input": 0.036,
-        "output": 0.18,
+        "input": 0.03,
+        "output": 0.15,
         "cache_read": null,
         "cache_write": null
       },
@@ -101484,7 +101580,7 @@
       "price": {
         "input": 0.05,
         "output": 0.4,
-        "cache_read": 0.01,
+        "cache_read": 0.005,
         "cache_write": null
       },
       "limit": {
@@ -101766,7 +101862,7 @@
       "price": {
         "input": 1.25,
         "output": 10,
-        "cache_read": 0.13,
+        "cache_read": 0.125,
         "cache_write": null
       },
       "limit": {
@@ -105049,14 +105145,14 @@
       "id": "qwen/qwen3.6-27b",
       "name": "Qwen3.6 27B",
       "price": {
-        "input": 0.285,
+        "input": 0.289,
         "output": 2.4,
-        "cache_read": 0.15,
+        "cache_read": null,
         "cache_write": null
       },
       "limit": {
         "context": 262144,
-        "output": 262140
+        "output": 131072
       },
       "capabilities": [
         "text",
@@ -105680,28 +105776,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "sao10k/l3.1-70b-hanami-x1",
-      "name": "Llama 3.1 70B Hanami x1",
-      "price": {
-        "input": 3,
-        "output": 3,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 16000,
-        "output": 16000
-      },
-      "capabilities": [
-        "text",
-        "open"
-      ],
-      "release_date": "2025-01-08",
-      "knowledge": "2023-12-31",
-      "last_updated": "2025-01-08"
-    },
-    {
-      "platform": "openrouter",
       "id": "upstage/solar-pro-3",
       "name": "Solar Pro 3",
       "price": {
@@ -106195,6 +106269,50 @@
       "release_date": "2025-06-17",
       "knowledge": "2024-06-30",
       "last_updated": "2025-06-17"
+    },
+    {
+      "platform": "openrouter",
+      "id": "kwaipilot/kat-coder-air-v2.5",
+      "name": "KAT-Coder-Air V2.5",
+      "price": {
+        "input": 0.15,
+        "output": 0.6,
+        "cache_read": 0.03,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 256000,
+        "output": 80000
+      },
+      "capabilities": [
+        "text",
+        "tools"
+      ],
+      "release_date": "2026-07-10",
+      "knowledge": null,
+      "last_updated": "2026-07-10"
+    },
+    {
+      "platform": "openrouter",
+      "id": "kwaipilot/kat-coder-pro-v2.5",
+      "name": "KAT-Coder-Pro V2.5",
+      "price": {
+        "input": 0.74,
+        "output": 2.96,
+        "cache_read": 0.15,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 256000,
+        "output": 80000
+      },
+      "capabilities": [
+        "text",
+        "tools"
+      ],
+      "release_date": "2026-07-10",
+      "knowledge": null,
+      "last_updated": "2026-07-10"
     },
     {
       "platform": "openrouter",
@@ -114569,8 +114687,8 @@
         "cache_write": null
       },
       "limit": {
-        "context": 202720,
-        "output": 202720
+        "context": 1048576,
+        "output": 1048576
       },
       "capabilities": [
         "text",
@@ -131471,9 +131589,9 @@
       "id": "z-ai/glm-5.2",
       "name": "GLM-5.2",
       "price": {
-        "input": 1.4,
+        "input": 1.05,
         "output": 4.4,
-        "cache_read": 0.26,
+        "cache_read": 0.2,
         "cache_write": 0
       },
       "limit": {
@@ -131489,6 +131607,32 @@
       "release_date": "2026-06-13",
       "knowledge": null,
       "last_updated": "2026-06-13"
+    },
+    {
+      "platform": "ambient",
+      "id": "stepfun/step-3.7-flash",
+      "name": "Step 3.7 Flash",
+      "price": {
+        "input": 0.2,
+        "output": 1.15,
+        "cache_read": 0.04,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-05-29",
+      "knowledge": "2026-03-01",
+      "last_updated": "2026-05-29"
     },
     {
       "platform": "ambient",
@@ -131543,9 +131687,9 @@
       "id": "ambient/large",
       "name": "Ambient Large",
       "price": {
-        "input": 1.4,
+        "input": 1.05,
         "output": 4.4,
-        "cache_read": 0.26,
+        "cache_read": 0.2,
         "cache_write": 0
       },
       "limit": {
