@@ -28,7 +28,7 @@
         "AMBIENT_API_KEY"
       ],
       "api": "https://api.ambient.xyz/v1",
-      "models_count": 7
+      "models_count": 9
     },
     {
       "key": "claudinio",
@@ -148,7 +148,7 @@
         "KIMI_API_KEY"
       ],
       "api": "https://api.kimi.com/coding/v1",
-      "models_count": 6
+      "models_count": 3
     },
     {
       "key": "crossmodel",
@@ -364,7 +364,7 @@
         "EMPIRIOLABS_API_KEY"
       ],
       "api": "https://api.empiriolabs.ai/v1",
-      "models_count": 36
+      "models_count": 37
     },
     {
       "key": "nova",
@@ -614,7 +614,7 @@
         "VENICE_API_KEY"
       ],
       "api": null,
-      "models_count": 83
+      "models_count": 85
     },
     {
       "key": "berget",
@@ -1269,7 +1269,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 344
+      "models_count": 343
     },
     {
       "key": "submodel",
@@ -1450,7 +1450,7 @@
         "TOGETHER_API_KEY"
       ],
       "api": null,
-      "models_count": 32
+      "models_count": 33
     },
     {
       "key": "vercel",
@@ -1502,7 +1502,7 @@
         "CLOUDFLARE_GATEWAY_ID"
       ],
       "api": null,
-      "models_count": 82
+      "models_count": 83
     },
     {
       "key": "novita-ai",
@@ -1656,7 +1656,7 @@
         "ZENMUX_API_KEY"
       ],
       "api": "https://zenmux.ai/api/v1",
-      "models_count": 118
+      "models_count": 119
     },
     {
       "key": "poolside",
@@ -1956,6 +1956,33 @@
     },
     {
       "platform": "ambient",
+      "id": "xiaomi/mimo-v2.5",
+      "name": "MiMo-V2.5",
+      "price": {
+        "input": 0.4,
+        "output": 2,
+        "cache_read": 0.08,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": "2024-12",
+      "last_updated": "2026-04-22"
+    },
+    {
+      "platform": "ambient",
       "id": "stepfun/step-3.7-flash",
       "name": "Step 3.7 Flash",
       "price": {
@@ -2033,9 +2060,9 @@
       "id": "moonshotai/kimi-k2.7-code",
       "name": "Kimi K2.7 Code",
       "price": {
-        "input": 0.75,
-        "output": 3.5,
-        "cache_read": 0.16,
+        "input": 1,
+        "output": 4.4,
+        "cache_read": 0.2,
         "cache_write": 0
       },
       "limit": {
@@ -2078,6 +2105,30 @@
       "release_date": "2026-04-21",
       "knowledge": "2025-01",
       "last_updated": "2026-04-21"
+    },
+    {
+      "platform": "ambient",
+      "id": "deepseek/deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash",
+      "price": {
+        "input": 0.25,
+        "output": 0.4,
+        "cache_read": 0.1,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 1048576
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-24",
+      "knowledge": "2025-05",
+      "last_updated": "2026-04-24"
     },
     {
       "platform": "claudinio",
@@ -23790,32 +23841,6 @@
     },
     {
       "platform": "kimi-for-coding",
-      "id": "k2p5",
-      "name": "Kimi K2.5",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": 0,
-        "cache_write": 0
-      },
-      "limit": {
-        "context": 262144,
-        "output": 32768
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "video",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-01",
-      "knowledge": "2025-01",
-      "last_updated": "2026-01"
-    },
-    {
-      "platform": "kimi-for-coding",
       "id": "k2p7",
       "name": "Kimi K2.7 Code",
       "price": {
@@ -23839,30 +23864,6 @@
       "release_date": "2026-06-12",
       "knowledge": "2025-01",
       "last_updated": "2026-06-12"
-    },
-    {
-      "platform": "kimi-for-coding",
-      "id": "kimi-k2-thinking",
-      "name": "Kimi K2 Thinking",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": 0,
-        "cache_write": 0
-      },
-      "limit": {
-        "context": 262144,
-        "output": 32768
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-11",
-      "knowledge": "2025-07",
-      "last_updated": "2025-12"
     },
     {
       "platform": "kimi-for-coding",
@@ -23915,32 +23916,6 @@
       "release_date": "2026-07-16",
       "knowledge": null,
       "last_updated": "2026-07-16"
-    },
-    {
-      "platform": "kimi-for-coding",
-      "id": "k2p6",
-      "name": "Kimi K2.6",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": 0,
-        "cache_write": 0
-      },
-      "limit": {
-        "context": 262144,
-        "output": 32768
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "video",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04",
-      "knowledge": "2025-01",
-      "last_updated": "2026-04"
     },
     {
       "platform": "crossmodel",
@@ -39340,6 +39315,32 @@
     },
     {
       "platform": "empiriolabs",
+      "id": "kimi-k3",
+      "name": "Kimi K3",
+      "price": {
+        "input": 3,
+        "output": 15,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-07-16",
+      "knowledge": null,
+      "last_updated": "2026-07-16"
+    },
+    {
+      "platform": "empiriolabs",
       "id": "muse-spark-1-1",
       "name": "Muse Spark 1.1",
       "price": {
@@ -48174,6 +48175,30 @@
     },
     {
       "platform": "venice",
+      "id": "kimi-k3",
+      "name": "Kimi K3",
+      "price": {
+        "input": 3.75,
+        "output": 18.75,
+        "cache_read": 0.375,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-07-16",
+      "knowledge": null,
+      "last_updated": "2026-07-17"
+    },
+    {
+      "platform": "venice",
       "id": "gemini-3-1-pro-preview",
       "name": "Gemini 3.1 Pro Preview",
       "price": {
@@ -48319,6 +48344,32 @@
       "release_date": "2026-02-16",
       "knowledge": null,
       "last_updated": "2026-06-11"
+    },
+    {
+      "platform": "venice",
+      "id": "inkling",
+      "name": "Inkling",
+      "price": {
+        "input": 1.25,
+        "output": 5.0625,
+        "cache_read": 0.2125,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-07-16",
+      "knowledge": null,
+      "last_updated": "2026-07-17"
     },
     {
       "platform": "venice",
@@ -53013,7 +53064,7 @@
         "cache_write": 6.25
       },
       "limit": {
-        "context": 200000,
+        "context": 1000000,
         "output": 128000
       },
       "capabilities": [
@@ -53327,7 +53378,7 @@
         "cache_write": 6.25
       },
       "limit": {
-        "context": 200000,
+        "context": 1000000,
         "output": 128000
       },
       "capabilities": [
@@ -53338,7 +53389,7 @@
       ],
       "release_date": "2026-02-05",
       "knowledge": "2025-05-31",
-      "last_updated": "2026-02-05"
+      "last_updated": "2026-07-17"
     },
     {
       "platform": "azure-cognitive-services",
@@ -53880,7 +53931,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 272000,
+        "context": 400000,
         "output": 128000
       },
       "capabilities": [
@@ -53927,8 +53978,8 @@
         "cache_write": null
       },
       "limit": {
-        "context": 128000,
-        "output": 8192
+        "context": 1000000,
+        "output": 16384
       },
       "capabilities": [
         "text",
@@ -54200,7 +54251,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 128000,
+        "context": 200000,
         "output": 16384
       },
       "capabilities": [
@@ -54247,7 +54298,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 272000,
+        "context": 400000,
         "output": 128000
       },
       "capabilities": [
@@ -54425,7 +54476,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 272000,
+        "context": 400000,
         "output": 128000
       },
       "capabilities": [
@@ -54473,8 +54524,8 @@
         "cache_write": null
       },
       "limit": {
-        "context": 256000,
-        "output": 8000
+        "context": 131072,
+        "output": 8192
       },
       "capabilities": [
         "text",
@@ -55096,7 +55147,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 272000,
+        "context": 400000,
         "output": 128000
       },
       "capabilities": [
@@ -57321,7 +57372,7 @@
         "cache_write": 6.25
       },
       "limit": {
-        "context": 200000,
+        "context": 1000000,
         "output": 128000
       },
       "capabilities": [
@@ -57604,7 +57655,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 272000,
+        "context": 400000,
         "output": 128000
       },
       "capabilities": [
@@ -58462,8 +58513,8 @@
         "cache_write": null
       },
       "limit": {
-        "context": 256000,
-        "output": 8000
+        "context": 131072,
+        "output": 8192
       },
       "capabilities": [
         "text",
@@ -58510,7 +58561,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 272000,
+        "context": 400000,
         "output": 128000
       },
       "capabilities": [
@@ -58709,7 +58760,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 272000,
+        "context": 400000,
         "output": 128000
       },
       "capabilities": [
@@ -58758,7 +58809,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 128000,
+        "context": 200000,
         "output": 16384
       },
       "capabilities": [
@@ -59174,8 +59225,8 @@
         "cache_write": null
       },
       "limit": {
-        "context": 128000,
-        "output": 8192
+        "context": 1000000,
+        "output": 16384
       },
       "capabilities": [
         "text",
@@ -59245,7 +59296,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 272000,
+        "context": 400000,
         "output": 128000
       },
       "capabilities": [
@@ -59476,7 +59527,7 @@
         "cache_write": 6.25
       },
       "limit": {
-        "context": 200000,
+        "context": 1000000,
         "output": 128000
       },
       "capabilities": [
@@ -59487,7 +59538,7 @@
       ],
       "release_date": "2026-02-05",
       "knowledge": "2025-05-31",
-      "last_updated": "2026-02-05"
+      "last_updated": "2026-07-17"
     },
     {
       "platform": "azure",
@@ -69249,7 +69300,7 @@
         "input": 2.5,
         "output": 15,
         "cache_read": 0.25,
-        "cache_write": null
+        "cache_write": 3.125
       },
       "limit": {
         "context": 1050000,
@@ -69634,7 +69685,7 @@
         "input": 1,
         "output": 6,
         "cache_read": 0.1,
-        "cache_write": null
+        "cache_write": 1.25
       },
       "limit": {
         "context": 1050000,
@@ -69684,7 +69735,7 @@
         "input": 5,
         "output": 30,
         "cache_read": 0.5,
-        "cache_write": null
+        "cache_write": 6.25
       },
       "limit": {
         "context": 1050000,
@@ -76247,9 +76298,9 @@
       "id": "mimo-v2.5-pro",
       "name": "MiMo V2.5 Pro",
       "price": {
-        "input": 1.74,
-        "output": 3.48,
-        "cache_read": 0.0145,
+        "input": 0.435,
+        "output": 0.87,
+        "cache_read": 0.003625,
         "cache_write": null
       },
       "limit": {
@@ -76322,7 +76373,7 @@
     {
       "platform": "opencode-go",
       "id": "kimi-k3",
-      "name": "Kimi K3",
+      "name": "Kimi K3 (2x usage)",
       "price": {
         "input": 3,
         "output": 15,
@@ -76522,9 +76573,9 @@
       "id": "deepseek-v4-pro",
       "name": "DeepSeek V4 Pro",
       "price": {
-        "input": 1.74,
-        "output": 3.48,
-        "cache_read": 0.0145,
+        "input": 0.435,
+        "output": 0.87,
+        "cache_read": 0.003625,
         "cache_write": null
       },
       "limit": {
@@ -93158,9 +93209,9 @@
       "id": "z-ai/glm-5.2",
       "name": "GLM-5.2",
       "price": {
-        "input": 0.9338,
-        "output": 2.9348,
-        "cache_read": 0.17342,
+        "input": 0.4144,
+        "output": 1.3024,
+        "cache_read": 0.07696,
         "cache_write": null
       },
       "limit": {
@@ -93781,8 +93832,8 @@
       "id": "mancer/weaver",
       "name": "Weaver (alpha)",
       "price": {
-        "input": 0.75,
-        "output": 1,
+        "input": 0.5,
+        "output": 0.75,
         "cache_read": null,
         "cache_write": null
       },
@@ -94035,30 +94086,6 @@
       "release_date": "2026-04-27",
       "knowledge": "2025-01-01",
       "last_updated": "2026-04-27"
-    },
-    {
-      "platform": "openrouter",
-      "id": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
-      "name": "Llama 3.3 Nemotron Super 49B v1.5",
-      "price": {
-        "input": 0.4,
-        "output": 0.4,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131072,
-        "output": 16384
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2025-07-25",
-      "knowledge": null,
-      "last_updated": "2025-07-25"
     },
     {
       "platform": "openrouter",
@@ -94700,29 +94727,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "meta-llama/llama-3.2-11b-vision-instruct",
-      "name": "Llama 3.2 11B Vision Instruct",
-      "price": {
-        "input": 0.345,
-        "output": 0.345,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 131072,
-        "output": 16384
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "open"
-      ],
-      "release_date": "2024-09-25",
-      "knowledge": "2023-12-31",
-      "last_updated": "2024-09-25"
-    },
-    {
-      "platform": "openrouter",
       "id": "meta-llama/llama-guard-4-12b",
       "name": "Llama Guard 4 12B",
       "price": {
@@ -94795,14 +94799,14 @@
       "id": "meta-llama/llama-3.2-3b-instruct",
       "name": "Llama 3.2 3B Instruct",
       "price": {
-        "input": 0.05,
-        "output": 0.33,
+        "input": 0.0509,
+        "output": 0.335,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
         "context": 131072,
-        "output": 131072
+        "output": 80000
       },
       "capabilities": [
         "text",
@@ -95204,6 +95208,32 @@
       "release_date": "2025-11-13",
       "knowledge": null,
       "last_updated": "2025-11-13"
+    },
+    {
+      "platform": "openrouter",
+      "id": "thinkingmachines/inkling",
+      "name": "Inkling",
+      "price": {
+        "input": 1,
+        "output": 4.05,
+        "cache_read": 0.17,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 1048576
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-07-15",
+      "knowledge": null,
+      "last_updated": "2026-07-15"
     },
     {
       "platform": "openrouter",
@@ -96195,8 +96225,8 @@
       "id": "mistralai/mistral-nemo",
       "name": "Mistral Nemo",
       "price": {
-        "input": 0.02,
-        "output": 0.04,
+        "input": 0.019,
+        "output": 0.03,
         "cache_read": null,
         "cache_write": null
       },
@@ -96427,9 +96457,9 @@
       "id": "moonshotai/kimi-k2.7-code",
       "name": "Kimi K2.7 Code",
       "price": {
-        "input": 0.75,
-        "output": 3.5,
-        "cache_read": 0.16,
+        "input": 1,
+        "output": 4.4,
+        "cache_read": 0.2,
         "cache_write": null
       },
       "limit": {
@@ -96479,12 +96509,12 @@
       "price": {
         "input": 0.6,
         "output": 2.5,
-        "cache_read": null,
+        "cache_read": 0.15,
         "cache_write": null
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 100352
       },
       "capabilities": [
         "text",
@@ -96960,9 +96990,9 @@
       "id": "minimax/minimax-m2.7",
       "name": "MiniMax-M2.7",
       "price": {
-        "input": 0.3,
-        "output": 1.2,
-        "cache_read": 0.06,
+        "input": 0.25,
+        "output": 1,
+        "cache_read": 0.05,
         "cache_write": null
       },
       "limit": {
@@ -97437,14 +97467,14 @@
       "id": "qwen/qwen3-30b-a3b",
       "name": "Qwen3 30B A3B",
       "price": {
-        "input": 0.12,
-        "output": 0.5,
+        "input": 0.13,
+        "output": 0.52,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
         "context": 131072,
-        "output": 16384
+        "output": 8192
       },
       "capabilities": [
         "text",
@@ -97856,9 +97886,9 @@
       "id": "qwen/qwen3.5-397b-a17b",
       "name": "Qwen3.5 397B-A17B",
       "price": {
-        "input": 0.45,
-        "output": 3,
-        "cache_read": 0.225,
+        "input": 0.39,
+        "output": 2.34,
+        "cache_read": null,
         "cache_write": null
       },
       "limit": {
@@ -98056,14 +98086,14 @@
       "id": "qwen/qwen3-14b",
       "name": "Qwen3 14B",
       "price": {
-        "input": 0.1,
+        "input": 0.12,
         "output": 0.24,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
         "context": 131702,
-        "output": 40960
+        "output": 16384
       },
       "capabilities": [
         "text",
@@ -98150,14 +98180,14 @@
       "id": "qwen/qwen3.5-27b",
       "name": "Qwen3.5 27B",
       "price": {
-        "input": 0.195,
-        "output": 1.56,
+        "input": 0.26,
+        "output": 2.6,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
         "context": 262144,
-        "output": 65536
+        "output": 81920
       },
       "capabilities": [
         "text",
@@ -98273,7 +98303,7 @@
       "price": {
         "input": 0.098,
         "output": 0.196,
-        "cache_read": 0.02,
+        "cache_read": 0.0196,
         "cache_write": null
       },
       "limit": {
@@ -98966,9 +98996,9 @@
       "id": "google/gemma-3-27b-it",
       "name": "Gemma 3 27B",
       "price": {
-        "input": 0.08,
-        "output": 0.45,
-        "cache_read": 0.04,
+        "input": 0.1,
+        "output": 0.3,
+        "cache_read": null,
         "cache_write": null
       },
       "limit": {
@@ -103636,7 +103666,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 131000,
+        "context": 1048576,
         "output": 32768
       },
       "capabilities": [
@@ -111264,6 +111294,32 @@
       "release_date": "2025-11-13",
       "knowledge": null,
       "last_updated": "2025-11-13"
+    },
+    {
+      "platform": "togetherai",
+      "id": "thinkingmachines/Inkling",
+      "name": "Inkling",
+      "price": {
+        "input": 1,
+        "output": 4.05,
+        "cache_read": 0.17,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 524288,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-07-15",
+      "knowledge": null,
+      "last_updated": "2026-07-15"
     },
     {
       "platform": "togetherai",
@@ -120213,6 +120269,32 @@
       "release_date": "2025-09-29",
       "knowledge": "2025-07-31",
       "last_updated": "2025-09-29"
+    },
+    {
+      "platform": "cloudflare-ai-gateway",
+      "id": "moonshotai/kimi-k3",
+      "name": "Kimi K3",
+      "price": {
+        "input": 3,
+        "output": 15,
+        "cache_read": 0.3,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-07-16",
+      "knowledge": null,
+      "last_updated": "2026-07-16"
     },
     {
       "platform": "cloudflare-ai-gateway",
@@ -133897,6 +133979,32 @@
       "release_date": "2026-06-12",
       "knowledge": "2025-01",
       "last_updated": "2026-06-12"
+    },
+    {
+      "platform": "zenmux",
+      "id": "moonshotai/kimi-k3",
+      "name": "Kimi K3",
+      "price": {
+        "input": 3,
+        "output": 15,
+        "cache_read": 0.3,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-07-16",
+      "knowledge": null,
+      "last_updated": "2026-07-16"
     },
     {
       "platform": "zenmux",
