@@ -806,7 +806,7 @@
         "ALIBABA_TOKEN_PLAN_API_KEY"
       ],
       "api": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1",
-      "models_count": 18
+      "models_count": 19
     },
     {
       "key": "ollama-cloud",
@@ -1099,7 +1099,7 @@
         "ALIBABA_TOKEN_PLAN_API_KEY"
       ],
       "api": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
-      "models_count": 18
+      "models_count": 19
     },
     {
       "key": "sakana",
@@ -1269,7 +1269,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 337
+      "models_count": 338
     },
     {
       "key": "submodel",
@@ -1512,7 +1512,7 @@
         "NOVITA_API_KEY"
       ],
       "api": "https://api.novita.ai/openai",
-      "models_count": 105
+      "models_count": 107
     },
     {
       "key": "zhipuai",
@@ -1656,7 +1656,7 @@
         "ZENMUX_API_KEY"
       ],
       "api": "https://zenmux.ai/api/v1",
-      "models_count": 119
+      "models_count": 120
     },
     {
       "key": "poolside",
@@ -63345,6 +63345,31 @@
     },
     {
       "platform": "alibaba-token-plan",
+      "id": "qwen3.8-max-preview",
+      "name": "Qwen3.8 Max Preview",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": 0,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-07-19",
+      "knowledge": null,
+      "last_updated": "2026-07-19"
+    },
+    {
+      "platform": "alibaba-token-plan",
       "id": "kimi-k2.6",
       "name": "Kimi K2.6",
       "price": {
@@ -80809,6 +80834,31 @@
     },
     {
       "platform": "alibaba-token-plan-cn",
+      "id": "qwen3.8-max-preview",
+      "name": "Qwen3.8 Max Preview",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": 0,
+        "cache_write": 0
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-07-19",
+      "knowledge": null,
+      "last_updated": "2026-07-19"
+    },
+    {
+      "platform": "alibaba-token-plan-cn",
       "id": "kimi-k2.6",
       "name": "Kimi K2.6",
       "price": {
@@ -93283,9 +93333,9 @@
       "id": "z-ai/glm-5.2",
       "name": "GLM-5.2",
       "price": {
-        "input": 0.9786,
-        "output": 3.0756,
-        "cache_read": 0.18174,
+        "input": 0.9688,
+        "output": 3.0448,
+        "cache_read": 0.17992,
         "cache_write": null
       },
       "limit": {
@@ -95355,6 +95405,30 @@
       "release_date": "2026-06-24",
       "knowledge": null,
       "last_updated": "2026-06-24"
+    },
+    {
+      "platform": "openrouter",
+      "id": "meituan/longcat-2.0",
+      "name": "LongCat 2.0",
+      "price": {
+        "input": 0.3,
+        "output": 1.2,
+        "cache_read": 0.006,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048756,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-07-20",
+      "knowledge": null,
+      "last_updated": "2026-07-20"
     },
     {
       "platform": "openrouter",
@@ -111740,7 +111814,7 @@
       "price": {
         "input": 2,
         "output": 6,
-        "cache_read": 0.5,
+        "cache_read": 0.3,
         "cache_write": null
       },
       "limit": {
@@ -121595,6 +121669,58 @@
       "release_date": "2026-04-24",
       "knowledge": null,
       "last_updated": "2026-04-24"
+    },
+    {
+      "platform": "novita-ai",
+      "id": "moonshotai/kimi-k2.7-code",
+      "name": "Kimi K2.7 Code",
+      "price": {
+        "input": 0.95,
+        "output": 4,
+        "cache_read": 0.19,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-12",
+      "knowledge": "2025-01",
+      "last_updated": "2026-06-12"
+    },
+    {
+      "platform": "novita-ai",
+      "id": "moonshotai/kimi-k3",
+      "name": "Kimi K3",
+      "price": {
+        "input": 3,
+        "output": 15,
+        "cache_read": 0.3,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 1048576
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-07-16",
+      "knowledge": null,
+      "last_updated": "2026-07-16"
     },
     {
       "platform": "novita-ai",
@@ -133978,6 +134104,32 @@
       "release_date": "2026-01-27",
       "knowledge": "2025-01-01",
       "last_updated": "2026-01-27"
+    },
+    {
+      "platform": "zenmux",
+      "id": "moonshotai/kimi-k3-free",
+      "name": "Kimi K3 (Free)",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": 0,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-07-16",
+      "knowledge": null,
+      "last_updated": "2026-07-16"
     },
     {
       "platform": "zenmux",
