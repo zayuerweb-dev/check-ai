@@ -58,7 +58,7 @@
         "FIREWORKS_API_KEY"
       ],
       "api": "https://api.fireworks.ai/inference/v1/",
-      "models_count": 16
+      "models_count": 14
     },
     {
       "key": "wandb",
@@ -1383,7 +1383,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 344
+      "models_count": 341
     },
     {
       "key": "huggingface",
@@ -1475,7 +1475,7 @@
         "CLOUDFLARE_GATEWAY_ID"
       ],
       "api": null,
-      "models_count": 83
+      "models_count": 84
     },
     {
       "key": "lynkr",
@@ -3017,30 +3017,6 @@
     },
     {
       "platform": "fireworks-ai",
-      "id": "accounts/fireworks/routers/glm-5p1-fast",
-      "name": "GLM 5.1 Fast",
-      "price": {
-        "input": 2.8,
-        "output": 8.8,
-        "cache_read": 0.52,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 202800,
-        "output": 131072
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-01",
-      "knowledge": null,
-      "last_updated": "2026-04-01"
-    },
-    {
-      "platform": "fireworks-ai",
       "id": "accounts/fireworks/routers/kimi-k2p6-turbo",
       "name": "Kimi K2.6 Turbo",
       "price": {
@@ -3235,30 +3211,6 @@
       "release_date": "2026-06-12",
       "knowledge": null,
       "last_updated": "2026-06-12"
-    },
-    {
-      "platform": "fireworks-ai",
-      "id": "accounts/fireworks/models/glm-5p1",
-      "name": "GLM 5.1",
-      "price": {
-        "input": 1.4,
-        "output": 4.4,
-        "cache_read": 0.26,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 202800,
-        "output": 131072
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-01",
-      "knowledge": null,
-      "last_updated": "2026-04-01"
     },
     {
       "platform": "fireworks-ai",
@@ -14438,7 +14390,7 @@
     {
       "platform": "thinkingmachines",
       "id": "thinkingmachines/Inkling:peft:262144",
-      "name": "Inkling",
+      "name": "Inkling (256K)",
       "price": {
         "input": 3.74,
         "output": 9.36,
@@ -46732,9 +46684,9 @@
       "id": "ambient/large",
       "name": "Ambient Large",
       "price": {
-        "input": 1.05,
-        "output": 4.4,
-        "cache_read": 0.2,
+        "input": 0.76,
+        "output": 2.42,
+        "cache_read": 0.14,
         "cache_write": 0
       },
       "limit": {
@@ -46807,9 +46759,9 @@
       "id": "z-ai/glm-5.2",
       "name": "GLM-5.2",
       "price": {
-        "input": 1.05,
-        "output": 4.4,
-        "cache_read": 0.2,
+        "input": 0.76,
+        "output": 2.42,
+        "cache_read": 0.14,
         "cache_write": 0
       },
       "limit": {
@@ -46856,7 +46808,7 @@
       "id": "moonshotai/kimi-k2.7-code",
       "name": "Kimi K2.7 Code",
       "price": {
-        "input": 0.75,
+        "input": 0.73,
         "output": 3.5,
         "cache_read": 0.15,
         "cache_write": 0
@@ -113110,14 +113062,14 @@
       "id": "qwen/qwen3-30b-a3b",
       "name": "Qwen3 30B A3B",
       "price": {
-        "input": 0.13,
-        "output": 0.52,
+        "input": 0.12,
+        "output": 0.5,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
         "context": 131072,
-        "output": 8192
+        "output": 16384
       },
       "capabilities": [
         "text",
@@ -116564,48 +116516,6 @@
     },
     {
       "platform": "openrouter",
-      "id": "inflection/inflection-3-pi",
-      "name": "Inflection 3 Pi",
-      "price": {
-        "input": 2.5,
-        "output": 10,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 8000,
-        "output": 1024
-      },
-      "capabilities": [
-        "text"
-      ],
-      "release_date": "2024-10-11",
-      "knowledge": "2024-10-31",
-      "last_updated": "2024-10-11"
-    },
-    {
-      "platform": "openrouter",
-      "id": "inflection/inflection-3-productivity",
-      "name": "Inflection 3 Productivity",
-      "price": {
-        "input": 2.5,
-        "output": 10,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 8000,
-        "output": 1024
-      },
-      "capabilities": [
-        "text"
-      ],
-      "release_date": "2024-10-11",
-      "knowledge": "2024-10-31",
-      "last_updated": "2024-10-11"
-    },
-    {
-      "platform": "openrouter",
       "id": "xiaomi/mimo-v2.5",
       "name": "MiMo-V2.5",
       "price": {
@@ -117306,9 +117216,9 @@
       "id": "z-ai/glm-5.2",
       "name": "GLM-5.2",
       "price": {
-        "input": 0.7182,
-        "output": 2.2572,
-        "cache_read": 0.13338,
+        "input": 0.6692,
+        "output": 2.1032,
+        "cache_read": 0.12428,
         "cache_write": null
       },
       "limit": {
@@ -117637,7 +117547,7 @@
       "id": "moonshotai/kimi-k2.7-code",
       "name": "Kimi K2.7 Code",
       "price": {
-        "input": 0.78,
+        "input": 0.73,
         "output": 3.5,
         "cache_read": 0.15,
         "cache_write": null
@@ -117759,12 +117669,12 @@
       "price": {
         "input": 0.25,
         "output": 2,
-        "cache_read": 0.025,
+        "cache_read": 0.03,
         "cache_write": null
       },
       "limit": {
         "context": 400000,
-        "output": 100000
+        "output": 128000
       },
       "capabilities": [
         "text",
@@ -119022,7 +118932,7 @@
       "price": {
         "input": 1.25,
         "output": 10,
-        "cache_read": 0.125,
+        "cache_read": 0.13,
         "cache_write": null
       },
       "limit": {
@@ -119062,27 +118972,6 @@
       "release_date": "2025-08-07",
       "knowledge": "2024-05-30",
       "last_updated": "2025-08-07"
-    },
-    {
-      "platform": "openrouter",
-      "id": "openai/gpt-4o-mini-search-preview",
-      "name": "GPT-4o-mini Search Preview",
-      "price": {
-        "input": 0.15,
-        "output": 0.6,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 128000,
-        "output": 16384
-      },
-      "capabilities": [
-        "text"
-      ],
-      "release_date": "2025-03-12",
-      "knowledge": "2023-10-31",
-      "last_updated": "2025-03-12"
     },
     {
       "platform": "openrouter",
@@ -125481,6 +125370,30 @@
       "release_date": "2026-06-30",
       "knowledge": "2026-01-31",
       "last_updated": "2026-06-30"
+    },
+    {
+      "platform": "cloudflare-ai-gateway",
+      "id": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "price": {
+        "input": 5,
+        "output": 25,
+        "cache_read": 0.5,
+        "cache_write": 6.25
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-07-24",
+      "knowledge": "2026-05",
+      "last_updated": "2026-07-24"
     },
     {
       "platform": "cloudflare-ai-gateway",
