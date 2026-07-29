@@ -544,7 +544,7 @@
         "AICORE_SERVICE_KEY"
       ],
       "api": null,
-      "models_count": 42
+      "models_count": 43
     },
     {
       "key": "upstage",
@@ -584,7 +584,7 @@
         "AIAND_API_KEY"
       ],
       "api": "https://api.aiand.com/v1",
-      "models_count": 10
+      "models_count": 8
     },
     {
       "key": "pioneer",
@@ -765,7 +765,7 @@
         "VENICE_API_KEY"
       ],
       "api": null,
-      "models_count": 90
+      "models_count": 89
     },
     {
       "key": "mixlayer",
@@ -899,6 +899,16 @@
       "models_count": 1
     },
     {
+      "key": "modal",
+      "name": "Modal",
+      "doc": "https://modal.com/docs/guide/endpoints",
+      "env": [
+        "MODAL_PROXY_TOKEN"
+      ],
+      "api": "https://inference.us-west.modal.direct/v1",
+      "models_count": 1
+    },
+    {
       "key": "qihang-ai",
       "name": "QiHang",
       "doc": "https://www.qhaigc.net/docs",
@@ -916,7 +926,7 @@
         "BERGET_API_KEY"
       ],
       "api": "https://api.berget.ai/v1",
-      "models_count": 8
+      "models_count": 9
     },
     {
       "key": "google-vertex-anthropic",
@@ -1363,7 +1373,7 @@
         "AI_GATEWAY_API_KEY"
       ],
       "api": null,
-      "models_count": 307
+      "models_count": 306
     },
     {
       "key": "alibaba-cn",
@@ -1625,7 +1635,7 @@
         "XPERSONA_API_KEY"
       ],
       "api": "https://www.xpersona.co/v1",
-      "models_count": 3
+      "models_count": 13
     },
     {
       "key": "sarvam",
@@ -49766,6 +49776,27 @@
     },
     {
       "platform": "sap-ai-core",
+      "id": "gemini-embedding",
+      "name": "Gemini Embedding 001",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 2048,
+        "output": 1
+      },
+      "capabilities": [
+        "text"
+      ],
+      "release_date": "2025-05-20",
+      "knowledge": "2025-05",
+      "last_updated": "2025-05-20"
+    },
+    {
+      "platform": "sap-ai-core",
       "id": "gpt-5-mini",
       "name": "gpt-5-mini",
       "price": {
@@ -50741,30 +50772,6 @@
     },
     {
       "platform": "aiand",
-      "id": "zai-org/glm-5.1",
-      "name": "GLM-5.1",
-      "price": {
-        "input": 1.4,
-        "output": 4.4,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 200000,
-        "output": 131072
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-07",
-      "knowledge": null,
-      "last_updated": "2026-04-07"
-    },
-    {
-      "platform": "aiand",
       "id": "zai-org/glm-5.2",
       "name": "GLM-5.2",
       "price": {
@@ -50858,31 +50865,6 @@
       "release_date": "2026-04-24",
       "knowledge": "2025-05",
       "last_updated": "2026-04-24"
-    },
-    {
-      "platform": "aiand",
-      "id": "moonshotai/kimi-k2.6",
-      "name": "Kimi K2.6",
-      "price": {
-        "input": 0.85,
-        "output": 3.5,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262144,
-        "output": 262144
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-21",
-      "knowledge": "2025-01",
-      "last_updated": "2026-04-21"
     },
     {
       "platform": "aiand",
@@ -64409,30 +64391,6 @@
     },
     {
       "platform": "venice",
-      "id": "nvidia-nemotron-cascade-2-30b-a3b",
-      "name": "Nemotron Cascade 2 30B A3B",
-      "price": {
-        "input": 0.14,
-        "output": 0.8,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 256000,
-        "output": 32768
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-03-24",
-      "knowledge": null,
-      "last_updated": "2026-06-11"
-    },
-    {
-      "platform": "venice",
       "id": "openai-gpt-54-pro",
       "name": "GPT-5.4 Pro",
       "price": {
@@ -73072,6 +73030,32 @@
       "last_updated": "2025-12-22"
     },
     {
+      "platform": "modal",
+      "id": "thinkingmachines/Inkling-NVFP4",
+      "name": "Inkling",
+      "price": {
+        "input": 1.2,
+        "output": 5,
+        "cache_read": 0.27,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-07-15",
+      "knowledge": null,
+      "last_updated": "2026-07-15"
+    },
+    {
       "platform": "qihang-ai",
       "id": "gemini-2.5-flash",
       "name": "Gemini 2.5 Flash",
@@ -73442,6 +73426,31 @@
       "release_date": "2026-05-07",
       "knowledge": "2025-01",
       "last_updated": "2026-05-07"
+    },
+    {
+      "platform": "berget",
+      "id": "moonshotai/Kimi-K3",
+      "name": "Kimi K3",
+      "price": {
+        "input": 3,
+        "output": 15,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 327680,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-07-27",
+      "knowledge": null,
+      "last_updated": "2026-07-28"
     },
     {
       "platform": "berget",
@@ -98346,7 +98355,6 @@
       "capabilities": [
         "text",
         "vision",
-        "video",
         "tools"
       ],
       "release_date": "2026-06-15",
@@ -98358,10 +98366,10 @@
       "id": "glm-5",
       "name": "GLM-5",
       "price": {
-        "input": 0.91,
-        "output": 2.814,
+        "input": 0.81,
+        "output": 2.624,
         "cache_read": null,
-        "cache_write": 0.455
+        "cache_write": 0.405
       },
       "limit": {
         "context": 202752,
@@ -98381,9 +98389,9 @@
       "id": "glm-5.1",
       "name": "GLM-5.1",
       "price": {
-        "input": 1.52425,
-        "output": 4.7905,
-        "cache_read": 0.283075,
+        "input": 1.52432,
+        "output": 4.79072,
+        "cache_read": 0.283088,
         "cache_write": null
       },
       "limit": {
@@ -98429,10 +98437,10 @@
       "id": "kimi-k2.5",
       "name": "Kimi K2.5",
       "price": {
-        "input": 0.53,
-        "output": 2.66,
+        "input": 0.528,
+        "output": 2.79,
         "cache_read": null,
-        "cache_write": 0.265
+        "cache_write": 0.264
       },
       "limit": {
         "context": 262144,
@@ -98452,10 +98460,10 @@
       "id": "minimax-m2.7",
       "name": "MiniMax-M2.7",
       "price": {
-        "input": 0.42,
-        "output": 1.62,
+        "input": 0.348,
+        "output": 1.332,
         "cache_read": null,
-        "cache_write": 0.21
+        "cache_write": 0.174
       },
       "limit": {
         "context": 204800,
@@ -98481,8 +98489,8 @@
         "cache_write": null
       },
       "limit": {
-        "context": 1048576,
-        "output": 131072
+        "context": 1000000,
+        "output": 128000
       },
       "capabilities": [
         "text",
@@ -98568,10 +98576,10 @@
       "id": "llama-4-maverick-17b-128e-instruct-fp8",
       "name": "Llama 4 Maverick 17B Instruct",
       "price": {
-        "input": 0.2675,
-        "output": 0.9175,
+        "input": 0.284,
+        "output": 0.934,
         "cache_read": null,
-        "cache_write": 0.13375
+        "cache_write": 0.142
       },
       "limit": {
         "context": 430000,
@@ -98591,10 +98599,10 @@
       "id": "gemma-4-26b-a4b-it",
       "name": "Gemma 4 26B A4B IT",
       "price": {
-        "input": 0.114,
-        "output": 0.398,
+        "input": 0.13,
+        "output": 0.424,
         "cache_read": null,
-        "cache_write": 0.057
+        "cache_write": 0.065
       },
       "limit": {
         "context": 256000,
@@ -98661,10 +98669,10 @@
       "id": "gpt-oss-120b",
       "name": "GPT OSS 120B",
       "price": {
-        "input": 0.178,
-        "output": 0.68,
+        "input": 0.176,
+        "output": 0.652,
         "cache_read": null,
-        "cache_write": 0.089
+        "cache_write": 0.088
       },
       "limit": {
         "context": 131072,
@@ -98691,8 +98699,8 @@
         "cache_write": null
       },
       "limit": {
-        "context": 262000,
-        "output": 262000
+        "context": 256000,
+        "output": 16000
       },
       "capabilities": [
         "text",
@@ -98732,10 +98740,10 @@
       "id": "qwen3-coder-480b-a35b-instruct-int4-mixed-ar",
       "name": "Qwen3-Coder 480B-A35B Instruct",
       "price": {
-        "input": 0.601,
-        "output": 2.085,
+        "input": 0.569,
+        "output": 2.135,
         "cache_read": null,
-        "cache_write": 0.3005
+        "cache_write": 0.2845
       },
       "limit": {
         "context": 106000,
@@ -98778,10 +98786,10 @@
       "id": "qwen3-next-80b-a3b-instruct",
       "name": "Qwen3-Next 80B-A3B Instruct",
       "price": {
-        "input": 0.12188,
-        "output": 1.145,
+        "input": 0.1175,
+        "output": 1.136,
         "cache_read": null,
-        "cache_write": 0.06094
+        "cache_write": 0.05875
       },
       "limit": {
         "context": 262144,
@@ -102110,33 +102118,9 @@
         "tools",
         "reasoning"
       ],
-      "release_date": "2025-11-18",
+      "release_date": "2026-02-19",
       "knowledge": "2025-01",
       "last_updated": "2026-02-19"
-    },
-    {
-      "platform": "vercel",
-      "id": "google/gemini-3-pro-preview",
-      "name": "Gemini 3 Pro Preview",
-      "price": {
-        "input": 2,
-        "output": 12,
-        "cache_read": 0.2,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 1000000,
-        "output": 64000
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "reasoning"
-      ],
-      "release_date": "2025-11-18",
-      "knowledge": "2025-01",
-      "last_updated": "2025-11-18"
     },
     {
       "platform": "vercel",
@@ -134189,6 +134173,30 @@
     },
     {
       "platform": "xpersona",
+      "id": "claude-sonnet-4-6",
+      "name": "Claude Sonnet 4.6",
+      "price": {
+        "input": 0.9,
+        "output": 5.55,
+        "cache_read": 0.09,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 200000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-02-17",
+      "knowledge": "2025-08-31",
+      "last_updated": "2026-03-13"
+    },
+    {
+      "platform": "xpersona",
       "id": "xpersona-frieren-coder",
       "name": "Xpersona Frieren 1",
       "price": {
@@ -134213,11 +134221,83 @@
     },
     {
       "platform": "xpersona",
+      "id": "gemini-3.5-flash",
+      "name": "Gemini 3.5 Flash",
+      "price": {
+        "input": 1.55,
+        "output": 12.2,
+        "cache_read": 0.155,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-05-19",
+      "knowledge": "2025-01",
+      "last_updated": "2026-05-19"
+    },
+    {
+      "platform": "xpersona",
+      "id": "claude-haiku-4-5",
+      "name": "Claude Haiku 4.5 (latest)",
+      "price": {
+        "input": 0.6,
+        "output": 3.7,
+        "cache_read": 0.06,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 200000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-10-15",
+      "knowledge": "2025-02-28",
+      "last_updated": "2025-10-15"
+    },
+    {
+      "platform": "xpersona",
+      "id": "gpt-5.6-sol",
+      "name": "GPT-5.6 Sol",
+      "price": {
+        "input": 1.5,
+        "output": 12,
+        "cache_read": 0.15,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 372000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-07-09",
+      "knowledge": "2026-02-16",
+      "last_updated": "2026-07-09"
+    },
+    {
+      "platform": "xpersona",
       "id": "claude-fable-5",
       "name": "Claude Fable 5",
       "price": {
         "input": 3,
-        "output": 18,
+        "output": 18.5,
         "cache_read": 0.3,
         "cache_write": null
       },
@@ -134234,6 +134314,78 @@
       "release_date": "2026-06-09",
       "knowledge": "2026-01-31",
       "last_updated": "2026-06-09"
+    },
+    {
+      "platform": "xpersona",
+      "id": "claude-opus-4-8",
+      "name": "Claude Opus 4.8",
+      "price": {
+        "input": 1.5,
+        "output": 9.25,
+        "cache_read": 0.15,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 200000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-05-28",
+      "knowledge": "2026-01",
+      "last_updated": "2026-05-28"
+    },
+    {
+      "platform": "xpersona",
+      "id": "gpt-5.5",
+      "name": "GPT-5.5",
+      "price": {
+        "input": 1.5,
+        "output": 12,
+        "cache_read": 0.15,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1050000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-23",
+      "knowledge": "2025-12-01",
+      "last_updated": "2026-04-23"
+    },
+    {
+      "platform": "xpersona",
+      "id": "gpt-5.4",
+      "name": "GPT-5.4",
+      "price": {
+        "input": 0.75,
+        "output": 6,
+        "cache_read": 0.075,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1050000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-03-05",
+      "knowledge": "2025-08-31",
+      "last_updated": "2026-03-05"
     },
     {
       "platform": "xpersona",
@@ -134258,6 +134410,78 @@
       "release_date": "2026-05-29",
       "knowledge": "2025-12-30",
       "last_updated": "2026-05-29"
+    },
+    {
+      "platform": "xpersona",
+      "id": "gpt-5.4-mini",
+      "name": "GPT-5.4 mini",
+      "price": {
+        "input": 0.375,
+        "output": 4,
+        "cache_read": 0.0375,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 272000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-03-17",
+      "knowledge": "2025-08-31",
+      "last_updated": "2026-03-17"
+    },
+    {
+      "platform": "xpersona",
+      "id": "gpt-5.6",
+      "name": "GPT-5.6",
+      "price": {
+        "input": 1.5,
+        "output": 12,
+        "cache_read": 0.15,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 372000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-07-09",
+      "knowledge": "2026-02-16",
+      "last_updated": "2026-07-09"
+    },
+    {
+      "platform": "xpersona",
+      "id": "gpt-5.6-terra",
+      "name": "GPT-5.6 Terra",
+      "price": {
+        "input": 1.5,
+        "output": 2,
+        "cache_read": 0.15,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 372000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-07-09",
+      "knowledge": "2026-02-16",
+      "last_updated": "2026-07-09"
     },
     {
       "platform": "sarvam",
