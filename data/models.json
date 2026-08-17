@@ -170,7 +170,7 @@
         "NANO_GPT_API_KEY"
       ],
       "api": "https://nano-gpt.com/api/v1",
-      "models_count": 599
+      "models_count": 601
     },
     {
       "key": "modelscope",
@@ -324,7 +324,7 @@
         "DEEPINFRA_API_KEY"
       ],
       "api": null,
-      "models_count": 57
+      "models_count": 58
     },
     {
       "key": "meta",
@@ -344,7 +344,7 @@
         "HF_TOKEN"
       ],
       "api": "https://router.huggingface.co/v1",
-      "models_count": 65
+      "models_count": 66
     },
     {
       "key": "impossibl",
@@ -394,7 +394,7 @@
         "OPENROUTER_API_KEY"
       ],
       "api": "https://openrouter.ai/api/v1",
-      "models_count": 351
+      "models_count": 352
     },
     {
       "key": "google-vertex-anthropic",
@@ -516,7 +516,7 @@
         "CROSSMODEL_API_KEY"
       ],
       "api": "https://api.crossmodel.ai/v1",
-      "models_count": 50
+      "models_count": 51
     },
     {
       "key": "kenari",
@@ -661,7 +661,7 @@
         "AWS_BEARER_TOKEN_BEDROCK"
       ],
       "api": null,
-      "models_count": 116
+      "models_count": 119
     },
     {
       "key": "unorouter",
@@ -721,7 +721,7 @@
         "XAI_API_KEY"
       ],
       "api": null,
-      "models_count": 11
+      "models_count": 12
     },
     {
       "key": "stepfun-ai",
@@ -831,7 +831,7 @@
         "LLMTR_API_KEY"
       ],
       "api": "https://llmtr.com/v1",
-      "models_count": 6
+      "models_count": 32
     },
     {
       "key": "merge-gateway",
@@ -1214,7 +1214,7 @@
         "TOGETHER_API_KEY"
       ],
       "api": null,
-      "models_count": 35
+      "models_count": 36
     },
     {
       "key": "ofox",
@@ -1244,7 +1244,7 @@
         "INFERX_API_KEY"
       ],
       "api": "https://model.inferx.net/endpoints/v1",
-      "models_count": 6
+      "models_count": 12
     },
     {
       "key": "helicone",
@@ -1356,7 +1356,7 @@
         "HYPER_API_KEY"
       ],
       "api": "https://hyper.charm.land/v1",
-      "models_count": 25
+      "models_count": 26
     },
     {
       "key": "subconscious",
@@ -1570,6 +1570,16 @@
       "models_count": 3
     },
     {
+      "key": "amd",
+      "name": "AMD",
+      "doc": "https://developer.amd.com.cn/radeon/tokenfactory",
+      "env": [
+        "AMD_API_KEY"
+      ],
+      "api": "https://developer.amd.com.cn/radeon/api/v1",
+      "models_count": 1
+    },
+    {
       "key": "bailing",
       "name": "Bailing",
       "doc": "https://alipaytbox.yuque.com/sxs0ba/ling/intro",
@@ -1598,7 +1608,7 @@
         "AI_GATEWAY_API_KEY"
       ],
       "api": null,
-      "models_count": 327
+      "models_count": 329
     },
     {
       "key": "edenai",
@@ -1608,7 +1618,7 @@
         "EDENAI_API_KEY"
       ],
       "api": "https://api.edenai.run/v3",
-      "models_count": 220
+      "models_count": 226
     },
     {
       "key": "novita-ai",
@@ -1648,7 +1658,7 @@
         "CHUTES_API_KEY"
       ],
       "api": "https://llm.chutes.ai/v1",
-      "models_count": 13
+      "models_count": 14
     },
     {
       "key": "crof",
@@ -1679,6 +1689,16 @@
       ],
       "api": null,
       "models_count": 15
+    },
+    {
+      "key": "runinfra",
+      "name": "RunInfra",
+      "doc": "https://runinfra.ai/docs",
+      "env": [
+        "RUNINFRA_GATEWAY_KEY"
+      ],
+      "api": "https://api.runinfra.ai/v1",
+      "models_count": 4
     },
     {
       "key": "gitlab",
@@ -1788,7 +1808,7 @@
         "KILO_API_KEY"
       ],
       "api": "https://api.kilo.ai/api/gateway",
-      "models_count": 359
+      "models_count": 360
     },
     {
       "key": "pioneer",
@@ -5610,7 +5630,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 1048576,
+        "context": 1310720,
         "output": 1048576
       },
       "capabilities": [
@@ -13892,7 +13912,7 @@
     {
       "platform": "cortecs",
       "id": "qwen3.8-2.4t-a95b",
-      "name": "qwen3.8-2.4t-a95b",
+      "name": "Qwen3.8 2.4T A95B",
       "price": {
         "input": 2.5,
         "output": 6,
@@ -13906,11 +13926,12 @@
       "capabilities": [
         "text",
         "tools",
-        "reasoning"
+        "reasoning",
+        "open"
       ],
-      "release_date": "2026-08-14",
+      "release_date": "2026-08-12",
       "knowledge": null,
-      "last_updated": "2026-08-14"
+      "last_updated": "2026-08-12"
     },
     {
       "platform": "cortecs",
@@ -14776,9 +14797,9 @@
       "capabilities": [
         "text"
       ],
-      "release_date": "2025-02-25",
-      "knowledge": null,
-      "last_updated": "2025-02-25"
+      "release_date": "2025-02-01",
+      "knowledge": "2025-01",
+      "last_updated": "2025-09-01"
     },
     {
       "platform": "nano-gpt",
@@ -15924,6 +15945,31 @@
     },
     {
       "platform": "nano-gpt",
+      "id": "qwen3.5-2b",
+      "name": "Qwen3.5 2B",
+      "price": {
+        "input": 0.08,
+        "output": 0.16,
+        "cache_read": 0.04,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-08-16",
+      "knowledge": null,
+      "last_updated": "2026-08-16"
+    },
+    {
+      "platform": "nano-gpt",
       "id": "Qwen3.5-27B-BlueStar-v3-Derestricted",
       "name": "Qwen3.5 27B BlueStar v3 Derestricted",
       "price": {
@@ -16177,6 +16223,31 @@
       "release_date": "2026-05-21",
       "knowledge": null,
       "last_updated": "2026-05-21"
+    },
+    {
+      "platform": "nano-gpt",
+      "id": "qwen3.5-0.8b",
+      "name": "Qwen3.5 0.8B",
+      "price": {
+        "input": 0.06,
+        "output": 0.12,
+        "cache_read": 0.03,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-08-16",
+      "knowledge": null,
+      "last_updated": "2026-08-16"
     },
     {
       "platform": "nano-gpt",
@@ -16679,6 +16750,31 @@
     },
     {
       "platform": "nano-gpt",
+      "id": "qwen3.8-27b:thinking",
+      "name": "Qwen3.8 27B Thinking",
+      "price": {
+        "input": 0.4,
+        "output": 3,
+        "cache_read": 0.2,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-08-14",
+      "knowledge": null,
+      "last_updated": "2026-08-14"
+    },
+    {
+      "platform": "nano-gpt",
       "id": "gemini-2.5-flash",
       "name": "Gemini 2.5 Flash",
       "price": {
@@ -17074,6 +17170,31 @@
     },
     {
       "platform": "nano-gpt",
+      "id": "qwen3.5-4b",
+      "name": "Qwen3.5 4B",
+      "price": {
+        "input": 0.1,
+        "output": 0.2,
+        "cache_read": 0.05,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-08-16",
+      "knowledge": null,
+      "last_updated": "2026-08-16"
+    },
+    {
+      "platform": "nano-gpt",
       "id": "step-3",
       "name": "Step-3",
       "price": {
@@ -17365,6 +17486,31 @@
       "release_date": "2026-02-10",
       "knowledge": null,
       "last_updated": "2024-01-01"
+    },
+    {
+      "platform": "nano-gpt",
+      "id": "qwen3.8-27b",
+      "name": "Qwen3.8 27B",
+      "price": {
+        "input": 0.4,
+        "output": 3,
+        "cache_read": 0.2,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-08-14",
+      "knowledge": null,
+      "last_updated": "2026-08-14"
     },
     {
       "platform": "nano-gpt",
@@ -19276,54 +19422,6 @@
     },
     {
       "platform": "nano-gpt",
-      "id": "deepseek/deepseek-v4-pro-cheaper:thinking",
-      "name": "DeepSeek V4 Pro Cheaper (Thinking)",
-      "price": {
-        "input": 0.435,
-        "output": 0.87,
-        "cache_read": 0.003625,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 1048576,
-        "output": 384000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-25",
-      "knowledge": null,
-      "last_updated": "2026-04-25"
-    },
-    {
-      "platform": "nano-gpt",
-      "id": "deepseek/deepseek-v4-flash-0731-cheaper",
-      "name": "DeepSeek V4 Flash 0731 Cheaper",
-      "price": {
-        "input": 0.14,
-        "output": 0.28,
-        "cache_read": 0.014,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 1048576,
-        "output": 384000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-08-01",
-      "knowledge": null,
-      "last_updated": "2026-08-01"
-    },
-    {
-      "platform": "nano-gpt",
       "id": "deepseek/deepseek-v3.2:thinking",
       "name": "DeepSeek V3.2 Thinking",
       "price": {
@@ -19345,54 +19443,6 @@
       "release_date": "2025-12-01",
       "knowledge": "2024-07",
       "last_updated": "2025-12-01"
-    },
-    {
-      "platform": "nano-gpt",
-      "id": "deepseek/deepseek-v4-flash-0731-cheaper:thinking",
-      "name": "DeepSeek V4 Flash 0731 Cheaper (Thinking)",
-      "price": {
-        "input": 0.14,
-        "output": 0.28,
-        "cache_read": 0.014,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 1048576,
-        "output": 384000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-08-01",
-      "knowledge": null,
-      "last_updated": "2026-08-01"
-    },
-    {
-      "platform": "nano-gpt",
-      "id": "deepseek/deepseek-v4-pro-cheaper",
-      "name": "DeepSeek V4 Pro Cheaper",
-      "price": {
-        "input": 0.435,
-        "output": 0.87,
-        "cache_read": 0.003625,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 1048576,
-        "output": 384000
-      },
-      "capabilities": [
-        "text",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-25",
-      "knowledge": null,
-      "last_updated": "2026-04-25"
     },
     {
       "platform": "nano-gpt",
@@ -26649,9 +26699,9 @@
         "tools",
         "reasoning"
       ],
-      "release_date": "2026-08-11",
-      "knowledge": null,
-      "last_updated": "2026-08-11"
+      "release_date": "2026-08-06",
+      "knowledge": "2026-02",
+      "last_updated": "2026-08-06"
     },
     {
       "platform": "nano-gpt",
@@ -26671,9 +26721,9 @@
         "text",
         "tools"
       ],
-      "release_date": "2026-08-11",
-      "knowledge": null,
-      "last_updated": "2026-08-11"
+      "release_date": "2026-08-06",
+      "knowledge": "2026-02",
+      "last_updated": "2026-08-06"
     },
     {
       "platform": "nano-gpt",
@@ -27088,25 +27138,26 @@
     },
     {
       "platform": "nano-gpt",
-      "id": "TEE/deepseek-v3.1",
-      "name": "DeepSeek V3.1 TEE",
+      "id": "TEE/deepseek-v4-pro-0813",
+      "name": "DeepSeek V4 Pro 0813 TEE",
       "price": {
-        "input": 1,
-        "output": 2.5,
-        "cache_read": 0.5,
+        "input": 1.32,
+        "output": 3.96,
+        "cache_read": 0.132,
         "cache_write": null
       },
       "limit": {
-        "context": 164000,
-        "output": 8192
+        "context": 1048576,
+        "output": 1048576
       },
       "capabilities": [
         "text",
-        "open"
+        "tools",
+        "reasoning"
       ],
-      "release_date": "2025-08-21",
+      "release_date": "2026-08-12",
       "knowledge": null,
-      "last_updated": "2025-08-21"
+      "last_updated": "2026-08-12"
     },
     {
       "platform": "nano-gpt",
@@ -27511,12 +27562,35 @@
     },
     {
       "platform": "nano-gpt",
-      "id": "dots-studio/dots-3-note-preview:free",
+      "id": "TEE/deepseek-v4-pro-0813:thinking",
+      "name": "DeepSeek V4 Pro 0813 Thinking TEE",
+      "price": {
+        "input": 1.32,
+        "output": 3.96,
+        "cache_read": 0.132,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 1048576
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-08-12",
+      "knowledge": null,
+      "last_updated": "2026-08-12"
+    },
+    {
+      "platform": "nano-gpt",
+      "id": "dots-studio/dots-3-note-preview",
       "name": "Dots3-Note Preview",
       "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
+        "input": 0.1,
+        "output": 0.2,
+        "cache_read": 0.05,
         "cache_write": null
       },
       "limit": {
@@ -33993,6 +34067,30 @@
     },
     {
       "platform": "deepinfra",
+      "id": "Qwen/Qwen3.8-2.4T-A95B",
+      "name": "Qwen3.8 2.4T A95B",
+      "price": {
+        "input": 2,
+        "output": 6,
+        "cache_read": 0.2,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-08-12",
+      "knowledge": null,
+      "last_updated": "2026-08-12"
+    },
+    {
+      "platform": "deepinfra",
       "id": "Qwen/Qwen3-Next-80B-A3B-Instruct",
       "name": "Qwen3-Next 80B-A3B Instruct",
       "price": {
@@ -35562,6 +35660,30 @@
       "release_date": "2025-07-23",
       "knowledge": "2025-04",
       "last_updated": "2025-07-23"
+    },
+    {
+      "platform": "huggingface",
+      "id": "Qwen/Qwen3.8-2.4T-A95B",
+      "name": "Qwen3.8 2.4T A95B",
+      "price": {
+        "input": 2.5,
+        "output": 6.25,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-08-12",
+      "knowledge": null,
+      "last_updated": "2026-08-12"
     },
     {
       "platform": "huggingface",
@@ -39524,12 +39646,12 @@
       "price": {
         "input": 0.05,
         "output": 0.2,
-        "cache_read": 0.025,
+        "cache_read": 0.03,
         "cache_write": null
       },
       "limit": {
         "context": 262144,
-        "output": 228000
+        "output": 262144
       },
       "capabilities": [
         "text",
@@ -39570,14 +39692,14 @@
       "id": "nvidia/nemotron-3.5-lightning",
       "name": "Nemotron 3.5 Lightning 30B A3B",
       "price": {
-        "input": 0.1,
-        "output": 0.25,
-        "cache_read": 0.05,
+        "input": 0.08,
+        "output": 0.2,
+        "cache_read": 0.04,
         "cache_write": null
       },
       "limit": {
         "context": 1000000,
-        "output": 262144
+        "output": 131072
       },
       "capabilities": [
         "text",
@@ -40090,6 +40212,29 @@
     },
     {
       "platform": "openrouter",
+      "id": "z-ai/glm-5.2:free",
+      "name": "GLM 5.2 (free)",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 128000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
+    },
+    {
+      "platform": "openrouter",
       "id": "z-ai/glm-5",
       "name": "GLM-5",
       "price": {
@@ -40140,14 +40285,14 @@
       "id": "z-ai/glm-5.2",
       "name": "GLM-5.2",
       "price": {
-        "input": 0.308,
-        "output": 0.968,
-        "cache_read": 0.0572,
+        "input": 1.19,
+        "output": 3.74,
+        "cache_read": 0.221,
         "cache_write": null
       },
       "limit": {
         "context": 1048576,
-        "output": 128000
+        "output": 262144
       },
       "capabilities": [
         "text",
@@ -40334,9 +40479,9 @@
       "id": "deepseek/deepseek-v4-flash",
       "name": "DeepSeek V4 Flash",
       "price": {
-        "input": 0.06146,
-        "output": 0.12292,
-        "cache_read": 0.012292,
+        "input": 0.0826,
+        "output": 0.1652,
+        "cache_read": 0.01652,
         "cache_write": null
       },
       "limit": {
@@ -40358,9 +40503,9 @@
       "id": "deepseek/deepseek-v4-pro-0813",
       "name": "DeepSeek V4 Pro 0813",
       "price": {
-        "input": 0.435,
-        "output": 0.87,
-        "cache_read": 0.003625,
+        "input": 1.32,
+        "output": 3.96,
+        "cache_read": 0.044,
         "cache_write": null
       },
       "limit": {
@@ -40381,14 +40526,14 @@
       "id": "deepseek/deepseek-v4-pro",
       "name": "DeepSeek V4 Pro",
       "price": {
-        "input": 1.168,
-        "output": 2.336,
-        "cache_read": 0.09855,
+        "input": 1.32,
+        "output": 3.96,
+        "cache_read": 0.044,
         "cache_write": null
       },
       "limit": {
         "context": 1048576,
-        "output": 393216
+        "output": 384000
       },
       "capabilities": [
         "text",
@@ -40576,7 +40721,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 1048576,
+        "context": 1310720,
         "output": 393216
       },
       "capabilities": [
@@ -40688,14 +40833,14 @@
       "id": "google/gemma-4-26b-a4b-it",
       "name": "Gemma 4 26B A4B IT",
       "price": {
-        "input": 0.12,
-        "output": 0.4,
-        "cache_read": 0.05,
+        "input": 0.07,
+        "output": 0.34,
+        "cache_read": null,
         "cache_write": null
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 16384
       },
       "capabilities": [
         "text",
@@ -42243,9 +42388,9 @@
       "id": "moonshotai/kimi-k2.6",
       "name": "Kimi K2.6",
       "price": {
-        "input": 0.5415,
-        "output": 2.28,
-        "cache_read": 0.0912,
+        "input": 0.95,
+        "output": 4,
+        "cache_read": 0.16,
         "cache_write": null
       },
       "limit": {
@@ -44411,9 +44556,9 @@
       "id": "qwen/qwen2.5-vl-72b-instruct",
       "name": "Qwen2.5 VL 72B Instruct",
       "price": {
-        "input": 0.25,
-        "output": 0.75,
-        "cache_read": null,
+        "input": 0.8,
+        "output": 1,
+        "cache_read": 0.4,
         "cache_write": null
       },
       "limit": {
@@ -45217,7 +45362,7 @@
       "id": "qwen/qwen3.6-35b-a3b",
       "name": "Qwen3.6 35B-A3B",
       "price": {
-        "input": 0.15,
+        "input": 0.14,
         "output": 1,
         "cache_read": 0.05,
         "cache_write": null
@@ -45294,7 +45439,7 @@
       "price": {
         "input": 0.45,
         "output": 3.2,
-        "cache_read": null,
+        "cache_read": 0.05,
         "cache_write": null
       },
       "limit": {
@@ -45516,9 +45661,9 @@
       "id": "qwen/qwen3-vl-235b-a22b-instruct",
       "name": "Qwen3 VL 235B A22B Instruct",
       "price": {
-        "input": 0.26,
-        "output": 1.04,
-        "cache_read": null,
+        "input": 0.21,
+        "output": 1.9,
+        "cache_read": 0.1,
         "cache_write": null
       },
       "limit": {
@@ -46104,14 +46249,14 @@
       "id": "~deepseek/deepseek-v4-flash-latest",
       "name": "DeepSeek V4 Flash Latest",
       "price": {
-        "input": 0.06706,
-        "output": 0.13412,
-        "cache_read": 0.013412,
+        "input": 0.0603,
+        "output": 0.1206,
+        "cache_read": 0.01206,
         "cache_write": null
       },
       "limit": {
-        "context": 1048576,
-        "output": 384000
+        "context": 1310720,
+        "output": 262144
       },
       "capabilities": [
         "text",
@@ -47208,14 +47353,14 @@
       "id": "~moonshotai/kimi-latest",
       "name": "MoonshotAI Kimi Latest",
       "price": {
-        "input": 2.8,
-        "output": 14,
+        "input": 2.6,
+        "output": 13,
         "cache_read": 0.29,
         "cache_write": null
       },
       "limit": {
         "context": 1048576,
-        "output": 1048576
+        "output": 974842
       },
       "capabilities": [
         "text",
@@ -47391,7 +47536,7 @@
       "id": "minimax/minimax-m1",
       "name": "MiniMax M1",
       "price": {
-        "input": 0.4,
+        "input": 0.55,
         "output": 2.2,
         "cache_read": null,
         "cache_write": null
@@ -49672,10 +49817,10 @@
       "id": "deepseek/deepseek-v4-flash",
       "name": "DeepSeek V4 Flash",
       "price": {
-        "input": 0.45,
-        "output": 1.35,
-        "cache_read": 0.015,
-        "cache_write": 0.45
+        "input": 0.405,
+        "output": 1.215,
+        "cache_read": 0.0135,
+        "cache_write": 0.405
       },
       "limit": {
         "context": 1000000,
@@ -49696,10 +49841,10 @@
       "id": "deepseek/deepseek-v4-pro",
       "name": "DeepSeek V4 Pro",
       "price": {
-        "input": 1.35,
-        "output": 4.05,
-        "cache_read": 0.045,
-        "cache_write": 1.35
+        "input": 1.215,
+        "output": 3.645,
+        "cache_read": 0.0405,
+        "cache_write": 1.215
       },
       "limit": {
         "context": 1000000,
@@ -50702,6 +50847,32 @@
       "release_date": "2025-06-17",
       "knowledge": "2025-01",
       "last_updated": "2025-06-17"
+    },
+    {
+      "platform": "crossmodel",
+      "id": "gemini/gemini-3.7-flash",
+      "name": "Gemini 3.7 Flash",
+      "price": {
+        "input": 0.75,
+        "output": 3.75,
+        "cache_read": 0.075,
+        "cache_write": 0.75
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-08-13",
+      "knowledge": "2026-03",
+      "last_updated": "2026-08-13"
     },
     {
       "platform": "crossmodel",
@@ -57337,6 +57508,30 @@
     },
     {
       "platform": "amazon-bedrock",
+      "id": "global.openai.gpt-5.6-sol",
+      "name": "GPT-5.6 Sol (Global)",
+      "price": {
+        "input": 5.5,
+        "output": 33,
+        "cache_read": 0.55,
+        "cache_write": 6.875
+      },
+      "limit": {
+        "context": 1050000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-07-09",
+      "knowledge": "2026-02-16",
+      "last_updated": "2026-07-09"
+    },
+    {
+      "platform": "amazon-bedrock",
       "id": "jp.anthropic.claude-sonnet-4-6",
       "name": "Claude Sonnet 4.6 (JP)",
       "price": {
@@ -58955,6 +59150,30 @@
     },
     {
       "platform": "amazon-bedrock",
+      "id": "global.openai.gpt-5.6-luna",
+      "name": "GPT-5.6 Luna (Global)",
+      "price": {
+        "input": 0.22,
+        "output": 1.32,
+        "cache_read": 0.022,
+        "cache_write": 0.275
+      },
+      "limit": {
+        "context": 1050000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-07-09",
+      "knowledge": "2026-02-16",
+      "last_updated": "2026-07-09"
+    },
+    {
+      "platform": "amazon-bedrock",
       "id": "zai.glm-4.7",
       "name": "GLM-4.7",
       "price": {
@@ -59377,6 +59596,30 @@
       "release_date": "2025-09-29",
       "knowledge": "2025-07-31",
       "last_updated": "2025-09-29"
+    },
+    {
+      "platform": "amazon-bedrock",
+      "id": "global.openai.gpt-5.6-terra",
+      "name": "GPT-5.6 Terra (Global)",
+      "price": {
+        "input": 2.2,
+        "output": 13.2,
+        "cache_read": 0.22,
+        "cache_write": 2.75
+      },
+      "limit": {
+        "context": 1050000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-07-09",
+      "knowledge": "2026-02-16",
+      "last_updated": "2026-07-09"
     },
     {
       "platform": "amazon-bedrock",
@@ -61923,9 +62166,9 @@
       "id": "deepseek-v4-flash",
       "name": "DeepSeek V4 Flash",
       "price": {
-        "input": 0.14,
-        "output": 0.28,
-        "cache_read": 0.0028,
+        "input": 0.22,
+        "output": 0.66,
+        "cache_read": 0.007,
         "cache_write": null
       },
       "limit": {
@@ -61998,9 +62241,9 @@
       "id": "deepseek-v4-pro",
       "name": "DeepSeek V4 Pro (New)",
       "price": {
-        "input": 0.435,
-        "output": 0.87,
-        "cache_read": 0.003625,
+        "input": 0.66,
+        "output": 1.98,
+        "cache_read": 0.022,
         "cache_write": null
       },
       "limit": {
@@ -62645,6 +62888,28 @@
       "release_date": "2026-03-09",
       "knowledge": null,
       "last_updated": "2026-03-09"
+    },
+    {
+      "platform": "xai",
+      "id": "grok-imagine-image-2.0",
+      "name": "Grok Imagine Image 2.0",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 8000,
+        "output": 0
+      },
+      "capabilities": [
+        "text",
+        "vision"
+      ],
+      "release_date": "2026-08-07",
+      "knowledge": null,
+      "last_updated": "2026-08-07"
     },
     {
       "platform": "xai",
@@ -66036,47 +66301,28 @@
     },
     {
       "platform": "llmtr",
-      "id": "trendyol-7b",
-      "name": "Trendyol 7B",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 32768,
-        "output": 8192
-      },
-      "capabilities": [
-        "text",
-        "open"
-      ],
-      "release_date": "2026-06-06",
-      "knowledge": null,
-      "last_updated": "2026-06-06"
-    },
-    {
-      "platform": "llmtr",
       "id": "gemma-4",
       "name": "Gemma 4",
       "price": {
-        "input": 5,
-        "output": 10,
-        "cache_read": null,
+        "input": 2,
+        "output": 5,
+        "cache_read": 0.5,
         "cache_write": null
       },
       "limit": {
-        "context": 32768,
-        "output": 8192
+        "context": 131072,
+        "output": 131072
       },
       "capabilities": [
         "text",
+        "vision",
+        "tools",
+        "reasoning",
         "open"
       ],
-      "release_date": "2026-04-22",
+      "release_date": "2026-04-02",
       "knowledge": null,
-      "last_updated": "2026-04-22"
+      "last_updated": "2026-04-02"
     },
     {
       "platform": "llmtr",
@@ -66090,7 +66336,7 @@
       },
       "limit": {
         "context": 8192,
-        "output": 4096
+        "output": 8192
       },
       "capabilities": [
         "text",
@@ -66099,7 +66345,55 @@
       ],
       "release_date": "2026-04-26",
       "knowledge": null,
-      "last_updated": "2026-04-26"
+      "last_updated": "2026-08-16"
+    },
+    {
+      "platform": "llmtr",
+      "id": "trendyol-asure-12b",
+      "name": "Trendyol Asure 12B",
+      "price": {
+        "input": 0.1,
+        "output": 0.5,
+        "cache_read": 0.025,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 40960,
+        "output": 40960
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "open"
+      ],
+      "release_date": "2026-02-19",
+      "knowledge": null,
+      "last_updated": "2026-02-20"
+    },
+    {
+      "platform": "llmtr",
+      "id": "muse-glimmer-30b-tr",
+      "name": "Muse Glimmer 30B (TR)",
+      "price": {
+        "input": 2,
+        "output": 5,
+        "cache_read": 0.5,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 131072,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-08-10",
+      "knowledge": "2026-01-04",
+      "last_updated": "2026-08-10"
     },
     {
       "platform": "llmtr",
@@ -66113,6 +66407,153 @@
       },
       "limit": {
         "context": 16384,
+        "output": 16384
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "video",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-17",
+      "knowledge": null,
+      "last_updated": "2026-04-17"
+    },
+    {
+      "platform": "llmtr",
+      "id": "magibu-11b-v8",
+      "name": "Magibu 11B v8",
+      "price": {
+        "input": 0.1,
+        "output": 0.5,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 8192,
+        "output": 8192
+      },
+      "capabilities": [
+        "text"
+      ],
+      "release_date": "2026-06-05",
+      "knowledge": null,
+      "last_updated": "2026-08-16"
+    },
+    {
+      "platform": "llmtr",
+      "id": "google/gemini-2.5-flash-lite",
+      "name": "Gemini 2.5 Flash-Lite",
+      "price": {
+        "input": 0.1,
+        "output": 0.1,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-06-17",
+      "knowledge": "2025-01",
+      "last_updated": "2025-06-17"
+    },
+    {
+      "platform": "llmtr",
+      "id": "meta/muse-spark-1.2-contributor",
+      "name": "Muse Spark 1.2 Contributor",
+      "price": {
+        "input": 0.1,
+        "output": 0.2,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-08-05",
+      "knowledge": null,
+      "last_updated": "2026-08-05"
+    },
+    {
+      "platform": "llmtr",
+      "id": "poolside/laguna-xs-2.1",
+      "name": "Laguna XS 2.1",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-07-02",
+      "knowledge": null,
+      "last_updated": "2026-07-02"
+    },
+    {
+      "platform": "llmtr",
+      "id": "qwen/qwen3-vl-plus",
+      "name": "Qwen3-VL Plus",
+      "price": {
+        "input": 0.2,
+        "output": 1.6,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 256000,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-09-23",
+      "knowledge": "2025-04",
+      "last_updated": "2025-09-23"
+    },
+    {
+      "platform": "llmtr",
+      "id": "qwen/qwen3.5-397b-a17b",
+      "name": "Qwen3.5 397B-A17B",
+      "price": {
+        "input": 0.6,
+        "output": 3.6,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 256000,
         "output": 65536
       },
       "capabilities": [
@@ -66124,51 +66565,510 @@
         "reasoning",
         "open"
       ],
-      "release_date": "2026-04-17",
+      "release_date": "2026-02-15",
       "knowledge": null,
-      "last_updated": "2026-04-17"
+      "last_updated": "2026-02-15"
     },
     {
       "platform": "llmtr",
-      "id": "sincap",
-      "name": "Sincap",
+      "id": "qwen/qwen-plus",
+      "name": "Qwen Plus",
       "price": {
-        "input": 0,
-        "output": 0,
+        "input": 0.4,
+        "output": 1.2,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2024-01-25",
+      "knowledge": "2024-04",
+      "last_updated": "2025-09-11"
+    },
+    {
+      "platform": "llmtr",
+      "id": "qwen/qwen3.5-plus",
+      "name": "Qwen3.5 Plus",
+      "price": {
+        "input": 0.4,
+        "output": 2.4,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-02-16",
+      "knowledge": "2025-04",
+      "last_updated": "2026-02-16"
+    },
+    {
+      "platform": "llmtr",
+      "id": "qwen/qwen3-coder-flash",
+      "name": "Qwen3 Coder Flash",
+      "price": {
+        "input": 0.3,
+        "output": 1.5,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "tools"
+      ],
+      "release_date": "2025-07-28",
+      "knowledge": "2025-04",
+      "last_updated": "2025-07-28"
+    },
+    {
+      "platform": "llmtr",
+      "id": "qwen/qwen3.7-plus",
+      "name": "Qwen3.7 Plus",
+      "price": {
+        "input": 0.4,
+        "output": 1.6,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 64000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-02",
+      "knowledge": "2025-04",
+      "last_updated": "2026-06-02"
+    },
+    {
+      "platform": "llmtr",
+      "id": "qwen/qwen-flash",
+      "name": "Qwen Flash",
+      "price": {
+        "input": 0.05,
+        "output": 0.4,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-07-28",
+      "knowledge": "2024-04",
+      "last_updated": "2025-07-28"
+    },
+    {
+      "platform": "llmtr",
+      "id": "qwen/qwen3-max",
+      "name": "Qwen3 Max",
+      "price": {
+        "input": 1.2,
+        "output": 6,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 256000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-09-23",
+      "knowledge": "2025-04",
+      "last_updated": "2025-09-23"
+    },
+    {
+      "platform": "llmtr",
+      "id": "qwen/qwen3.6-plus",
+      "name": "Qwen3.6 Plus",
+      "price": {
+        "input": 0.5,
+        "output": 3,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-02",
+      "knowledge": "2025-04",
+      "last_updated": "2026-04-02"
+    },
+    {
+      "platform": "llmtr",
+      "id": "qwen/qwen3-coder-plus",
+      "name": "Qwen3 Coder Plus",
+      "price": {
+        "input": 1,
+        "output": 5,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "tools"
+      ],
+      "release_date": "2025-07-23",
+      "knowledge": "2025-04",
+      "last_updated": "2025-07-23"
+    },
+    {
+      "platform": "llmtr",
+      "id": "qwen/qwen3.6-flash",
+      "name": "Qwen3.6 Flash",
+      "price": {
+        "input": 0.25,
+        "output": 1.5,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "video",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-04-27",
+      "knowledge": null,
+      "last_updated": "2026-04-27"
+    },
+    {
+      "platform": "llmtr",
+      "id": "sakana/fugu-ultra",
+      "name": "Fugu Ultra",
+      "price": {
+        "input": 5,
+        "output": 30,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 1000000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-06-15",
+      "knowledge": null,
+      "last_updated": "2026-06-15"
+    },
+    {
+      "platform": "llmtr",
+      "id": "perplexity/sonar-deep-research",
+      "name": "Sonar Deep Research",
+      "price": {
+        "input": 2,
+        "output": 8,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
         "context": 128000,
-        "output": 8192
+        "output": 32768
       },
       "capabilities": [
-        "text"
+        "text",
+        "reasoning"
       ],
-      "release_date": "2026-05-05",
-      "knowledge": null,
-      "last_updated": "2026-05-05"
+      "release_date": "2025-02-01",
+      "knowledge": "2025-01",
+      "last_updated": "2025-09-01"
     },
     {
       "platform": "llmtr",
-      "id": "magibu-11b-v8",
-      "name": "Magibu 11B v8",
+      "id": "thinkingmachines/inkling-small",
+      "name": "Inkling Small",
       "price": {
-        "input": 0,
-        "output": 0,
+        "input": 0.58,
+        "output": 1.44,
         "cache_read": null,
         "cache_write": null
       },
       "limit": {
-        "context": 8192,
-        "output": 4096
+        "context": 262144,
+        "output": 262144
       },
       "capabilities": [
-        "text"
+        "text",
+        "vision",
+        "audio",
+        "tools",
+        "reasoning",
+        "open"
       ],
-      "release_date": "2026-06-05",
+      "release_date": "2026-07-30",
       "knowledge": null,
-      "last_updated": "2026-06-05"
+      "last_updated": "2026-07-30"
+    },
+    {
+      "platform": "llmtr",
+      "id": "thinkingmachines/inkling",
+      "name": "Inkling",
+      "price": {
+        "input": 1.87,
+        "output": 4.68,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262144
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-07-15",
+      "knowledge": null,
+      "last_updated": "2026-07-15"
+    },
+    {
+      "platform": "llmtr",
+      "id": "mistral/voxtral-small-latest",
+      "name": "Voxtral Small (latest)",
+      "price": {
+        "input": 0.1,
+        "output": 0.3,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 32000,
+        "output": 32000
+      },
+      "capabilities": [
+        "text",
+        "audio",
+        "tools",
+        "open"
+      ],
+      "release_date": "2025-07-15",
+      "knowledge": null,
+      "last_updated": "2025-07-15"
+    },
+    {
+      "platform": "llmtr",
+      "id": "publicai/apertus-8b-instruct",
+      "name": "Apertus 8B Instruct",
+      "price": {
+        "input": 0.1,
+        "output": 0.2,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 65536,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "open"
+      ],
+      "release_date": "2025-09-02",
+      "knowledge": "2025-09",
+      "last_updated": "2025-09-02"
+    },
+    {
+      "platform": "llmtr",
+      "id": "publicai/apertus-70b-instruct",
+      "name": "Apertus 70B Instruct",
+      "price": {
+        "input": 0.82,
+        "output": 2.92,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 65536,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "open"
+      ],
+      "release_date": "2025-09-02",
+      "knowledge": "2025-09",
+      "last_updated": "2025-09-02"
+    },
+    {
+      "platform": "llmtr",
+      "id": "upstage/solar-pro2",
+      "name": "Solar Pro 2",
+      "price": {
+        "input": 0.15,
+        "output": 0.6,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 65536,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2025-05-20",
+      "knowledge": "2025-03",
+      "last_updated": "2025-05-20"
+    },
+    {
+      "platform": "llmtr",
+      "id": "upstage/solar-pro4",
+      "name": "Solar Pro 4",
+      "price": {
+        "input": 0.03,
+        "output": 0.12,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 524288,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-08-06",
+      "knowledge": "2026-02",
+      "last_updated": "2026-08-06"
+    },
+    {
+      "platform": "llmtr",
+      "id": "upstage/solar-pro3",
+      "name": "Solar Pro 3",
+      "price": {
+        "input": 0.15,
+        "output": 0.6,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 131072,
+        "output": 8192
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-01",
+      "knowledge": "2025-03",
+      "last_updated": "2026-01"
+    },
+    {
+      "platform": "llmtr",
+      "id": "mimo/mimo-v2.5",
+      "name": "MiMo-V2.5",
+      "price": {
+        "input": 0.14,
+        "output": 0.28,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": "2024-12",
+      "last_updated": "2026-04-22"
+    },
+    {
+      "platform": "llmtr",
+      "id": "mimo/mimo-v2.5-pro",
+      "name": "MiMo-V2.5-Pro",
+      "price": {
+        "input": 0.435,
+        "output": 0.87,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": "2024-12",
+      "last_updated": "2026-04-22"
     },
     {
       "platform": "merge-gateway",
@@ -86320,6 +87220,29 @@
     },
     {
       "platform": "togetherai",
+      "id": "deepseek-ai/DeepSeek-V4-Pro-0813",
+      "name": "DeepSeek V4 Pro 0813",
+      "price": {
+        "input": 1.32,
+        "output": 3.96,
+        "cache_read": 0.13,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 384000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-08-12",
+      "knowledge": null,
+      "last_updated": "2026-08-12"
+    },
+    {
+      "platform": "togetherai",
       "id": "deepseek-ai/DeepSeek-V3",
       "name": "DeepSeek-V3",
       "price": {
@@ -86914,9 +87837,9 @@
       "id": "deepseek/deepseek-v4-flash",
       "name": "DeepSeek V4 Flash",
       "price": {
-        "input": 0.14,
-        "output": 0.28,
-        "cache_read": 0.0028,
+        "input": 0.44,
+        "output": 1.32,
+        "cache_read": 0.014,
         "cache_write": null
       },
       "limit": {
@@ -86938,9 +87861,9 @@
       "id": "deepseek/deepseek-v4-pro-0813",
       "name": "DeepSeek V4 Pro 0813",
       "price": {
-        "input": 0.45,
-        "output": 0.88,
-        "cache_read": 0.0037,
+        "input": 1.32,
+        "output": 3.96,
+        "cache_read": 0.044,
         "cache_write": null
       },
       "limit": {
@@ -86961,9 +87884,9 @@
       "id": "deepseek/deepseek-v4-pro",
       "name": "DeepSeek V4 Pro",
       "price": {
-        "input": 0.45,
-        "output": 0.88,
-        "cache_read": 0.0037,
+        "input": 1.32,
+        "output": 3.96,
+        "cache_read": 0.044,
         "cache_write": null
       },
       "limit": {
@@ -87090,7 +88013,7 @@
         "input": 1.5,
         "output": 9,
         "cache_read": 0.15,
-        "cache_write": 0.83
+        "cache_write": 0.083
       },
       "limit": {
         "context": 1048576,
@@ -89338,7 +90261,56 @@
     },
     {
       "platform": "inferx",
-      "id": "qwen3-coder-next-fp8",
+      "id": "deepseek-v4-flash",
+      "name": "deepseek-v4-flash",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 100000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-24",
+      "knowledge": "2025-05",
+      "last_updated": "2026-04-24"
+    },
+    {
+      "platform": "inferx",
+      "id": "Agents-A1",
+      "name": "Agents-A1",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262000,
+        "output": 100000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-26",
+      "knowledge": null,
+      "last_updated": "2026-06-26"
+    },
+    {
+      "platform": "inferx",
+      "id": "Qwen3-Coder-Next-FP8",
       "name": "Qwen3 Coder Next FP8",
       "price": {
         "input": 0,
@@ -89361,8 +90333,8 @@
     },
     {
       "platform": "inferx",
-      "id": "qwen3-coder-next-fp8-1m",
-      "name": "Qwen3 Coder Next FP8 1M",
+      "id": "Qwen3-Coder-Next-FP8-no-thinking",
+      "name": "Qwen3-Coder-Next-FP8-no-thinking",
       "price": {
         "input": 0,
         "output": 0,
@@ -89370,7 +90342,7 @@
         "cache_write": null
       },
       "limit": {
-        "context": 1024000,
+        "context": 260000,
         "output": 65536
       },
       "capabilities": [
@@ -89384,32 +90356,7 @@
     },
     {
       "platform": "inferx",
-      "id": "google/gemma-4-31b-it-fp8",
-      "name": "Gemma 4 31B IT FP8",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 262144,
-        "output": 32768
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-04-02",
-      "knowledge": null,
-      "last_updated": "2026-04-02"
-    },
-    {
-      "platform": "inferx",
-      "id": "qwen/qwen3.6-27b-fp8",
+      "id": "Qwen3.6-27B-FP8",
       "name": "Qwen3.6 27B FP8",
       "price": {
         "input": 0,
@@ -89436,34 +90383,7 @@
     },
     {
       "platform": "inferx",
-      "id": "qwen/qwen3.5-122b-a10b-nvfp4",
-      "name": "Qwen3.5 122B A10B NVFP4",
-      "price": {
-        "input": 0,
-        "output": 0,
-        "cache_read": null,
-        "cache_write": null
-      },
-      "limit": {
-        "context": 256144,
-        "output": 65536
-      },
-      "capabilities": [
-        "text",
-        "vision",
-        "audio",
-        "video",
-        "tools",
-        "reasoning",
-        "open"
-      ],
-      "release_date": "2026-02-23",
-      "knowledge": null,
-      "last_updated": "2026-02-23"
-    },
-    {
-      "platform": "inferx",
-      "id": "qwen/qwen3.6-35b-a3b-fp8",
+      "id": "Qwen3.6-35B-A3B-FP8",
       "name": "Qwen3.6 35B A3B FP8",
       "price": {
         "input": 0,
@@ -89487,6 +90407,154 @@
       "release_date": "2026-04-17",
       "knowledge": null,
       "last_updated": "2026-04-17"
+    },
+    {
+      "platform": "inferx",
+      "id": "Ornith-1.0-35B-FP8",
+      "name": "Ornith-1.0-35B-FP8",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262000,
+        "output": 100000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-25",
+      "knowledge": null,
+      "last_updated": "2026-06-25"
+    },
+    {
+      "platform": "inferx",
+      "id": "Qwen3.6-35B-A3B-fp8-no-thinking",
+      "name": "Qwen3.6-35B-A3B-fp8-no-thinking",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262000,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "video",
+        "tools",
+        "open"
+      ],
+      "release_date": "2026-04-17",
+      "knowledge": null,
+      "last_updated": "2026-04-17"
+    },
+    {
+      "platform": "inferx",
+      "id": "Qwen3-Embedding-8B",
+      "name": "Qwen3-Embedding-8B",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 32768,
+        "output": 0
+      },
+      "capabilities": [
+        "text",
+        "open"
+      ],
+      "release_date": "2025-06-05",
+      "knowledge": null,
+      "last_updated": "2025-06-05"
+    },
+    {
+      "platform": "inferx",
+      "id": "gemma-4-31B-it-fp8",
+      "name": "Gemma 4 31B IT FP8",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-02",
+      "knowledge": null,
+      "last_updated": "2026-04-02"
+    },
+    {
+      "platform": "inferx",
+      "id": "mimo-v25",
+      "name": "mimo-v25",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 100000
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "video",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-22",
+      "knowledge": "2024-12",
+      "last_updated": "2026-04-22"
+    },
+    {
+      "platform": "inferx",
+      "id": "Devstral-2-123B-Instruct-2512-int4-AutoRound",
+      "name": "Devstral-2-123B-Instruct-2512-int4-AutoRound",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 128000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "open"
+      ],
+      "release_date": "2025-12-09",
+      "knowledge": "2025-12",
+      "last_updated": "2025-12-09"
     },
     {
       "platform": "helicone",
@@ -101880,10 +102948,10 @@
       "id": "kimi-k3",
       "name": "Kimi K3",
       "price": {
-        "input": 3.2664,
-        "output": 16.332,
-        "cache_read": 0.32664,
-        "cache_write": null
+        "input": 3,
+        "output": 15,
+        "cache_read": null,
+        "cache_write": 0.3
       },
       "limit": {
         "context": 1048576,
@@ -102016,6 +103084,30 @@
       "release_date": "2026-05-20",
       "knowledge": "2025-04",
       "last_updated": "2026-07-22"
+    },
+    {
+      "platform": "hyper",
+      "id": "glm-5",
+      "name": "GLM-5",
+      "price": {
+        "input": 0.76,
+        "output": 2.356,
+        "cache_read": null,
+        "cache_write": 0.38
+      },
+      "limit": {
+        "context": 202752,
+        "output": 20275
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-04-13",
+      "knowledge": null,
+      "last_updated": "2026-08-16"
     },
     {
       "platform": "hyper",
@@ -102332,13 +103424,13 @@
       "id": "deepseek-v4-flash-0731",
       "name": "DeepSeek V4 Flash 0731",
       "price": {
-        "input": 0.152432,
-        "output": 0.304864,
-        "cache_read": 0.032664,
+        "input": 0.2,
+        "output": 0.4,
+        "cache_read": 0.04,
         "cache_write": null
       },
       "limit": {
-        "context": 1048576,
+        "context": 1000000,
         "output": 384000
       },
       "capabilities": [
@@ -116141,6 +117233,30 @@
       "last_updated": "2026-07-01"
     },
     {
+      "platform": "amd",
+      "id": "DeepSeek-V4-Flash",
+      "name": "DeepSeek V4 Flash 0731",
+      "price": {
+        "input": 0.14,
+        "output": 0.28,
+        "cache_read": 0.0028,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 384000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-07-31",
+      "knowledge": "2025-05",
+      "last_updated": "2026-07-31"
+    },
+    {
       "platform": "bailing",
       "id": "Ling-1T",
       "name": "Ling-1T",
@@ -116650,6 +117766,29 @@
     },
     {
       "platform": "vercel",
+      "id": "nvidia/nemotron-3.5-lightning",
+      "name": "Nemotron 3.5 Lightning 30B",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-08-11",
+      "knowledge": null,
+      "last_updated": "2026-08-11"
+    },
+    {
+      "platform": "vercel",
       "id": "nvidia/nemotron-3-ultra-550b-a55b",
       "name": "Nemotron 3 Ultra",
       "price": {
@@ -116723,9 +117862,9 @@
       "id": "deepseek/deepseek-v4-flash",
       "name": "DeepSeek V4 Flash",
       "price": {
-        "input": 0.2,
-        "output": 0.4,
-        "cache_read": 0.04,
+        "input": 0.13,
+        "output": 0.26,
+        "cache_read": 0.028,
         "cache_write": null
       },
       "limit": {
@@ -116860,9 +117999,9 @@
       "id": "deepseek/deepseek-v4-flash-0731",
       "name": "DeepSeek V4 Flash 0731",
       "price": {
-        "input": 0.2,
-        "output": 0.4,
-        "cache_read": 0.04,
+        "input": 0.13,
+        "output": 0.26,
+        "cache_read": 0.028,
         "cache_write": null
       },
       "limit": {
@@ -122296,6 +123435,30 @@
     },
     {
       "platform": "vercel",
+      "id": "alibaba/qwen3.8-27b",
+      "name": "Qwen3.8 27B",
+      "price": {
+        "input": null,
+        "output": null,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 262133
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-08-14",
+      "knowledge": null,
+      "last_updated": "2026-08-14"
+    },
+    {
+      "platform": "vercel",
       "id": "alibaba/qwen3.6-plus",
       "name": "Qwen 3.6 Plus",
       "price": {
@@ -122433,7 +123596,7 @@
       "price": {
         "input": 2,
         "output": 6,
-        "cache_read": 0.25,
+        "cache_read": 0.2,
         "cache_write": null
       },
       "limit": {
@@ -122443,11 +123606,12 @@
       "capabilities": [
         "text",
         "tools",
-        "reasoning"
+        "reasoning",
+        "open"
       ],
       "release_date": "2026-08-03",
       "knowledge": null,
-      "last_updated": "2026-08-02"
+      "last_updated": "2026-08-12"
     },
     {
       "platform": "vercel",
@@ -123723,9 +124887,9 @@
       "id": "deepseek/deepseek-v4-flash",
       "name": "DeepSeek V4 Flash",
       "price": {
-        "input": 0.14,
-        "output": 0.28,
-        "cache_read": 0.0028,
+        "input": 0.22,
+        "output": 0.66,
+        "cache_read": 0.007,
         "cache_write": null
       },
       "limit": {
@@ -123747,9 +124911,9 @@
       "id": "deepseek/deepseek-v4-pro",
       "name": "DeepSeek V4 Pro",
       "price": {
-        "input": 0.435,
-        "output": 0.87,
-        "cache_read": 0.003625,
+        "input": 0.66,
+        "output": 1.98,
+        "cache_read": 0.022,
         "cache_write": null
       },
       "limit": {
@@ -124544,6 +125708,28 @@
       "release_date": "2025-03-24",
       "knowledge": null,
       "last_updated": "2025-03-24"
+    },
+    {
+      "platform": "edenai",
+      "id": "deepinfra/deepseek-ai/DeepSeek-V4-Pro-0813",
+      "name": "DeepSeek V4 Pro 0813",
+      "price": {
+        "input": 1.3,
+        "output": 2.6,
+        "cache_read": 0.1,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 384000
+      },
+      "capabilities": [
+        "text",
+        "reasoning"
+      ],
+      "release_date": "2026-08-12",
+      "knowledge": null,
+      "last_updated": "2026-08-12"
     },
     {
       "platform": "edenai",
@@ -125504,6 +126690,29 @@
       "release_date": "2026-07-31",
       "knowledge": "2025-05",
       "last_updated": "2026-07-31"
+    },
+    {
+      "platform": "edenai",
+      "id": "together_ai/deepseek-ai/DeepSeek-V4-Pro-0813",
+      "name": "DeepSeek V4 Pro 0813",
+      "price": {
+        "input": 1.32,
+        "output": 3.96,
+        "cache_read": 0.13,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 384000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-08-12",
+      "knowledge": null,
+      "last_updated": "2026-08-12"
     },
     {
       "platform": "edenai",
@@ -127592,6 +128801,30 @@
     },
     {
       "platform": "edenai",
+      "id": "qwen/qwen3.8-2.4t-a95b",
+      "name": "Qwen3.8 2.4T A95B",
+      "price": {
+        "input": 2,
+        "output": 6,
+        "cache_read": 0.25,
+        "cache_write": 2.5
+      },
+      "limit": {
+        "context": 1000000,
+        "output": 131072
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-08-12",
+      "knowledge": null,
+      "last_updated": "2026-08-12"
+    },
+    {
+      "platform": "edenai",
       "id": "moonshot/kimi-k2.7-code",
       "name": "Kimi K2.7 Code",
       "price": {
@@ -127767,8 +129000,8 @@
       "id": "ionos/openai/gpt-oss-120b",
       "name": "GPT OSS 120B",
       "price": {
-        "input": 0.17301,
-        "output": 0.74971,
+        "input": 0.173505,
+        "output": 0.751855,
         "cache_read": null,
         "cache_write": null
       },
@@ -127790,8 +129023,8 @@
       "id": "ionos/meta-llama/Llama-3.3-70B-Instruct",
       "name": "Llama-3.3-70B-Instruct",
       "price": {
-        "input": 0.74971,
-        "output": 0.74971,
+        "input": 0.751855,
+        "output": 0.751855,
         "cache_read": null,
         "cache_write": null
       },
@@ -127812,8 +129045,8 @@
       "id": "scaleway/llama-3.3-70b-instruct",
       "name": "Llama-3.3-70B-Instruct",
       "price": {
-        "input": 1.03806,
-        "output": 1.03806,
+        "input": 1.04103,
+        "output": 1.04103,
         "cache_read": null,
         "cache_write": null
       },
@@ -127835,8 +129068,8 @@
       "id": "scaleway/gpt-oss-120b",
       "name": "GPT OSS 120B",
       "price": {
-        "input": 0.17301,
-        "output": 0.69204,
+        "input": 0.173505,
+        "output": 0.69402,
         "cache_read": null,
         "cache_write": null
       },
@@ -127859,8 +129092,8 @@
       "id": "scaleway/deepseek-v4-flash-0731",
       "name": "DeepSeek V4 Flash 0731",
       "price": {
-        "input": 0.46136,
-        "output": 0.92272,
+        "input": 0.46268,
+        "output": 0.92536,
         "cache_read": null,
         "cache_write": null
       },
@@ -128402,6 +129635,53 @@
     },
     {
       "platform": "edenai",
+      "id": "cloudflare/@cf/deepseek-ai/deepseek-v4-pro-0813",
+      "name": "DeepSeek V4 Pro 0813",
+      "price": {
+        "input": 1.32,
+        "output": 3.96,
+        "cache_read": 0.044,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 384000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning"
+      ],
+      "release_date": "2026-08-12",
+      "knowledge": null,
+      "last_updated": "2026-08-12"
+    },
+    {
+      "platform": "edenai",
+      "id": "cloudflare/@cf/deepseek-ai/deepseek-v4-flash-0731",
+      "name": "DeepSeek V4 Flash 0731",
+      "price": {
+        "input": 0.44,
+        "output": 1.32,
+        "cache_read": 0.014,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 384000
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-07-31",
+      "knowledge": "2025-05",
+      "last_updated": "2026-07-31"
+    },
+    {
+      "platform": "edenai",
       "id": "cloudflare/@cf/qwen/qwen2.5-coder-32b-instruct",
       "name": "Qwen2.5-Coder-32B-Instruct",
       "price": {
@@ -128613,6 +129893,28 @@
       "release_date": "2025-08-05",
       "knowledge": null,
       "last_updated": "2025-08-05"
+    },
+    {
+      "platform": "edenai",
+      "id": "perplexityai/sonar-deep-research",
+      "name": "Sonar Deep Research",
+      "price": {
+        "input": 2,
+        "output": 8,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 128000,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "reasoning"
+      ],
+      "release_date": "2025-02-01",
+      "knowledge": "2025-01",
+      "last_updated": "2025-09-01"
     },
     {
       "platform": "edenai",
@@ -136389,6 +137691,31 @@
     },
     {
       "platform": "chutes",
+      "id": "Qwen/Qwen3.8-27B-TEE",
+      "name": "Qwen3.8 27B TEE",
+      "price": {
+        "input": 0.4,
+        "output": 3,
+        "cache_read": 0.039999999999999994,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 65536
+      },
+      "capabilities": [
+        "text",
+        "vision",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-08-16",
+      "knowledge": null,
+      "last_updated": "2026-08-16"
+    },
+    {
+      "platform": "chutes",
       "id": "zai-org/GLM-5.2-TEE",
       "name": "GLM 5.2 TEE",
       "price": {
@@ -137476,6 +138803,102 @@
       "release_date": "2025-12-19",
       "knowledge": null,
       "last_updated": "2025-12-19"
+    },
+    {
+      "platform": "runinfra",
+      "id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "name": "Nemotron 3.5 Lightning 30B A3B",
+      "price": {
+        "input": 0.05,
+        "output": 0.15,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-08-11",
+      "knowledge": null,
+      "last_updated": "2026-08-11"
+    },
+    {
+      "platform": "runinfra",
+      "id": "deepseek-ai/DeepSeek-V4-Flash-0731",
+      "name": "DeepSeek V4 Flash 0731",
+      "price": {
+        "input": 0.13,
+        "output": 0.27,
+        "cache_read": 0.01,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 1048576,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-07-31",
+      "knowledge": "2025-05",
+      "last_updated": "2026-07-31"
+    },
+    {
+      "platform": "runinfra",
+      "id": "Inferact/Qwen3.8-2.4T-A95B-NVFP4",
+      "name": "Qwen3.8 2.4T A95B (NVFP4)",
+      "price": {
+        "input": 2,
+        "output": 6,
+        "cache_read": 0.2,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-08-12",
+      "knowledge": null,
+      "last_updated": "2026-08-12"
+    },
+    {
+      "platform": "runinfra",
+      "id": "Qwen/Qwen3.8-27B",
+      "name": "Qwen3.8 27B",
+      "price": {
+        "input": 0.1,
+        "output": 0.4,
+        "cache_read": 0.01,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 262144,
+        "output": 32768
+      },
+      "capabilities": [
+        "text",
+        "tools",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-08-14",
+      "knowledge": null,
+      "last_updated": "2026-08-14"
     },
     {
       "platform": "gitlab",
@@ -140858,9 +142281,9 @@
       "id": "tencent/hy3",
       "name": "Hy3",
       "price": {
-        "input": 0.132,
-        "output": 0.528,
-        "cache_read": 0.033,
+        "input": 0.14,
+        "output": 0.58,
+        "cache_read": 0.035,
         "cache_write": null
       },
       "limit": {
@@ -141057,7 +142480,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 228000
+        "output": 262144
       },
       "capabilities": [
         "text",
@@ -141105,7 +142528,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 131072
       },
       "capabilities": [
         "text",
@@ -141541,6 +142964,29 @@
     },
     {
       "platform": "kilo",
+      "id": "z-ai/glm-5.2:free",
+      "name": "Z.ai: GLM 5.2 (free)",
+      "price": {
+        "input": 0,
+        "output": 0,
+        "cache_read": null,
+        "cache_write": null
+      },
+      "limit": {
+        "context": 128000,
+        "output": 128000
+      },
+      "capabilities": [
+        "text",
+        "reasoning",
+        "open"
+      ],
+      "release_date": "2026-06-13",
+      "knowledge": null,
+      "last_updated": "2026-06-13"
+    },
+    {
+      "platform": "kilo",
       "id": "z-ai/glm-5",
       "name": "GLM-5",
       "price": {
@@ -141597,8 +143043,8 @@
         "cache_write": null
       },
       "limit": {
-        "context": 1024000,
-        "output": 128000
+        "context": 1048576,
+        "output": 262144
       },
       "capabilities": [
         "text",
@@ -141838,7 +143284,7 @@
       },
       "limit": {
         "context": 1048576,
-        "output": 393216
+        "output": 384000
       },
       "capabilities": [
         "text",
@@ -142185,7 +143631,7 @@
       },
       "limit": {
         "context": 262144,
-        "output": 262144
+        "output": 16384
       },
       "capabilities": [
         "text",
@@ -145926,13 +147372,13 @@
       "id": "qwen/qwen2.5-vl-72b-instruct",
       "name": "Qwen: Qwen2.5 VL 72B Instruct",
       "price": {
-        "input": 0.25,
-        "output": 0.75,
-        "cache_read": null,
+        "input": 0.8,
+        "output": 1,
+        "cache_read": 0.4,
         "cache_write": null
       },
       "limit": {
-        "context": 32000,
+        "context": 128000,
         "output": 128000
       },
       "capabilities": [
@@ -146720,7 +148166,7 @@
       "id": "qwen/qwen3.6-35b-a3b",
       "name": "Qwen3.6 35B-A3B",
       "price": {
-        "input": 0.15,
+        "input": 0.14,
         "output": 1,
         "cache_read": 0.05,
         "cache_write": null
@@ -146797,7 +148243,7 @@
       "price": {
         "input": 0.45,
         "output": 3.2,
-        "cache_read": null,
+        "cache_read": 0.05,
         "cache_write": null
       },
       "limit": {
@@ -147107,7 +148553,7 @@
     {
       "platform": "kilo",
       "id": "qwen/qwen3.8-2.4t-a95b",
-      "name": "Qwen: Qwen3.8 2.4T A95B",
+      "name": "Qwen3.8 2.4T A95B",
       "price": {
         "input": 2,
         "output": 6,
@@ -147121,7 +148567,8 @@
       "capabilities": [
         "text",
         "tools",
-        "reasoning"
+        "reasoning",
+        "open"
       ],
       "release_date": "2026-08-12",
       "knowledge": null,
@@ -147736,14 +149183,14 @@
       "id": "~deepseek/deepseek-v4-flash-latest",
       "name": "DeepSeek V4 Flash Latest",
       "price": {
-        "input": 0.06706,
-        "output": 0.13412,
-        "cache_read": 0.013412,
+        "input": 0.0603,
+        "output": 0.1206,
+        "cache_read": 0.01206,
         "cache_write": null
       },
       "limit": {
-        "context": 1024000,
-        "output": 384000
+        "context": 262144,
+        "output": 262144
       },
       "capabilities": [
         "text",
@@ -148818,14 +150265,14 @@
       "id": "~moonshotai/kimi-latest",
       "name": "MoonshotAI Kimi Latest",
       "price": {
-        "input": 2.8,
-        "output": 14,
+        "input": 2.6,
+        "output": 13,
         "cache_read": 0.29,
         "cache_write": null
       },
       "limit": {
-        "context": 1048576,
-        "output": 1048576
+        "context": 974842,
+        "output": 974842
       },
       "capabilities": [
         "text",
